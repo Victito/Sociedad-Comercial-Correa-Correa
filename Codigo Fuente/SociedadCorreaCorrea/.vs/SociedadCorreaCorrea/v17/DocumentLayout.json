@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
+              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-24T20:44:30.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Views\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T20:44:29.735Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
