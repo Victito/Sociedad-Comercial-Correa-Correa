@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\claveicon.png" />
+    <None Remove="Resources\fondo1.jpg" />
+    <None Remove="Resources\usuarioicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.0" />
     <PackageReference Include="MahApps.Metro.Resources" Version="0.6.1" />
@@ -20,7 +26,12 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="ViewsModels\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\claveicon.png" />
+    <Resource Include="Resources\fondo1.jpg" />
+    <Resource Include="Resources\usuarioicon.png" />
   </ItemGroup>
 
 </Project>
