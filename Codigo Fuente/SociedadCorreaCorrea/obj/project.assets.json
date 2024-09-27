@@ -6676,11 +6676,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
+      "projectUniqueName": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
       "projectName": "SociedadCorreaCorrea",
-      "projectPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
+      "projectPath": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
       "packagesPath": "C:\\Users\\vmart\\.nuget\\packages\\",
-      "outputPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\obj\\",
+      "outputPath": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

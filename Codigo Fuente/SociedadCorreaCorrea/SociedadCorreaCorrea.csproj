@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\claveicon.png" />
+    <None Remove="Resources\fondo1.jpg" />
+    <None Remove="Resources\Key.png" />
+    <None Remove="Resources\user.png" />
+    <None Remove="Resources\usuarioicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.0" />
@@ -27,7 +35,14 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="ViewsModels\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\claveicon.png" />
+    <Resource Include="Resources\fondo1.jpg" />
+    <Resource Include="Resources\Key.png" />
+    <Resource Include="Resources\user.png" />
+    <Resource Include="Resources\usuarioicon.png" />
   </ItemGroup>
 
 </Project>

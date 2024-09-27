@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\
 SociedadCorreaCorrea
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\App.xaml
-1-1644662438
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
+31687991737
 
-41170640144
+14-32108977
 282451322536
-Views\MainWindow.xaml;
+Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;
 
 False
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IwGvdUsH5tU=",
+  "dgSpecHash": "3JRqzSZYlug=",
   "success": true,
-  "projectFilePath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
+  "projectFilePath": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmart\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\vmart\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
