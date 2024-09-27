@@ -12,10 +12,12 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Bestia\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Bestia\\.nuget\\packages"
+      "C:\\Users\\vmart\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vmart\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
+      "System.Reflection.NullabilityInfoContext.IsSupported": true,
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }

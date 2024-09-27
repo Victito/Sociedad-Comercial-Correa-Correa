@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:prueba.Vista"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-            
+         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
+
         Title="LoginVista" 
         Height="550" 
         Width="800"
@@ -32,15 +33,15 @@
         <Border CornerRadius="10" BorderThickness="5" Opacity="0.9">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#4A90E2" Offset="0" />
+                    <GradientStop Color="#3393DF" Offset="0" />
                     <GradientStop Color="#007AFF" Offset="1" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#003366" Offset="0" />
-                    <GradientStop Color="#004080" Offset="1" />
+                    <GradientStop Color="#007AFF" Offset="0" />
+                    <GradientStop Color="#3393DF" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -83,10 +84,10 @@
                         <!-- Definición de estilo del botón -->
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="Black" />
+                                <Setter Property="Background" Value="#C0C0C0" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Background" Value="#F0F0F0" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -119,7 +120,7 @@
                                 <Setter Property="Background" Value="Red" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Aqua" />
+                                        <Setter Property="Background" Value="#FFA500" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -162,7 +163,7 @@
                                TextAlignment="Justify"
                                Margin="0,5,0,0"/>
                     <TextBlock Text="Nombre de usuario"
-                               Foreground="DarkGray"
+                               Foreground="White"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                                
@@ -173,22 +174,23 @@
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
+                             CaretBrush="White"
+                             BorderBrush="White"
                              BorderThickness="0,0,0,1"
                              Height="28"
+                             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
                              Padding="30,0,0,0" TextChanged="txtusuario_TextChanged">
                         <TextBox.Background>
-                            <ImageBrush ImageSource="\Resources\usuarioicon.png" Stretch="None" AlignmentX="left" >
+                            <ImageBrush ImageSource="\Resources\User.png" Stretch="None" AlignmentX="left" >
 
                             </ImageBrush>
                         </TextBox.Background>
 
                     </TextBox>
                     <TextBlock Text="Contraseña"
-                               Foreground="DarkGray"
+                               Foreground="White"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
@@ -199,15 +201,15 @@
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
+                             CaretBrush="White"
+                             BorderBrush="White"
                              BorderThickness="0,0,0,1"
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
                              Padding="30,0,0,0">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="\Resources\claveicon.png" Stretch="None" AlignmentX="left" >
+                            <ImageBrush ImageSource="\Resources\Key.png" Stretch="None" AlignmentX="left" >
 
                             </ImageBrush>
                         </PasswordBox.Background>
@@ -222,11 +224,11 @@
                             Cursor="Hand"
                             Grid.Column="2"
                             Margin="0,50,0,0"
-                            Click="btnCerrar_Click">
+                            Click="NavigateToFacturasPage">
                         <!-- Definición de estilo del botón -->
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#5662F6" />
+                                <Setter Property="Background" Value="#40E0D0  " />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#41CD65" />

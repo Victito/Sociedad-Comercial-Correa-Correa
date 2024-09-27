@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using SociedadCorreaCorrea.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,11 @@ namespace prueba.Vista
         private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+        private void NavigateToFacturasPage(object sender, RoutedEventArgs e)
+        {
+            MainMenu MainMenu = new MainMenu();
+            MainMenu.Show();
         }
     }
 }
