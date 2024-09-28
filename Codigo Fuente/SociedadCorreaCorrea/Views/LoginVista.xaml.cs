@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using SociedadCorreaCorrea.Views;
+using SociedadCorreaCorrea.ViewsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace prueba.Vista
         public LoginVista()
         {
             InitializeComponent();
+            DataContext = new LoginVistaViewModel(this); // Pasar la instancia de la ventana
         }
         private void Ventana_MouseBajo(object sender, MouseButtonEventArgs e)
         {
@@ -45,8 +47,22 @@ namespace prueba.Vista
         }
         private void NavigateToFacturasPage(object sender, RoutedEventArgs e)
         {
-            MainMenu MainMenu = new MainMenu();
-            MainMenu.Show();
+
         }
+
+        private void txtContraseña_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var passwordBox = sender as PasswordBox;
+            if (passwordBox != null)
+            {
+                // Actualizar la propiedad 'Clave' en el ViewModel
+                var viewModel = this.DataContext as LoginVistaViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.Clave = passwordBox.Password; // Establecer la propiedad Clave en el ViewModel
+                }
+            }
+        }
+
     }
 }
