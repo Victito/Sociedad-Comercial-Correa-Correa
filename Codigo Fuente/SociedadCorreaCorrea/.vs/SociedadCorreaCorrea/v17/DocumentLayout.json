@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\loginvista.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\loginvista.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\loginvista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\loginvista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -25,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +50,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "LoginVista.xaml",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginVista.xaml",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
+              "RelativeToolTip": "Views\\LoginVista.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-27T21:33:13.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginVistaViewModel.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\LoginVistaViewModel.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\LoginVistaViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T21:26:30.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T21:20:46.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
@@ -55,30 +105,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LoginVista.xaml.cs",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
               "RelativeDocumentMoniker": "Views\\LoginVista.xaml.cs",
               "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
               "RelativeToolTip": "Views\\LoginVista.xaml.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABkAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T03:31:23.277Z"
+              "WhenOpened": "2024-09-27T03:31:23.277Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
               "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-27T03:31:12.673Z"
+              "WhenOpened": "2024-09-27T03:31:12.673Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "app.config",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\app.config",
               "RelativeDocumentMoniker": "app.config",
@@ -90,19 +142,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "ContextoSMMS.cs",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Data\\ContextoSMMS.cs",
               "RelativeDocumentMoniker": "Data\\ContextoSMMS.cs",
               "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Data\\ContextoSMMS.cs",
               "RelativeToolTip": "Data\\ContextoSMMS.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAFAAAA",
+              "ViewState": "AQIAAM8AAAAAAAAAAAAAAAkBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T02:10:56.985Z"
+              "WhenOpened": "2024-09-27T02:10:56.985Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
@@ -113,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",

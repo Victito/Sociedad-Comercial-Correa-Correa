@@ -34,7 +34,6 @@
     <Folder Include="Converters\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewsModels\" />
   </ItemGroup>
 
   <ItemGroup>
