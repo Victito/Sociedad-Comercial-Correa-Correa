@@ -382,3 +382,5 @@ C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\Soci
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\estiloboton.baml
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\UIcolores.baml
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\estiloboton.baml
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\UIcolores.baml

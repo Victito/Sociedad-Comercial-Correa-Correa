@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\
 SociedadCorreaCorrea
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
 51281456230
 
 161343730453
-282186988549
+282451322536
 Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;
 
-False
+True
 
