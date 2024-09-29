@@ -52,7 +52,7 @@
                     <RowDefinition Height="30" />
                     <!-- Primera fila para la cabecera -->
                     <RowDefinition Height="Auto" />
-                    <!-- Segunda fila para el StackPanel -->
+                    
                 </Grid.RowDefinitions>
 
                 <!-- Subgrid para elementos de cabecera -->
