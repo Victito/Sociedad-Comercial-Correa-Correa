@@ -68,15 +68,14 @@ C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\Soci
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\ref\SociedadCorreaCorrea.dll
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\MainMenu.g.cs
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\MainMenu.baml
-D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.SimpleIcons.dll
-D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.AssemblyInfo.cs
-D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.sourcelink.json
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.csproj.AssemblyReference.cache
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\estiloboton.baml
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Resources\Styles\UIcolores.baml
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\RegistroFacturas.baml
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\LoginVista.g.cs
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\MainMenu.g.cs
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\RegistroFacturas.g.cs
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\App.g.cs
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea_MarkupCompile.cache
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea_MarkupCompile.lref
@@ -126,6 +125,7 @@ D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCo
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RadixIcons.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RemixIcon.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RPGAwesome.dll
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.SimpleIcons.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Typicons.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Unicons.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.VaadinIcons.dll
@@ -191,6 +191,7 @@ D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCo
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -229,6 +230,7 @@ D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCo
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
@@ -253,7 +255,9 @@ D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCo
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.g.resources
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.GeneratedMSBuildEditorConfig.editorconfig
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.AssemblyInfoInputs.cache
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.AssemblyInfo.cs
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.csproj.CoreCompileInputs.cache
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.sourcelink.json
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Sociedad.81447CFC.Up2Date
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.dll
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\refint\SociedadCorreaCorrea.dll

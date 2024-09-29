@@ -11,6 +11,8 @@ public partial class Empleado
 
     public int? IdSucursal { get; set; }
 
+    public long? IdUsuario { get; set; }
+
     public string Nombre { get; set; } = null!;
 
     public string Apellido { get; set; } = null!;
@@ -21,7 +23,7 @@ public partial class Empleado
 
     public string? Telefono { get; set; }
 
-    public string? Email { get; set; }
+    public string? Correo { get; set; }
 
     public string? Puesto { get; set; }
 
@@ -31,11 +33,9 @@ public partial class Empleado
 
     public string? Estatus { get; set; }
 
-    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
-
-    public virtual ICollection<HorarioEmpleado> HorarioEmpleados { get; set; } = new List<HorarioEmpleado>();
-
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 
     public virtual Sucursal? IdSucursalNavigation { get; set; }
+
+    public virtual Usuario? IdUsuarioNavigation { get; set; }
 }

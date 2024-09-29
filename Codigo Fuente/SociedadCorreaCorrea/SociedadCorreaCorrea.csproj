@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
@@ -42,6 +41,15 @@
     <Resource Include="Resources\Key.png" />
     <Resource Include="Resources\user.png" />
     <Resource Include="Resources\usuarioicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewsModels\BaseViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="ViewsModels\RegistroFacturasViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
   </ItemGroup>
 
 </Project>

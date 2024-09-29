@@ -100,13 +100,14 @@ namespace SociedadCorreaCorrea.ViewsModels
                     // Almacena la información en UserSession
                     UserSession.NombreUsuario = usuario.NombreUsuario;
                     UserSession.Rol = usuario.Rol; // Asegúrate de que 'Rol' es una propiedad de tu modelo de usuario
+                    UserSession.Id = usuario.Id; 
                     await _window.ShowMessageAsync("Bienvenido", $"¡Bienvenido de nuevo {usuario.NombreUsuario}!");
                     // Aquí deberías abrir la ventana MenuPrincipal
-                    // var menuPrincipal = new MenuPrincipal();
-                    // menuPrincipal.Show();
+                    var menuPrincipal = new MainMenu();
+                     menuPrincipal.Show();
 
                     // Cerrar la ventana de inicio de sesión si se desea
-                    // Application.Current.MainWindow.Close();
+                    Application.Current.MainWindow.Close();
                 }
                 else
                 {

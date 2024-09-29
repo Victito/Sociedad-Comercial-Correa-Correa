@@ -8,6 +8,7 @@ namespace SociedadCorreaCorrea
 {
     public static class UserSession
     {
+        public static long Id { get; set; }
         public static string NombreUsuario { get; set; } = string.Empty;
         public static string Rol { get; set; } = string.Empty;
     }

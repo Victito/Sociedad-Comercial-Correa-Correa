@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
-31687991737
+6-1016140193
 
-21-2024968834
+261507010475
 2831975933333
-Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;
+Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\RegistroFacturas.xaml;
 
-True
+False
 

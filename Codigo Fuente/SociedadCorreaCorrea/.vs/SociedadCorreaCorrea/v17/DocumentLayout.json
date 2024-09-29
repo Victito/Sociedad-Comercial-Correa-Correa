@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:data\\contextosmms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\registrofacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\models\\acuse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\acuse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\views\\loginvista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -19,24 +39,8 @@
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\loginvista.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\globalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:globalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\sociedad-comercial-correa-correa\\codigo fuente\\sociedadcorreacorrea\\viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,112 +58,131 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ContextoSMMS.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Data\\ContextoSMMS.cs",
-              "RelativeDocumentMoniker": "Data\\ContextoSMMS.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Data\\ContextoSMMS.cs",
-              "RelativeToolTip": "Data\\ContextoSMMS.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\BaseViewModel.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\BaseViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\BaseViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T18:44:04.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:40:44.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginVistaViewModel.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\LoginVistaViewModel.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\LoginVistaViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAH4AAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:30:11.256Z",
+              "WhenOpened": "2024-09-29T20:59:01.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UserSession.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\UserSession.cs",
-              "RelativeDocumentMoniker": "UserSession.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\UserSession.cs",
-              "RelativeToolTip": "UserSession.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Title": "Acuse.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Acuse.cs",
+              "RelativeDocumentMoniker": "Models\\Acuse.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Acuse.cs",
+              "RelativeToolTip": "Models\\Acuse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:56:31.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "readme.txt",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\readme.txt",
-              "RelativeDocumentMoniker": "ViewsModels\\readme.txt",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\readme.txt",
-              "RelativeToolTip": "ViewsModels\\readme.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-09-28T07:57:06.162Z"
+              "WhenOpened": "2024-09-29T20:36:57.13Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GlobalSettings.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\GlobalSettings.cs",
-              "RelativeDocumentMoniker": "GlobalSettings.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\GlobalSettings.cs",
-              "RelativeToolTip": "GlobalSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:40:08.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:38:20.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginVista.xaml.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\LoginVista.xaml.cs",
-              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
-              "RelativeToolTip": "Views\\LoginVista.xaml.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAAwDMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T07:30:59.603Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "LoginVista.xaml",
               "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
               "RelativeDocumentMoniker": "Views\\LoginVista.xaml",
               "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
               "RelativeToolTip": "Views\\LoginVista.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-28T07:19:26.573Z"
+              "WhenOpened": "2024-09-29T19:50:18.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegistroFacturasViewModel.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\RegistroFacturasViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\RegistroFacturasViewModel.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\RegistroFacturasViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\RegistroFacturasViewModel.cs",
+              "ViewState": "AQIAAP0BAAAAAAAAAAAAABICAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T19:39:53.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginVista.xaml.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\LoginVista.xaml.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\LoginVista.xaml.cs",
+              "RelativeToolTip": "Views\\LoginVista.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T19:29:38.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginVistaViewModel.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\LoginVistaViewModel.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\LoginVistaViewModel.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAGcAAABzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T19:28:32.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistroFacturas.xaml.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml.cs",
+              "RelativeToolTip": "Views\\RegistroFacturas.xaml.cs",
+              "ViewState": "AQIAAB0BAAAAAAAAAAAAAEEBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T19:28:13.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistroFacturas.xaml",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml",
+              "RelativeToolTip": "Views\\RegistroFacturas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-29T19:25:11.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Factura.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Factura.cs",
+              "RelativeDocumentMoniker": "Models\\Factura.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Factura.cs",
+              "RelativeToolTip": "Models\\Factura.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T20:41:17.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Empleado.cs",
+              "DocumentMoniker": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Empleado.cs",
+              "RelativeDocumentMoniker": "Models\\Empleado.cs",
+              "ToolTip": "D:\\Capstone-2024\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente\\SociedadCorreaCorrea\\Models\\Empleado.cs",
+              "RelativeToolTip": "Models\\Empleado.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T20:41:35.654Z",
+              "EditorCaption": ""
             }
           ]
         }
