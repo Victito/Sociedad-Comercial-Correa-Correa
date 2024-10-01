@@ -47,6 +47,7 @@ namespace SociedadCorreaCorrea.Views
         {
             Application.Current.Shutdown();
         }
+
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -56,6 +57,11 @@ namespace SociedadCorreaCorrea.Views
             if(this.WindowState==WindowState.Normal)
                 this.WindowState = WindowState.Maximized;
             else this.WindowState = WindowState.Normal;
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -9,12 +9,20 @@ SociedadCorreaCorrea
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
 51281456230
 
 161343730453
 282186988549
+=======
+D:\Capstone-2024\Sociedad-Comercial-Correa-Correa\Codigo Fuente\SociedadCorreaCorrea\App.xaml
+51281456230
+
+161343730453
+282451322536
+>>>>>>> de09f361e719dac799f139c37f7496a6fee8384b
 Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;
 
-False
+True
 
