@@ -392,6 +392,38 @@
                                                        VerticalAlignment="Center"/>
                                             <TextBox Width="200" Text="{Binding Cobrador}" MaxLength="100" Margin="0,0,0,0"/>
                                         </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Orden Compra:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" Text="{Binding OrdenCompra}" MaxLength="100"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20" >
+                                            <TextBlock Text="Condiciones:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" Text="{Binding Condiciones}" MaxLength="100"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Guía Despacho:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" Text="{Binding GuiaDespacho}" MaxLength="50"/>
+                                        </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Nota Venta:" 
