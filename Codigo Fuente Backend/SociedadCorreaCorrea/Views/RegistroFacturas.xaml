@@ -322,6 +322,19 @@
                                                        VerticalAlignment="Center"/>
                                             <TextBox Width="200" Text="{Binding Comuna}" MaxLength="50"/>
                                         </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Estado:" Width="120"
+                                                        FontFamily="Montserrat" 
+                                                        FontSize="16" 
+                                                        FontWeight="Medium"
+                                                        Foreground="#ffffff"
+                                                        VerticalAlignment="Center"/>
+                                            <ComboBox Width="200" SelectedItem="{Binding Estado}">
+                                                <ComboBoxItem Content="Pendiente" Tag="Pendiente"/>
+                                                <ComboBoxItem Content="Pagado" Tag="Pagado"/>
+                                                <ComboBoxItem Content="Cancelado" Tag="Cancelado"/>
+                                            </ComboBox>
+                                        </StackPanel>
                                     </StackPanel>
 
                                     <!-- Columna 2 -->
