@@ -1,0 +1,790 @@
+﻿<mah:MetroWindow 
+    x:Class="SociedadCorreaCorrea.Views.RegistroFacturas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SociedadCorreaCorrea.Views"
+    mc:Ignorable="d"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    Title="Principal"
+    Width="1300"
+    Height="700"
+    WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    ShowTitleBar="False"
+    ShowCloseButton="False"
+    ShowMinButton="False"
+    ShowMaxRestoreButton="False"
+    Background="Transparent"
+    AllowsTransparency="True">
+
+    <Border CornerRadius="10"
+            BorderThickness="1">
+
+        <!-- Definición de gradiente del borde -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3393DF" Offset="0" />
+                <GradientStop Color="#007AFF" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Menú de navegación -->
+                <ColumnDefinition Width="250" />
+                <!-- Sección de contenido -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Navegación -->
+            <Border CornerRadius="10,0,0,10" Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="#007AFF" Offset="0" />
+                        <GradientStop Color="#3393DF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!-- Logo -->
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="10,25,0,40">
+                        <Image Source="/Resources/fondo1.jpg" Height="30" />
+                        <TextBlock Text="Farmacia"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Botones menú -->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color5}">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+
+            <!-- Sección principal -->
+            <Border CornerRadius="0,10,10,0" Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="#076CF6" Offset="0" />
+                        <GradientStop Color="#077CF6" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="Ventana_MouseBajo"
+                                MouseEnter="panelControl_MouseEnter">
+
+                        <!-- Botón Cerrar -->
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnCerrar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowClose" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Maximizar -->
+                        <Button x:Name="btnMaximizar"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMaximizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Minimizar -->
+                        <Button x:Name="btnMinimizar"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMinimizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline"
+                                                        Height="20" 
+                                                        Width="20" 
+                                                        Foreground="{StaticResource titleColor2}" 
+                                                        Margin="35,0,10,0"/>
+                            <TextBlock Text="Formulario Ingreso de Facturas"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
+                                <iconPacks:PackIconMaterial Kind="ChevronDown" Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+                            <TextBlock Text="username"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+                            <Ellipse Height="35" Width="35"
+                                     Stroke="{StaticResource color1}"
+                                     StrokeThickness="2"
+                                     Margin="10,0,10,0"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ContentControl 
+                                    Grid.Row="2" Margin="25">
+                        <TabControl Margin="0,0,0,10" Foreground="Transparent" Background="Transparent">
+                            <TabControl.Resources>
+                                <Style TargetType="TabItem">
+                                    <!-- Estilo para el header no seleccionado -->
+                                    <Setter Property="HeaderTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding}" 
+                                                           FontFamily="Montserrat" 
+                                                           FontSize="18" 
+                                                           FontWeight="Bold" 
+                                                           Foreground="White"
+                                                           HorizontalAlignment="Center"
+                                                           Background="Transparent"/>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!-- Estilo para el background y foreground del tab item -->
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Foreground" Value="Black" />
+
+                                    <!-- Triggers para cambiar el color cuando el tab está seleccionado -->
+                                    <Style.Triggers>
+                                        <!-- Cuando el tab está seleccionado -->
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="Green" />
+                                            <!-- Cambia el fondo cuando esté seleccionado -->
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <!-- Color del texto cuando esté seleccionado -->
+                                            <Setter Property="HeaderTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding}" 
+                                                                   FontFamily="Montserrat" 
+                                                                   FontSize="18" 
+                                                                   FontWeight="Bold" 
+                                                                   Foreground="Black"/>
+                                                        <!-- Mantiene el color del texto en blanco cuando está seleccionado -->
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+
+                                        <!-- Cuando el mouse está sobre el tab item -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Black" />
+                                            <!-- Cambia el fondo cuando el mouse está sobre el tab -->
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <!-- Mantiene el texto blanco -->
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TabControl.Resources>
+                            <TabItem Header="Datos de Factura" Foreground="Transparent" Width="327" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="290*" />
+                                        <ColumnDefinition Width="182*"/>
+                                        <ColumnDefinition Width="50" />
+                                        <!-- Espacio entre las columnas -->
+                                        <ColumnDefinition Width="471*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Columna 1 -->
+                                    <StackPanel Grid.Row="1" Background="Transparent" Margin="5,0,10,0" Grid.ColumnSpan="2">
+                                        <TextBlock Text="Datos de la Factura" 
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="20" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   Margin="0,0,0,20"
+                                                   >
+                                            
+                                        </TextBlock>
+                                                   
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="ID Sucursal:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <ComboBox Width="200" 
+                                                      ItemsSource="{Binding Sucursales}" 
+                                                      DisplayMemberPath="NombreSucursal" 
+                                                      SelectedItem="{Binding SucursalSeleccionada}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Razón Social cliente:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="RazonSocialTextBox" Text="{Binding RazonSocial}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="RUT del cliente:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="RutTextBox" Text="{Binding RutEmisor}" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" MaxLength="12" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Giro del cliente:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="GiroTextBox" Text="{Binding Giro}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Dirección:" Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                           VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="DireccionTextBox" Text="{Binding Direccion}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Comuna:" Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="ComunaTextBox" Text="{Binding Comuna}" MaxLength="250"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Estado:" Width="120"
+                                                        FontFamily="Montserrat" 
+                                                        FontSize="16" 
+                                                        FontWeight="Medium"
+                                                        Foreground="#ffffff"
+                                                        VerticalAlignment="Center"/>
+                                            <ComboBox Width="200" SelectedItem="{Binding Estado}">
+                                                <ComboBoxItem Content="Pendiente" Tag="Pendiente"/>
+                                                <ComboBoxItem Content="Pagado" Tag="Pagado"/>
+                                                <ComboBoxItem Content="Cancelado" Tag="Cancelado"/>
+                                            </ComboBox>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Rut del vendedor:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="RutVendedorTextBox" Text="{Binding RutVendedor}" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Giro del vendedor:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="GiroVendedorTextBox" Text="{Binding GiroVendedor}" MaxLength="250" />
+                                        </StackPanel>
+
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Razon Social del vendedor:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="RazonSocialVendedorTextBox" Text="{Binding RazonSocialVendedor}" MaxLength="250" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Cargar Factura Electronica en formato PDF:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <Button Content="Cargar Factura Electronica" Width="100" Height="30" Click="LoadPdfButton_Click"/>
+                                        </StackPanel>
+                                        
+                                    </StackPanel>
+
+                                    <!-- Columna 2 -->
+                                    <StackPanel Grid.Column="3" Background="Transparent" Margin="10,43,0,0">
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Ciudad:" Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="CiudadTextBox" Text="{Binding Ciudad}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Entregar En:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="EntregarEnTextBox" Text="{Binding EntregarEn}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Fecha Emisión:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <DatePicker SelectedDate="{Binding FechaEmision}" x:Name="FechaEmisionTextBox" Margin="28,0,0,0" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Fecha Vencimiento:" 
+                                                       Width="139" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"  
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <DatePicker SelectedDate="{Binding FechaVencimiento}" x:Name="VencimientoTextBox"  Margin="10,0,0,0"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Cobrador:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" Text="{Binding Cobrador}" x:Name="CobradorTextBox" MaxLength="250" Margin="0,0,0,0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Orden Compra:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="OrdenDeCompraTextBox" Text="{Binding OrdenCompra}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20" >
+                                            <TextBlock Text="Condiciones:" 
+                                                       Width="120"
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="CondicionesVentaTextBox" Text="{Binding Condiciones}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Guía Despacho:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="GuiaDespachoTextBox" Text="{Binding GuiaDespacho}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Nota Venta:" 
+                                                       Width="120" 
+                                                       FontFamily="Montserrat" 
+                                                       FontSize="16" 
+                                                       FontWeight="Medium"
+                                                       Foreground="#ffffff"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBox Width="200" x:Name="NotaVentaTextBox" Text="{Binding NotaVenta}" MaxLength="250"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                </Grid>
+                            </TabItem>
+
+                            <!-- Otros tabs -->
+                            <TabItem Header="Productos"
+                                     Background="Transparent"
+                                     Width="327">
+                                <StackPanel Margin="5,0,0,0">
+                                    
+                                    <TextBlock Text="Datos del Producto" 
+                                               FontSize="22" 
+                                               HorizontalAlignment="Center" 
+                                               FontWeight="Medium" 
+                                               Margin="0,0,0,10" 
+                                               Foreground="#ffffff"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        
+                                        <TextBlock Text="Código Producto:" Width="129"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxCodigoProducto" 
+                                                 MaxLength="50"
+                                                 Margin="10,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Descripción:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxDescripcion" 
+                                                 MaxLength="255" 
+                                                 Margin="19,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Número de Serie:" Width="126"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxNSerie" 
+                                                 MaxLength="50" 
+                                                 Margin="13,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Cantidad:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxCantidad" 
+                                                 PreviewTextInput="TextBox_PreviewTextInput" 
+                                                 Margin="18,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Descuento:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxDescuento" 
+                                                 Text="0" 
+                                                 PreviewTextInput="TextBox_PreviewTextInput" 
+                                                 Margin="18,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Precio Unitario:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="100" 
+                                                 x:Name="TextBoxPrecioUnitario" 
+                                                 PreviewTextInput="TextBox_PreviewTextInput" 
+                                                 Margin="16,0,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <Button 
+                                            BorderThickness="0"
+                                            Content="Agregar Producto"
+                                            Foreground="White"
+                                            FontSize="16"
+                                            FontFamily="Montserrat"
+                                            Cursor="Hand"
+                                            Margin="0,0,0,0"
+                                            Click="AgregarProducto_Click">
+                                        <!-- Definición de estilo del botón -->
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#40E0D0"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#41CD65" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <!-- Plantilla personalizada del botón -->
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Width="150" Height="40"
+                                                        CornerRadius="20"
+                                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center" 
+                                                                      HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                    <!-- TextBlock para mostrar el total de los productos -->
+                                    <TextBlock x:Name="TextBlockTotal"
+                                               FontSize="16" 
+                                               Foreground="#ffffff" 
+                                               FontWeight="Bold"
+                                               Margin="0,10,0,0" 
+                                               Text="Total de Productos:"
+                                               FontFamily="Montserrat"/>
+
+                                    <DataGrid x:Name="DataGridProductos" 
+                                              AutoGenerateColumns="False" 
+                                              Margin="0,10,0,0" 
+                                              CanUserAddRows="False"
+                                              ItemsSource="{Binding Productos}" 
+                                              IsReadOnly="True"
+                                              ScrollViewer.CanContentScroll="True" 
+                                              ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                        <DataGrid.Columns >
+                                            <DataGridTextColumn Header="Código" Binding="{Binding CodigoProducto}" 
+                                                                Width="*"
+                                                                />
+                                            <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
+                                            <DataGridTextColumn Header="Número de Serie" Binding="{Binding NSerie}" Width="*"/>
+                                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
+                                            <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}" Width="*"/>
+                                            <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}" Width="*"/>
+                                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*"/>
+
+                                            <!-- Columna para Eliminar -->
+                                            <DataGridTemplateColumn Header="Acciones" Width="120">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+
+                                                        <Button 
+                                                                BorderThickness="0"
+                                                                Content="Borrar"
+                                                                Foreground="White"
+                                                                FontSize="16"
+                                                                FontFamily="Montserrat"
+                                                                Cursor="Hand"
+                                                                HorizontalAlignment="Center"
+                                                                Margin="0,0,0,0"
+                                                                Click="EliminarProducto_Click">
+                                                            <!-- Definición de estilo del botón -->
+                                                            <Button.Style>
+                                                                <Style TargetType="Button"
+                                                                       >
+                                                                    <Setter Property="Background" Value="Red" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#FFA500" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Button.Style>
+                                                            <!-- Plantilla personalizada del botón -->
+                                                            <Button.Template>
+                                                                <ControlTemplate TargetType="Button">
+                                                                    <Border Width="80" Height="40"
+                CornerRadius="20"
+                Background="{TemplateBinding Background}">
+                                                                        <ContentPresenter VerticalAlignment="Center" 
+                HorizontalAlignment="Center" />
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Button.Template>
+                                                        </Button>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+                                <!-- Contenido del tab de productos -->
+                            </TabItem>
+                            <TabItem Header="Acuses"
+                                     Background="Transparent"  
+                                     Width="327" >
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock Text="Datos del Acuse" 
+                                               FontFamily="Montserrat" 
+                                               Foreground="#ffffff" 
+                                               HorizontalAlignment="Center" 
+                                               FontSize="20" 
+                                               FontWeight="Medium" 
+                                               Margin="0,0,0,30"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Nombre:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="200" Text="{Binding Nombre}" MaxLength="100"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Recinto:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="200" Text="{Binding Recinto}" MaxLength="100"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="Fecha:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <DatePicker SelectedDate="{Binding Fecha}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                        <TextBlock Text="RUT:" Width="120"
+                                                   FontFamily="Montserrat" 
+                                                   FontSize="16" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBox Width="200" Text="{Binding Rut}" MaxLength="12" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" />
+                                    </StackPanel>
+
+                                    <Button 
+                                            BorderThickness="0"
+                                            Content="Guardar"
+                                            Foreground="White"
+                                            FontSize="16"
+                                            FontFamily="Montserrat"
+                                            Cursor="Hand"
+                                            Margin="0,0,0,0"
+                                            Command="{Binding SaveCommand}">
+                                        <!-- Definición de estilo del botón -->
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#40E0D0  " />
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#41CD65" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <!-- Plantilla personalizada del botón -->
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Width="150" Height="40"
+                                                        CornerRadius="20"
+                                                        Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center" 
+                                                                      HorizontalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </ContentControl>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</mah:MetroWindow>

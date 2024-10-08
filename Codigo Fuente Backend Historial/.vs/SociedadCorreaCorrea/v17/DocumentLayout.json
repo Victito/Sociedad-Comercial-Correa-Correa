@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\vmart\\onedrive\\escritorio\\codigo temporal\\viewsmodels\\historialfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\historialfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\vmart\\onedrive\\escritorio\\codigo temporal\\views\\actualizarfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\vmart\\onedrive\\escritorio\\codigo temporal\\viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\vmart\\onedrive\\escritorio\\codigo temporal\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\vmart\\onedrive\\escritorio\\codigo temporal\\viewsmodels\\actualizarfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\actualizarfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HistorialFacturasViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\HistorialFacturasViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\HistorialFacturasViewModel.cs",
+              "ToolTip": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\HistorialFacturasViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\HistorialFacturasViewModel.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:33:35.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ActualizarFacturasViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\ActualizarFacturasViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\ActualizarFacturasViewModel.cs",
+              "ToolTip": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\ActualizarFacturasViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\ActualizarFacturasViewModel.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:14:21.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistroFacturasViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\RegistroFacturasViewModel.cs",
+              "RelativeDocumentMoniker": "ViewsModels\\RegistroFacturasViewModel.cs",
+              "ToolTip": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\ViewsModels\\RegistroFacturasViewModel.cs",
+              "RelativeToolTip": "ViewsModels\\RegistroFacturasViewModel.cs",
+              "ViewState": "AQIAAPUBAAAAAAAAAAAAABICAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:13:32.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActualizarFacturas.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\Views\\ActualizarFacturas.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\ActualizarFacturas.xaml.cs",
+              "ToolTip": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\Views\\ActualizarFacturas.xaml.cs",
+              "RelativeToolTip": "Views\\ActualizarFacturas.xaml.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAlwFoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:04:42.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ActualizarFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\Views\\ActualizarFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\ActualizarFacturas.xaml",
+              "ToolTip": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\Views\\ActualizarFacturas.xaml",
+              "RelativeToolTip": "Views\\ActualizarFacturas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-08T01:04:35.744Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
