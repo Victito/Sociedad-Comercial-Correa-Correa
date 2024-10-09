@@ -127,5 +127,175 @@
         <Setter Property="Height" Value="16"></Setter>
 
     </Style>
+    <Style  x:Key="RoundedTextBox" TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" 
+                         BorderThickness="1" 
+                         BorderBrush="#CCCCCC" 
+                         Background="White">
+                        <ScrollViewer Margin="1" 
+                                   x:Name="PART_ContentHost" 
+                                   HorizontalScrollBarVisibility="Hidden" 
+                                   VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <Style x:Key="RoundedComboBox" TargetType="ComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Border CornerRadius="10"
+                         BorderThickness="1" 
+                         BorderBrush="#CCCCCC" 
+                         Background="White" 
+                         Padding="2">
+
+                    </Border>
+                    <!-- Popup que se despliega con los elementos del ComboBox -->
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <!--estilo de las columnas-->
+    <Style x:Key="CenteredTextStyle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!--estilo de tablas-->
+    <Style x:Key="EstiloTable" TargetType="DataGridRow">
+        <Setter Property="Margin" Value="0,0,0,2"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="Gray" Opacity="0.2"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGridRow">
+                    <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--estilo de texto en general-->
+    <Style x:Key="TextGeneral" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+    </Style>
+    <!--estilo de Botones formularios-->
+    <Style x:Key="StyleButtonForm" TargetType="Button">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Background" Value="#40E0D0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="250" Height="40" 
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" 
+                                      HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#41CD65"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="StyleButtonFormDelete" TargetType="Button">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Background" Value="#FFA500"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="250" Height="40" 
+                    CornerRadius="20"
+                    Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" 
+                                  HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="StyleButtonUpload" TargetType="Button">
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <!-- Fondo blanco para contrastar con el fondo azul -->
+        <Setter Property="Foreground" Value="#333333"/>
+        <!-- Color del texto oscuro para buena legibilidad -->
+        <Setter Property="FontWeight" Value="Bold"/>
+        <!-- Negrita para darle más importancia -->
+        <Setter Property="Padding" Value="10,5"/>
+        <!-- Añadir un buen relleno para que no se vea muy pequeño -->
+        <Setter Property="BorderBrush" Value="#CCCCCC"/>
+        <!-- Borde gris suave -->
+        <Setter Property="BorderThickness" Value="2"/>
+        <!-- Grosor del borde -->
+        
+        <!-- Bordes redondeados para un estilo moderno -->
+        <Setter Property="Cursor" Value="Hand"/>
+        <!-- Cambia el cursor al pasar sobre el botón -->
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        >
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!-- Definir los cambios visuales al pasar el mouse y al presionar -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#E0E0E0"/>
+                <!-- Cambio de fondo al pasar el ratón -->
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#CCCCCC"/>
+                <!-- Cambio de fondo al presionar -->
+                <Setter Property="BorderBrush" Value="#999999"/>
+                <!-- Borde más oscuro al presionar -->
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+
 
 </ResourceDictionary>

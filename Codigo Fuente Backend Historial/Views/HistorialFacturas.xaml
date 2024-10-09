@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:SociedadCorreaCorrea.Views"
     mc:Ignorable="d"
+    
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
@@ -44,8 +45,8 @@
             <Border CornerRadius="10,0,0,10" Grid.Column="0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
-                        <GradientStop Color="#007AFF" Offset="0" />
-                        <GradientStop Color="#3393DF" Offset="1" />
+                        <GradientStop Color="#023E8A" Offset="0" />
+                        <GradientStop Color="#045DE9" Offset="1" />
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -75,7 +76,7 @@
                              Tag="{StaticResource color1}"
                             >
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
@@ -99,8 +100,8 @@
             <Border CornerRadius="0,10,10,0" Grid.Column="1">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                        <GradientStop Color="#076CF6" Offset="0" />
-                        <GradientStop Color="#077CF6" Offset="1" />
+                        <GradientStop Color="#045DE9" Offset="0" />
+                        <GradientStop Color="#09C6F9" Offset="0.7" />
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -109,6 +110,7 @@
                         <RowDefinition Height="25" />
                         <RowDefinition Height="35" />
                         <RowDefinition Height="*" />
+                        
                     </Grid.RowDefinitions>
 
                     <StackPanel x:Name="pnlControlBar"
@@ -152,12 +154,12 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline"
+                            <iconPacks:PackIconMaterial Kind="History"
                                                         Height="20" 
                                                         Width="20" 
                                                         Foreground="{StaticResource titleColor2}" 
                                                         Margin="35,0,10,0"/>
-                            <TextBlock Text="Formulario Ingreso de Facturas"
+                            <TextBlock Text="Historial de Facturas"
                                        Foreground="{StaticResource titleColor2}"
                                        FontSize="16"
                                        FontFamily="Montserrat"
@@ -187,69 +189,105 @@
                     </Grid>
 
                     <ContentControl Grid.Row="2" Margin="20">
+
                         <StackPanel>
                             <!-- Controles para el filtrado -->
-                            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                                <TextBlock Text="Filtrar por Razón Social" FontWeight="Bold" Margin="0,0,0,5"/>
-                                <TextBox x:Name="FiltroRazonSocial" Width="200" 
-                     Text="{Binding FiltroRazonSocial, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBlock Text="Ingrese la razón social" FontStyle="Italic" Foreground="Gray" Margin="0,0,0,5"/>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,20">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="Filtrar por Estado" FontWeight="Bold" Margin="10,10,0,5"/>
-                                <ComboBox x:Name="FiltroEstado" Width="200" 
-                       SelectedItem="{Binding FiltroEstado, UpdateSourceTrigger=PropertyChanged}">
-                                    <ComboBoxItem Content="Pendiente" />
-                                    <ComboBoxItem Content="Cancelada" />
-                                    <ComboBoxItem Content="Pagada" />
-                                </ComboBox>
-                                <TextBlock Text="Seleccione el estado" FontStyle="Italic" Foreground="Gray" Margin="0,0,0,5"/>
+                                    <!-- Filtro por Razón Social -->
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,10,0">
+                                        <TextBlock Text="Filtrar por Razón Social"
+                                               Style="{StaticResource TextGeneral}" />
+                                        <TextBox x:Name="FiltroRazonSocial" 
+                                                 Width="200" 
+                                                 Margin="0,5,0,5"
+                                                 HorizontalAlignment="Left"
+                                                 Text="{Binding FiltroRazonSocial, UpdateSourceTrigger=PropertyChanged}"
+                                              Style="{StaticResource RoundedTextBox}"/>
+                                    </StackPanel>
+
+                                    <!-- Filtro por Estado -->
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,0,10,0">
+                                        <TextBlock Text="Filtrar por Estado" 
+                                                   Style="{StaticResource TextGeneral}" 
+                                                   />
+                                        <ComboBox x:Name="FiltroEstado" 
+                                                  Width="200" 
+                                                  Margin="0,5,0,5"
+                                                  SelectedItem="{Binding FiltroEstado, 
+                                            UpdateSourceTrigger=PropertyChanged}"
+                                                  HorizontalAlignment="Left"
+                                                  >
+                                            <ComboBoxItem Content="Pendiente" />
+                                            <ComboBoxItem Content="Cancelada" />
+                                            <ComboBoxItem Content="Pagada" />
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Grid>
                             </StackPanel>
-
-                            <DataGrid x:Name="facturasDataGrid" 
-                  AutoGenerateColumns="False" 
-                  ItemsSource="{Binding InformacionFacturaFiltrada}" 
-                  CanUserAddRows="False" 
-                  CanUserDeleteRows="False" 
-                  HeadersVisibility="Column" 
-                  VerticalAlignment="Stretch" 
-                  HorizontalAlignment="Stretch" 
-                  IsReadOnly="False" 
-                  CanUserResizeColumns="True" 
-                  Margin="0" Padding="10" 
-                  SelectionMode="Extended"   
-                  SelectionUnit="FullRow">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id Sucursal" Binding="{Binding Factura.IdSucursal}" />
-                                    <DataGridTextColumn Header="RUT Vendedor" Binding="{Binding Factura.RutVendedor}" />
-                                    <DataGridTextColumn Header="Giro Vendedor" Binding="{Binding Factura.GiroVendedor}" />
-                                    <DataGridTextColumn Header="Razón Social Vendedor" Binding="{Binding Factura.RazonSocialVendedor}" />
-                                    <DataGridTextColumn Header="Razón Social" Binding="{Binding Factura.RazonSocial}" />
-                                    <DataGridTextColumn Header="RUT Cliente" Binding="{Binding Factura.RutEmisor}" />
-                                    <DataGridTextColumn Header="Giro del Cliente" Binding="{Binding Factura.Giro}" />
-                                    <DataGridTextColumn Header="Dirección" Binding="{Binding Factura.Direccion}" />
-                                    <DataGridTextColumn Header="Comuna" Binding="{Binding Factura.Comuna}" />
-                                    <DataGridTextColumn Header="Ciudad" Binding="{Binding Factura.Ciudad}" />
-                                    <DataGridTextColumn Header="Entregar En" Binding="{Binding Factura.EntregarEn}" />
-                                    <DataGridTextColumn Header="Fecha Emisión" Binding="{Binding Factura.FechaEmision}" />
-                                    <DataGridTextColumn Header="Fecha Vencimiento" Binding="{Binding Factura.FechaVencimiento}" />
-                                    <DataGridTextColumn Header="Cobrador" Binding="{Binding Factura.Cobrador}" />
-                                    <DataGridTextColumn Header="Nota de Venta" Binding="{Binding Factura.NotaVenta}" />
-                                    <DataGridTextColumn Header="Orden de Compra" Binding="{Binding Factura.OrdenCompra}" />
-                                    <DataGridTextColumn Header="Condiciones" Binding="{Binding Factura.Condiciones}" />
-                                    <DataGridTextColumn Header="Guía de Despacho" Binding="{Binding Factura.GuiaDespacho}" />
-                                    <DataGridTextColumn Header="Precio Unitario" Binding="{Binding Factura.PrecioUnitario}" />
-                                    <DataGridTextColumn Header="Cantidad" Binding="{Binding Factura.Cantidad}" />
-                                    <DataGridTextColumn Header="Total" Binding="{Binding Factura.Total}" />
-                                    <DataGridTextColumn Header="Estado" Binding="{Binding Factura.Estado}" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-
-                            <Button Content="Eliminar Facturas Seleccionadas" Click="EliminarFacturasSeleccionadas_Click" Margin="10"/>
-                            <Button Content="Actualizar Factura Seleccionada" Click="ActualizarFacturaSeleccionada_Click" Margin="10"/>
-                        </StackPanel>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="400">
+                                <DataGrid x:Name="facturasDataGrid" 
+                                          AutoGenerateColumns="False" 
+                                          ItemsSource="{Binding InformacionFacturaFiltrada}" 
+                                          CanUserAddRows="False" 
+                                          CanUserDeleteRows="False" 
+                                          HeadersVisibility="Column" 
+                                          VerticalAlignment="Stretch" 
+                                          HorizontalAlignment="Stretch" 
+                                          IsReadOnly="False" 
+                                          CanUserResizeColumns="True" 
+                                          Margin="0" Padding="10" 
+                                          SelectionMode="Extended"   
+                                          SelectionUnit="FullRow"
+                                          Grid.Row="1">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Id Sucursal"  ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.IdSucursal}" />
+                                        <DataGridTextColumn Header="RUT Vendedor" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutVendedor}" />
+                                        <DataGridTextColumn Header="Giro Vendedor" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GiroVendedor}" />
+                                        <DataGridTextColumn Header="Razón Social Vendedor" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocialVendedor}" />
+                                        <DataGridTextColumn Header="Razón Social" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocial}" />
+                                        <DataGridTextColumn Header="RUT Cliente" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutEmisor}" />
+                                        <DataGridTextColumn Header="Giro del Cliente" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Giro}" />
+                                        <DataGridTextColumn Header="Dirección" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Direccion}" />
+                                        <DataGridTextColumn Header="Comuna" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Comuna}" />
+                                        <DataGridTextColumn Header="Ciudad" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Ciudad}" />
+                                        <DataGridTextColumn Header="Entregar En" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.EntregarEn}" />
+                                        <DataGridTextColumn Header="Fecha Emisión" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaEmision}" />
+                                        <DataGridTextColumn Header="Fecha Vencimiento" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaVencimiento}" />
+                                        <DataGridTextColumn Header="Cobrador" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cobrador}" />
+                                        <DataGridTextColumn Header="Nota de Venta" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.NotaVenta}" />
+                                        <DataGridTextColumn Header="Orden de Compra" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.OrdenCompra}" />
+                                        <DataGridTextColumn Header="Condiciones" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Condiciones}" />
+                                        <DataGridTextColumn Header="Guía de Despacho" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GuiaDespacho}" />
+                                        <DataGridTextColumn Header="Precio Unitario" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.PrecioUnitario}" />
+                                        <DataGridTextColumn Header="Cantidad" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cantidad}" />
+                                        <DataGridTextColumn Header="Total" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Total}" />
+                                        <DataGridTextColumn Header="Estado" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Estado}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </ScrollViewer>
+                            
+                              
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,10">
+                                <Button Content="Eliminar Facturas Seleccionadas" 
+                                        Click="EliminarFacturasSeleccionadas_Click" 
+                                        Style="{StaticResource StyleButtonFormDelete}"
+                                        Margin="10,0,0,0"/>
+                                <!-- Espacio entre botones -->
+                                <Button Content="Actualizar Factura Seleccionada" 
+                                        Click="ActualizarFacturaSeleccionada_Click" 
+                                        
+                                        Style="{StaticResource StyleButtonForm}"
+                                        Margin="10,0,0,0"/>
+                            </StackPanel>
+                            
+                </StackPanel>
                     </ContentControl>
-
-
                 </Grid>
             </Border>
         </Grid>

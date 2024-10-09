@@ -1,50 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\",
+  "WorkspaceRootPath": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\loginvistaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\views\\registrofacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\registrofacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\viewsmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\views\\loginvista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\loginvista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\views\\mainmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\mainmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend\\sociedadcorreacorrea\\resources\\styles\\uicolores.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:resources\\styles\\uicolores.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,20 +26,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegistroFacturas.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml",
-              "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml",
-              "RelativeToolTip": "Views\\RegistroFacturas.xaml",
+              "DocumentIndex": 3,
+              "Title": "HistorialFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\HistorialFacturas.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml",
+              "RelativeToolTip": "Views\\HistorialFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-29T19:25:11.141Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T18:42:04.76Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -79,121 +50,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegistroFacturas.g.cs",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs",
-              "RelativeDocumentMoniker": "obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs",
-              "RelativeToolTip": "obj\\Debug\\net8.0-windows\\Views\\RegistroFacturas.g.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAArwJgAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T22:00:59.389Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LoginVistaViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\LoginVistaViewModel.cs",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\LoginVistaViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\LoginVistaViewModel.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAA0wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T21:57:11.46Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BaseViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\BaseViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\BaseViewModel.cs",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\BaseViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\BaseViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T21:56:57.965Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegistroFacturas.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml.cs",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\RegistroFacturas.xaml.cs",
-              "RelativeToolTip": "Views\\RegistroFacturas.xaml.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAWwBkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T20:51:52.923Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegistroFacturasViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\RegistroFacturasViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\RegistroFacturasViewModel.cs",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\ViewsModels\\RegistroFacturasViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\RegistroFacturasViewModel.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAAAhwGkAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T20:50:57.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\App.xaml",
-              "RelativeToolTip": "App.xaml",
+              "Title": "RegistroFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\RegistroFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\RegistroFacturas.xaml",
+              "RelativeToolTip": "Views\\RegistroFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T01:03:12.086Z",
+              "WhenOpened": "2024-10-08T19:00:56.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "estiloboton.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Resources\\Styles\\estiloboton.xaml",
+              "RelativeDocumentMoniker": "Resources\\Styles\\estiloboton.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Resources\\Styles\\estiloboton.xaml",
+              "RelativeToolTip": "Resources\\Styles\\estiloboton.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-08T19:01:32.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "estiloboton.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Resources\\Styles\\estiloboton.xaml",
-              "RelativeDocumentMoniker": "Resources\\Styles\\estiloboton.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Resources\\Styles\\estiloboton.xaml",
-              "RelativeToolTip": "Resources\\Styles\\estiloboton.xaml",
+              "Title": "ActualizarFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\ActualizarFacturas.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
+              "RelativeToolTip": "Views\\ActualizarFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T00:52:12.373Z",
+              "WhenOpened": "2024-10-08T01:04:35.744Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LoginVista.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
-              "RelativeDocumentMoniker": "Views\\LoginVista.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\LoginVista.xaml",
-              "RelativeToolTip": "Views\\LoginVista.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T00:51:11.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UIcolores.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Resources\\Styles\\UIcolores.xaml",
-              "RelativeDocumentMoniker": "Resources\\Styles\\UIcolores.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Resources\\Styles\\UIcolores.xaml",
-              "RelativeToolTip": "Resources\\Styles\\UIcolores.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T00:51:01.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MainMenu.xaml",
-              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\MainMenu.xaml",
-              "RelativeDocumentMoniker": "Views\\MainMenu.xaml",
-              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend\\SociedadCorreaCorrea\\Views\\MainMenu.xaml",
-              "RelativeToolTip": "Views\\MainMenu.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T00:13:17.792Z"
             }
           ]
         }

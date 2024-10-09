@@ -44,8 +44,8 @@
             <Border CornerRadius="10,0,0,10" Grid.Column="0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
-                        <GradientStop Color="#007AFF" Offset="0" />
-                        <GradientStop Color="#3393DF" Offset="1" />
+                        <GradientStop Color="#023E8A" Offset="0" />
+                        <GradientStop Color="#045DE9" Offset="1" />
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -74,7 +74,7 @@
                              Tag="{StaticResource color1}"
                              PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
@@ -98,8 +98,8 @@
             <Border CornerRadius="0,10,10,0" Grid.Column="1">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                        <GradientStop Color="#076CF6" Offset="0" />
-                        <GradientStop Color="#077CF6" Offset="1" />
+                        <GradientStop Color="#045DE9" Offset="0" />
+                        <GradientStop Color="#09C6F9" Offset="0.7" />
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -266,78 +266,88 @@
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="ID Sucursal:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <ComboBox Width="200" 
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120"/>
+                                            <ComboBox Width="300" 
                                                       ItemsSource="{Binding Sucursales}" 
                                                       DisplayMemberPath="NombreSucursal" 
-                                                      SelectedItem="{Binding SucursalSeleccionada}"/>
+                                                      SelectedItem="{Binding SucursalSeleccionada}"
+                                                      Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Razón Social cliente:" 
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
                                                        Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="RazonSocialTextBox" Text="{Binding RazonSocial}" MaxLength="250"/>
+                                                       />
+                                            <TextBox Width="300" x:Name="RazonSocialTextBox" 
+                                                     Text="{Binding RazonSocial}" 
+                                                     MaxLength="250"
+                                                     Style="{StaticResource RoundedTextBox}"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="RUT del cliente:" 
-                                                       Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="RutTextBox" Text="{Binding RutEmisor}" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" MaxLength="12" />
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="RutTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding RutEmisor}" 
+                                                     LostFocus="TextBoxRutEmisor_LostFocus" 
+                                                     TextChanged="TextBoxRutEmisor_TextChanged" 
+                                                     MaxLength="12"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Giro del cliente:" 
-                                                       Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="GiroTextBox" Text="{Binding Giro}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                        Width="120"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="GiroTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding Giro}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Dirección:" Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                           VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="DireccionTextBox" Text="{Binding Direccion}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       />
+                                            <TextBox Width="300" 
+                                                     x:Name="DireccionTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding Direccion}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Comuna:" Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
+                                                       Style="{StaticResource TextGeneral}"
                                                        VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="ComunaTextBox" Text="{Binding Comuna}" MaxLength="250"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="ComunaTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding Comuna}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Estado:" Width="120"
-                                                        FontFamily="Montserrat" 
-                                                        FontSize="16" 
-                                                        FontWeight="Medium"
-                                                        Foreground="#ffffff"
-                                                        VerticalAlignment="Center"/>
-                                            <ComboBox Width="200" SelectedItem="{Binding Estado}">
+                                                        Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"/>
+                                            <ComboBox Width="300" 
+                                                      SelectedItem="{Binding Estado}"
+                                                Margin="30,0,0,0">
                                                 <ComboBoxItem Content="Pendiente" Tag="Pendiente"/>
                                                 <ComboBoxItem Content="Pagado" Tag="Pagado"/>
                                                 <ComboBoxItem Content="Cancelado" Tag="Cancelado"/>
@@ -346,47 +356,40 @@
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Rut del vendedor:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="RutVendedorTextBox" Text="{Binding RutVendedor}" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                        Width="120"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="RutVendedorTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding RutVendedor}" 
+                                                     LostFocus="TextBoxRutEmisor_LostFocus" 
+                                                     TextChanged="TextBoxRutEmisor_TextChanged"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Giro del vendedor:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="GiroVendedorTextBox" Text="{Binding GiroVendedor}" MaxLength="250" />
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                        Width="120"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="GiroVendedorTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding GiroVendedor}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
 
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Razon Social del vendedor:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="RazonSocialVendedorTextBox" Text="{Binding RazonSocialVendedor}" MaxLength="250" />
-                                        </StackPanel>
+                                        
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Cargar Factura Electronica en formato PDF:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <Button Content="Cargar Factura Electronica" Width="100" Height="30" Click="LoadPdfButton_Click"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                        Width="350"/>
+                                            <Button Content="Cargar Factura" Style="{StaticResource StyleButtonUpload}" Width="100" Height="30" Margin="0,0,0,0" Click="LoadPdfButton_Click"/>
                                         </StackPanel>
                                         
                                     </StackPanel>
@@ -395,99 +398,119 @@
                                     <StackPanel Grid.Column="3" Background="Transparent" Margin="10,43,0,0">
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Ciudad:" Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
+                                                       Style="{StaticResource TextGeneral}"
                                                        VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="CiudadTextBox" Text="{Binding Ciudad}" MaxLength="250"/>
+                                            <TextBox Width="300" 
+                                                     x:Name="CiudadTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding Ciudad}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Entregar En:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="EntregarEnTextBox" Text="{Binding EntregarEn}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" 
+                                                     x:Name="EntregarEnTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding EntregarEn}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Fecha Emisión:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
+                                                       Style="{StaticResource TextGeneral}"
                                                        VerticalAlignment="Center"/>
-                                            <DatePicker SelectedDate="{Binding FechaEmision}" x:Name="FechaEmisionTextBox" Margin="28,0,0,0" />
+                                            <DatePicker SelectedDate="{Binding FechaEmision}" Width="300"
+                                                        x:Name="FechaEmisionTextBox" Margin="45,0,0,0" />
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Fecha Vencimiento:" 
-                                                       Width="139" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"  
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <DatePicker SelectedDate="{Binding FechaVencimiento}" x:Name="VencimientoTextBox"  Margin="10,0,0,0"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="139" />
+                                            <DatePicker SelectedDate="{Binding FechaVencimiento}" Width="300"
+                                                        x:Name="VencimientoTextBox"  Margin="15,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Cobrador:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" Text="{Binding Cobrador}" x:Name="CobradorTextBox" MaxLength="250" Margin="0,0,0,0"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" 
+                                                     Text="{Binding Cobrador}" 
+                                                     x:Name="CobradorTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     MaxLength="250" 
+                                                     Margin="33,0,0,0"/>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Orden Compra:" 
-                                                       Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="OrdenDeCompraTextBox" Text="{Binding OrdenCompra}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" 
+                                                     x:Name="OrdenDeCompraTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding OrdenCompra}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" >
                                             <TextBlock Text="Condiciones:" 
-                                                       Width="120"
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="CondicionesVentaTextBox" Text="{Binding Condiciones}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" 
+                                                     x:Name="CondicionesVentaTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding Condiciones}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Guía Despacho:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="GuiaDespachoTextBox" Text="{Binding GuiaDespacho}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" x:Name="GuiaDespachoTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding GuiaDespacho}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                         <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                             <TextBlock Text="Nota Venta:" 
-                                                       Width="120" 
-                                                       FontFamily="Montserrat" 
-                                                       FontSize="16" 
-                                                       FontWeight="Medium"
-                                                       Foreground="#ffffff"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="200" x:Name="NotaVentaTextBox" Text="{Binding NotaVenta}" MaxLength="250"/>
+                                                       Style="{StaticResource TextGeneral}"
+                                                       VerticalAlignment="Center"
+                                                       Width="120" />
+                                            <TextBox Width="300" 
+                                                     x:Name="NotaVentaTextBox" 
+                                                     Style="{StaticResource RoundedTextBox}" 
+                                                     Text="{Binding NotaVenta}" 
+                                                     MaxLength="250"
+                                                     Margin="30,0,0,0"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                            <TextBlock Text="Razon Social del vendedor:" 
+               Style="{StaticResource TextGeneral}"
+               VerticalAlignment="Center"
+                Width="120"/>
+                                            <TextBox Width="300" 
+             x:Name="RazonSocialVendedorTextBox" 
+             Style="{StaticResource RoundedTextBox}" 
+             Text="{Binding RazonSocialVendedor}" 
+             MaxLength="250" 
+             Margin="30,0,0,0"/>
                                         </StackPanel>
 
                                     </StackPanel>
@@ -510,79 +533,68 @@
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         
                                         <TextBlock Text="Código Producto:" Width="129"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+                                                   VerticalAlignment="Center"
+                                                    />
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxCodigoProducto" 
                                                  MaxLength="50"
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  Margin="10,0,0,0"/>
                                     </StackPanel>
                                     
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Descripción:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxDescripcion" 
                                                  MaxLength="255" 
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  Margin="19,0,0,0"/>
                                     </StackPanel>
                                     
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Número de Serie:" Width="126"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxNSerie" 
                                                  MaxLength="50" 
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  Margin="13,0,0,0"/>
                                     </StackPanel>
                                     
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Cantidad:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxCantidad" 
                                                  PreviewTextInput="TextBox_PreviewTextInput" 
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  Margin="18,0,0,0"/>
                                     </StackPanel>
                                     
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Descuento:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxDescuento" 
                                                  Text="0" 
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  PreviewTextInput="TextBox_PreviewTextInput" 
                                                  Margin="18,0,0,0"/>
                                     </StackPanel>
                                     
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Precio Unitario:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="100" 
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" 
                                                  x:Name="TextBoxPrecioUnitario" 
+                                                 Style="{StaticResource RoundedTextBox}"
                                                  PreviewTextInput="TextBox_PreviewTextInput" 
                                                  Margin="16,0,0,0"/>
                                     </StackPanel>
@@ -709,42 +721,30 @@
 
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Nombre:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="200" Text="{Binding Nombre}" MaxLength="100"/>
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" Text="{Binding Nombre}" Style="{StaticResource RoundedTextBox}" MaxLength="100"/>
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Recinto:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="200" Text="{Binding Recinto}" MaxLength="100"/>
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" Text="{Binding Recinto}" Style="{StaticResource RoundedTextBox}" MaxLength="100"/>
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="Fecha:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <DatePicker SelectedDate="{Binding Fecha}" />
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <DatePicker SelectedDate="{Binding Fecha}" Width="300" />
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                                         <TextBlock Text="RUT:" Width="120"
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="16" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   VerticalAlignment="Center"/>
-                                        <TextBox Width="200" Text="{Binding Rut}" MaxLength="12" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" />
+                                                   Style="{StaticResource TextGeneral}"
+VerticalAlignment="Center"/>
+                                        <TextBox Width="300" Text="{Binding Rut}" Style="{StaticResource RoundedTextBox}" MaxLength="12" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" />
                                     </StackPanel>
 
                                     <Button 

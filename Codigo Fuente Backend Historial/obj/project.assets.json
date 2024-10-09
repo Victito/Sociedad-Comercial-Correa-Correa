@@ -10197,24 +10197,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vmart\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Bestia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\SociedadCorreaCorrea.csproj",
+      "projectUniqueName": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\SociedadCorreaCorrea.csproj",
       "projectName": "SociedadCorreaCorrea",
-      "projectPath": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\SociedadCorreaCorrea.csproj",
-      "packagesPath": "C:\\Users\\vmart\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vmart\\OneDrive\\Escritorio\\codigo temporal\\obj\\",
+      "projectPath": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\SociedadCorreaCorrea.csproj",
+      "packagesPath": "C:\\Users\\Bestia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\vmart\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Bestia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10307,7 +10302,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

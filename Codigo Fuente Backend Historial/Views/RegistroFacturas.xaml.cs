@@ -280,6 +280,15 @@ private string ObtenerApiKey(int idEmpresa)
 
         private string FormatearRut(string rut)
         {
+            // Verificar la longitud mínima del RUT
+            if (string.IsNullOrWhiteSpace(rut) || rut.Length < 8)
+            {
+                // Mostrar alerta con Metro UI
+                var metroWindow = Application.Current.MainWindow as MetroWindow;
+                metroWindow?.ShowMessageAsync("Error", "El RUT debe tener al menos 8 caracteres (sin incluir el dígito verificador).");
+                return rut; // Retorna el RUT original o puedes elegir retornar una cadena vacía
+            }
+
             // Agregar puntos y guión
             if (rut.Length > 1)
             {
@@ -293,6 +302,7 @@ private string ObtenerApiKey(int idEmpresa)
                     rutSinDV.Substring(rutSinDV.Length - 3, 3),
                     dv);
             }
+
             return rut; // En caso de que sea un solo dígito
         }
 
