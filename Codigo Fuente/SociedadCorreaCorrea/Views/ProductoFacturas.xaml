@@ -1,0 +1,251 @@
+﻿<mah:MetroWindow 
+    x:Class="SociedadCorreaCorrea.Views.ProductoFacturas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SociedadCorreaCorrea.Views"
+    mc:Ignorable="d"
+    
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    Title="Principal"
+    Width="1300"
+    Height="700"
+    WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    ShowTitleBar="False"
+    ShowCloseButton="False"
+    ShowMinButton="False"
+    ShowMaxRestoreButton="False"
+    Background="Transparent"
+    AllowsTransparency="True">
+
+    <Border CornerRadius="10"
+            BorderThickness="1">
+
+        <!-- Definición de gradiente del borde -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3393DF" Offset="0" />
+                <GradientStop Color="#007AFF" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Menú de navegación -->
+                <ColumnDefinition Width="250" />
+                <!-- Sección de contenido -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Navegación -->
+            <Border CornerRadius="10,0,0,10" Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="#023E8A" Offset="0" />
+                        <GradientStop Color="#045DE9" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!-- Logo -->
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="10,25,0,40">
+                        <Image Source="/Resources/fondo1.jpg" Height="30" />
+                        <TextBlock Text="Farmacia"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Botones menú -->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                            >
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color5}">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+
+            <!-- Sección principal -->
+            <Border CornerRadius="0,10,10,0" Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="#045DE9" Offset="0" />
+                        <GradientStop Color="#09C6F9" Offset="0.7" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="Ventana_MouseBajo"
+                >
+
+                        <!-- Botón Cerrar -->
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnCerrar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowClose" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Maximizar -->
+                        <Button x:Name="btnMaximizar"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMaximizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Minimizar -->
+                        <Button x:Name="btnMinimizar"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMinimizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <iconPacks:PackIconMaterial Kind="History"
+                                                        Height="20" 
+                                                        Width="20" 
+                                                        Foreground="{StaticResource titleColor2}" 
+                                                        Margin="35,0,10,0"/>
+                            <TextBlock Text="Historial de Facturas"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
+                                <iconPacks:PackIconMaterial Kind="ChevronDown" Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+                            <TextBlock Text="username"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+                            <Ellipse Height="35" Width="35"
+                                     Stroke="{StaticResource color1}"
+                                     StrokeThickness="2"
+                                     Margin="10,0,10,0"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ContentControl Grid.Row="2" Margin="20">
+                        <StackPanel Margin="10">
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Código Producto:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBox Width="120" Text="{Binding CodigoProductoFiltro, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Número de Serie:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBox Width="120" Text="{Binding NumeroSerieFiltro, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Cantidad:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <TextBox Width="80" Text="{Binding CantidadFiltro, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+
+                                <Button Content="Aplicar Filtros" Command="{Binding FiltrarCommand}" Width="120" Margin="0,10,0,0"/>
+                            </StackPanel>
+
+                            <DataGrid ItemsSource="{Binding ProductosFiltrados}" AutoGenerateColumns="False"
+                                x:Name="productosDataGrid"
+                                CanUserAddRows="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Código Producto" Binding="{Binding CodigoProducto}" Width="150"/>
+                                    <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="200"/>
+                                    <DataGridTextColumn Header="Número de Serie" Binding="{Binding NSerie}" Width="150"/>
+                                    <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="100"/>
+                                    <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}" Width="100"/>
+                                    <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}" Width="100"/>
+                                    <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="100"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,10">
+                                <Button Content="Eliminar Productos Seleccionados" 
+                                        Click="EliminarProductosSeleccionados_Click" 
+                                        Style="{StaticResource StyleButtonFormDelete}"
+                                        Margin="10,0,0,0"/>
+                                <Button Content="Actualizar Producto Seleccionado" 
+                                        Click="ActualizarProducto_Click" 
+                                        Style="{StaticResource StyleButtonFormDelete}"
+                                        Margin="10,0,0,0"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </ContentControl>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</mah:MetroWindow>

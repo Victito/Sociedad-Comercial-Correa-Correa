@@ -181,7 +181,8 @@
                              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="30,0,0,0" TextChanged="txtusuario_TextChanged">
+                             Padding="30,0,0,0" TextChanged="txtusuario_TextChanged"
+                             Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}">
                         <TextBox.Background>
                             <ImageBrush ImageSource="\Resources\User.png" Stretch="None" AlignmentX="left" >
 
@@ -196,24 +197,22 @@
                                FontFamily="Montserrat"
                                Margin="0,15,0,0"/>
 
-                    <PasswordBox x:Name="txtcontraseña"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"
-                             Foreground="White"
-                             CaretBrush="White"
-                             BorderBrush="White"
-                             BorderThickness="0,0,0,1"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="30,0,0,0">
+                    <PasswordBox x:Name="txtContraseña"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         FontFamily="Montserrat"
+                         Foreground="White"
+                         CaretBrush="White"
+                         BorderBrush="White"
+                         BorderThickness="0,0,0,1"
+                         Height="28"
+                         VerticalContentAlignment="Center"
+                         Margin="0,5,0,0"
+                         Padding="30,0,0,0"
+                         PasswordChanged="txtContraseña_PasswordChanged">
                         <PasswordBox.Background>
-                            <ImageBrush ImageSource="\Resources\Key.png" Stretch="None" AlignmentX="left" >
-
-                            </ImageBrush>
+                            <ImageBrush ImageSource="\Resources\Key.png" Stretch="None" AlignmentX="left" />
                         </PasswordBox.Background>
-
                     </PasswordBox>
                     <Button x:Name="btnIngresar"
                             BorderThickness="0"
@@ -224,7 +223,8 @@
                             Cursor="Hand"
                             Grid.Column="2"
                             Margin="0,50,0,0"
-                            Click="NavigateToFacturasPage">
+                            Click="NavigateToFacturasPage"
+                            Command="{Binding IniciarSesionCommand}">
                         <!-- Definición de estilo del botón -->
                         <Button.Style>
                             <Style TargetType="Button">

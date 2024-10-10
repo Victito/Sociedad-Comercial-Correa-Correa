@@ -21,9 +21,5 @@ public partial class Sucursal
 
     public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
 
-    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
-
-    public virtual ICollection<HorarioEmpleado> HorarioEmpleados { get; set; } = new List<HorarioEmpleado>();
-
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 }

@@ -15,7 +15,9 @@ public partial class Usuario
 
     public string Rol { get; set; } = null!;
 
-    public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
+    public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
 
-    public virtual ICollection<Sesione> Sesiones { get; set; } = new List<Sesione>();
+    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
+
+    public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 }
