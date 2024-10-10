@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HistorialFacturas.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml",
               "RelativeDocumentMoniker": "Views\\HistorialFacturas.xaml",
@@ -38,8 +38,7 @@
               "RelativeToolTip": "Views\\HistorialFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-10-08T18:42:04.76Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -63,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "estiloboton.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Resources\\Styles\\estiloboton.xaml",
               "RelativeDocumentMoniker": "Resources\\Styles\\estiloboton.xaml",
@@ -75,15 +74,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ActualizarFacturas.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
               "RelativeDocumentMoniker": "Views\\ActualizarFacturas.xaml",
               "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
               "RelativeToolTip": "Views\\ActualizarFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-08T01:04:35.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T01:04:35.744Z"
             }
           ]
         }
