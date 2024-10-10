@@ -10,6 +10,7 @@ using SociedadCorreaCorrea.Models;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using static SociedadCorreaCorrea.ViewModels.HistorialFacturasViewModel;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -43,20 +44,66 @@ namespace SociedadCorreaCorrea.Views
             viewModel.EliminarFacturasSeleccionadas(facturasAEliminar);
         }
 
-        private void ActualizarFacturaSeleccionada_Click(object sender, RoutedEventArgs e)
+        // Método actualizado para manejar la actualización de una factura seleccionada
+        private async void ActualizarFacturaSeleccionada_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener la factura seleccionada del DataGrid
+            // Verificar si se seleccionaron más de una factura
+            var seleccionadas = facturasDataGrid.SelectedItems;
+
+            if (seleccionadas.Count > 1)
+            {
+                // Mostrar mensaje de error si hay más de una factura seleccionada
+                await this.ShowMessageAsync("Error!", "Asegúrese de solo seleccionar una factura antes de actualizar.");
+                return;
+            }
+
+            // Si no hay ninguna factura seleccionada, mostrar un mensaje de advertencia
+            if (facturasDataGrid.SelectedItem == null)
+            {
+                await this.ShowMessageAsync("Advertencia", "Por favor, seleccione una factura para actualizar.");
+                return;
+            }
+
+            // Obtener la factura seleccionada y proceder con la actualización
             if (facturasDataGrid.SelectedItem is InformacionFacturas facturaSeleccionada)
             {
-                // Crear una nueva instancia de la ventana de actualización
+                // Crear y mostrar la ventana de actualización
                 var actualizarVentana = new ActualizarFacturas(facturaSeleccionada);
-                actualizarVentana.Show(); // Abrir como ventana normal
+                actualizarVentana.Show();
                 this.Close();
             }
-            else
+        }
+
+        // Método para manejar la visualización de los productos de una factura seleccionada
+        private async void ProductosFacturaSeleccionada_Click(object sender, RoutedEventArgs e)
+        {
+            // Verificar si se seleccionaron más de una factura
+            var seleccionadas = facturasDataGrid.SelectedItems;
+
+            if (seleccionadas.Count > 1)
             {
-                // Mostrar una alerta si no se seleccionó ninguna factura
-                MessageBox.Show("Por favor, seleccione una factura para actualizar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                // Mostrar mensaje de error si hay más de una factura seleccionada
+                await this.ShowMessageAsync("Error!", "Asegúrese de solo seleccionar una factura antes de ver los productos.");
+                return;
+            }
+
+            // Si no hay ninguna factura seleccionada, mostrar un mensaje de advertencia
+            if (facturasDataGrid.SelectedItem == null)
+            {
+                await this.ShowMessageAsync("Advertencia", "Por favor, seleccione una factura para ver sus productos.");
+                return;
+            }
+
+            // Obtener la factura seleccionada
+            if (facturasDataGrid.SelectedItem is InformacionFacturas facturaSeleccionada)
+            {
+                // Obtener la ID de la factura seleccionada
+                var facturaId = facturaSeleccionada.Factura.IdFactura;
+
+                // Pasar la ID a la nueva vista ProductoFacturas y mostrarla
+                var productosVentana = new ProductoFacturas(facturaId);
+                productosVentana.Show(); // Mostrar la ventana de productos
+                this.Close(); // Cerrar la ventana actual si es necesario
             }
         }
 
@@ -93,6 +140,20 @@ namespace SociedadCorreaCorrea.Views
             {
                 var registroFacturas = new RegistroFacturas();
                 registroFacturas.Show();
+                this.Close();
+            }
+        }
+
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
+
+                // Cierra la ventana de MainMenu
                 this.Close();
             }
         }

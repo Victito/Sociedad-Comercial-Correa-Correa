@@ -283,9 +283,6 @@ private string ObtenerApiKey(int idEmpresa)
             // Verificar la longitud mínima del RUT
             if (string.IsNullOrWhiteSpace(rut) || rut.Length < 8)
             {
-                // Mostrar alerta con Metro UI
-                var metroWindow = Application.Current.MainWindow as MetroWindow;
-                metroWindow?.ShowMessageAsync("Error", "El RUT debe tener al menos 8 caracteres (sin incluir el dígito verificador).");
                 return rut; // Retorna el RUT original o puedes elegir retornar una cadena vacía
             }
 
@@ -771,6 +768,18 @@ private string ObtenerApiKey(int idEmpresa)
         }
 
 
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
 
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
     }
 }

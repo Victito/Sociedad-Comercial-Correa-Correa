@@ -80,6 +80,14 @@
                             <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -264,7 +272,6 @@
                                         <DataGridTextColumn Header="Orden de Compra" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.OrdenCompra}" />
                                         <DataGridTextColumn Header="Condiciones" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Condiciones}" />
                                         <DataGridTextColumn Header="Guía de Despacho" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GuiaDespacho}" />
-                                        <DataGridTextColumn Header="Precio Unitario" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.PrecioUnitario}" />
                                         <DataGridTextColumn Header="Cantidad" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cantidad}" />
                                         <DataGridTextColumn Header="Total" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Total}" />
                                         <DataGridTextColumn Header="Estado" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Estado}" />
@@ -281,6 +288,11 @@
                                 <!-- Espacio entre botones -->
                                 <Button Content="Actualizar Factura Seleccionada" 
                                         Click="ActualizarFacturaSeleccionada_Click" 
+                                        
+                                        Style="{StaticResource StyleButtonForm}"
+                                        Margin="10,0,0,0"/>
+                                <Button Content="Ver productos de la Factura Seleccionada" 
+                                        Click="ProductosFacturaSeleccionada_Click" 
                                         
                                         Style="{StaticResource StyleButtonForm}"
                                         Margin="10,0,0,0"/>

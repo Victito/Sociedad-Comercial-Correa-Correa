@@ -76,6 +76,21 @@ namespace SociedadCorreaCorrea.Views
                 this.Close();
             }
         }
+
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWind, int wMsg, int wParam, int lParam);
         private void Ventana_MouseBajo(object sender, MouseButtonEventArgs e)

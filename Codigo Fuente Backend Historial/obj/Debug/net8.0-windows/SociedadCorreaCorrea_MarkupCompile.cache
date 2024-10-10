@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente Backend Historial\obj\Debug\net8.0-windows\
+D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente Backend Historial\obj\Debug\net8.0-windows\
 SociedadCorreaCorrea
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Bestia\source\repos\Sociedad-Comercial-Correa-Correa\Codigo Fuente Backend Historial\App.xaml
-8-871895703
+D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente Backend Historial\App.xaml
+111544002285
 
-301840480286
-299-281162623
-Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\RegistroFacturas.xaml;
+351892192584
+305-1960800933
+Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;
 
 False
 
