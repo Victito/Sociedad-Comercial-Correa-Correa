@@ -42,7 +42,7 @@ namespace SociedadCorreaCorrea.ViewModels
             SelectedTab = 0; // Inicialmente, selecciona el primer tab
         }
 
-        public void AgregarProducto(string codigo, string descripcion, string nSerie, int cantidad, decimal precioUnitario,int Descuento, decimal total)
+        public void AgregarProducto(string codigo, string descripcion, string nSerie, int cantidad, decimal precioUnitario, int Descuento, decimal total)
         {
             var producto = new Producto
             {
@@ -56,12 +56,6 @@ namespace SociedadCorreaCorrea.ViewModels
             };
             Productos.Add(producto);
 
-            // Crear un mensaje que contenga todos los productos
-            string mensaje = "Productos:\n" + string.Join("\n", Productos.Select(p =>
-                $"Código: {p.CodigoProducto}, Descripción: {p.Descripcion}, N. Serie: {p.NSerie}, Cantidad: {p.Cantidad}, Precio Unitario: {p.PrecioUnitario}, Total: {p.Total}"));
-
-            // Mostrar el mensaje en un MessageBox
-            MessageBox.Show(mensaje, "Lista de Productos", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public void EliminarProducto(Producto producto)
@@ -70,6 +64,12 @@ namespace SociedadCorreaCorrea.ViewModels
             {
                 Productos.Remove(producto);
             }
+        }
+
+        // Método para vaciar toda la lista de productos
+        public void VaciarProductos()
+        {
+            Productos.Clear();
         }
 
         private void CargarSucursales()
@@ -84,7 +84,9 @@ namespace SociedadCorreaCorrea.ViewModels
                 Sucursales = new ObservableCollection<Sucursal>(sucursalesFiltradas);
             }
         }
-
+        private string _rutVendedor;
+        private string _giroVendedor;
+        private string _razonsocialVendedor;
         private string _razonSocial;
         private string _rutEmisor;
         private string _giro;
@@ -125,11 +127,35 @@ namespace SociedadCorreaCorrea.ViewModels
                 }
             }
         }
+        public string GiroVendedor
+        {
+            get => _giroVendedor;
+            set { _giroVendedor= value; OnPropertyChanged(); }
+        }
+
+        public string RutVendedor
+        {
+            get => _rutVendedor;
+            set { _rutVendedor = value; OnPropertyChanged(); }
+        }
+
+        public string RazonSocialVendedor
+        {
+            get => _razonsocialVendedor;
+            set { _razonsocialVendedor = value; OnPropertyChanged(); }
+        }
 
         public string RazonSocial
         {
             get => _razonSocial;
-            set { _razonSocial = value; OnPropertyChanged(); }
+            set
+            {
+                if (_razonSocial != value)
+                {
+                    _razonSocial = value;
+                    OnPropertyChanged(nameof(RazonSocial));
+                }
+            }
         }
 
         public string RutEmisor
@@ -360,6 +386,17 @@ namespace SociedadCorreaCorrea.ViewModels
                     if (string.IsNullOrWhiteSpace(Ciudad))
                         mensajesErrores.Add("El campo 'Ciudad' no puede estar vacío.");
 
+                    if (string.IsNullOrWhiteSpace(GiroVendedor))
+                        mensajesErrores.Add("El campo 'Giro Vendedor' no puede estar vacío.");
+
+                    if (string.IsNullOrWhiteSpace(RutVendedor))
+                        mensajesErrores.Add("El campo 'RUT del vendedor' no puede estar vacío.");
+                    else if (!ValidarRut(RutVendedor))
+                        mensajesErrores.Add("El RUT ingresado no existe! Intente con otro nuevamente.");
+
+                    if (string.IsNullOrWhiteSpace(RazonSocialVendedor))
+                        mensajesErrores.Add("El campo 'Razon social del vendedor' no puede estar vacío.");
+
                     if (string.IsNullOrWhiteSpace(EntregarEn))
                         mensajesErrores.Add("El campo 'Entregar En' no puede estar vacío.");
 
@@ -448,7 +485,10 @@ namespace SociedadCorreaCorrea.ViewModels
                         PrecioUnitario = totalPrecioUnitario,
                         Cantidad = totalCantidad,
                         Total = totalFactura,
-                        Estado = Estado
+                        Estado = Estado,
+                        RutVendedor = RutVendedor,
+                        GiroVendedor = GiroVendedor,
+                        RazonSocialVendedor = RazonSocialVendedor
                     };
 
                     context.Facturas.Add(nuevaFactura);
@@ -500,12 +540,22 @@ namespace SociedadCorreaCorrea.ViewModels
                 catch (DbUpdateException dbEx)
                 {
                     // Manejo de errores relacionados con la base de datos
-                    await _window.ShowMessageAsync("Error de base de datos", "Ocurrió un error al guardar los datos: " + dbEx.Message);
+                    var mensajeError = $"Ocurrió un error al guardar los datos: {dbEx.Message}";
+                    if (dbEx.InnerException != null)
+                    {
+                        mensajeError += $"\nDetalles: {dbEx.InnerException.Message}";
+                    }
+                    await _window.ShowMessageAsync("Error de base de datos", mensajeError);
                 }
                 catch (Exception ex)
                 {
                     // Manejo de cualquier otro tipo de error
-                    await _window.ShowMessageAsync("Error inesperado", "Ocurrió un error inesperado: " + ex.Message);
+                    var mensajeError = $"Ocurrió un error inesperado: {ex.Message}";
+                    if (ex.InnerException != null)
+                    {
+                        mensajeError += $"\nDetalles: {ex.InnerException.Message}";
+                    }
+                    await _window.ShowMessageAsync("Error inesperado", mensajeError);
                 }
             }
         }

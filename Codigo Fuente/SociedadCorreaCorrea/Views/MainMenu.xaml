@@ -48,11 +48,9 @@
                     Grid.Column="0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
-                        <GradientStop Color="#007AFF" Offset="0">
-                        </GradientStop>
-                        <GradientStop Color="#3393DF" Offset="1">
-                        </GradientStop></LinearGradientBrush>
-                    
+                        <GradientStop Color="#023E8A" Offset="0" />
+                        <GradientStop Color="#045DE9" Offset="1" />
+                    </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel>
                     <!--Logo-->
@@ -78,6 +76,24 @@
                             <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}">
                         <StackPanel Orientation="Horizontal">
@@ -105,12 +121,9 @@
                     Grid.Column="1">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                        <GradientStop Color="#076CF6" Offset="0">
-                        </GradientStop>
-                        <GradientStop Color="#077CF6" Offset="1">
-                        </GradientStop>
+                        <GradientStop Color="#045DE9" Offset="0" />
+                        <GradientStop Color="#09C6F9" Offset="0.7" />
                     </LinearGradientBrush>
-
                 </Border.Background>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -128,38 +141,27 @@
                                 MouseLeftButtonDown="Ventana_MouseBajo"
                                 MouseEnter="panelControl_MouseEnter">
 
-                        <Button x:Name="btnCerrar"
-        BorderThickness="0"
-        Content="x"
-        Foreground="White"
-        FontSize="16"
-        FontFamily="Montserrat"
-        Cursor="Hand"
-        Grid.Column="2" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Width="25"
-        Click="btnCerrar_Click"
-       >
-                            <!-- Definición de estilo del botón -->
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="Red" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#FFA500" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <!-- Plantilla personalizada del botón -->
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="18" Height="18"
-                                            CornerRadius="9"
-                                            Background="{TemplateBinding Background}">  
-                                        <ContentPresenter VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                        <Button x:Name="btnClose"
+        Style="{StaticResource controlButton}"
+        Tag="{StaticResource color4}"
+        Click="btnCerrar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowClose" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Maximizar -->
+                        <Button x:Name="btnMaximizar"
+        Style="{StaticResource controlButton}"
+        Tag="{StaticResource color4}"
+        Click="btnMaximizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Minimizar -->
+                        <Button x:Name="btnMinimizar"
+        Style="{StaticResource controlButton}"
+        Tag="{StaticResource color4}"
+        Click="btnMinimizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                         </Button>
 
                     </StackPanel>

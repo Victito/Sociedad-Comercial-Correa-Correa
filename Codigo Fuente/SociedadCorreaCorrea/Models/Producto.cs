@@ -28,5 +28,4 @@ public partial class Producto
     public int IdEmpresa { get; set; }
 
     public virtual Factura IdFacturaNavigation { get; set; } = null!;
-
 }

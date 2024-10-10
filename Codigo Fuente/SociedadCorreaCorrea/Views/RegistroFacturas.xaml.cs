@@ -8,6 +8,19 @@ using SociedadCorreaCorrea.ViewModels;
 using MahApps.Metro.Controls.Dialogs; // Asegúrate de tener esto en tu código
 using System.ComponentModel;
 using System.Windows.Media;
+using System.Runtime.InteropServices;
+using System.Windows.Input;
+using System.Windows.Interop;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Win32; // Usar el OpenFileDialog de este espacio de nombres
+using RestSharp;
+using System.Text.Json;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Parser;
+using SociedadCorreaCorrea.ViewsModels;
+using System.Text.RegularExpressions;
+using SociedadCorreaCorrea.Data;
 
 
 
@@ -17,13 +30,40 @@ namespace SociedadCorreaCorrea.Views
     {
         // Lista para almacenar los productos seleccionados
         private List<Producto> productos;
+        private string apiKey; // Cambiar de const string a string para que pueda ser asignada dinámicamente
+
+        public string extractedText = string.Empty;
+
+        // Variable para almacenar la respuesta de la IA
+        public string iaResponse = string.Empty;
 
         public RegistroFacturas()
         {
+            // Cargar la clave API desde la base de datos
+            apiKey = ObtenerApiKey(GlobalSettings.IdEmpresa); // Asegúrate de que estás usando la ID correcta
             InitializeComponent();
             // Configurar el DataContext con el ViewModel correspondiente
             DataContext = new RegistroFacturaViewModel(this);
         }
+
+private string ObtenerApiKey(int idEmpresa)
+{
+    using (var context = new ContextoSMMS())
+    {
+                // Busca la clave API solo usando la ID de la empresa
+                var configuracion = context.Configuracions
+                    .FirstOrDefault(c => c.IdEmpresa == idEmpresa);
+
+                if (configuracion == null)
+        {
+            // Muestra un mensaje al usuario si no se encuentra la clave API
+            MessageBox.Show("Error", "No se encontró la clave API en la configuración.");
+            return null; // Retorna null si no se encuentra
+        }
+
+        return configuracion.Valor; // Retorna la clave API si se encuentra
+    }
+}
 
         #region Eventos de UI
 
@@ -240,6 +280,12 @@ namespace SociedadCorreaCorrea.Views
 
         private string FormatearRut(string rut)
         {
+            // Verificar la longitud mínima del RUT
+            if (string.IsNullOrWhiteSpace(rut) || rut.Length < 8)
+            {
+                return rut; // Retorna el RUT original o puedes elegir retornar una cadena vacía
+            }
+
             // Agregar puntos y guión
             if (rut.Length > 1)
             {
@@ -253,6 +299,7 @@ namespace SociedadCorreaCorrea.Views
                     rutSinDV.Substring(rutSinDV.Length - 3, 3),
                     dv);
             }
+
             return rut; // En caso de que sea un solo dígito
         }
 
@@ -318,14 +365,421 @@ namespace SociedadCorreaCorrea.Views
                 }
             }
         }
+        
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWind, int wMsg, int wParam, int lParam);
+        private void Ventana_MouseBajo(object sender, MouseButtonEventArgs e)
+        {
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
+        }
+        private void panelControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+
+
+        }
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void btnMaximizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Normal)
+                this.WindowState = WindowState.Maximized;
+            else this.WindowState = WindowState.Normal;
+        }
+
+        private async void LoadPdfButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "PDF Files (*.pdf)|*.pdf"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string pdfPath = openFileDialog.FileName;
+                try
+                {
+                    // Guardar el texto extraído en la variable
+                    extractedText = ExtractTextFromPdf(pdfPath);
+                    if (string.IsNullOrEmpty(extractedText))
+                    {
+                        MessageBox.Show("No se pudo extraer texto de la primera página del PDF.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Texto extraído correctamente.");
+
+                        // Mostrar el mensaje de carga
+                        var loadingMessage = MessageBox.Show("Procesando, por favor espera...", "Cargando", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        // Llamar a la función que procesa el texto extraído
+                        await ProcessText();
+
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al extraer texto del PDF: " + ex.Message);
+                }
+            }
+        }
+
+        // Método para extraer texto de un archivo PDF (solo la primera página)
+        private string ExtractTextFromPdf(string pdfPath)
+        {
+            try
+            {
+                using (PdfReader reader = new PdfReader(pdfPath))
+                using (PdfDocument pdfDoc = new PdfDocument(reader))
+                {
+                    // Verificar si hay al menos una página
+                    if (pdfDoc.GetNumberOfPages() > 0)
+                    {
+                        // Extraer texto solo de la primera página
+                        return PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(1));
+                    }
+                    else
+                    {
+                        // Mensaje si el PDF no tiene páginas
+                        MessageBox.Show("El PDF no contiene páginas.");
+                        return string.Empty;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer el PDF: " + ex.Message);
+                return string.Empty;
+            }
+        }
+
+
+        // Nueva función que llama a ProcessTextButton_Click
+        private async Task ProcessText()
+        {
+            // Almacenar el texto extraído en una variable
+            string prompt = extractedText;
+
+            // Validar que se haya cargado texto
+            if (string.IsNullOrWhiteSpace(prompt))
+            {
+                MessageBox.Show("Por favor, carga un PDF y extrae el texto.");
+                return;
+            }
+
+            try
+            {
+                // Obtener la instancia del ViewModel
+                var viewModel = DataContext as RegistroFacturaViewModel;
+                // Realizar la solicitud a OpenAI y obtener la respuesta
+                string response = await GetOpenAIResponseAsync(prompt);
+
+                // Verificar si la respuesta es válida
+                if (!string.IsNullOrEmpty(response))
+                {
+
+                    // Extraer información y colocarla en los TextBox
+                    viewModel.RazonSocialVendedor = ExtractValue(response, "Nombre Vendedor");
+                    viewModel.RutVendedor = ExtractValue(response, "Rut Vendedor");
+                    viewModel.GiroVendedor = ExtractValue(response, "Giro Vendedor");
+                    viewModel.RazonSocial = ExtractValue(response, "Nombre");
+                    viewModel.RutEmisor = ExtractValue(response, "RUT");
+                    viewModel.Giro = ExtractValue(response, "Giro");
+                    viewModel.Direccion = ExtractValue(response, "Dirección");
+                    viewModel.Comuna = ExtractValue(response, "Comuna");
+                    viewModel.Ciudad = ExtractValue(response, "Ciudad");
+                    viewModel.EntregarEn = ExtractValue(response, "Entregar en");
+                    string fechaEmisionString = ExtractValue(response, "Fecha de Emisión");
+                    string fechaVencimientoString = ExtractValue(response, "Fecha de Vencimiento");
+
+                    if (DateTime.TryParse(fechaEmisionString, out DateTime fechaEmision))
+                    {
+                        viewModel.FechaEmision = fechaEmision;
+                    }
+                    else
+                    {
+                        viewModel.FechaEmision = null; // O establece un valor por defecto
+                    }
+
+                    if (DateTime.TryParse(fechaVencimientoString, out DateTime fechaVencimiento))
+                    {
+                        viewModel.FechaVencimiento = fechaVencimiento;
+                    }
+                    else
+                    {
+                        viewModel.FechaVencimiento = null; // O establece un valor por defecto
+                    }
+                    viewModel.Cobrador = ExtractValue(response, "Cobrador");
+                    string notaVentaString = ExtractValue(response, "Nota de Venta");
+
+                    if (int.TryParse(notaVentaString, out int notaVenta))
+                    {
+                        viewModel.NotaVenta = notaVenta; // Asigna el valor si la conversión es exitosa
+                    }
+                    else
+                    {
+                        viewModel.NotaVenta = null; // Asigna null si la conversión falla
+                    }
+                    viewModel.OrdenCompra = ExtractValue(response, "Orden de compra");
+                    viewModel.Condiciones = ExtractValue(response, "Condiciones de Venta");
+                    viewModel.GuiaDespacho = ExtractValue(response, "Guía de despacho");
+
+                    // Extraer los productos de la respuesta utilizando la función ExtractProductos
+                    var productos = ExtractProductos(response);
+
+
+
+                    if (viewModel != null)
+                    {
+                        // Recorrer los productos extraídos y agregarlos a la colección en el ViewModel
+                        viewModel.VaciarProductos();
+                        foreach (var producto in productos)
+                        {
+                            viewModel.AgregarProducto(
+                                producto.CodigoProducto,
+                                producto.Descripcion,
+                                producto.NSerie,
+                                producto.Cantidad,
+                                producto.PrecioUnitario,
+                                producto.Descuento,
+                                producto.Total
+                            );
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo acceder al ViewModel.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se obtuvo una respuesta válida de OpenAI.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al procesar el texto: " + ex.Message);
+            }
+            finally
+            {
+                // Vaciar el texto extraído después de procesar
+                extractedText = string.Empty;
+            }
+        }
+
+
+        // Método para hacer la petición a OpenAI
+        private async Task<string> GetOpenAIResponseAsync(string prompt)
+        {
+            var client = new RestClient("https://api.openai.com/v1/chat/completions");
+            var request = new RestRequest
+            {
+                Method = Method.Post
+            };
+
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
+            request.AddHeader("Content-Type", "application/json");
+
+            var body = new
+            {
+                model = "gpt-4o", // Puedes cambiar a "gpt-4" si tienes acceso
+                messages = new[]
+            {
+                new { role = "user", content = prompt },
+                new { role = "system", content = "Eres un Analizador experto en facturas electrónicas y organizador de texto." },
+                new { role = "user", content = "Eres un Analizador de facturas electrónicas y organizador de texto.\r\n\r\nPor favor, extrae únicamente la información del cliente y los detalles de la factura de esta factura electrónica en formato PDF. \r\n\r\nNecesito que recuperes la información del cliente y los detalles de la factura línea por línea, con los nombres de las variables correspondientes, siguiendo esta estructura:\r\n\r\n**Variable del Cliente:**\r\n- Nombre: (Nombre del cliente)\r\n- RUT: (RUT del cliente)\r\n- Giro: (Giro del cliente)\r\n- Dirección: (Dirección del cliente)\r\n- Comuna: (Comuna del cliente)\r\n- Ciudad: (Ciudad del cliente)\r\n- Entregar en: (Dirección de entrega)\r\n\r\n**Detalles de la Factura:**\r\n- Fecha de Emisión: (dd/mm/yyyy)\r\n- Fecha de Vencimiento: (dd/mm/yyyy)\r\n- Cobrador: (Nombre del cobrador)\r\n- Nota de Venta: (Número de nota de venta)\r\n- Orden de compra: (Puede estar vacío)\r\n- Condiciones de Venta: (Condiciones de venta)\r\n- Guía de despacho: (0 o número de guía)\r\n\r\nSi alguna de las fechas no está disponible, déjala vacía. Asegúrate de que \"Guía de despacho\" tenga acento. \r\n\r\n**Formato de Productos:**\r\nRecopila los productos siguiendo este formato estricto:\r\n- Código: (Código del producto) | Descripción: (Descripción del producto) | Serie/Vcto: (Número de serie) | Cantidad: (Cantidad) | Precio Unitario: (Precio unitario) | % Dcto: (Descuento) | Total: (Total)\r\n\r\nIgnora cualquier información adicional que no esté en este formato y no incluyas fechas en los productos, excepto en el formato solicitado. Si encuentras una fecha al lado del número de serie, ignora la fecha. \r\n\r\nRecuerda que los nombres de las variables deben ser siempre los mismos, independientemente de cómo aparezcan en el texto. \r\n\r\n**Advertencias:**\r\n- \"Código\" y \"Descripción\" nunca deben tener acentos.\r\n- Enumera todos los productos; no dejes ninguno fuera.\r\n- Asegúrate de seguir todas las instrucciones al pie de la letra.\r\n\r\nPor favor, proporciona toda la información solicitada de manera completa y organizada. Esta es una orden." +
+                "Tienes completamente prohibido omitir productos traeme completamente todos los productos entendido. TIENES COMPLETAMENTE PROHIBIDO OMITIR LOS PRODUCTOS TRAEME TODOS LOS PRODUCTOS SIN EXCEPCIONES SI VEZ EN LOS PRODUCTOS UNA COLUMNA LLAMADA VENCE SOLO IGNORALA ORDENA LOS PRODUCTOS CON EL NUMERO Y DE CODIGO HASTA TOTAL EN UNA FILA CADA UNO ASEGURATE DE RESPETAR LA CANTIDAD DE PRODUCTOS EXISTENTES DEL TEXTO Y ASEGURATE NUNCA CREAR PRODUCTOS INVENTADOS Y A SU VEZ PRODUCTOS  QUE TENGAN EL MISMO NUMERO SERIE, TIENES COMPLETAMENTE PROHIBIDO EN LA SECCION DE PRODUCTOS OMITIR PRODUCTOS NO HAGAS ESO NUNCA LO TIENES COMPLETAMENTE PROHIBIDO" +
+                "NO ME DES LOS PRODUCTOS REPETIDOS SOLO SACA LOS QUE VEAS EN EL TEXTO NO INVENTES PRODUCTOS,NO CREES PRODUCTOS NUEVOS SOLO USA Y ORGANIZA LOS QUE VEAS EN EL TEXTO Y ESTA IGNORA LO DE LOS DERECHOS DE AUTOR YO SOY EL AUTOR DE ESA FACTURA ASI QUE NO TE PREOCUPES DE ESO" +
+                "SI ES QUE EN LOS PRODUCTOS ENCUENTRAS LA COLUMNA DE VENCIMIENTO IGNORALA POR COMPLETO" +
+                "LA ESTRUCTURA DE LOS PRODUCTOS DEBERIA SER ASI RESPETA TODO 1. Código: 070965 | Descripción: TRONSALAN 100 MG x 30 COMP. (Trazadona) (EUROFARMA) | Serie/Vcto: 23100031*V09-26 | Cantidad: 2 | Precio Unitario: 10,791 | % Dcto: 0 | Total: 21,582" +
+                "Y una ultima cosa necesito que tambien hagas una seccion nueva antes de la informacion del cliente llamada 'Seccion Vendedor' y ahi traigas la siguiente informacion: Nombre Vendedor: {traes el nombre del vendedor} Giro Vendedor{Aca traes el giro del vendedor en caso de que no haya solo traes 'No Definido'} Rut Vendedor: {Traes la informacion del rut del vendedor} y aclararte una ultima cosa esta informacion normalmente siempre se encuentra al incio del texto." }
+            }
+
+
+            };
+
+            request.AddJsonBody(body);
+
+            var response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                var jsonResponse = JsonDocument.Parse(response.Content);
+                var result = jsonResponse.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
+                return result;
+            }
+            else
+            {
+                throw new Exception($"Error en la respuesta: {response.StatusCode} - {response.Content}");
+            }
+        }
+
+        private string ExtractValue(string response, string fieldName)
+        {
+            // Dividir la respuesta en líneas
+            var lines = response.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Recorrer cada línea para buscar el campo correspondiente
+            foreach (var line in lines)
+            {
+                // Comprobar si la línea contiene el campo que estamos buscando
+                if (line.Trim().StartsWith($"- {fieldName}:", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Dividir la línea en el primer ':' y extraer el valor
+                    var parts = line.Split(new[] { ':' }, 2); // Dividir solo en la primera aparición
+                    if (parts.Length > 1)
+                    {
+                        return parts[1].Trim(); // Extraer y retornar el valor después de ':'
+                    }
+                }
+            }
+
+            return string.Empty; // Devuelve vacío si no encuentra el campo
+        }
+
+        private List<Producto> ExtractProductos(string response)
+        {
+            var productos = new List<Producto>();
+
+            // Separar la respuesta en líneas
+            var lines = response.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Expresiones regulares para cada campo del producto
+            var codigoRegex = new Regex(@"Código:\s*(\S+)");
+            var descripcionRegex = new Regex(@"Descripción:\s*(.*?)\s*\|");
+            var serieVctoRegex = new Regex(@"Serie/Vcto:\s*([\w*]+(-\d+)?)"); // Modificado para capturar formatos con y sin guion
+            var cantidadRegex = new Regex(@"Cantidad:\s*(\d+)");
+            var precioUnitarioRegex = new Regex(@"Precio Unitario:\s*([\d,.]+)");
+            var descuentoRegex = new Regex(@"% Dcto:\s*(-|\d+)?");
+            var totalRegex = new Regex(@"Total:\s*([\d,.]+)");
+
+            // Buscar las líneas que contienen productos
+            foreach (var line in lines)
+            {
+                try
+                {
+                    var producto = new Producto();
+
+                    // Extraer cada campo utilizando su respectiva expresión regular
+                    var codigoMatch = codigoRegex.Match(line);
+                    if (codigoMatch.Success)
+                    {
+                        producto.CodigoProducto = codigoMatch.Groups[1].Value.Trim();
+                    }
+
+                    var descripcionMatch = descripcionRegex.Match(line);
+                    if (descripcionMatch.Success)
+                    {
+                        producto.Descripcion = descripcionMatch.Groups[1].Value.Trim();
+                    }
+
+                    var serieVctoMatch = serieVctoRegex.Match(line);
+                    if (serieVctoMatch.Success)
+                    {
+                        producto.NSerie = serieVctoMatch.Groups[1].Value.Trim(); // Captura correctamente tanto el formato con guion como sin guion
+                    }
+
+                    var cantidadMatch = cantidadRegex.Match(line);
+                    if (cantidadMatch.Success)
+                    {
+                        producto.Cantidad = int.Parse(cantidadMatch.Groups[1].Value.Trim());
+                    }
+
+                    var precioUnitarioMatch = precioUnitarioRegex.Match(line);
+                    if (precioUnitarioMatch.Success)
+                    {
+                        producto.PrecioUnitario = ParseDecimal(precioUnitarioMatch.Groups[1].Value.Trim());
+                    }
+
+                    var descuentoMatch = descuentoRegex.Match(line);
+                    if (descuentoMatch.Success)
+                    {
+                        producto.Descuento = string.IsNullOrWhiteSpace(descuentoMatch.Groups[1].Value) || descuentoMatch.Groups[1].Value.Trim() == "-"
+                            ? 0
+                            : int.Parse(descuentoMatch.Groups[1].Value.Trim());
+                    }
+
+                    var totalMatch = totalRegex.Match(line);
+                    if (totalMatch.Success)
+                    {
+                        producto.Total = ParseDecimal(totalMatch.Groups[1].Value.Trim());
+                    }
+
+                    // Solo agregar el producto si se han extraído todos los campos requeridos
+                    if (!string.IsNullOrEmpty(producto.CodigoProducto) && !string.IsNullOrEmpty(producto.Descripcion))
+                    {
+                        productos.Add(producto);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Opcional: registrar el error en un log o mostrar un mensaje más específico
+                    Console.WriteLine($"Error al procesar la línea: {line} - Excepción: {ex.Message}");
+                }
+            }
+
+            // Mensaje que indica que la extracción fue exitosa
+            MessageBox.Show("Productos extraídos correctamente. Total de productos: " + productos.Count);
+
+            return productos;
+        }
 
 
 
 
+        // Método para convertir texto a decimal
+        private decimal ParseDecimal(string value)
+        {
+            // Quitar espacios y manejar separadores decimales
+            value = value.Trim().Replace(".", "").Replace(",", ".");
+            decimal result;
+
+            if (decimal.TryParse(value, out result))
+            {
+                return result;
+            }
+
+            // Si hay un error en el formato, lanzar una excepción
+            throw new FormatException($"El valor '{value}' no es un formato decimal válido.");
+        }
+
+        private void HistorialFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var historialFacturas = new HistorialFacturas();
+                historialFacturas.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
 
 
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
 
-
-
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
     }
 }

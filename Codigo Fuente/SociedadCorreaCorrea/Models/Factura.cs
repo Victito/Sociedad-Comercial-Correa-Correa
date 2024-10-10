@@ -49,9 +49,15 @@ public partial class Factura
 
     public string? Estado { get; set; }
 
+    public string? RutVendedor { get; set; }
+
+    public string? GiroVendedor { get; set; }
+
+    public string? RazonSocialVendedor { get; set; }
+
     public virtual ICollection<Acuse> Acuses { get; set; } = new List<Acuse>();
 
     public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
 
-    public virtual ICollection<Producto> Productos { get; set; } = new HashSet<Producto>();
+    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
 }

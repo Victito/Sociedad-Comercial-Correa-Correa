@@ -9,6 +9,8 @@ public partial class Empresa
 
     public string NombreEmpresa { get; set; } = null!;
 
+    public virtual ICollection<Configuracion> Configuracions { get; set; } = new List<Configuracion>();
+
     public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
 
     public virtual ICollection<Sucursal> Sucursals { get; set; } = new List<Sucursal>();
