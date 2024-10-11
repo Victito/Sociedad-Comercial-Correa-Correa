@@ -154,6 +154,20 @@ namespace SociedadCorreaCorrea.Views
             }
         }
 
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+
 
     }
 }

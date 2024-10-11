@@ -10,7 +10,13 @@
     <Compile Update="Views\ActualizarFacturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ActualizarProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HistorialFacturas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductoFacturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\RegistroFacturas.xaml.cs">
@@ -27,6 +33,12 @@
     <Page Update="Views\ActualizarFacturas.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ActualizarProductos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GraficosFacturas.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\HistorialFacturas.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -34,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductoFacturas.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RegistroFacturas.xaml">

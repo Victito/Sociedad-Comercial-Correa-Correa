@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:resources\\styles\\estiloboton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\historialfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\historialfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\historialfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\graficosfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\graficosfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\productofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\productofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\graficosfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\graficosfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\actualizarproductos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\actualizarproductos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\registrofacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\views\\mainmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\mainmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|c:\\users\\bestia\\source\\repos\\sociedad-comercial-correa-correa\\codigo fuente backend historial\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "HistorialFacturas.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml",
               "RelativeDocumentMoniker": "Views\\HistorialFacturas.xaml",
@@ -38,7 +66,8 @@
               "RelativeToolTip": "Views\\HistorialFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-10-08T18:42:04.76Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -50,37 +79,123 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "HistorialFacturas.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\HistorialFacturas.xaml.cs",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\HistorialFacturas.xaml.cs",
+              "RelativeToolTip": "Views\\HistorialFacturas.xaml.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAqwE8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:33:12.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GraficosFacturas.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\GraficosFacturas.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\GraficosFacturas.xaml.cs",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\GraficosFacturas.xaml.cs",
+              "RelativeToolTip": "Views\\GraficosFacturas.xaml.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAhwGIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:31:21.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GraficosFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\GraficosFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\GraficosFacturas.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\GraficosFacturas.xaml",
+              "RelativeToolTip": "Views\\GraficosFacturas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-10T04:36:51.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductoFacturas.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ProductoFacturas.xaml",
+              "RelativeDocumentMoniker": "Views\\ProductoFacturas.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ProductoFacturas.xaml",
+              "RelativeToolTip": "Views\\ProductoFacturas.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-10T04:36:33.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainMenu.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\MainMenu.xaml",
+              "RelativeDocumentMoniker": "Views\\MainMenu.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\MainMenu.xaml",
+              "RelativeToolTip": "Views\\MainMenu.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-10T04:33:42.439Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ActualizarProductos.xaml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarProductos.xaml",
+              "RelativeDocumentMoniker": "Views\\ActualizarProductos.xaml",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarProductos.xaml",
+              "RelativeToolTip": "Views\\ActualizarProductos.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-10T04:10:58.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "RegistroFacturas.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\RegistroFacturas.xaml",
               "RelativeDocumentMoniker": "Views\\RegistroFacturas.xaml",
               "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\RegistroFacturas.xaml",
               "RelativeToolTip": "Views\\RegistroFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-08T19:00:56.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T04:11:53.849Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\app.config",
+              "RelativeDocumentMoniker": "app.config",
+              "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\app.config",
+              "RelativeToolTip": "app.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-10T04:07:33.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "estiloboton.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Resources\\Styles\\estiloboton.xaml",
               "RelativeDocumentMoniker": "Resources\\Styles\\estiloboton.xaml",
               "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Resources\\Styles\\estiloboton.xaml",
               "RelativeToolTip": "Resources\\Styles\\estiloboton.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-08T19:01:32.22Z"
+              "WhenOpened": "2024-10-08T19:01:32.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "ActualizarFacturas.xaml",
               "DocumentMoniker": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
               "RelativeDocumentMoniker": "Views\\ActualizarFacturas.xaml",
               "ToolTip": "C:\\Users\\Bestia\\source\\repos\\Sociedad-Comercial-Correa-Correa\\Codigo Fuente Backend Historial\\Views\\ActualizarFacturas.xaml",
               "RelativeToolTip": "Views\\ActualizarFacturas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-08T01:04:35.744Z"
+              "WhenOpened": "2024-10-08T01:04:35.744Z",
+              "EditorCaption": ""
             }
           ]
         }

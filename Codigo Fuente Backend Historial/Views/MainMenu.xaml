@@ -84,6 +84,16 @@
                             <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}">
                         <StackPanel Orientation="Horizontal">

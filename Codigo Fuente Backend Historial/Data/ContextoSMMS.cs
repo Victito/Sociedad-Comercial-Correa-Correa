@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using SociedadCorreaCorrea.Models;
 using System.Configuration;
+
 namespace SociedadCorreaCorrea.Data;
 
 public partial class ContextoSMMS : DbContext
