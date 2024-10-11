@@ -83,8 +83,8 @@
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource color1}">
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
@@ -160,7 +160,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline"
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline"
                                                         Height="20" 
                                                         Width="20" 
                                                         Foreground="{StaticResource titleColor2}" 
@@ -195,87 +195,98 @@
                     </Grid>
 
                     <ContentControl Grid.Row="2" Margin="20">
-                        <StackPanel Orientation="Vertical" Margin="10">
-                            <!-- Filtros de Proveedor, Fecha y Botón -->
-                            <Button Content="Guardar Gráficos en PDF" Click="GuardarGraficosEnPDF" Width="200" Height="50" />
-                            <StackPanel Orientation="Horizontal" Margin="10">
-                                <StackPanel Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Proveedor:" Margin="0,0,0,5"/>
-                                    <ComboBox ItemsSource="{Binding Proveedores}" SelectedItem="{Binding FiltroProveedor}" Width="150"/>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Filtros de Proveedor, Fecha y Botón (Fila 0, Columna 0 y 1 con colspan para expandirse) -->
+                                <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 0, 0, 20">
+                                    <StackPanel Orientation="Vertical" Margin="10">
+                                        <TextBlock Text="Proveedor:" Margin="0,0,0,5" FontWeight="Bold" />
+                                        <ComboBox ItemsSource="{Binding Proveedores}" SelectedItem="{Binding FiltroProveedor}" Width="150" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Margin="10">
+                                        <TextBlock Text="Fecha Inicio:" Margin="0,0,0,5" FontWeight="Bold" />
+                                        <DatePicker SelectedDate="{Binding FechaInicio}" Width="150" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Margin="10">
+                                        <TextBlock Text="Fecha Fin:" Margin="0,0,0,5" FontWeight="Bold" />
+                                        <DatePicker SelectedDate="{Binding FechaFin}" Width="150" />
+                                    </StackPanel>
+
+                                    <Button Command="{Binding FiltrarCommand}" Content="Aplicar Filtros" Width="150" Height="40" Margin="10,0,10,0" />
+                                    <Button Content="Guardar Gráficos en PDF" Click="GuardarGraficosEnPDF" Width="200" Height="40" Margin="10,0,10,0" />
                                 </StackPanel>
 
-                                <StackPanel Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Fecha Inicio:" Margin="0,0,0,5"/>
-                                    <DatePicker SelectedDate="{Binding FechaInicio}" Width="150"/>
+                                <!-- Gráfico: Total Facturado por Proveedor (Columna 0, Fila 1) -->
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                    <lvc:CartesianChart x:Name="CartesianChartTotalPorProveedor" Series="{Binding SeriesTotalPorProveedor}" LegendLocation="Right" Width="500" Height="300">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Proveedores" Labels="{Binding LabelsProveedores}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Total Facturado ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Text="Total Facturado por Proveedor" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10" />
                                 </StackPanel>
 
-                                <StackPanel Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Fecha Fin:" Margin="0,0,0,5"/>
-                                    <DatePicker SelectedDate="{Binding FechaFin}" Width="150"/>
+                                <!-- Gráfico: Facturación Mensual Acumulada (Columna 1, Fila 1) -->
+                                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                    <lvc:CartesianChart x:Name="CartesianChartFacturacionMensual" Series="{Binding SeriesFacturacionMensual}" LegendLocation="Right" Width="500" Height="300">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Meses" Labels="{Binding LabelsMeses}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Facturación ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Text="Facturación Mensual Acumulada" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10" />
                                 </StackPanel>
 
-                                <Button Command="{Binding FiltrarCommand}" Content="Aplicar Filtros" Width="120" Margin="5"/>
-                            </StackPanel>
+                                <!-- Gráfico: Cantidad de Facturas por Categoría (Columna 0, Fila 2) -->
+                                <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                    <lvc:CartesianChart x:Name="CartesianChartFacturasPorCategoria" Series="{Binding SeriesFacturasPorCategoria}" LegendLocation="Right" Width="500" Height="300">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Categoría de Servicio" Labels="{Binding LabelsCategorias}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Cantidad" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Text="Cantidad de Facturas por Categoría" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10" />
+                                </StackPanel>
 
-                            <!-- Gráfico: Total Facturado por Proveedor -->
-                            <StackPanel Margin="10">
-                                <lvc:CartesianChart x:Name="CartesianChartTotalPorProveedor" Series="{Binding SeriesTotalPorProveedor}" LegendLocation="Right" Width="500" Height="300">
-                                    <lvc:CartesianChart.AxisX>
-                                        <lvc:Axis Title="Proveedores" Labels="{Binding LabelsProveedores}"/>
-                                    </lvc:CartesianChart.AxisX>
-                                    <lvc:CartesianChart.AxisY>
-                                        <lvc:Axis Title="Total Facturado ($)" LabelFormatter="{Binding Formatter}"/>
-                                    </lvc:CartesianChart.AxisY>
-                                </lvc:CartesianChart>
-                                <TextBlock Text="Total Facturado por Proveedor" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5"/>
-                            </StackPanel>
-
-                            <!-- Gráfico: Distribución por Estado de Facturas -->
-                            <StackPanel Margin="10">
-                                <lvc:PieChart x:Name="PieChartFacturasPorEstado" Series="{Binding SeriesFacturasPorEstado}" LegendLocation="Bottom" Width="300" Height="300"/>
-                                <TextBlock Text="Distribución por Estado de Facturas" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5"/>
-                            </StackPanel>
-
-                            <!-- Gráfico: Facturación Mensual Acumulada -->
-                            <StackPanel Margin="10">
-                                <lvc:CartesianChart x:Name="CartesianChartFacturacionMensual" Series="{Binding SeriesFacturacionMensual}" LegendLocation="Right" Width="500" Height="300">
-                                    <lvc:CartesianChart.AxisX>
-                                        <lvc:Axis Title="Meses" Labels="{Binding LabelsMeses}"/>
-                                    </lvc:CartesianChart.AxisX>
-                                    <lvc:CartesianChart.AxisY>
-                                        <lvc:Axis Title="Facturación ($)" LabelFormatter="{Binding Formatter}"/>
-                                    </lvc:CartesianChart.AxisY>
-                                </lvc:CartesianChart>
-                                <TextBlock Text="Facturación Mensual Acumulada" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5"/>
-                            </StackPanel>
-
-                            <!-- Gráfico: Cantidad de Facturas por Categoría -->
-                            <StackPanel Margin="10">
-                                <lvc:CartesianChart x:Name="CartesianChartFacturasPorCategoria" Series="{Binding SeriesFacturasPorCategoria}" LegendLocation="Right" Width="500" Height="300">
-                                    <lvc:CartesianChart.AxisX>
-                                        <lvc:Axis Title="Categoría de Servicio" Labels="{Binding LabelsCategorias}"/>
-                                    </lvc:CartesianChart.AxisX>
-                                    <lvc:CartesianChart.AxisY>
-                                        <lvc:Axis Title="Cantidad" LabelFormatter="{Binding Formatter}"/>
-                                    </lvc:CartesianChart.AxisY>
-                                </lvc:CartesianChart>
-                                <TextBlock Text="Cantidad de Facturas por Categoría" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5"/>
-                            </StackPanel>
-
-                            <!-- Gráfico: Promedio de Facturas por Proveedor -->
-                            <StackPanel Margin="10">
-                                <lvc:CartesianChart x:Name="CartesianChartPromedioPorProveedor" Series="{Binding SeriesPromedioPorProveedor}" LegendLocation="Right" Width="500" Height="300">
-                                    <lvc:CartesianChart.AxisX>
-                                        <lvc:Axis Title="Proveedores" Labels="{Binding LabelsProveedores}"/>
-                                    </lvc:CartesianChart.AxisX>
-                                    <lvc:CartesianChart.AxisY>
-                                        <lvc:Axis Title="Promedio ($)" LabelFormatter="{Binding Formatter}"/>
-                                    </lvc:CartesianChart.AxisY>
-                                </lvc:CartesianChart>
-                                <TextBlock Text="Promedio de Facturas por Proveedor" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5"/>
-                            </StackPanel>
-                        </StackPanel>
+                                <!-- Gráfico: Promedio de Facturas por Proveedor (Columna 1, Fila 2) -->
+                                <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                    <lvc:CartesianChart x:Name="CartesianChartPromedioPorProveedor" Series="{Binding SeriesPromedioPorProveedor}" LegendLocation="Right" Width="500" Height="300">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Title="Proveedores" Labels="{Binding LabelsProveedores}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Title="Promedio ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Text="Promedio de Facturas por Proveedor" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,10" />
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
                     </ContentControl>
+
+
+
+
 
 
 

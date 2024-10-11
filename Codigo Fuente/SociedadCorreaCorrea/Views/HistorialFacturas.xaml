@@ -28,8 +28,8 @@
         <!-- Definición de gradiente del borde -->
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#3393DF" Offset="0" />
-                <GradientStop Color="#007AFF" Offset="1" />
+                <GradientStop Color="#023E8A" Offset="0" />
+                <GradientStop Color="#045DE9" Offset="1" />
             </LinearGradientBrush>
         </Border.BorderBrush>
 
@@ -84,8 +84,8 @@
                              Tag="{StaticResource color1}"
                              PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
@@ -249,7 +249,7 @@
                                           HorizontalAlignment="Stretch" 
                                           IsReadOnly="False" 
                                           CanUserResizeColumns="True" 
-                                          Margin="0" Padding="10" 
+                                          Margin="0" Padding="5" 
                                           SelectionMode="Extended"   
                                           SelectionUnit="FullRow"
                                           Grid.Row="1">
@@ -291,7 +291,7 @@
                                         
                                         Style="{StaticResource StyleButtonForm}"
                                         Margin="10,0,0,0"/>
-                                <Button Content="Ver productos de la Factura Seleccionada" 
+                                <Button Content="Ver productos de Factura" 
                                         Click="ProductosFacturaSeleccionada_Click" 
                                         
                                         Style="{StaticResource StyleButtonForm}"
