@@ -781,5 +781,18 @@ private string ObtenerApiKey(int idEmpresa)
                 this.Close();
             }
         }
+        private void Trabajadores_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Trabajadores = new Trabajadores();
+                Trabajadores.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
     }
 }

@@ -144,7 +144,7 @@
                             Grid.Row="1"
                             Orientation="Vertical"
                             Margin="0,35,0,0">
-                    <Image Source="/Resources/fondo1.jpg" Width="100" Height="100" />
+                    <Image Source="/Resources/fondo2.png" Width="100" Height="100" Margin="0,0,0,5"/>
 
                     <TextBlock Text="Farmacia"
                                Foreground="White"

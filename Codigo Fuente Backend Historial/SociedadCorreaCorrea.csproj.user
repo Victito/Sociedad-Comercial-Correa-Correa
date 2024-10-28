@@ -22,6 +22,9 @@
     <Compile Update="Views\RegistroFacturas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Trabajadores.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Resources\Styles\estiloboton.xaml">
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RegistroFacturas.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Trabajadores.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

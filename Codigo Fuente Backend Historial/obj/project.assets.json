@@ -1052,6 +1052,57 @@
           "MahApps.Metro": "1.2.4"
         }
       },
+      "MaterialDesignColors/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "MaterialDesignThemes/5.1.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "3.1.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+        },
+        "compile": {
+          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "MaterialDesignThemes.MahApps/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "MahApps.Metro": "2.0.0",
+          "MaterialDesignColors": "3.1.0",
+          "MaterialDesignThemes": "5.1.0"
+        },
+        "compile": {
+          "lib/net8.0/MaterialDesignThemes.MahApps.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MaterialDesignThemes.MahApps.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
         "compile": {
@@ -2000,15 +2051,15 @@
           }
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -5010,6 +5061,87 @@
         "mahapps.metro.resources.nuspec"
       ]
     },
+    "MaterialDesignColors/3.1.0": {
+      "sha512": "J2mpZBWx0wArrMCK8E0Cqfsy+Wh3iRDVnznp5/84B1KcnTKI9u9Pyt2zN0oSQGsa6NhvwdUErbhE3jJd6iRTxw==",
+      "type": "package",
+      "path": "materialdesigncolors/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/MaterialDesignColors.Icon.png",
+        "lib/net462/MaterialDesignColors.dll",
+        "lib/net462/MaterialDesignColors.pdb",
+        "lib/net6.0/MaterialDesignColors.dll",
+        "lib/net6.0/MaterialDesignColors.pdb",
+        "lib/net8.0/MaterialDesignColors.dll",
+        "lib/net8.0/MaterialDesignColors.pdb",
+        "materialdesigncolors.3.1.0.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/5.1.0": {
+      "sha512": "k5lO0NqhExrCLnFWnapI+a2XvOOm/Mwz92GwUq4CvNrahMMPx9puALE8VJlLNeNxUYjWf2+PAKPGpmr1u1QDfg==",
+      "type": "package",
+      "path": "materialdesignthemes/5.1.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "docs/README.md",
+        "images/MaterialDesignThemes.Icon.png",
+        "lib/net462/MaterialDesignThemes.Wpf.dll",
+        "lib/net462/MaterialDesignThemes.Wpf.pdb",
+        "lib/net462/MaterialDesignThemes.Wpf.xml",
+        "lib/net6.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net6.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net6.0/MaterialDesignThemes.Wpf.xml",
+        "lib/net8.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net8.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net8.0/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.5.1.0.nupkg.sha512",
+        "materialdesignthemes.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "MaterialDesignThemes.MahApps/3.1.0": {
+      "sha512": "t6pVN+raqHzOEtW6WjWoT+voqK0Oahcwl9T9x5ecrC2sMgDNyn/Zq5mo66B5AFEfE/crwzuWA/Q1gHdW2wAH5g==",
+      "type": "package",
+      "path": "materialdesignthemes.mahapps/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/MaterialDesignThemes.MahApps.Icon.png",
+        "lib/net462/MaterialDesignThemes.MahApps.dll",
+        "lib/net462/MaterialDesignThemes.MahApps.pdb",
+        "lib/net6.0/MaterialDesignThemes.MahApps.dll",
+        "lib/net6.0/MaterialDesignThemes.MahApps.pdb",
+        "lib/net8.0/MaterialDesignThemes.MahApps.dll",
+        "lib/net8.0/MaterialDesignThemes.MahApps.pdb",
+        "materialdesignthemes.mahapps.3.1.0.nupkg.sha512",
+        "materialdesignthemes.mahapps.nuspec"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "sha512": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
       "type": "package",
@@ -6517,10 +6649,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
-      "sha512": "5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g==",
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "sha512": "8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
       "type": "package",
-      "path": "microsoft.xaml.behaviors.wpf/1.1.19",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -6529,11 +6661,15 @@
         "lib/net45/Microsoft.Xaml.Behaviors.dll",
         "lib/net45/Microsoft.Xaml.Behaviors.pdb",
         "lib/net45/Microsoft.Xaml.Behaviors.xml",
-        "lib/netcoreapp3.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
-        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll",
-        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.pdb",
-        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.xml",
-        "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+        "lib/net5.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
+        "lib/netcoreapp3.1/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.pdb",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
         "microsoft.xaml.behaviors.wpf.nuspec",
         "tools/Install.ps1"
       ]
@@ -10405,6 +10541,9 @@
       "MahApps.Metro >= 2.4.10",
       "MahApps.Metro.IconPacks >= 5.0.0",
       "MahApps.Metro.Resources >= 0.6.1",
+      "MaterialDesignColors >= 3.1.0",
+      "MaterialDesignThemes >= 5.1.0",
+      "MaterialDesignThemes.MahApps >= 3.1.0",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
@@ -10480,6 +10619,18 @@
           "MahApps.Metro.Resources": {
             "target": "Package",
             "version": "[0.6.1, )"
+          },
+          "MaterialDesignColors": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[5.1.0, )"
+          },
+          "MaterialDesignThemes.MahApps": {
+            "target": "Package",
+            "version": "[3.1.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
