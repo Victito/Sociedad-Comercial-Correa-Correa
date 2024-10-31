@@ -42,6 +42,8 @@ namespace SociedadCorreaCorrea.Views
             // Cargar la clave API desde la base de datos
             apiKey = ObtenerApiKey(GlobalSettings.IdEmpresa); // Asegúrate de que estás usando la ID correcta
             InitializeComponent();
+            this.StateChanged += MetroWindow_StateChanged;
+
             // Configurar el DataContext con el ViewModel correspondiente
             DataContext = new RegistroFacturaViewModel(this);
         }
@@ -792,6 +794,55 @@ private string ObtenerApiKey(int idEmpresa)
 
                 // Cierra la ventana de MainMenu
                 this.Close();
+            }
+        }
+
+        
+        private void MetroWindow_StateChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                RutTextBox.Width = 450;
+                NombreSucursal.Width = 450;
+                RazonSocialTextBox.Width = 450;
+                GiroTextBox.Width = 450;
+                DireccionTextBox.Width = 450;
+                ComunaTextBox.Width = 450;
+                EstadoBox.Width = 450;
+                RutVendedorTextBox.Width = 450;
+                GiroVendedorTextBox.Width = 450;
+                CiudadTextBox.Width = 450;
+                EntregarEnTextBox.Width = 450;
+                FechaEmisionTextBox.Width = 450;
+                VencimientoTextBox.Width = 450;
+                CobradorTextBox.Width = 450;
+                OrdenDeCompraTextBox.Width = 450;
+                CondicionesVentaTextBox.Width = 450;
+                GuiaDespachoTextBox.Width = 450;
+                NotaVentaTextBox.Width = 450;
+                RazonSocialVendedorTextBox.Width = 450;
+            }
+            else
+            {
+                RutTextBox.Width = 250;
+                NombreSucursal.Width = 250;
+                RazonSocialTextBox.Width = 250;
+                GiroTextBox.Width = 250;
+                DireccionTextBox.Width = 250;
+                ComunaTextBox.Width = 250;
+                EstadoBox.Width = 250;
+                RutVendedorTextBox.Width = 250;
+                GiroVendedorTextBox.Width = 250;
+                CiudadTextBox.Width = 250;
+                EntregarEnTextBox.Width = 250;
+                FechaEmisionTextBox.Width = 250;
+                VencimientoTextBox.Width = 250;
+                CobradorTextBox.Width = 250;
+                OrdenDeCompraTextBox.Width = 250;
+                CondicionesVentaTextBox.Width = 250;
+                GuiaDespachoTextBox.Width = 250;
+                NotaVentaTextBox.Width = 250;
+                RazonSocialVendedorTextBox.Width = 250;
             }
         }
     }

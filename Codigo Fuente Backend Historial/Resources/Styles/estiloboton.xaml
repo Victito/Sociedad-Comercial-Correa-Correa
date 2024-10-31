@@ -258,7 +258,8 @@
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="0,0,0,0"/>
-        <Setter Property="Background" Value="#FFA500"/>
+        <Setter Property="Background" Value="#D32F2F"/>
+        <Setter Property="BorderBrush" Value="#B71C1C" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -273,7 +274,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Red"/>
+                <Setter Property="Background" Value="#F44336"/>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    >
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -234,7 +235,7 @@
 
                                 <StackPanel Grid.Row="3" Grid.Column="0" Margin="10">
                                     <TextBlock Text="Descripción" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Width="auto" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
                                 
 

@@ -19,7 +19,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    >
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -193,527 +194,354 @@
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl 
-                                    Grid.Row="2" Margin="25" Width="Auto" Height="Auto">
-                        <TabControl Margin="0,0,0,10" Foreground="Transparent" Background="Transparent" Width="Auto" Height="Auto">
+                    <ContentControl  
+                         Grid.Row="2" Margin="25" Width="Auto" Height="Auto">
+                        <TabControl Margin="0,0,0,0" Foreground="Transparent" Background="Transparent" Width="Auto" Height="Auto">
 
-                            <TabItem  Header="Datos de Factura"  Style="{DynamicResource TabItemStyle}"  Width="327" >
-                                <Grid>
+                            <TabItem  Header="Datos de Factura"  Style="{DynamicResource TabItemStyle}"  Width="auto" >
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" x:Name="MainScrollViewer" >
+                                    <Grid x:Name="MainGrid">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="290*" />
-                                        <ColumnDefinition Width="182*"/>
-                                        <ColumnDefinition Width="50" />
-                                        <!-- Espacio entre las columnas -->
-                                        <ColumnDefinition Width="471*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
                                     <!-- Columna 1 -->
-                                    <StackPanel Grid.Row="1" Background="Transparent" Margin="5,0,10,0" Grid.ColumnSpan="2" Width="Auto" Height="Auto">
-                                        <TextBlock Text="Datos de la Factura" 
-                                                   FontFamily="Montserrat" 
-                                                   FontSize="20" 
-                                                   FontWeight="Medium"
-                                                   Foreground="#ffffff"
-                                                   Margin="0,0,0,20"
-                                                   >
-                                            
-                                        </TextBlock>
-                                                   
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="ID Sucursal:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120"/>
-                                            <ComboBox Width="300" 
-                                                      ItemsSource="{Binding Sucursales}" 
-                                                      DisplayMemberPath="NombreSucursal" 
-                                                      SelectedItem="{Binding SucursalSeleccionada}"
-                                                      Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Razón Social cliente:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="150"
-                                                       />
-                                            <TextBox Width="270" x:Name="RazonSocialTextBox" 
-                                                     Text="{Binding RazonSocial}" 
-                                                     MaxLength="250"
-                                                     Style="{StaticResource RoundedTextBox}"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="RUT del cliente:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120"/>
-                                            <TextBox Width="300" 
-                                                     x:Name="RutTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding RutEmisor}" 
-                                                     LostFocus="TextBoxRutEmisor_LostFocus" 
-                                                     TextChanged="TextBoxRutEmisor_TextChanged" 
-                                                     MaxLength="12"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Giro del cliente:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                        Width="120"/>
-                                            <TextBox Width="300" 
-                                                     x:Name="GiroTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding Giro}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Dirección:" Width="120"
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       />
-                                            <TextBox Width="300" 
-                                                     x:Name="DireccionTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding Direccion}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Comuna:" Width="120"
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="300" 
-                                                     x:Name="ComunaTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding Comuna}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Estado:" Width="120"
-                                                        Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"/>
-                                            <ComboBox Width="300" 
-                                                      SelectedItem="{Binding Estado}"
-                                                Margin="30,0,0,0">
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="ID Sucursal:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <ComboBox x:Name="NombreSucursal" DisplayMemberPath="NombreSucursal" ItemsSource="{Binding Sucursales}" SelectedItem="{Binding SucursalSeleccionada}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Razón Social cliente:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="RazonSocialTextBox"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="RUT del cliente:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox x:Name="RutTextBox" Text="{Binding RutEmisor}" Width="250" LostFocus="TextBoxRutEmisor_LostFocus" 
+                                        TextChanged="TextBoxRutEmisor_TextChanged" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Giro del cliente :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="GiroTextBox" Text="{Binding Giro}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Dirección :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="DireccionTextBox"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    
+                                    <StackPanel Grid.Row="5" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Comuna :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="ComunaTextBox" Text="{Binding Comuna}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="6" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Estado :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <ComboBox x:Name="EstadoBox"  SelectedItem="{Binding Estado}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left"  Width="250"  Margin="0,5,0,15">
                                                 <ComboBoxItem Content="Pendiente" Tag="Pendiente"/>
                                                 <ComboBoxItem Content="Pagado" Tag="Pagado"/>
                                                 <ComboBoxItem Content="Cancelado" Tag="Cancelado"/>
-                                            </ComboBox>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Rut del vendedor:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                        Width="135"/>
-                                            <TextBox Width="285" 
-                                                     x:Name="RutVendedorTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding RutVendedor}" 
-                                                     LostFocus="TextBoxRutEmisor_LostFocus" 
-                                                     TextChanged="TextBoxRutEmisor_TextChanged"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Giro del vendedor:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                        Width="135"/>
-                                            <TextBox Width="285" 
-                                                     x:Name="GiroVendedorTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding GiroVendedor}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-
-                                        
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Cargar Factura Electronica en formato PDF:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                        Width="350"/>
-                                            
-
-                                            <Button  Content="Cargar Factura" Style="{StaticResource StyleButtonUpload}" Width="100" Height="30" Margin="0,0,0,0" Click="LoadPdfButton_Click"/>
-                                        </StackPanel>
+                                            </ComboBox>          
+                                                   
                                         
                                     </StackPanel>
+                                    <StackPanel Grid.Row="7" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Rut del vendedor :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="RutVendedorTextBox" Text="{Binding RutVendedor}" 
+                                        LostFocus="TextBoxRutEmisor_LostFocus" 
+                                        TextChanged="TextBoxRutEmisor_TextChanged"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="8" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Giro del vendedor :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="GiroVendedorTextBox"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="9" Grid.Column="0" Margin="10">
+                                        
+                                        <TextBlock Text="Cargar Factura Electronica en formato PDF:" 
+                                          Style="{StaticResource TextGeneral}"
+                                          HorizontalAlignment="Left"
+                                           Width="350"/>
+                                        
+                                        <Button  Content="Cargar Factura" Style="{StaticResource StyleButtonUpload}" Width="100" Height="30" HorizontalAlignment="Left" Margin="0,0,0,0" Click="LoadPdfButton_Click"/>
+                                    </StackPanel>
+
+
+
 
                                     <!-- Columna 2 -->
-                                    <StackPanel Grid.Column="3" Background="Transparent" Margin="10,43,0,0" Width="Auto" Height="Auto">
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Ciudad:" Width="120"
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"/>
-                                            <TextBox Width="300" 
-                                                     x:Name="CiudadTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding Ciudad}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
+                                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Ciudad:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="CiudadTextBox" Text="{Binding Ciudad}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Entregar En:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="EntregarEnTextBox" Text="{Binding EntregarEn}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Fecha Emisión:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <DatePicker  SelectedDate="{Binding FechaEmision}" x:Name="FechaEmisionTextBox" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="3" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Fecha Vencimiento:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <DatePicker x:Name="VencimientoTextBox" SelectedDate="{Binding FechaVencimiento}" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="4" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Cobrador :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="CobradorTextBox" Text="{Binding Cobrador}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="5" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Orden Compra:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="OrdenDeCompraTextBox" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="6" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Condiciones:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="CondicionesVentaTextBox" Text="{Binding Condiciones}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="7" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Guía Despacho:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="GuiaDespachoTextBox" Text="{Binding GuiaDespacho}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="8" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Nota Venta:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="NotaVentaTextBox" Text="{Binding NotaVenta}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="9" Grid.Column="1" Margin="10">
+                                            <TextBlock Text="Razon Social del vendedor" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                            <TextBox x:Name="RazonSocialVendedorTextBox" Text="{Binding RazonSocialVendedor}" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                         </StackPanel>
 
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Entregar En:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" 
-                                                     x:Name="EntregarEnTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding EntregarEn}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Fecha Emisión:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"/>
-                                            <DatePicker SelectedDate="{Binding FechaEmision}" Width="300"
-                                                        x:Name="FechaEmisionTextBox" Margin="45,0,0,0" />
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Fecha Vencimiento:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="139" />
-                                            <DatePicker SelectedDate="{Binding FechaVencimiento}" Width="300"
-                                                        x:Name="VencimientoTextBox"  Margin="15,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Cobrador:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" 
-                                                     Text="{Binding Cobrador}" 
-                                                     x:Name="CobradorTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     MaxLength="250" 
-                                                     Margin="33,0,0,0"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Orden Compra:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" 
-                                                     x:Name="OrdenDeCompraTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding OrdenCompra}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20" >
-                                            <TextBlock Text="Condiciones:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" 
-                                                     x:Name="CondicionesVentaTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding Condiciones}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Guía Despacho:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" x:Name="GuiaDespachoTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding GuiaDespacho}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Nota Venta:" 
-                                                       Style="{StaticResource TextGeneral}"
-                                                       VerticalAlignment="Center"
-                                                       Width="120" />
-                                            <TextBox Width="300" 
-                                                     x:Name="NotaVentaTextBox" 
-                                                     Style="{StaticResource RoundedTextBox}" 
-                                                     Text="{Binding NotaVenta}" 
-                                                     MaxLength="250"
-                                                     Margin="30,0,0,0"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                            <TextBlock Text="Razon Social del vendedor:" 
-               Style="{StaticResource TextGeneral}"
-               VerticalAlignment="Center"
-                Width="120"/>
-                                            <TextBox Width="300" 
-             x:Name="RazonSocialVendedorTextBox" 
-             Style="{StaticResource RoundedTextBox}" 
-             Text="{Binding RazonSocialVendedor}" 
-             MaxLength="250" 
-             Margin="30,0,0,0"/>
-                                        </StackPanel>
-
-                                    </StackPanel>
-
-                                </Grid>
+                                    </Grid>
+                                </ScrollViewer>
                             </TabItem>
 
                             <!-- Otros tabs -->
                             <TabItem Header="Productos"
                                      
-                                     Width="327"
+                                     Width="150"
                                      Style="{DynamicResource TabItemStyle}">
-                                <ScrollViewer>
-                                <StackPanel Margin="5,0,0,0">
-                                    
-                                    <TextBlock Text="Datos del Producto" 
-                                               FontSize="22" 
-                                               HorizontalAlignment="Center" 
-                                               FontWeight="Medium" 
-                                               Margin="0,0,0,10" 
-                                               Foreground="#ffffff"/>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
                                         
-                                        <TextBlock Text="Código Producto:" Width="129"
-                                                   Style="{StaticResource TextGeneral}"
-                                                   VerticalAlignment="Center"
-                                                    />
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxCodigoProducto" 
-                                                 MaxLength="50"
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 Margin="10,0,0,0"/>
+                                        
+                                    </Grid.RowDefinitions>
+                                    <!-- Columna 1 -->
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Código Producto :" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="TextBoxCodigoProducto"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Descripción:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxDescripcion" 
-                                                 MaxLength="255" 
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 Margin="19,0,0,0"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Descripción:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="TextBoxDescripcion"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Número de Serie:" Width="126"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxNSerie" 
-                                                 MaxLength="50" 
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 Margin="13,0,0,0"/>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Número de Serie:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  x:Name="TextBoxNSerie"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Cantidad:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxCantidad" 
-                                                 PreviewTextInput="TextBox_PreviewTextInput" 
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 Margin="18,0,0,0"/>
+                                    <!-- Columna 2 -->
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                                        <TextBlock Text="Cantidad:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox x:Name="TextBoxCantidad"  HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Descuento:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxDescuento" 
-                                                 Text="0" 
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 PreviewTextInput="TextBox_PreviewTextInput" 
-                                                 Margin="18,0,0,0"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                                        <TextBlock Text="Descuento:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox x:Name="TextBoxDescuento"  HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Precio Unitario:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" 
-                                                 x:Name="TextBoxPrecioUnitario" 
-                                                 Style="{StaticResource RoundedTextBox}"
-                                                 PreviewTextInput="TextBox_PreviewTextInput" 
-                                                 Margin="16,0,0,0"/>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+                                        <TextBlock Text="Precio Unitario:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox x:Name="TextBoxPrecioUnitario"  HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                     </StackPanel>
-                                    
-                                    <Button 
-                                            BorderThickness="0"
-                                            Content="Agregar Producto"
-                                            Foreground="White"
-                                            FontSize="16"
-                                            FontFamily="Montserrat"
-                                            Cursor="Hand"
-                                            Margin="0,0,0,0"
-                                            Click="AgregarProducto_Click">
-                                        <!-- Definición de estilo del botón -->
-                                        <Button.Style>
-                                            <Style TargetType="Button">
-                                                <Setter Property="Background" Value="#40E0D0"/>
-                                                <Style.Triggers>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#41CD65" />
-                                                    </Trigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Button.Style>
-                                        <!-- Plantilla personalizada del botón -->
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Width="150" Height="40"
-                                                        CornerRadius="20"
-                                                        Background="{TemplateBinding Background}">
-                                                    <ContentPresenter VerticalAlignment="Center" 
-                                                                      HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                    <!-- TextBlock para mostrar el total de los productos -->
-                                    <TextBlock x:Name="TextBlockTotal"
+                                    <StackPanel Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                                        <Button 
+                                                BorderThickness="0"
+                                                Content="Agregar Producto"
+                                                Foreground="White"
+                                                FontSize="16"
+                                                FontFamily="Montserrat"
+                                                Cursor="Hand"
+                                                Margin="0,0,0,0"
+                                                Click="AgregarProducto_Click">
+                                            <!-- Definición de estilo del botón -->
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#40E0D0"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#41CD65" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <!-- Plantilla personalizada del botón -->
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="150" Height="40"
+                                                            CornerRadius="20"
+                                                            Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" 
+                                                                          HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                        <TextBlock x:Name="TextBlockTotal"
                                                FontSize="16" 
                                                Foreground="#ffffff" 
                                                FontWeight="Bold"
                                                Margin="0,10,0,0" 
                                                Text="Total de Productos:"
-                                               FontFamily="Montserrat"/>
-                                    
-                                        <DataGrid x:Name="DataGridProductos" 
-                                              AutoGenerateColumns="False" 
-                                              Margin="0,10,0,0" 
-                                              CanUserAddRows="False"
-                                              ItemsSource="{Binding Productos}" 
-                                              IsReadOnly="True"
-                                              ScrollViewer.CanContentScroll="True" 
-                                              ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                                              ScrollViewer.VerticalScrollBarVisibility="Auto">
-                                        <DataGrid.Columns >
-                                            <DataGridTextColumn Header="Código" Binding="{Binding CodigoProducto}" 
-                                                                Width="*"
-                                                                />
-                                            <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
-                                            <DataGridTextColumn Header="Número de Serie" Binding="{Binding NSerie}" Width="*"/>
-                                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
-                                            <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}" Width="*"/>
-                                            <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}" Width="*"/>
-                                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*"/>
-
-                                            <!-- Columna para Eliminar -->
+                                               FontFamily="Montserrat"
+/>
+                                    </StackPanel>
+                                    <ScrollViewer  Grid.Row="4"  Grid.ColumnSpan="2">
+                                        
+                                        <DataGrid x:Name="DataGridProductos" Grid.Row="4" Grid.ColumnSpan="2" ItemsSource="{Binding Productos}" 
+                                                  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Width="auto" Margin="0,10,0,0">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Código" Binding="{Binding CodigoProducto}" Width="auto"/>
+                                            <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="auto" />
+                                            <DataGridTextColumn Header="Número de Serie" Binding="{Binding NSerie}" Width="auto" />
+                                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="auto" />
+                                            <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}" Width="auto" />
+                                            <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}" Width="auto" />
+                                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*" />
                                                 <DataGridTemplateColumn Header="Acciones" IsReadOnly="True" Width="Auto">
                                                     <DataGridTemplateColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <StackPanel Orientation="Horizontal">
-                                                                
-                                                                <Button Click="EliminarProducto_Click" Style="{StaticResource gridRemoveButton}">
+                                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+
+                                                                <Button Click="EliminarProducto_Click" Cursor="Hand" Style="{StaticResource gridRemoveButton}">
                                                                     <iconPacks:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                                                 </Button>
                                                             </StackPanel>
                                                         </DataTemplate>
                                                     </DataGridTemplateColumn.CellTemplate>
                                                 </DataGridTemplateColumn>
-                                        </DataGrid.Columns>
+                                            </DataGrid.Columns>
                                     </DataGrid>
+                                    </ScrollViewer>
+
+
+
+                                </Grid>
+                                
                                     
-                                </StackPanel>
-                                </ScrollViewer>
-                                <!-- Contenido del tab de productos -->
+                                
+                                
+                                
                             </TabItem>
                             <TabItem Style="{DynamicResource TabItemStyle}"
                                 Header="Acuses"
                                        
-                                     Width="327" >
-                                <StackPanel Margin="5,0,0,0">
-                                    <TextBlock Text="Datos del Acuse" 
-                                               FontFamily="Montserrat" 
-                                               Foreground="#ffffff" 
-                                               HorizontalAlignment="Center" 
-                                               FontSize="20" 
-                                               FontWeight="Medium" 
-                                               Margin="0,0,0,30"/>
-
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Nombre:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" Text="{Binding Nombre}" Style="{StaticResource RoundedTextBox}" MaxLength="100"/>
+                                     Width="150" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <!-- Columna 1 -->
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  Text="{Binding Rut}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Nombre:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox   Text="{Binding Nombre}"
+                                                   IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                                        <TextBlock Text="Recinto:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="300" MaxLength="250" Text="{Binding Recinto}"  Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <!-- Columna 2 -->
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                                        <TextBlock Text="Fecha:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox   HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                                        <TextBlock Text="Cantidad:"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <DatePicker SelectedDate="{Binding Fecha}"  HorizontalAlignment="Left" Width="300" Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                                        <Button 
+                                                BorderThickness="0"
+                                                Content="Guardar"
+                                                Foreground="White"
+                                                FontSize="16"
+                                                FontFamily="Montserrat"
+                                                Cursor="Hand"
+                                                Margin="0,0,0,0"
+                                                
+                                                Command="{Binding SaveCommand}">
+                                            
+                                            <!-- Definición de estilo del botón -->
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#40E0D0"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#41CD65" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <!-- Plantilla personalizada del botón -->
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="150" Height="40"
+                                                            CornerRadius="20"
+                                                            Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" 
+                                                                          HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                 
                                     </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Recinto:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" Text="{Binding Recinto}" Style="{StaticResource RoundedTextBox}" MaxLength="100"/>
-                                    </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="Fecha:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <DatePicker SelectedDate="{Binding Fecha}" Width="300" />
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                                        <TextBlock Text="RUT:" Width="120"
-                                                   Style="{StaticResource TextGeneral}"
-VerticalAlignment="Center"/>
-                                        <TextBox Width="300" Text="{Binding Rut}" Style="{StaticResource RoundedTextBox}" MaxLength="12" LostFocus="TextBoxRutEmisor_LostFocus" TextChanged="TextBoxRutEmisor_TextChanged" />
-                                    </StackPanel>
-
-                                    <Button 
-                                            BorderThickness="0"
-                                            Content="Guardar"
-                                            Foreground="White"
-                                            FontSize="16"
-                                            FontFamily="Montserrat"
-                                            Cursor="Hand"
-                                            Margin="0,0,0,0"
-                                            Command="{Binding SaveCommand}">
-                                        <!-- Definición de estilo del botón -->
-                                        <Button.Style>
-                                            <Style TargetType="Button">
-                                                <Setter Property="Background" Value="#40E0D0  " />
-                                                <Style.Triggers>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#41CD65" />
-                                                    </Trigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Button.Style>
-                                        <!-- Plantilla personalizada del botón -->
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Width="150" Height="40"
-                                                        CornerRadius="20"
-                                                        Background="{TemplateBinding Background}">
-                                                    <ContentPresenter VerticalAlignment="Center" 
-                                                                      HorizontalAlignment="Center" />
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </StackPanel>
+                                </Grid>
                             </TabItem>
                         </TabControl>
                     </ContentControl>
