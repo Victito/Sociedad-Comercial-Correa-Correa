@@ -1,0 +1,98 @@
+﻿
+h1{
+    color:white;
+}
+/* Estilos generales */
+body {
+    color: #fff;
+    background: linear-gradient(135deg, #3393DF, #007AFF);
+    font-family: Arial, sans-serif;
+}
+
+.text-center {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.display-4 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+/* Estilos para el contenedor de inicio de sesión */
+.text-center {
+    background-color: #3498db;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Estilos para los encabezados de las etiquetas */
+h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin: 20px 0 10px;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"] {
+    width: 70%;
+    padding: 12px;
+    border-radius: 300px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #333;
+
+}
+
+    input[type="text"]::placeholder {
+        color: #aaa;
+    }
+
+    /* Agregar estilo al placeholder */
+    input[type="text"]:focus {
+        border-color: #2980b9;
+        outline: none;
+    }
+/* Estilos para los campos de entrada */
+input[type="password"] {
+    width: 70%;
+    padding: 12px;
+    border-radius: 300px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #333;
+}
+
+    input[type="password"]::placeholder {
+        color: #aaa;
+    }
+
+    /* Agregar estilo al placeholder */
+    input[type="password"]:focus {
+        border-color: #2980b9;
+        outline: none;
+    }
+
+/* Botón de inicio de sesión */
+.button-login {
+    display: inline-block;
+    padding: 10px 20px;
+    color: black;
+    background-color: #40E0D0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .button-login:hover {
+        background-color: #1c5d8a;
+    }

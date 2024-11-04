@@ -1,0 +1,24 @@
+﻿body {
+    background-color:gray;
+}
+header{
+   background-color:red;
+}
+.navbar {
+    background-color: #4CAF50; /* Cambia el color a verde (puedes elegir el color que prefieras) */
+}
+.navbar {
+    background-color: #4CAF50; /* Color de fondo de la navbar */
+    /* Otros estilos que quieras agregar */
+}
+
+    .navbar .nav-link {
+        color: white; /* Cambia el color de los enlaces si es necesario para que contrasten */
+    }
+
+    .navbar .navbar-brand {
+        color: white; /* Cambia el color del título de la navbar si es necesario */
+    }
+.logo{
+    width:40px;
+}
