@@ -11,6 +11,9 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections.Generic;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -20,7 +23,64 @@ namespace SociedadCorreaCorrea.Views
         {
             InitializeComponent();
             DataContext = new GraficosFacturasViewModel(this);
+
+            // Gráfico de Facturas por Categoría (barras)
+            SeriesFacturasPorCategoria = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Facturas",
+                    Values = new ChartValues<double> { 5, 10, 15 },
+                    Fill = new SolidColorBrush(Colors.MediumAquamarine), // Color de barras
+                    Stroke = new SolidColorBrush(Colors.Blue), // Borde de las barras
+                    StrokeThickness = 2
+                }
+            };
+
+            LabelsCategorias = new[] { "Categoría 1", "Categoría 2", "Categoría 3" };
+            Formatter = value => value.ToString("N");
+
+            // Gráfico de Facturación Mensual (líneas)
+            SeriesFacturacionMensual = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Facturación",
+                    Values = new ChartValues<double> { 2000, 4000, 6000 },
+                    Stroke = new SolidColorBrush(Colors.Red), // Color de línea
+                    Fill = new SolidColorBrush(Colors.Transparent), // Fondo transparente
+                    PointGeometrySize = 10,
+                    PointForeground = new SolidColorBrush(Colors.Red) // Color de los puntos
+                }
+            };
+
+            LabelsMeses = new[] { "Enero", "Febrero", "Marzo" };
+
+            // Gráfico de Promedio por Proveedor (barras)
+            SeriesPromedioPorProveedor = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Promedio",
+                    Values = new ChartValues<double> { 1000, 2000, 3000 },
+                    Fill = new SolidColorBrush(Colors.MediumSeaGreen), // Color de barras
+                    Stroke = new SolidColorBrush(Colors.SeaGreen), // Borde de las barras
+                    StrokeThickness = 2
+                }
+            };
+
+            LabelsProveedores = new[] { "Proveedor A", "Proveedor B", "Proveedor C" };
         }
+
+        // Propiedades públicas para los gráficos
+        public SeriesCollection SeriesFacturasPorCategoria { get; set; }
+        public SeriesCollection SeriesFacturacionMensual { get; set; }
+        public SeriesCollection SeriesPromedioPorProveedor { get; set; }
+
+        public string[] LabelsCategorias { get; set; }
+        public string[] LabelsMeses { get; set; }
+        public string[] LabelsProveedores { get; set; }
+        public Func<double, string> Formatter { get; set; }
 
         // Importación de la DLL user32 para mover la ventana
         [DllImport("user32.dll")]
@@ -95,9 +155,8 @@ namespace SociedadCorreaCorrea.Views
                 // Capturar gráficos como imágenes
                 var chartImages = new[]
                 {
-                    CapturarGraficoComoImagen(CartesianChartTotalPorProveedor),
-                    CapturarGraficoComoImagen(PieChartFacturasPorEstado),
                     CapturarGraficoComoImagen(CartesianChartFacturacionMensual),
+                    CapturarGraficoComoImagen(CartesianChartTotalPorProveedor),
                     CapturarGraficoComoImagen(CartesianChartFacturasPorCategoria),
                     CapturarGraficoComoImagen(CartesianChartPromedioPorProveedor)
                 };

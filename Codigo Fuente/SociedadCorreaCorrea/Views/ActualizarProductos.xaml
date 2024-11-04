@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    >
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -84,8 +85,8 @@
                              Tag="{StaticResource color1}"
                              PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
@@ -140,7 +141,7 @@
 
                         <!-- Botón Maximizar -->
                         <Button x:Name="btnMaximizar"
-                                Style="{StaticResource controlButton}"
+                                Style="{StaticResource controlButton2}"
                                 Tag="{StaticResource color4}"
                                 Click="btnMaximizar_Click">
                             <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
@@ -148,7 +149,7 @@
 
                         <!-- Botón Minimizar -->
                         <Button x:Name="btnMinimizar"
-                                Style="{StaticResource controlButton}"
+                                Style="{StaticResource controlButton2}"
                                 Tag="{StaticResource color4}"
                                 Click="btnMinimizar_Click">
                             <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
@@ -162,12 +163,12 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                            <iconPacks:PackIconMaterial Kind="History"
+                            <iconPacks:PackIconMaterial Kind="Refresh"
                                                         Height="20" 
                                                         Width="20" 
                                                         Foreground="{StaticResource titleColor2}" 
                                                         Margin="35,0,10,0"/>
-                            <TextBlock Text="Historial de Facturas"
+                            <TextBlock Text="Actualizar Productos"
                                        Foreground="{StaticResource titleColor2}"
                                        FontSize="16"
                                        FontFamily="Montserrat"
@@ -196,38 +197,82 @@
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="20">
-                        <StackPanel Margin="10">
-                            <Label Content="ID Factura:" />
-                            <TextBox Name="txtIdFactura" />
-                            
-                            <Label Content="ID Producto:" />
-                            <TextBox Name="txtIdProducto" />
-                            
-                            <Label Content="Código Producto:" />
-                            <TextBox Name="txtCodigoProducto" />
-                            
-                            <Label Content="Descripción:" />
-                            <TextBox Name="txtDescripcion" />
+                    <ContentControl Grid.Row="2" Margin="20" Width="auto" Height="auto">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <Grid Background="Transparent" Width="auto" Height="auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
 
-                            <Label Content="Número de Serie:" />
-                            <TextBox Name="txtNSerie" />
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                            <Label Content="Cantidad:" />
-                            <TextBox Name="txtCantidad" />
+                                <!-- Columna Izquierda -->
+                                <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="ID Factura:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox  x:Name="txtIdFactura"
+                                              IsReadOnly="True" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
 
-                            <Label Content="Precio Unitario:" />
-                            <TextBox Name="txtPrecioUnitario" />
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="ID Producto:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtIdProducto" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
 
-                            <Label Content="Descuento:" />
-                            <TextBox Name="txtDescuento" />
+                                <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="Código Producto:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtCodigoProducto" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
 
-                            <Label Content="Total:" />
-                            <TextBox Name="txtTotal" IsReadOnly="True" />
+                                <StackPanel Grid.Row="3" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="Descripción" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+                                
 
-                            <Button Content="Guardar Cambios" Click="GuardarCambios_Click" />
-                        </StackPanel>
+                                <!-- Columna Derecha -->
+                                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                                    <TextBlock Text="Cantidad:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                                    <TextBlock Text="Precio Unitario:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtPrecioUnitario" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+                                    <TextBlock Text="Total:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3" Grid.Column="1" Margin="10">
+                                    <TextBlock Text="Número de Serie:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtNSerie" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="4" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="Descuento :"  Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox x:Name="txtDescuento" HorizontalAlignment="Left" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+                                </StackPanel>
+
+                                <!-- Botón al final -->
+                                <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20">
+                                    <Button Content="Actualizar" Click="GuardarCambios_Click" Style="{StaticResource StyleButtonForm}" Width="300" />
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
                     </ContentControl>
+
+
                 </Grid>
             </Border>
         </Grid>

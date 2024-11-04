@@ -89,13 +89,15 @@
                              Tag="{StaticResource color1}"
                              PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Datos Estadisticos de Facturas" Style="{StaticResource menuButtonText}"/>
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}">
+                                 Tag="{StaticResource color2}"
+                                 PreviewMouseDown="AdministradorDeTrabajadores_ClickMouse">
+                                
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"></TextBlock>
@@ -106,7 +108,7 @@
                                  Tag="{StaticResource color5}">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"></TextBlock>
+                            <TextBlock Text="Servicio" Style="{StaticResource menuButtonText}"></TextBlock>
 
                         </StackPanel>
                     </RadioButton>
@@ -150,7 +152,7 @@
 
                         <!-- Botón Maximizar -->
                         <Button x:Name="btnMaximizar"
-        Style="{StaticResource controlButton}"
+        Style="{StaticResource controlButton2}"
         Tag="{StaticResource color4}"
         Click="btnMaximizar_Click">
                             <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
@@ -158,7 +160,7 @@
 
                         <!-- Botón Minimizar -->
                         <Button x:Name="btnMinimizar"
-        Style="{StaticResource controlButton}"
+        Style="{StaticResource controlButton2}"
         Tag="{StaticResource color4}"
         Click="btnMinimizar_Click">
                             <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
