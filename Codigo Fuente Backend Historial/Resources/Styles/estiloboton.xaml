@@ -154,27 +154,45 @@
         <Setter Property="Height" Value="16"></Setter>
 
     </Style>
-    <Style  x:Key="RoundedTextBox" TargetType="TextBox">
+    <Style x:Key="RoundedTextBox" TargetType="TextBox">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border CornerRadius="10" 
-                         BorderThickness="1"
-                         
-                         BorderBrush="#CCCCCC" 
-                         Background="White">
+                    <Border x:Name="Border"
+                        CornerRadius="10" 
+                        BorderThickness="1.5"
+                        BorderBrush="#0074D9" 
+                        Background="#E0F7FA">
                         <ScrollViewer Margin="1" 
-                                   x:Name="PART_ContentHost" 
-                                   HorizontalScrollBarVisibility="Hidden" 
-                                   VerticalScrollBarVisibility="Hidden"
-                                    Height="26"  />
+                                  x:Name="PART_ContentHost" 
+                                  HorizontalScrollBarVisibility="Hidden" 
+                                  VerticalScrollBarVisibility="Hidden"
+                                  Height="26" />
                     </Border>
+
+                    <!-- Triggers dentro del ControlTemplate para hover y focus -->
+                    <ControlTemplate.Triggers>
+                        <!-- Trigger para hover (cuando el mouse está sobre el TextBox) -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
+                            <!-- Azul intenso para hover -->
+                        </Trigger>
+
+                        <!-- Trigger para focus (cuando el TextBox tiene el foco) -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
+                            <!-- Azul con toque verde para focus -->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="Black"/>
     </Style>
+
+
+
     <Style x:Key="RoundedComboBox" TargetType="ComboBox">
         <Setter Property="Template">
             <Setter.Value>
