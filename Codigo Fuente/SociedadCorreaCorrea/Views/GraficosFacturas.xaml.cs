@@ -11,6 +11,9 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections.Generic;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -20,7 +23,64 @@ namespace SociedadCorreaCorrea.Views
         {
             InitializeComponent();
             DataContext = new GraficosFacturasViewModel(this);
+
+            // Gráfico de Facturas por Categoría (barras)
+            SeriesFacturasPorCategoria = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Facturas",
+                    Values = new ChartValues<double> { 5, 10, 15 },
+                    Fill = new SolidColorBrush(Colors.MediumAquamarine), // Color de barras
+                    Stroke = new SolidColorBrush(Colors.Blue), // Borde de las barras
+                    StrokeThickness = 2
+                }
+            };
+
+            LabelsCategorias = new[] { "Categoría 1", "Categoría 2", "Categoría 3" };
+            Formatter = value => value.ToString("N");
+
+            // Gráfico de Facturación Mensual (líneas)
+            SeriesFacturacionMensual = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Facturación",
+                    Values = new ChartValues<double> { 2000, 4000, 6000 },
+                    Stroke = new SolidColorBrush(Colors.Red), // Color de línea
+                    Fill = new SolidColorBrush(Colors.Transparent), // Fondo transparente
+                    PointGeometrySize = 10,
+                    PointForeground = new SolidColorBrush(Colors.Red) // Color de los puntos
+                }
+            };
+
+            LabelsMeses = new[] { "Enero", "Febrero", "Marzo" };
+
+            // Gráfico de Promedio por Proveedor (barras)
+            SeriesPromedioPorProveedor = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Promedio",
+                    Values = new ChartValues<double> { 1000, 2000, 3000 },
+                    Fill = new SolidColorBrush(Colors.MediumSeaGreen), // Color de barras
+                    Stroke = new SolidColorBrush(Colors.SeaGreen), // Borde de las barras
+                    StrokeThickness = 2
+                }
+            };
+
+            LabelsProveedores = new[] { "Proveedor A", "Proveedor B", "Proveedor C" };
         }
+
+        // Propiedades públicas para los gráficos
+        public SeriesCollection SeriesFacturasPorCategoria { get; set; }
+        public SeriesCollection SeriesFacturacionMensual { get; set; }
+        public SeriesCollection SeriesPromedioPorProveedor { get; set; }
+
+        public string[] LabelsCategorias { get; set; }
+        public string[] LabelsMeses { get; set; }
+        public string[] LabelsProveedores { get; set; }
+        public Func<double, string> Formatter { get; set; }
 
         // Importación de la DLL user32 para mover la ventana
         [DllImport("user32.dll")]
@@ -76,6 +136,7 @@ namespace SociedadCorreaCorrea.Views
             }
         }
 
+        // Método para capturar gráficos y guardarlos en un PDF
         private void GuardarGraficosEnPDF(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -88,60 +149,34 @@ namespace SociedadCorreaCorrea.Views
             {
                 // Crear el documento PDF
                 PdfDocument pdf = new PdfDocument();
-
-                // Definir márgenes
-                double margin = 20;
+                PdfPage pdfPage = pdf.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(pdfPage);
 
                 // Capturar gráficos como imágenes
                 var chartImages = new[]
                 {
-            CapturarGraficoComoImagen(CartesianChartTotalPorProveedor),
-            CapturarGraficoComoImagen(CartesianChartFacturacionMensual),
-            CapturarGraficoComoImagen(CartesianChartFacturasPorCategoria),
-            CapturarGraficoComoImagen(CartesianChartPromedioPorProveedor)
-        };
+                    CapturarGraficoComoImagen(CartesianChartFacturacionMensual),
+                    CapturarGraficoComoImagen(CartesianChartTotalPorProveedor),
+                    CapturarGraficoComoImagen(CartesianChartFacturasPorCategoria),
+                    CapturarGraficoComoImagen(CartesianChartPromedioPorProveedor)
+                };
 
+                // Añadir cada imagen al PDF
+                double yPosition = 0;
                 foreach (var image in chartImages)
                 {
                     if (image != null)
                     {
-                        PdfPage pdfPage = pdf.AddPage();  // Añadir nueva página para cada gráfico
-                        XGraphics gfx = XGraphics.FromPdfPage(pdfPage);
-
-                        // Obtener el tamaño de la página actual
-                        double pageHeight = pdfPage.Height;
-                        double pageWidth = pdfPage.Width;
-
-                        // Obtener la relación de aspecto de la imagen
-                        double imageAspectRatio = image.PixelWidth / (double)image.PixelHeight;
-
-                        // Calcular las dimensiones de la imagen manteniendo su relación de aspecto
-                        double chartWidth = pageWidth - 2 * margin;  // Ancho máximo permitido (restando márgenes)
-                        double chartHeight = chartWidth / imageAspectRatio;  // Altura correspondiente para mantener la relación de aspecto
-
-                        // Si la altura calculada excede el alto de la página, ajustamos el alto al máximo posible y recalculamos el ancho
-                        if (chartHeight > pageHeight - 2 * margin)
-                        {
-                            chartHeight = pageHeight - 2 * margin;  // Altura máxima permitida
-                            chartWidth = chartHeight * imageAspectRatio;  // Recalcular ancho manteniendo la relación de aspecto
-                        }
-
-                        // Calcular la posición centrada en la página
-                        double xPosition = (pageWidth - chartWidth) / 2;
-                        double yPosition = (pageHeight - chartHeight) / 2;
-
                         using (var stream = new MemoryStream())
                         {
-                            // Crear el stream para capturar la imagen con alta calidad
                             BitmapEncoder encoder = new PngBitmapEncoder();
                             encoder.Frames.Add(BitmapFrame.Create(image));
                             encoder.Save(stream);
-
-                            // Crear la imagen desde el stream
                             var xImage = XImage.FromStream(() => new MemoryStream(stream.ToArray()));
 
-                            // Dibujar la imagen en la página del PDF, manteniendo la relación de aspecto
-                            gfx.DrawImage(xImage, xPosition, yPosition, chartWidth, chartHeight);
+                            // Dibujar la imagen en la página del PDF
+                            gfx.DrawImage(xImage, 0, yPosition, pdfPage.Width, pdfPage.Height / 3);
+                            yPosition += pdfPage.Height / 3;
                         }
                     }
                 }
@@ -157,12 +192,9 @@ namespace SociedadCorreaCorrea.Views
         {
             if (grafico == null) return null;
 
-            // Renderizar el gráfico como imagen con resolución alta
+            // Renderizar el gráfico como imagen
             var renderBitmap = new RenderTargetBitmap(
-                (int)grafico.ActualWidth * 2,  // Multiplicamos por 2 para mejorar la resolución
-                (int)grafico.ActualHeight * 2,
-                192d, 192d,  // DPI más alto para capturar con mejor calidad
-                PixelFormats.Pbgra32);
+                (int)grafico.ActualWidth, (int)grafico.ActualHeight, 96d, 96d, PixelFormats.Pbgra32);
 
             grafico.Measure(new Size(grafico.ActualWidth, grafico.ActualHeight));
             grafico.Arrange(new Rect(new Size(grafico.ActualWidth, grafico.ActualHeight)));
@@ -170,6 +202,5 @@ namespace SociedadCorreaCorrea.Views
             renderBitmap.Render(grafico);
             return renderBitmap;
         }
-
     }
 }

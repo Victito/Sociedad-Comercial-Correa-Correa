@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vmart\OneDrive\Escritorio\Testing temporal\obj\Debug\net8.0-windows\
+D:\Capstone-2024\captsone-equipo2-FMPV\captsone-equipo2-FMPV\SociedadCorreaCorrea\SociedadCorreaCorrea\obj\Debug\net8.0-windows\
 SociedadCorreaCorrea
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\vmart\OneDrive\Escritorio\Testing temporal\App.xaml
-111544002285
+D:\Capstone-2024\captsone-equipo2-FMPV\captsone-equipo2-FMPV\SociedadCorreaCorrea\SociedadCorreaCorrea\App.xaml
+13394914527
 
-351892192584
-305-1960800933
-Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;
+431129763871
+310-1084960833
+Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\EditarInformacionEmpleado.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;Views\Trabajadores.xaml;
 
 False
 

@@ -285,11 +285,7 @@ namespace SociedadCorreaCorrea.ViewModels
             set { _fecha = value; OnPropertyChanged(); }
         }
 
-        public string Rut
-        {
-            get => _rut;
-            set { _rut = value; OnPropertyChanged(); }
-        }
+        public string Rut {  get => _rut; set { _rut = value; OnPropertyChanged(); } }
 
         // Método para formatear el valor de un combobox
         private string FormatComboBoxValue(string value)

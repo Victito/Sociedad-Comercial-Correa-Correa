@@ -13,29 +13,41 @@ public partial class Empleado
 
     public long? IdUsuario { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    public string NombreEmpleado { get; set; } = null!;
 
-    public string Apellido { get; set; } = null!;
+    public string ApellidoEmpleado { get; set; } = null!;
 
-    public DateOnly? FechaNacimiento { get; set; }
+    public DateOnly? FechaNacimientoEmpleado { get; set; }
 
-    public string? Direccion { get; set; }
+    public string? DireccionEmpleado { get; set; }
 
-    public string? Telefono { get; set; }
+    public string? TelefonoEmpleado { get; set; }
 
-    public string? Correo { get; set; }
+    public string? CorreoEmpleado { get; set; }
 
-    public string? Puesto { get; set; }
+    public string? PuestoEmpleado { get; set; }
 
-    public decimal? Salario { get; set; }
+    public decimal? SalarioEmpleado { get; set; }
 
-    public DateOnly? FechaContratacion { get; set; }
+    public DateOnly? FechaContratacionEmpleado { get; set; }
 
-    public string? Estatus { get; set; }
+    public string? EstatusEmpleado { get; set; }
+
+    public int? IdTurno { get; set; }
+
+    public string? RutEmpleado { get; set; }
+
+    public string? TareasEmpleado { get; set; }
+
+    public int? IdTurnoPersonalizado { get; set; }
 
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 
     public virtual Sucursal? IdSucursalNavigation { get; set; }
 
+    public virtual Turno? IdTurnoNavigation { get; set; }
+
     public virtual Usuario? IdUsuarioNavigation { get; set; }
+
+    public virtual ICollection<TurnoPersonalizado> TurnoPersonalizados { get; set; } = new List<TurnoPersonalizado>();
 }
