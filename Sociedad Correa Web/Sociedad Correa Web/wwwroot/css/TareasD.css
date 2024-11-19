@@ -1,0 +1,52 @@
+﻿body {
+    color: #fff;
+    background: linear-gradient(135deg, #3393DF, #007AFF);
+    font-family: Arial, sans-serif;
+}
+/* Estilos generales de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Encabezado de la tabla */
+th {
+    color: white;
+    font-size: 16px;
+}
+
+/* Filas alternadas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo al pasar el ratón sobre las filas */
+tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Botón "Volver" */
+.btn-secondary {
+    background-color: #40E0D0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+    /* Efecto hover en el botón */
+    .btn-secondary:hover {
+        background-color: #0056b3;
+    }

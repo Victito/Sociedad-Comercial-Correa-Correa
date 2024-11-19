@@ -1,0 +1,37 @@
+﻿@model List<Sociedad_Correa_Web.Models.TareasDiaria>
+<link href="~/css/TareasD.css" rel="stylesheet" />
+<h2>Tareas Diarias</h2>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Nombre de Tarea</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Hora Inicio</th>
+            <th>Hora Término</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tareas in Model)
+        {
+            <tr>
+                <td>@tareas.NombreTarea</td>
+                <td>@tareas.DescripcionTarea</td>
+                <td>@tareas.FechaTarea.ToShortDateString()</td>
+                <td>@tareas.HoraInicio</td>
+                <td>@tareas.HoraTermino</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<center>
+<form method="get" asp-action="Back">
+    <button id="btn btn-secondary" type="submit" class="btn btn-secondary">Volver</button>
+</form>
+    </center>
+
+

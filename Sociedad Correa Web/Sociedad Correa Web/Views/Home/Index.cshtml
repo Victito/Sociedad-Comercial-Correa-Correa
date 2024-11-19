@@ -1,17 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Sociedad_Correa_Web.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = "Inicio de Sesión";
 }
-<link href="~/css/Index.css" rel="stylesheet" />
 
-<div class="text-center">
-    <h1 class="display-4">Inicio de sesion</h1>
+<form asp-controller="Account" asp-action="Login" method="post">
+    <link href="~/css/Index.css" rel="stylesheet" />
+    <div class="text-center">
+        <h2>Inicio de Sesión</h2>
+        <label for="nombreUsuario">Nombre de Usuario</label>
+        <br />
+        <input type="text" placeholder="Ej: Pedro.silva" id="nombreUsuario" name="nombreUsuario" />
+        <br /><br />
 
-    <h2>Nombre usuario</h2>
-    <input placeholder="Ej: Pedro.silva" type="text" name="name" value="" />
-    <br>
-    <h2>Clave usuario</h2>
-    <input placeholder="Ej: M21173213-8" type="password" name="name" value="" />
-    <br />
-    <br />
-    <button class="button-login">Iniciar sesión</button>
-</div>
+        <label for="clave">Clave</label>
+        <br />
+        <input type="password" placeholder="Ej: Pedro123231" id="clave" name="clave" />
+        <br /><br />
+
+        <button class="button-login" id="button-login" type="submit">Iniciar Sesión</button>
+    </div>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p style="color: red; margin-top: 15px;">@ViewBag.ErrorMessage</p>
+    }
+</form>
+
+

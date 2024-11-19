@@ -1,0 +1,88 @@
+﻿/* Estilos generales */
+body {
+    color: #fff;
+    background: linear-gradient(135deg, #3393DF, #007AFF);
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo general de la tabla */
+.facturas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd; /* Agregar borde general */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+    .facturas-table th,
+    .facturas-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd; /* Borde para celdas individuales */
+    }
+
+    /* Encabezado de la tabla */
+    .facturas-table th {
+        background-color: #4CAF50; /* Fondo verde para títulos */
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase; /* Convertir texto a mayúsculas */
+    }
+
+    /* Filas alternadas */
+    .facturas-table tr:nth-child(even) {
+        background-color: #f9f9f9; /* Gris claro para filas pares */
+    }
+
+    /* Hover en filas */
+    .facturas-table tr:hover {
+        background-color: #e6f7ff; /* Azul claro al pasar el mouse */
+    }
+
+/* Estilo para badges de estado */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Colores para cada estado */
+.bg-success {
+    background-color: #28a745;
+}
+
+.bg-warning {
+    background-color: #ffc107;
+}
+
+.bg-danger {
+    background-color: #dc3545;
+}
+
+.bg-secondary {
+    background-color: #6c757d;
+}
+
+/* Estilo del botón */
+.btn-secondary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-secondary:hover {
+        background-color: #0056b3;
+    }

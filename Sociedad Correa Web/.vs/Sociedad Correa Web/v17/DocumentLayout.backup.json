@@ -1,22 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\",
+  "WorkspaceRootPath": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\git clone\\sociedad correa web\\sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\git clone\\sociedad correa web\\sociedad correa web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\views\\home\\trabajadores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\trabajadores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\git clone\\sociedad correa web\\sociedad correa web\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\git clone\\sociedad correa web\\sociedad correa web\\wwwroot\\css\\layout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\wwwroot\\css\\layout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Layout.css",
-              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Layout.css",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\wwwroot\\css\\Layout.css",
-              "ToolTip": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Layout.css",
-              "RelativeToolTip": "Sociedad Correa Web\\wwwroot\\css\\Layout.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-04T04:14:19.715Z",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAiwG0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T02:56:18.111Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Sociedad Correa Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAANAAAAAAAAAA==",
+              "Title": "Trabajadores.cshtml",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-04T04:13:08.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.css",
-              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Index.css",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\wwwroot\\css\\Index.css",
-              "ToolTip": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Index.css",
-              "RelativeToolTip": "Sociedad Correa Web\\wwwroot\\css\\Index.css",
-              "ViewState": "AgIAACEAAAAAAAAAAAAiwCoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-04T03:59:16.45Z",
+              "WhenOpened": "2024-11-18T02:53:38.677Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml*",
-              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Index.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-04T02:20:24.684Z",
+              "Title": "EntradaSalidaController.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAqwH0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T01:03:50.989Z",
               "EditorCaption": ""
             }
           ]

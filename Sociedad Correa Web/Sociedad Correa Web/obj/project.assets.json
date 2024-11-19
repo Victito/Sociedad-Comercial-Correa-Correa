@@ -4535,11 +4535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web.csproj",
+      "projectUniqueName": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web.csproj",
       "projectName": "Sociedad Correa Web",
-      "projectPath": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web.csproj",
+      "projectPath": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web.csproj",
       "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maxim\\Desktop\\Git Clone\\Sociedad Correa Web\\Sociedad Correa Web\\obj\\",
+      "outputPath": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",

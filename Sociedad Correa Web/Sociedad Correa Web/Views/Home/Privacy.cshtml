@@ -1,6 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "";
 }
 <h1>@ViewData["Title"]</h1>
+<link href="~/css/Privacy.css" rel="stylesheet" />
 
-<p>Use this page to detail your site's privacy policy.</p>
+<center>
+    <div class="text-center">
+        <h1 class="display-4">Datos Personales</h1>
+        <br />
+
+        <div>
+            <p>Bienvenido, <strong>@ViewContext.HttpContext.Session.GetString("NombreUsuario")</strong></p>
+            <p>Rol: <strong>@ViewContext.HttpContext.Session.GetString("Rol")</strong></p>
+
+        </div>
+
+    <ul>
+        <li>Nombre: @Context.Session.GetString("NombreEmpleado")</li>
+        <li>Apellido: @Context.Session.GetString("ApellidoEmpleado")</li>
+        <li>Puesto: @Context.Session.GetString("PuestoEmpleado")</li>
+        <li>Teléfono: @Context.Session.GetString("TelefonoEmpleado")</li>
+        @* <li>Tareas: @Context.Session.GetString("TareasEmpleado")</li> *@
+    </ul>
+        
+
+</center>
+        </ul>
+<br />
+
+<div style="display: flex; gap: 10px; justify-content: center;">
+    <form asp-action="Logout" asp-controller="Account" method="post" style="display: inline;">
+        <button type="submit" class="button-Logout" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+            Cierre de sesión
+        </button>
+
+    </form>
+    <a asp-controller="Facturas" asp-action="MostrarFacturas" class="btn btn-primary">Ver Facturas</a>
+    <button class="button-Marcar-salida" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+        Marcar salida
+    </button>
+</div>
+    </div>
+</center>

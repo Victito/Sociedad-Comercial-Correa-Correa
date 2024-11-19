@@ -1,0 +1,56 @@
+﻿@model List<Sociedad_Correa_Web.ViewModels.FacturaViewModel>
+<link href="~/css/Facturas.css" rel="stylesheet" />
+<h2>Listado de Facturas</h2>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Rut Emisor</th>
+            <th>Comuna</th>
+            <th>Ciudad</th>
+            <th>Fecha Emisión</th>
+            <th>Fecha Vencimiento</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Rut Vendedor</th>
+            <th>Giro Vendedor</th>
+            <th>Proveedor</th>
+            <th>Días Restantes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var factura in Model)
+        {
+            <tr>
+                <td>@factura.RutEmisor</td>
+                <td>@factura.Comuna</td>
+                <td>@factura.Ciudad</td>
+                <td>@factura.FechaEmision?.ToShortDateString()</td>
+                <td>@factura.FechaVencimiento?.ToShortDateString()</td>
+                <td>@factura.Cantidad</td>
+                <td>@factura.Total</td>
+                <td>
+                    <span class="badge
+                                @(factura.Estado == "Pagada" ? "bg-success" :
+                                  factura.Estado == "Pendiente" ? "bg-warning" :
+                                  factura.Estado == "Vencida" ? "bg-danger" : "bg-secondary")">
+                        @factura.Estado
+                    </span>
+                </td>
+                <td>@factura.Estado</td>
+                <td>@factura.RutVendedor</td>
+                <td>@factura.GiroVendedor</td>
+                <td>@factura.DiasRestantes</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<form method="get" asp-action="Back">
+    <button type="submit" class="btn btn-secondary">Volver</button>
+</form>
+
+

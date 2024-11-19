@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Sociedad_Correa_Web.Models.TareasDiaria>
+<link href="~/css/Trabajadores.css" rel="stylesheet" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<head>
+    <title>Detalles del Empleado</title>
+</head>
+<body>
+
+ <center>
+
+    <h2>
+        Bienvenido, @Context.Session.GetString("NombreUsuario"), @Context.Session.GetString("Rol")
+
+    </h2>
+    <h3>Datos del Empleado:</h3>
+    <ul>
+        <li>Nombre: @Context.Session.GetString("NombreEmpleado")</li>
+        <li>Apellido: @Context.Session.GetString("ApellidoEmpleado")</li>
+        <li>Puesto: @Context.Session.GetString("PuestoEmpleado")</li>
+        <li>Teléfono: @Context.Session.GetString("TelefonoEmpleado")</li>
+        <li>Tareas: @Context.Session.GetString("TareasEmpleado")</li>
+    </ul>
+
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <p style="color: red;">@ViewBag.ErrorMessage</p>
+    }
+
+    <br />
+        <center>
+
+    <div style="display: flex; gap: 10px; justify-content: center;">
+        <form asp-action="Logout" asp-controller="Account" method="post" style="display: inline;">
+            <button asp-controller="Account" asp-action="Logout" type="submit" class="button-Logout" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+                Cierre de sesión
+            </button>
+        </form>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("ObtenerTareasDiarias", "Account")'">
+            Ver Tareas Diarias
+        </button>
+
+                <form method="post" action="/EntradaSalida/RegistrarEntrada">
+                    <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                </form>
+
+                <form method="post" action="/EntradaSalida/MarcarSalida">
+                    <button type="submit" class="btn btn-secondary">Marcar Salida</button>
+                </form>
+
+                <script>
+                    // Mostrar popup basado en ViewBag
+                    const success = '@ViewBag.Success';
+                    const message = '@ViewBag.Message';
+
+                    if (message) {
+                        Swal.fire({
+                            title: success === "True" ? "¡Éxito!" : "Error",
+                            text: message,
+                            icon: success === "True" ? "success" : "error",
+                            confirmButtonText: "Aceptar"
+                        });
+                    }
+                </script>
+    </div>
+
+</body>
+</html>

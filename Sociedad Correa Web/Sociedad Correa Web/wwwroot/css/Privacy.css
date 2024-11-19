@@ -1,0 +1,22 @@
+﻿/* Estilos generales */
+body {
+    color: #fff;
+    background: linear-gradient(135deg, #3393DF, #007AFF);
+    font-family: Arial, sans-serif;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 50px;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 0;
+}
+
+button {
+    font-size: 16px;
+    cursor: pointer;
+}
