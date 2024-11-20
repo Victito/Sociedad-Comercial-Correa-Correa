@@ -28,7 +28,7 @@ namespace SociedadCorreaCorrea.Views
             txtId.Text = _facturaSeleccionada.Factura.IdFactura.ToString();
             txtCliente.Text = _facturaSeleccionada.Factura.RazonSocial;
             txtTotal.Text = _facturaSeleccionada.Factura.Total.ToString();
-
+            txtNumeroFactura.Text = _facturaSeleccionada.Factura.NumeroFactura.ToString();
             txtIdSucursal.Text = _facturaSeleccionada.Factura.IdSucursal.ToString();
             txtRutVendedor.Text = _facturaSeleccionada.Factura.RutVendedor;
             txtGiroVendedor.Text = _facturaSeleccionada.Factura.GiroVendedor;
@@ -72,6 +72,7 @@ namespace SociedadCorreaCorrea.Views
                     RazonSocial = txtCliente.Text,
                     Total = decimal.Parse(txtTotal.Text),
                     IdSucursal = int.Parse(txtIdSucursal.Text),
+                    NumeroFactura = int.Parse(txtNumeroFactura.Text),
                     RutVendedor = txtRutVendedor.Text,
                     GiroVendedor = txtGiroVendedor.Text,
                     RazonSocialVendedor = txtRazonSocialVendedor.Text,
@@ -166,6 +167,37 @@ namespace SociedadCorreaCorrea.Views
                 // Cierra la ventana de MainMenu
                 this.Close();
             }
+        }
+        private void Drive_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Drive = new Drive();
+                Drive.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Servicios_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Servicios = new Servicios();
+                Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Coloca aquí la lógica para cerrar sesión
+            MessageBox.Show("Cerrar sesión");
         }
 
 

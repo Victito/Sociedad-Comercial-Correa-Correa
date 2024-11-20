@@ -5,12 +5,13 @@ using System.Windows.Controls; // Para usar controles de WPF como Button, TextBo
 using MahApps.Metro.Controls;
 using SociedadCorreaCorrea.Models;
 using SociedadCorreaCorrea.ViewModels;
-using MahApps.Metro.Controls.Dialogs; // Asegúrate de tener esto en tu código
+using MahApps.Metro.Controls.Dialogs;  
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
 using System.Windows.Interop;
+using SociedadCorreaCorrea.ViewsModels;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -27,7 +28,8 @@ namespace SociedadCorreaCorrea.Views
         public MainMenu()
         {
             InitializeComponent();
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight; 
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            this.DataContext = new MainMenuViewModel(this); // Establecer el DataContext
         }
 
         #endregion
@@ -133,6 +135,37 @@ namespace SociedadCorreaCorrea.Views
                 this.WindowState = WindowState.Maximized;
             else this.WindowState = WindowState.Normal;
         }
-        
+        private void Drive_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Drive = new Drive();
+                Drive.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Servicios_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Servicios = new Servicios();
+                Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Coloca aquí la lógica para cerrar sesión
+            MessageBox.Show("Cerrar sesión");
+        }
+
     }
 }

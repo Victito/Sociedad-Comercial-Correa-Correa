@@ -6,7 +6,10 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Windows.Input;
+using System.IO;
+using Microsoft.Win32; // Necesario para SaveFileDialog
 
 namespace SociedadCorreaCorrea.ViewModels
 {
@@ -58,6 +61,9 @@ namespace SociedadCorreaCorrea.ViewModels
         }
 
         public ICommand FiltrarCommand { get; private set; }
+        // Comando para generar el CSV
+        public ICommand GenerarCsvCommand { get; }
+
 
         public ProductoFacturasViewModel(int idFactura)
         {
@@ -67,6 +73,8 @@ namespace SociedadCorreaCorrea.ViewModels
 
             // Inicializar el comando para filtrar
             FiltrarCommand = new RelayCommand(FiltrarProductos);
+            // Inicialización del comando para generar CSV
+            GenerarCsvCommand = new RelayCommand(GenerarCsv);
 
             // Cargar los productos relacionados con la factura
             CargarProductos(idFactura);
@@ -87,6 +95,43 @@ namespace SociedadCorreaCorrea.ViewModels
 
                 // Inicializar ProductosFiltrados
                 ProductosFiltrados = new ObservableCollection<Producto>(Productos);
+            }
+        }
+
+        // Método para generar el archivo CSV
+        private void GenerarCsv()
+        {
+            // Crear una instancia del cuadro de diálogo de guardar archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv"; // Filtrar solo archivos CSV
+            saveFileDialog.DefaultExt = ".csv"; // Establecer la extensión por defecto
+
+            // Mostrar el cuadro de diálogo y verificar si el usuario seleccionó un archivo
+            bool? resultado = saveFileDialog.ShowDialog();
+
+            if (resultado == true) // El usuario seleccionó un archivo
+            {
+                // Obtener la ruta seleccionada
+                string rutaArchivo = saveFileDialog.FileName;
+
+                // Crear un StringBuilder para construir el contenido CSV
+                var sb = new StringBuilder();
+
+                // Agregar el encabezado del CSV (con los nombres de las columnas)
+                sb.AppendLine("NumeroFactura,IdProducto,CodigoProducto,Descripcion,NSerie,Cantidad,PrecioUnitario,Descuento,Total,IdFactura,IdSucursal,IdEmpresa");
+
+                // Agregar cada producto como una línea en el archivo CSV
+                foreach (var producto in ProductosFiltrados)
+                {
+                    sb.AppendLine($"{producto.NumeroFactura},{producto.IdProducto},{producto.CodigoProducto},{producto.Descripcion},{producto.NSerie},{producto.Cantidad},{producto.PrecioUnitario},{producto.Descuento},{producto.Total},{producto.IdFactura},{producto.IdSucursal},{producto.IdEmpresa}");
+                }
+
+                // Escribir el contenido en un archivo CSV
+                File.WriteAllText(rutaArchivo, sb.ToString());
+
+            }
+            else
+            {
             }
         }
 

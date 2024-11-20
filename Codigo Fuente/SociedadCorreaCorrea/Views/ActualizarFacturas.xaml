@@ -64,7 +64,7 @@
 
                     <!-- Botones menú -->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -72,7 +72,7 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                             >
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
@@ -80,24 +80,30 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color5}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Servicios_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Drive_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -175,22 +181,71 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    FlowDirection="RightToLeft"
-                                    VerticalAlignment="Center"
-                                    Margin="0,0,10,0">
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
-                                <iconPacks:PackIconMaterial Kind="ChevronDown" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
+Orientation="Horizontal"
+FlowDirection="RightToLeft"
+VerticalAlignment="Center"
+Margin="0,0,10,0">
+
+                            <!-- ComboBox personalizado para mostrar solo una opción: "Cerrar sesión" -->
+                            <ComboBox Width="28" 
+  Background="Transparent"
+  BorderBrush="Transparent"
+  VerticalAlignment="Center"
+  Foreground="{StaticResource titleColor2}">
+                                <ComboBox.Template>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <!-- Aparece la flecha como en un botón -->
+                                            <ToggleButton x:Name="ToggleButton"
+                      Focusable="False"
+                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                                              
+                                              >
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iconPacks:PackIconMaterial  Kind="ChevronDown" 
+                                            Height="12" 
+                                            Width="12" 
+                                            Style="{StaticResource iconButtonIcon}"
+                                            Foreground="{StaticResource titleColor2}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Popup x:Name="Popup"
+               Placement="Bottom"
+               IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+               AllowsTransparency="True"
+               Focusable="False"
+               PopupAnimation="Slide">
+                                                <Border Background="White" 
+                    CornerRadius="4"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                                                    <StackPanel>
+                                                        <TextBlock Text="Cerrar sesión"
+                               Padding="10"
+                               FontSize="12"
+                               Cursor="Hand"
+                               MouseLeftButtonUp="CerrarSesion_Click"
+                                                       Foreground="Black"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ComboBox.Template>
+                            </ComboBox>
+
+                            <!-- Nombre de usuario y círculo de perfil -->
                             <TextBlock Text="username"
-                                       Foreground="{StaticResource titleColor2}"
-                                       FontFamily="Montserrat"
-                                       FontSize="12"
-                                       VerticalAlignment="Center"/>
+   Foreground="{StaticResource titleColor2}"
+   FontFamily="Montserrat"
+   FontSize="12"
+   VerticalAlignment="Center"/>
                             <Ellipse Height="35" Width="35"
-                                     Stroke="{StaticResource color1}"
-                                     StrokeThickness="2"
-                                     Margin="10,0,10,0"/>
+ Stroke="#ffffff"
+ StrokeThickness="2"
+ Margin="10,0,10,0"/>
                         </StackPanel>
                     </Grid>
 
@@ -220,7 +275,7 @@
                                 <!-- Columna 1 -->
                                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
                                     <TextBlock Text="Id Factura:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <TextBox  x:Name="txtId" 
+                                    <TextBox Style="{StaticResource RoundedTextBox}" x:Name="txtId" 
                                                  
               IsReadOnly="True" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
                                 </StackPanel>
@@ -253,7 +308,7 @@
                                 <StackPanel Grid.Row="6" Grid.Column="0" Margin="10">
                                     <TextBlock Text="Razón Social Vendedor:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtRazonSocialVendedor" 
-              IsReadOnly="False" HorizontalAlignment="Left"  Width="250"  Margin="0,5,0,15">
+              IsReadOnly="False" HorizontalAlignment="Left" Style="{StaticResource RoundedTextBox}" Width="250"  Margin="0,5,0,15">
                                         
                                     </TextBox>
 
@@ -285,6 +340,12 @@ IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style=
                                 <StackPanel Grid.Row="11" Grid.Column="0" Margin="10">
                                     <TextBlock Text="Precio Unitario:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox  x:Name="txtPrecioUnitario"
+IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
+
+                                </StackPanel>
+                                <StackPanel Grid.Row="12" Grid.Column="0" Margin="10">
+                                    <TextBlock Text="Precio Unitario:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <TextBox  x:Name="txtNumeroFactura"
 IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
 
                                 </StackPanel>

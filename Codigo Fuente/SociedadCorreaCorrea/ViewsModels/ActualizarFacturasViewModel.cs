@@ -24,6 +24,7 @@ namespace SociedadCorreaCorrea.ViewModels
                 // Actualizar las propiedades de la factura existente
                 facturaExistente.IdSucursal = facturaActualizada.Factura.IdSucursal;
                 facturaExistente.RazonSocial = facturaActualizada.Factura.RazonSocial;
+                facturaExistente.NumeroFactura = facturaActualizada.Factura.NumeroFactura;
                 facturaExistente.Total = facturaActualizada.Factura.Total;
                 facturaExistente.RutVendedor = facturaActualizada.Factura.RutVendedor;
                 facturaExistente.GiroVendedor = facturaActualizada.Factura.GiroVendedor;

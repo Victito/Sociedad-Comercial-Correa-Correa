@@ -155,7 +155,7 @@ namespace SociedadCorreaCorrea.ViewsModels
         {
             await CargarPuestos();
             await CargarSucursales();
-            CargarTurnos();
+            await CargarTurnos();
 
         }
         private async Task CargarSucursales()

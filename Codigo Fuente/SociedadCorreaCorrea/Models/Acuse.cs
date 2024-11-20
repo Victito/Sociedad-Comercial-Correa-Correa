@@ -23,5 +23,7 @@ public partial class Acuse
 
     public int IdEmpresa { get; set; }
 
+    public int? NumeroFactura { get; set; }
+
     public virtual Factura IdFacturaNavigation { get; set; } = null!;
 }

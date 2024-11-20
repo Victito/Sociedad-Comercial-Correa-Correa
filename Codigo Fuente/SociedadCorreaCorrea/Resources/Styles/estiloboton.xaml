@@ -126,7 +126,7 @@
         <Setter Property="Cursor" Value="Hand"></Setter>
         <Setter Property="Width" Value="25"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
-        <Setter Property="Foreground" Value="#ffffff"></Setter>
+        
         <Setter Property="Template" >
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -149,26 +149,41 @@
     </Style>
 
     <Style x:Key="iconButtonIcon" TargetType="iconPacks:PackIconMaterial">
-        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"></Setter>
+        
         <Setter Property="Width" Value="16"></Setter>
         <Setter Property="Height" Value="16"></Setter>
 
     </Style>
-    <Style  x:Key="RoundedTextBox" TargetType="TextBox">
+    <Style x:Key="RoundedTextBox" TargetType="TextBox">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border CornerRadius="10" 
-                         BorderThickness="1"
-                         
-                         BorderBrush="#CCCCCC" 
-                         Background="White">
+                    <Border x:Name="Border"
+                    CornerRadius="10" 
+                    BorderThickness="1.5"
+                    BorderBrush="#0074D9" 
+                    Background="#E0F7FA">
                         <ScrollViewer Margin="1" 
-                                   x:Name="PART_ContentHost" 
-                                   HorizontalScrollBarVisibility="Hidden" 
-                                   VerticalScrollBarVisibility="Hidden"
-                                    Height="26"  />
+                              x:Name="PART_ContentHost" 
+                              HorizontalScrollBarVisibility="Hidden" 
+                              VerticalScrollBarVisibility="Hidden"
+                              Height="26" />
                     </Border>
+
+                    <!-- Triggers dentro del ControlTemplate para hover y focus -->
+                    <ControlTemplate.Triggers>
+                        <!-- Trigger para hover (cuando el mouse está sobre el TextBox) -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
+                            <!-- Azul intenso para hover -->
+                        </Trigger>
+
+                        <!-- Trigger para focus (cuando el TextBox tiene el foco) -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
+                            <!-- Azul con toque verde para focus -->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -179,21 +194,54 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
-                    <Border CornerRadius="10"
-                         BorderThickness="1" 
-                         BorderBrush="#CCCCCC" 
-                         Background="White" 
-                         Padding="2">
-
+                    <Border x:Name="Border"
+                        CornerRadius="10"
+                        BorderThickness="1.5"
+                        BorderBrush="#0074D9"
+                        Background="#E0F7FA">
+                        <Grid>
+                            <ContentPresenter Margin="4"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"/>
+                            <ToggleButton x:Name="ToggleButton"
+                                      Grid.Column="2"
+                                      Background="Transparent"
+                                      BorderBrush="{x:Null}"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      Width="20">
+                                <Path Data="M 0 0 L 4 4 L 8 0 Z"
+                                  Fill="Black"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </ToggleButton>
+                        </Grid>
                     </Border>
-                    <!-- Popup que se despliega con los elementos del ComboBox -->
 
+                    <!-- Triggers dentro del ControlTemplate para hover, focus y dropdown abierto -->
+                    <ControlTemplate.Triggers>
+                        <!-- Trigger para hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
+                            <!-- Azul intenso para hover -->
+                        </Trigger>
+                        <!-- Trigger para focus -->
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
+                            <!-- Azul con toque verde para focus -->
+                        </Trigger>
+                        <!-- Trigger para abrir el desplegable -->
+                        <Trigger Property="IsDropDownOpen" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="Black"/>
     </Style>
+
     <!--estilo de las columnas-->
     <Style x:Key="CenteredTextStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -370,6 +418,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                
                                 Margin="{TemplateBinding Margin}"
                                 >
                                 
@@ -561,7 +610,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGrid}">
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                        <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                        <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false" Margin="0,0,0,0">
                             <ScrollViewer.Template>
                                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
                                     <Grid>
@@ -707,7 +756,56 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="RoundedDatePicker" TargetType="DatePicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DatePicker">
+                    <Border x:Name="Border"
+                        CornerRadius="10"
+                        BorderThickness="1.5"
+                        BorderBrush="#0074D9"
+                        Background="#E0F7FA">
+                        <Grid>
+                            <DatePickerTextBox x:Name="PART_TextBox"
+                                           Background="Transparent"
+                                           Foreground="Black"
+                                           Margin="2" />
+                            <Button x:Name="PART_Button"
+                                Width="20"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center">
+                                <Path Data="M 0 0 L 8 0 L 8 8 L 0 8 Z M 1 1 L 7 1 M 1 3 L 7 3"
+                                  Stroke="Black"
+                                  StrokeThickness="1.5"
+                                  Fill="Transparent"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </Button>
+                        </Grid>
+                    </Border>
 
+                    <!-- Triggers dentro del ControlTemplate para hover y focus -->
+                    <ControlTemplate.Triggers>
+                        <!-- Trigger para hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
+                            <!-- Azul intenso para hover -->
+                        </Trigger>
+                        <!-- Trigger para focus -->
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
+                            <!-- Azul con toque verde para focus -->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    
 
 
 </ResourceDictionary>

@@ -9,6 +9,7 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:colorvencimiento="clr-namespace:SociedadCorreaCorrea.Converters"
     Title="Principal"
     Width="1300"
     Height="700"
@@ -69,7 +70,7 @@
                     </StackPanel>
                     <!--Botones menu-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -77,7 +78,7 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
@@ -86,7 +87,7 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -95,7 +96,7 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}"
+                                 Tag="#ffffff"
                                  PreviewMouseDown="AdministradorDeTrabajadores_ClickMouse">
                                 
                         <StackPanel Orientation="Horizontal">
@@ -104,12 +105,16 @@
 
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color5}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Servicios_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Servicio" Style="{StaticResource menuButtonText}"></TextBlock>
-
+                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Drive_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -167,8 +172,190 @@
                         </Button>
 
                     </StackPanel>
-                </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
 
+                        <StackPanel Grid.Column="0" 
+                Orientation="Horizontal" 
+                VerticalAlignment="Center">
+
+                            <iconPacks:PackIconMaterial 
+            Kind="Home"                                                    
+            Height="20"                                        
+            Width="20"                   
+            Foreground="{StaticResource titleColor2}"                      
+            Margin="35,0,10,0"/>
+
+                            <TextBlock Text="Home"
+                   Foreground="{StaticResource titleColor2}"
+                   FontSize="16"
+                   FontFamily="Montserrat"
+                   FontWeight="Medium"
+                   VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+Orientation="Horizontal"
+FlowDirection="RightToLeft"
+VerticalAlignment="Center"
+Margin="0,0,10,0">
+
+                            <!-- ComboBox personalizado para mostrar solo una opción: "Cerrar sesión" -->
+                            <ComboBox Width="28" 
+  Background="Transparent"
+  BorderBrush="Transparent"
+  VerticalAlignment="Center"
+  Foreground="{StaticResource titleColor2}">
+                                <ComboBox.Template>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <!-- Aparece la flecha como en un botón -->
+                                            <ToggleButton x:Name="ToggleButton"
+                      Focusable="False"
+                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                                              
+                                              >
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iconPacks:PackIconMaterial  Kind="ChevronDown" 
+                                            Height="12" 
+                                            Width="12" 
+                                            Style="{StaticResource iconButtonIcon}"
+                                            Foreground="{StaticResource titleColor2}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Popup x:Name="Popup"
+               Placement="Bottom"
+               IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+               AllowsTransparency="True"
+               Focusable="False"
+               PopupAnimation="Slide">
+                                                <Border Background="White" 
+                    CornerRadius="4"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                                                    <StackPanel>
+                                                        <TextBlock Text="Cerrar sesión"
+                               Padding="10"
+                               FontSize="12"
+                               Cursor="Hand"
+                               MouseLeftButtonUp="CerrarSesion_Click"
+                                                       Foreground="Black"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ComboBox.Template>
+                            </ComboBox>
+
+                            <!-- Nombre de usuario y círculo de perfil -->
+                            <TextBlock Text="username"
+   Foreground="{StaticResource titleColor2}"
+   FontFamily="Montserrat"
+   FontSize="12"
+   VerticalAlignment="Center"/>
+                            <Ellipse Height="35" Width="35"
+ Stroke="#ffffff"
+ StrokeThickness="2"
+ Margin="10,0,10,0"/>
+                        </StackPanel>
+                    </Grid>
+                    <ContentControl Grid.Row="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Panel de Tareas para hoy -->
+                            <Border Grid.Column="0" Background="White" CornerRadius="10" BorderBrush="#0056A6" BorderThickness="1" Margin="10">
+                                <StackPanel>
+                                    <!-- Encabezado -->
+                                    <DockPanel Background="#003366" Height="50" LastChildFill="True">
+                                        <TextBlock Text="Tareas para hoy" Foreground="White" FontSize="16" FontWeight="Bold" 
+                               VerticalAlignment="Center" Margin="10,0" />
+                                        
+                                    </DockPanel>
+                                    <ListBox ItemsSource="{Binding ListaTareaDiaria}" 
+                                         Background="#E8F1FA" 
+                                         BorderThickness="0" 
+                                         Padding="10" 
+                                         Margin="10">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <!-- Nombre de la tarea -->
+                                                    <TextBlock Text="{Binding NombreTarea}" FontWeight="Bold" FontSize="14" />
+
+                                                    <!-- Separador -->
+                                                    <TextBlock Text=" | " FontWeight="Bold" Foreground="Gray" />
+
+                                                    <!-- Descripción de la tarea -->
+                                                    <TextBlock Text="{Binding DescripcionTarea}" Foreground="Gray" FontSize="12" Margin="5,0,0,0" />
+
+                                                    <!-- Empleado asignado -->
+                                                    <TextBlock Text="{Binding Empleado.NombreEmpleado}" Foreground="DarkGreen" FontSize="12" Margin="10,0,0,0" />
+                                                    <TextBlock Text="{Binding Empleado.ApellidoEmpleado}" Foreground="DarkGreen" FontSize="12" Margin="10,0,0,0" />
+                                                    <TextBlock Text="{Binding Empleado.RutEmpleado}" Foreground="DarkGreen" FontSize="12" Margin="10,0,0,0" />
+
+                                                    <!-- Fecha de la tarea -->
+                                                    <TextBlock Text="{Binding HoraInicioTarea, StringFormat='{}{0:HH:mm}'}" Foreground="DarkBlue" FontSize="12" Margin="10,0,0,0" />
+                                                    <TextBlock Text="{Binding HoraTerminoTarea, StringFormat='{}{0:HH:mm}'}" Foreground="DarkBlue" FontSize="12" Margin="10,0,0,0" />
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Panel de Recordatorios -->
+                            <Border Grid.Column="1" Background="White" CornerRadius="10" BorderBrush="#0056A6" BorderThickness="1" Margin="10">
+                                <StackPanel>
+                                    <!-- Encabezado -->
+                                    <DockPanel Background="#003366" Height="50" LastChildFill="True">
+                                        <TextBlock Text="Recordatorios" Foreground="White" FontSize="16" FontWeight="Bold" 
+                               VerticalAlignment="Center" Margin="10,0" />
+                                       
+                                    </DockPanel>
+
+                                    <ListBox Background="#E8F1FA" BorderThickness="0" Padding="10" ItemsSource="{Binding ListaFacturas}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <ListBoxItem>
+                                                    <StackPanel Orientation="Horizontal" Margin="5" Background="{Binding ColorVencimiento}">
+                                                        <!-- RazonSocial TextBlock -->
+                                                        <TextBlock Text="Numero de Factura: " Margin="5,0,0,0" Foreground="Gray" />
+                                                        <TextBlock Text="{Binding NumeroFactura}" Foreground="Black" FontSize="14" FontWeight="Bold" Margin="5,0,0,0"/>
+
+                                                        <!-- Separator TextBlock -->
+                                                        <TextBlock Text=" | Total Factura: " Margin="5,0,0,0" Foreground="Gray" />
+
+                                                        <!-- RazonSocial duplicate (you can adjust this if it's not necessary) -->
+                                                        <TextBlock Text="{Binding Total}" Margin="5,0,0,0" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+
+                                                        <!-- "Vence:" Label -->
+                                                        <TextBlock Text=" | Vence: " Margin="5,0,0,0" Foreground="Gray" FontSize="14" FontWeight="Bold"/>
+
+                                                        <!-- FechaVencimiento TextBlock -->
+                                                        <TextBlock Text="{Binding FechaVencimiento}" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+                                                    </StackPanel>
+                                                </ListBoxItem>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </ContentControl>
+                </Grid>
+                
             </Border>
         </Grid>
             

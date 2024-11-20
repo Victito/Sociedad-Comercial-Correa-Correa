@@ -24,6 +24,7 @@ namespace SociedadCorreaCorrea.ViewModels
                 // Actualizar las propiedades del producto existente
                 productoExistente.CodigoProducto = productoActualizado.CodigoProducto;
                 productoExistente.Descripcion = productoActualizado.Descripcion;
+                productoExistente.NumeroFactura = productoActualizado.NumeroFactura;
                 productoExistente.NSerie = productoActualizado.NSerie;
                 productoExistente.Cantidad = productoActualizado.Cantidad;
                 productoExistente.PrecioUnitario = productoActualizado.PrecioUnitario;

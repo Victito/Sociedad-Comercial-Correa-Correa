@@ -66,7 +66,7 @@
 
                     <!-- Botones menú -->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -74,7 +74,7 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
@@ -82,23 +82,29 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}">
+                             Tag="#ffffff">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color5}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Servicios_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Drive_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -169,11 +175,11 @@
                                 Height="20"                                        
                                 Width="20"                   
                                 Foreground="{StaticResource titleColor2}"                      
-                                Margin="35,0,10,0"/>
+                                Margin="15,0,10,0"/>
 
-                            <TextBlock Text="Administrar Trabajadores"
-                                       Foreground="{StaticResource titleColor2}"
-                                       FontSize="16"
+                            <TextBlock Text="Editar Informacaion de los Trabajadores"
+                                       Foreground="#fff"
+                                       FontSize="18"
                                        FontFamily="Montserrat"
                                        FontWeight="Medium"
                                        VerticalAlignment="Center"/>
@@ -181,89 +187,241 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    FlowDirection="RightToLeft"
-                                    VerticalAlignment="Center"
-                                    Margin="0,0,10,0">
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
-                                <iconPacks:PackIconMaterial Kind="ChevronDown" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
+Orientation="Horizontal"
+FlowDirection="RightToLeft"
+VerticalAlignment="Center"
+Margin="0,0,10,0">
+
+                            <!-- ComboBox personalizado para mostrar solo una opción: "Cerrar sesión" -->
+                            <ComboBox Width="28" 
+  Background="Transparent"
+  BorderBrush="Transparent"
+  VerticalAlignment="Center"
+  Foreground="{StaticResource titleColor2}">
+                                <ComboBox.Template>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <!-- Aparece la flecha como en un botón -->
+                                            <ToggleButton x:Name="ToggleButton"
+                      Focusable="False"
+                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                                              
+                                              >
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iconPacks:PackIconMaterial  Kind="ChevronDown" 
+                                            Height="12" 
+                                            Width="12" 
+                                            Style="{StaticResource iconButtonIcon}"
+                                            Foreground="{StaticResource titleColor2}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Popup x:Name="Popup"
+               Placement="Bottom"
+               IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+               AllowsTransparency="True"
+               Focusable="False"
+               PopupAnimation="Slide">
+                                                <Border Background="White" 
+                    CornerRadius="4"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                                                    <StackPanel>
+                                                        <TextBlock Text="Cerrar sesión"
+                               Padding="10"
+                               FontSize="12"
+                               Cursor="Hand"
+                               MouseLeftButtonUp="CerrarSesion_Click"
+                                                       Foreground="Black"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ComboBox.Template>
+                            </ComboBox>
+
+                            <!-- Nombre de usuario y círculo de perfil -->
                             <TextBlock Text="username"
-                                       Foreground="{StaticResource titleColor2}"
-                                       FontFamily="Montserrat"
-                                       FontSize="12"
-                                       VerticalAlignment="Center"/>
+   Foreground="{StaticResource titleColor2}"
+   FontFamily="Montserrat"
+   FontSize="12"
+   VerticalAlignment="Center"/>
                             <Ellipse Height="35" Width="35"
-                                     Stroke="{StaticResource color1}"
-                                     StrokeThickness="2"
-                                     Margin="10,0,10,0"/>
+ Stroke="#ffffff"
+ StrokeThickness="2"
+ Margin="10,0,10,0"/>
                         </StackPanel>
                     </Grid>
                     <ContentControl Grid.Row="2" 
                                     x:Name="ContenidoTrabajadores" 
                                     Margin="5,2,5,5">
-                        <StackPanel>
-                        <TextBlock Text="Nombres:" />
-                        <TextBox Text="{Binding Empleado.NombreEmpleado}" />
-                        <TextBlock Text="Apellidos:" />
-                        <TextBox Text="{Binding Empleado.ApellidoEmpleado}" />
-                        <TextBlock Text="Rut:" />
-                        <TextBox Text="{Binding Empleado.RutEmpleado}" />
-                        <TextBlock Text="Teléfono:" />
-                        <TextBox Text="{Binding Empleado.TelefonoEmpleado}" />
-                        <TextBlock Text="Actual Fecha De Nacimiento:" />
-                         <TextBox Text="{Binding Empleado.FechaNacimientoEmpleado}" />
-                         <TextBlock Text="Seleccione una nueva fecha de nacimiento (Si es que es necesario):" />
-                         <DatePicker SelectedDate="{Binding FechaNacimientoNueva, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                         <TextBlock Text="Fecha De Contratacion Actual:" />
-                         <TextBox Text="{Binding Empleado.FechaContratacionEmpleado}" />
-                         <TextBlock Text="En caso de que se requiera cambiar la fecha de contratacion utilize el selector de fechas:" />
-                         <DatePicker SelectedDate="{Binding FechaContratacionNueva, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                         <TextBlock Text="Trabajos del empleado:" />
-                         <TextBox Text="{Binding Empleado.TareasEmpleado, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                         <TextBlock Text="Direccion:" />
-                        <TextBox Text="{Binding Empleado.DireccionEmpleado}" />
-                        <TextBlock Text="Correo Electronico:" />
-                        <TextBox Text="{Binding Empleado.CorreoEmpleado}" />
-                        <TextBlock Text="Salario:" />
-                        <TextBox Text="{Binding Empleado.SalarioEmpleado}" />
-                        <ComboBox 
-                             Width="300" 
-                             SelectedValue="{Binding Empleado.PuestoEmpleado}" 
-                             DisplayMemberPath="NombrePuesto" 
-                             SelectedValuePath="NombrePuesto"
-                             Margin="30,0,0,0"
-                             ItemsSource="{Binding ListaPuesto}">
-                                                </ComboBox>
-                                                <ComboBox 
-                        Width="300" 
-                        SelectedValue="{Binding Empleado.IdSucursal}" 
-                        DisplayMemberPath="NombreSucursal" 
-                        SelectedValuePath="IdSucursal"
-                        Margin="30,0,0,0"
-                        ItemsSource="{Binding ListaSucursal}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
 
-                                                </ComboBox>
-                                                <ComboBox 
-                          Width="300" 
-                          SelectedValue="{Binding Empleado.IdTurno}" 
-                          DisplayMemberPath="NombreTurno" 
-                          SelectedValuePath="IdTurno"
-                          Margin="30,0,0,0"
-                          ItemsSource="{Binding ListaTurno}"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+                                <TextBlock Text="Nombres:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.NombreEmpleado}"
+            IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+                                <TextBlock Text="Apellidos:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.ApellidoEmpleado}"
+            IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+                                <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.RutEmpleado}"
+                IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                
 
-                                                <ComboBox 
-                            Width="300" 
-                            SelectedValue="{Binding Empleado.EstatusEmpleado}"
-                            Margin="30,0,0,0"
-                            SelectedValuePath="Content">
-                            <ComboBoxItem Content="Activo" />
-                            <ComboBoxItem Content="Inactivo" />
-                        </ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="0" Margin="10">
+                                <TextBlock Text="Telefono: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="15" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.TelefonoEmpleado}"
+IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
 
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="0" Margin="10">
+                                <TextBlock Text="Sucursal de trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <ComboBox Background="#E0F7FA"   
+               SelectedValue="{Binding Empleado.IdSucursal}" 
+    DisplayMemberPath="NombreSucursal" 
+    SelectedValuePath="IdSucursal"
+    ItemsSource="{Binding ListaSucursal}"
+                IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <!--Columna 2-->
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+                                <TextBlock Text="Dirección:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.DireccionEmpleado}" 
+              IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+                                <TextBlock Text="Tareas del trabajador: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding TareasEmpleado, UpdateSourceTrigger=PropertyChanged}"
+              IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+                                <TextBlock Text="Correo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.CorreoEmpleado}" 
+              IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="1" Margin="10">
+                                <TextBlock Text="Turnos de Trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <ComboBox   Background="#E0F7FA"  
+                                            SelectedValue="{Binding Empleado.IdTurno}" 
+                                            DisplayMemberPath="NombreTurno" 
+                                            SelectedValuePath="IdTurno"
+                                            ItemsSource="{Binding ListaTurno}"
+                                            IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="1" Margin="10">
+                                <TextBlock Text="Fecha De Contratacion Actual: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="180" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.FechaContratacionEmpleado}" 
+IsReadOnly="True" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
+                                    <TextBlock Text="Cambiar fecha (Si es que es necesario): " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <DatePicker  Style="{StaticResource RoundedDatePicker}"  SelectedDate="{Binding FechaContratacionNueva, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Center" Margin="0,20,0,0">
+                                <Button 
+                BorderThickness="0"
+                Content="Actualizar"
+                Foreground="White"
+                FontSize="16"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Margin="0,0,0,0"
+                Command="{Binding GuardarCambiosCommand}">
+                                    <!-- Definición de estilo del botón -->
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="#40E0D0"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#41CD65" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <!-- Plantilla personalizada del botón -->
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="150" Height="40"
+                            CornerRadius="20"
+                            Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" 
+                                          HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
 
-                        <Button Content="Guardar Cambios" Command="{Binding GuardarCambiosCommand}" />
-                        </StackPanel>
+                            </StackPanel>
+                            <!--Columna 3-->
+                            <StackPanel Grid.Row="0" Grid.Column="2" Margin="10">
+                                <TextBlock Text="Salario: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="180" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.SalarioEmpleado}" 
+              IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
+                                <TextBlock Text="Estado del Empleado: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <ComboBox   Background="#E0F7FA"  
+                                            SelectedValue="{Binding Empleado.EstatusEmpleado}" 
+                                            SelectedValuePath="Content"
+                                            
+                                            IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" >
+                                    <ComboBoxItem Content="Activo" />
+                                    <ComboBoxItem Content="Inactivo" />
+                                </ComboBox> 
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
+                                <TextBlock Text="Fecha Contratacion: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <DatePicker   Style="{StaticResource RoundedDatePicker}" SelectedDate="{Binding FechaContratacionEmpleado, UpdateSourceTrigger=PropertyChanged}"  
+                   HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="2" Margin="10">
+                                <TextBlock Text="Puesto de trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <ComboBox   Background="#E0F7FA"  
+                SelectedValue="{Binding Empleado.PuestoEmpleado}" 
+         DisplayMemberPath="NombrePuesto" 
+         SelectedValuePath="NombrePuesto"
+         ItemsSource="{Binding ListaPuesto}"
+                 IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" 
+                                            />
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="2" Margin="10">
+                                <TextBlock Text="Actual Fecha De Nacimiento: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                <TextBox  MaxLength="180" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.FechaNacimientoEmpleado}" 
+IsReadOnly="True" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                <StackPanel Grid.Row="1" Grid.Column="2" Margin="10">
+                                    <TextBlock Text="Cambiar fecha (Si es que es necesario): " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                    <DatePicker  Style="{StaticResource RoundedDatePicker}"  SelectedDate="{Binding FechaNacimientoNueva, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                </StackPanel>
+                            </StackPanel>
+                            
+                        </Grid>
                     </ContentControl>
                 </Grid>
 

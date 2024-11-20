@@ -22,6 +22,7 @@ namespace SociedadCorreaCorrea.Views
         public GraficosFacturas()
         {
             InitializeComponent();
+            this.StateChanged += MetroWindow_StateChanged;
             DataContext = new GraficosFacturasViewModel(this);
 
             // Gráfico de Facturas por Categoría (barras)
@@ -201,6 +202,80 @@ namespace SociedadCorreaCorrea.Views
 
             renderBitmap.Render(grafico);
             return renderBitmap;
+        }
+        private void Drive_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Drive = new Drive();
+                Drive.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Servicios_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Servicios = new Servicios();
+                Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Coloca aquí la lógica para cerrar sesión
+            MessageBox.Show("Cerrar sesión");
+        }
+        private void Trabajadores_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Trabajadores = new Trabajadores();
+                Trabajadores.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void DatosEstadisticosFacturas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var datosEstadisticos = new GraficosFacturas();
+                datosEstadisticos.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void MetroWindow_StateChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                CartesianChartFacturasPorCategoria.Height = 450;
+                CartesianChartTotalPorProveedor.Height = 450;
+                CartesianChartFacturacionMensual.Height = 450;
+                CartesianChartPromedioPorProveedor.Height = 450;
+            }
+            else
+            {
+                CartesianChartFacturasPorCategoria.Height = 270;
+                CartesianChartTotalPorProveedor.Height = 270;
+                CartesianChartFacturacionMensual.Height = 270;
+                CartesianChartPromedioPorProveedor.Height = 270;
+            }
         }
     }
 }

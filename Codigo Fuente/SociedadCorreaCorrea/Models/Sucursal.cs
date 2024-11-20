@@ -22,4 +22,8 @@ public partial class Sucursal
     public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
 
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
+
+    public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
+
+    public virtual ICollection<TareasDiaria> TareasDiaria { get; set; } = new List<TareasDiaria>();
 }

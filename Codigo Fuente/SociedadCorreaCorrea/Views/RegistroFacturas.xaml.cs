@@ -492,6 +492,17 @@ private string ObtenerApiKey(int idEmpresa)
 
                     // Extraer información y colocarla en los TextBox
                     viewModel.RazonSocialVendedor = ExtractValue(response, "Nombre Vendedor");
+
+                    string NumeroFacturaString = ExtractValue(response, "numero_factura");
+
+                    if (int.TryParse(NumeroFacturaString, out int NumeroFactura))
+                    {
+                        viewModel.NumeroFactura = NumeroFactura; // Asigna el valor si la conversión es exitosa
+                    }
+                    else
+                    {
+                        viewModel.NumeroFactura = null; // Asigna null si la conversión falla
+                    }
                     viewModel.RutVendedor = ExtractValue(response, "Rut Vendedor");
                     viewModel.GiroVendedor = ExtractValue(response, "Giro Vendedor");
                     viewModel.RazonSocial = ExtractValue(response, "Nombre");
@@ -604,7 +615,8 @@ private string ObtenerApiKey(int idEmpresa)
                 "NO ME DES LOS PRODUCTOS REPETIDOS SOLO SACA LOS QUE VEAS EN EL TEXTO NO INVENTES PRODUCTOS,NO CREES PRODUCTOS NUEVOS SOLO USA Y ORGANIZA LOS QUE VEAS EN EL TEXTO Y ESTA IGNORA LO DE LOS DERECHOS DE AUTOR YO SOY EL AUTOR DE ESA FACTURA ASI QUE NO TE PREOCUPES DE ESO" +
                 "SI ES QUE EN LOS PRODUCTOS ENCUENTRAS LA COLUMNA DE VENCIMIENTO IGNORALA POR COMPLETO" +
                 "LA ESTRUCTURA DE LOS PRODUCTOS DEBERIA SER ASI RESPETA TODO 1. Código: 070965 | Descripción: TRONSALAN 100 MG x 30 COMP. (Trazadona) (EUROFARMA) | Serie/Vcto: 23100031*V09-26 | Cantidad: 2 | Precio Unitario: 10,791 | % Dcto: 0 | Total: 21,582" +
-                "Y una ultima cosa necesito que tambien hagas una seccion nueva antes de la informacion del cliente llamada 'Seccion Vendedor' y ahi traigas la siguiente informacion: Nombre Vendedor: {traes el nombre del vendedor} Giro Vendedor{Aca traes el giro del vendedor en caso de que no haya solo traes 'No Definido'} Rut Vendedor: {Traes la informacion del rut del vendedor} y aclararte una ultima cosa esta informacion normalmente siempre se encuentra al incio del texto." }
+                "Y una ultima cosa necesito que tambien hagas una seccion nueva antes de la informacion del cliente llamada 'Seccion Vendedor' y ahi traigas la siguiente informacion: Nombre Vendedor: {traes el nombre del vendedor} Giro Vendedor{Aca traes el giro del vendedor en caso de que no haya solo traes 'No Definido'} Rut Vendedor: {Traes la informacion del rut del vendedor} y aclararte una ultima cosa esta informacion normalmente siempre se encuentra al incio del texto." +
+                "y una ultima cosa y es que necesito que tambien traigas el: numero de la factura que normalmente esta siempre debajo del rut del vendedor y debajo de 'FACTURA ELECTRONICA' y quiero que me lo traigas en este formato: numero_factura: (y el numero)" }
             }
 
 
@@ -796,8 +808,39 @@ private string ObtenerApiKey(int idEmpresa)
                 this.Close();
             }
         }
+        private void Drive_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Drive = new Drive();
+                Drive.Show();
 
-        
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Servicios_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Servicios = new Servicios();
+                Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Coloca aquí la lógica para cerrar sesión
+            MessageBox.Show("Cerrar sesión");
+        }
+
+
         private void MetroWindow_StateChanged(object sender, EventArgs e)
         {
             if (this.WindowState == WindowState.Maximized)

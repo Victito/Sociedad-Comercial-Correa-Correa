@@ -41,6 +41,7 @@ namespace SociedadCorreaCorrea.Views
         {
             txtIdFactura.Text = _productoSeleccionado.IdFactura.ToString();
             txtIdProducto.Text = _productoSeleccionado.IdProducto.ToString();
+            txtNumeroFactura.Text = _productoSeleccionado.NumeroFactura.ToString();
             txtCodigoProducto.Text = _productoSeleccionado.CodigoProducto;
             txtDescripcion.Text = _productoSeleccionado.Descripcion;
             txtNSerie.Text = _productoSeleccionado.NSerie;
@@ -55,6 +56,7 @@ namespace SociedadCorreaCorrea.Views
             // Actualizar las propiedades del producto seleccionado
             _productoSeleccionado.IdFactura = int.Parse(txtIdFactura.Text);
             _productoSeleccionado.IdProducto = int.Parse(txtIdProducto.Text);
+            _productoSeleccionado.NumeroFactura = int.Parse(txtNumeroFactura.Text);
             _productoSeleccionado.CodigoProducto = txtCodigoProducto.Text;
             _productoSeleccionado.Descripcion = txtDescripcion.Text;
             _productoSeleccionado.NSerie = txtNSerie.Text;
@@ -127,6 +129,37 @@ namespace SociedadCorreaCorrea.Views
                 // Cierra la ventana de MainMenu
                 this.Close();
             }
+        }
+        private void Drive_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Drive = new Drive();
+                Drive.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Servicios_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Servicios = new Servicios();
+                Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Coloca aquí la lógica para cerrar sesión
+            MessageBox.Show("Cerrar sesión");
         }
     }
 }

@@ -142,8 +142,10 @@ namespace SociedadCorreaCorrea.ViewModels
                 }
 
                 // Gráfico de facturación mensual
-                var facturacionMensual = facturasFiltradas.GroupBy(f => f.FechaEmision.Value.Month)
-                    .Select(g => new { Mes = g.Key, Total = g.Sum(f => f.Total ?? 0) })
+                var facturacionMensual = facturasFiltradas
+                    .Where(f => f.FechaEmision.HasValue) 
+                    .GroupBy(f => f.FechaEmision.Value.Month) 
+                    .Select(g => new { Mes = g.Key, Total = g.Sum(f => f.Total ?? 0) })  
                     .ToList();
 
                 LabelsMeses = facturacionMensual.Select(f => $"Mes {f.Mes}").ToArray();

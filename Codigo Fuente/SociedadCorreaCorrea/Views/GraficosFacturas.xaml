@@ -65,7 +65,7 @@
 
                     <!-- Botones menú -->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
@@ -73,7 +73,7 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}"
+                             Tag="#ffffff"
                              PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
@@ -81,23 +81,29 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}">
+                             Tag="#ffffff" PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Trabajadores_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color5}">
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Servicios_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Drive_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -165,7 +171,7 @@
                                                         Width="20" 
                                                         Foreground="{StaticResource titleColor2}" 
                                                         Margin="35,0,10,0"/>
-                            <TextBlock Text="Actualizar los datos de la Factura"
+                            <TextBlock Text="Dashboards"
                                        Foreground="{StaticResource titleColor2}"
                                        FontSize="16"
                                        FontFamily="Montserrat"
@@ -175,26 +181,75 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    FlowDirection="RightToLeft"
-                                    VerticalAlignment="Center"
-                                    Margin="0,0,10,0">
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
-                                <iconPacks:PackIconMaterial Kind="ChevronDown" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
+Orientation="Horizontal"
+FlowDirection="RightToLeft"
+VerticalAlignment="Center"
+Margin="0,0,10,0">
+
+                            <!-- ComboBox personalizado para mostrar solo una opción: "Cerrar sesión" -->
+                            <ComboBox Width="28" 
+  Background="Transparent"
+  BorderBrush="Transparent"
+  VerticalAlignment="Center"
+  Foreground="{StaticResource titleColor2}">
+                                <ComboBox.Template>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <!-- Aparece la flecha como en un botón -->
+                                            <ToggleButton x:Name="ToggleButton"
+                      Focusable="False"
+                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                                              
+                                              >
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iconPacks:PackIconMaterial  Kind="ChevronDown" 
+                                            Height="12" 
+                                            Width="12" 
+                                            Style="{StaticResource iconButtonIcon}"
+                                            Foreground="{StaticResource titleColor2}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Popup x:Name="Popup"
+               Placement="Bottom"
+               IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+               AllowsTransparency="True"
+               Focusable="False"
+               PopupAnimation="Slide">
+                                                <Border Background="White" 
+                    CornerRadius="4"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                                                    <StackPanel>
+                                                        <TextBlock Text="Cerrar sesión"
+                               Padding="10"
+                               FontSize="12"
+                               Cursor="Hand"
+                               MouseLeftButtonUp="CerrarSesion_Click"
+                                                       Foreground="Black"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ComboBox.Template>
+                            </ComboBox>
+
+                            <!-- Nombre de usuario y círculo de perfil -->
                             <TextBlock Text="username"
-                                       Foreground="{StaticResource titleColor2}"
-                                       FontFamily="Montserrat"
-                                       FontSize="12"
-                                       VerticalAlignment="Center"/>
+   Foreground="{StaticResource titleColor2}"
+   FontFamily="Montserrat"
+   FontSize="12"
+   VerticalAlignment="Center"/>
                             <Ellipse Height="35" Width="35"
-                                     Stroke="{StaticResource color1}"
-                                     StrokeThickness="2"
-                                     Margin="10,0,10,0"/>
+ Stroke="#ffffff"
+ StrokeThickness="2"
+ Margin="10,0,10,0"/>
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="20">
+                    <ContentControl Grid.Row="2" Margin="0,7,0,0">
                         <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Hidden">
                             <Grid Cursor="">
                                 <!-- Definir las columnas y filas -->
@@ -207,48 +262,99 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
                                 <!-- Graficos a la izquierda -->
-                                <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
-                                    <StackPanel Margin="5">
-                                        <lvc:CartesianChart  
-                         x:Name="CartesianChartFacturasPorCategoria" 
+                                <StackPanel Grid.Row="0" Grid.Column="0">
+                                    <lvc:CartesianChart
+                                        Margin="15,0,0,0"
+                                        x:Name="CartesianChartFacturasPorCategoria" 
                                         Series="{Binding SeriesFacturasPorCategoria}" 
                                         LegendLocation="Bottom"
                                         Background="#FAFAFA"
-                                                            Foreground="Black"
-                                            Width="390"
-                                            Height="250">
-                                            <lvc:CartesianChart.AxisX>
-                                                <lvc:Axis Foreground="#2F4F4F " Title="Categoría de Servicio" Labels="{Binding LabelsCategorias}" />
-                                            </lvc:CartesianChart.AxisX>
-                                            <lvc:CartesianChart.AxisY>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Cantidad" LabelFormatter="{Binding Formatter}" />
-                                            </lvc:CartesianChart.AxisY>
-                                        </lvc:CartesianChart>
-                                        <TextBlock Foreground="#ffffff" Text="Facturas por Categoría" Style="{StaticResource TextGeneral}" 
+                                        Foreground="Black"
+                                        
+                                        Width="auto"
+                                        MinHeight="270">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#2F4F4F " Title="Categoría de Servicio" Labels="{Binding LabelsCategorias}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Cantidad" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Foreground="#ffffff" Text="Facturas por Categoría" Style="{StaticResource TextGeneral}" 
                                HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5" />
-                                    </StackPanel>
-                                    <StackPanel  Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
-                                        <lvc:CartesianChart x:Name="CartesianChartTotalPorProveedor" Series="{Binding SeriesTotalPorProveedor}" 
-                                                            LegendLocation="Bottom" 
-                                                            Width="390" Height="270"
-                                                            Margin="5"
-                                                            Background="#FAFAFA">
-                                            <lvc:CartesianChart.AxisX>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Proveedores" Labels="{Binding LabelsProveedores}" />
-                                            </lvc:CartesianChart.AxisX>
-                                            <lvc:CartesianChart.AxisY>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Total Facturado ($)" LabelFormatter="{Binding Formatter}" />
-                                            </lvc:CartesianChart.AxisY>
-                                        </lvc:CartesianChart>
-                                        <TextBlock    Style="{StaticResource TextGeneral}" Foreground="#ffffff" Text="Total Facturado por Proveedor" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,0" />
-                                    </StackPanel>
                                 </StackPanel>
-
-                                <!-- Filtros en una columna al centro -->
-                                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" Margin="15,0,15,0" Background="#E0E0E0">
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <lvc:CartesianChart x:Name="CartesianChartTotalPorProveedor" Series="{Binding SeriesTotalPorProveedor}" 
+                                                            LegendLocation="Bottom" 
+                                                            Width="auto" Height="270"
+                                                            Margin="15,10,0,0"
+                                                            Background="#FAFAFA">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Proveedores" Labels="{Binding LabelsProveedores}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Total Facturado ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    
+                                    <TextBlock    Style="{StaticResource TextGeneral}" Foreground="#ffffff" Text="Total Facturado por Proveedor" HorizontalAlignment="Center"  FontWeight="Bold" Margin="0,0,0,0" />
+                                </StackPanel  >
+                                <StackPanel Grid.Row="0" Grid.Column="2" Margin="0,0,10,0">
+                                    <lvc:CartesianChart  Background="#FAFAFA" x:Name="CartesianChartFacturacionMensual" 
+                                        Series="{Binding SeriesFacturacionMensual}" 
+                                        Width="auto"
+Height="270" LegendLocation="Bottom">
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Meses" Labels="{Binding LabelsMeses}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Facturación ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Text="Facturación Mensual Acumulada" Foreground="#ffffff" Style="{StaticResource TextGeneral}" 
+                               HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5" />
+                                </StackPanel  >
+                                <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,10,10,0">
+                                    <lvc:CartesianChart Background="#FAFAFA" x:Name="CartesianChartPromedioPorProveedor" 
+                                        Series="{Binding SeriesPromedioPorProveedor}" 
+                                        Width="auto"
+Height="270" LegendLocation="Bottom" 
+                                                            >
+                                        <lvc:CartesianChart.AxisX>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Proveedores" Labels="{Binding LabelsProveedores}" />
+                                        </lvc:CartesianChart.AxisX>
+                                        <lvc:CartesianChart.AxisY>
+                                            <lvc:Axis Foreground="#2F4F4F" Title="Promedio ($)" LabelFormatter="{Binding Formatter}" />
+                                        </lvc:CartesianChart.AxisY>
+                                    </lvc:CartesianChart>
+                                    <TextBlock Foreground="#ffffff" Text="Promedio por Proveedor" Style="{StaticResource TextGeneral}" 
+                               HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"  Orientation="Vertical" Grid.RowSpan="23" Height="auto" HorizontalAlignment="Center" Margin="1,0,1,0" Background="#E0E0E0">
                                     <StackPanel Orientation="Vertical" Margin="10">
                                         <TextBlock  FontSize="15" Text="Flitro por Proveedor:" Margin="0,0,0,5" Foreground="Black" Style="{StaticResource TextGeneral}"/>
                                         <ComboBox ItemsSource="{Binding Proveedores}" SelectedItem="{Binding FiltroProveedor}" 
@@ -261,7 +367,7 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Vertical" Margin="10">
-                                        <TextBlock Text="Flitrar por Fecha Fin:" FontSize="15" FontFamily="Montserrat" Margin="0,0,0,5" Foreground="Black" Style="{StaticResource TextGeneral}"/>
+                                        <TextBlock Text="Filtrar por Fecha Fin:" FontSize="15" FontFamily="Montserrat" Margin="0,0,0,5" Foreground="Black" Style="{StaticResource TextGeneral}"/>
                                         <DatePicker SelectedDate="{Binding FechaFin}" Width="155" />
                                     </StackPanel>
 
@@ -270,42 +376,6 @@
                                     <Button Content="Exportar PDF" FontFamily="Montserrat" 
                         Style="{StaticResource StyleButtonFor2}" Click="GuardarGraficosEnPDF" 
                         Width="150" Height="50" Margin="0,10" />
-                                </StackPanel>
-
-                                <!-- Graficos a la derecha -->
-                                <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
-                                    <StackPanel Margin="5">
-                                        <lvc:CartesianChart  Background="#FAFAFA" x:Name="CartesianChartFacturacionMensual" 
-                                        Series="{Binding SeriesFacturacionMensual}" 
-                                        Width="390"
-Height="250" LegendLocation="Bottom">
-                                            <lvc:CartesianChart.AxisX>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Meses" Labels="{Binding LabelsMeses}" />
-                                            </lvc:CartesianChart.AxisX>
-                                            <lvc:CartesianChart.AxisY>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Facturación ($)" LabelFormatter="{Binding Formatter}" />
-                                            </lvc:CartesianChart.AxisY>
-                                        </lvc:CartesianChart>
-                                        <TextBlock Text="Facturación Mensual Acumulada" Foreground="#ffffff" Style="{StaticResource TextGeneral}" 
-                               HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5" />
-                                    </StackPanel>
-
-                                    <StackPanel Margin="5">
-                                        <lvc:CartesianChart Background="#FAFAFA" x:Name="CartesianChartPromedioPorProveedor" 
-                                        Series="{Binding SeriesPromedioPorProveedor}" 
-                                        Width="390"
-Height="270" LegendLocation="Bottom" 
-                                                            >
-                                            <lvc:CartesianChart.AxisX>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Proveedores" Labels="{Binding LabelsProveedores}" />
-                                            </lvc:CartesianChart.AxisX>
-                                            <lvc:CartesianChart.AxisY>
-                                                <lvc:Axis Foreground="#2F4F4F" Title="Promedio ($)" LabelFormatter="{Binding Formatter}" />
-                                            </lvc:CartesianChart.AxisY>
-                                        </lvc:CartesianChart>
-                                        <TextBlock Foreground="#ffffff" Text="Promedio por Proveedor" Style="{StaticResource TextGeneral}" 
-                               HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5" />
-                                    </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </ScrollViewer>

@@ -13,7 +13,13 @@ public partial class Empresa
 
     public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
 
+    public virtual ICollection<EntradaSalidum> EntradaSalida { get; set; } = new List<EntradaSalidum>();
+
+    public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
+
     public virtual ICollection<Sucursal> Sucursals { get; set; } = new List<Sucursal>();
+
+    public virtual ICollection<TareasDiaria> TareasDiaria { get; set; } = new List<TareasDiaria>();
 
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

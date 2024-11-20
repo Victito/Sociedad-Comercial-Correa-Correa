@@ -36,6 +36,7 @@ namespace SociedadCorreaCorrea.ViewModels
         {
             // Aquí cargas las sucursales automáticamente
             _window = window;
+
             Productos = new ObservableCollection<Producto>();
             CargarSucursales();
             SaveCommand = new RelayCommand(GuardarFactura);
@@ -103,6 +104,7 @@ namespace SociedadCorreaCorrea.ViewModels
         private string _guiaDespacho;
         private decimal? _precioUnitario;
         private int? _cantidad;
+        private int? _numerofactura;
         private decimal? _total;
         private string _estado;
         private decimal _totalFactura;
@@ -216,6 +218,12 @@ namespace SociedadCorreaCorrea.ViewModels
         {
             get => _notaVenta;
             set { _notaVenta = value; OnPropertyChanged(); }
+        }
+
+        public int? NumeroFactura
+        {
+            get => _numerofactura;
+            set { _numerofactura = value; OnPropertyChanged(); }
         }
 
         public string OrdenCompra
@@ -408,6 +416,9 @@ namespace SociedadCorreaCorrea.ViewModels
                     if (NotaVenta <= 0)
                         mensajesErrores.Add("El campo 'Nota de Venta' debe ser un número mayor que 0.");
 
+                    if (NumeroFactura == 0)
+                        mensajesErrores.Add("El campo 'Numero de Factura' debe tener informacion.");
+
                     if (string.IsNullOrWhiteSpace(OrdenCompra))
                         mensajesErrores.Add("El campo 'Orden de Compra' no puede estar vacío.");
 
@@ -484,7 +495,8 @@ namespace SociedadCorreaCorrea.ViewModels
                         Estado = Estado,
                         RutVendedor = RutVendedor,
                         GiroVendedor = GiroVendedor,
-                        RazonSocialVendedor = RazonSocialVendedor
+                        RazonSocialVendedor = RazonSocialVendedor,
+                        NumeroFactura = NumeroFactura
                     };
 
                     context.Facturas.Add(nuevaFactura);
@@ -504,7 +516,8 @@ namespace SociedadCorreaCorrea.ViewModels
                             Total = producto.Total,
                             IdFactura = nuevaFactura.IdFactura, // Asignar la relación con la factura recién guardada
                             IdEmpresa = GlobalSettings.IdEmpresa, // Asignar la relación con la Empresa
-                            IdSucursal = SucursalSeleccionada?.IdSucursal // Asignar la relación con la Sucrusal
+                            IdSucursal = SucursalSeleccionada?.IdSucursal, // Asignar la relación con la Sucrusal
+                            NumeroFactura = NumeroFactura
                         };
 
                         // Agregar el producto al contexto
@@ -523,7 +536,8 @@ namespace SociedadCorreaCorrea.ViewModels
                         Rut = Rut,
                         IdFactura = nuevaFactura.IdFactura, // Asignar la relación con la factura recién guardada
                         IdEmpresa = GlobalSettings.IdEmpresa, // Asignar la relación con la Empresa
-                        IdSucursal = SucursalSeleccionada?.IdSucursal // Asignar la relación con la Sucrusal
+                        IdSucursal = SucursalSeleccionada?.IdSucursal, // Asignar la relación con la Sucrusal
+                        NumeroFactura = NumeroFactura
                     };
 
                     // Agregar el nuevo Acuse al contexto

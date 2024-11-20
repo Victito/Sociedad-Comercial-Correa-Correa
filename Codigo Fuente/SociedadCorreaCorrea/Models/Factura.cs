@@ -55,6 +55,10 @@ public partial class Factura
 
     public string? RazonSocialVendedor { get; set; }
 
+    public int? NumeroFactura { get; set; }
+
+    public string? ColorVencimiento { get; set; }
+
     public virtual ICollection<Acuse> Acuses { get; set; } = new List<Acuse>();
 
     public virtual Usuario IdUsuarioNavigation { get; set; } = null!;

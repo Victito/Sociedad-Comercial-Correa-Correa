@@ -37,9 +37,11 @@ public partial class Empleado
 
     public string? RutEmpleado { get; set; }
 
+    public int? IdTurnoPersonalizado { get; set; }
+
     public string? TareasEmpleado { get; set; }
 
-    public int? IdTurnoPersonalizado { get; set; }
+    public virtual ICollection<EntradaSalidum> EntradaSalida { get; set; } = new List<EntradaSalidum>();
 
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 
@@ -48,6 +50,8 @@ public partial class Empleado
     public virtual Turno? IdTurnoNavigation { get; set; }
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }
+
+    public virtual ICollection<TareasDiaria> TareasDiaria { get; set; } = new List<TareasDiaria>();
 
     public virtual ICollection<TurnoPersonalizado> TurnoPersonalizados { get; set; } = new List<TurnoPersonalizado>();
 }

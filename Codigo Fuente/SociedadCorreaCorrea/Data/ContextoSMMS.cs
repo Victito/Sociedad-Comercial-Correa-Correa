@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using SociedadCorreaCorrea.Models;
 using System.Configuration;
-
 namespace SociedadCorreaCorrea.Data;
 
 public partial class ContextoSMMS : DbContext
@@ -25,13 +24,19 @@ public partial class ContextoSMMS : DbContext
 
     public virtual DbSet<Empresa> Empresas { get; set; }
 
+    public virtual DbSet<EntradaSalidum> EntradaSalida { get; set; }
+
     public virtual DbSet<Factura> Facturas { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
 
     public virtual DbSet<Puesto> Puestos { get; set; }
 
+    public virtual DbSet<Servicio> Servicios { get; set; }
+
     public virtual DbSet<Sucursal> Sucursals { get; set; }
+
+    public virtual DbSet<TareasDiaria> TareasDiarias { get; set; }
 
     public virtual DbSet<Turno> Turnos { get; set; }
 
@@ -64,6 +69,7 @@ public partial class ContextoSMMS : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+            entity.Property(e => e.NumeroFactura).HasColumnName("numero_factura");
             entity.Property(e => e.Recinto)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -136,6 +142,10 @@ public partial class ContextoSMMS : DbContext
             entity.Property(e => e.SalarioEmpleado)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("salarioEmpleado");
+            entity.Property(e => e.TareasEmpleado)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("tareasEmpleado");
             entity.Property(e => e.TelefonoEmpleado)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -172,6 +182,33 @@ public partial class ContextoSMMS : DbContext
                 .HasColumnName("nombreEmpresa");
         });
 
+        modelBuilder.Entity<EntradaSalidum>(entity =>
+        {
+            entity.HasKey(e => e.IdRegistro).HasName("PK__entrada___62FC8F58C03CB1DD");
+
+            entity.ToTable("entrada_salida");
+
+            entity.Property(e => e.IdRegistro).HasColumnName("idRegistro");
+            entity.Property(e => e.Fecha).HasColumnName("fecha");
+            entity.Property(e => e.HoraEntrada)
+                .HasPrecision(0)
+                .HasColumnName("hora_entrada");
+            entity.Property(e => e.HoraSalida)
+                .HasPrecision(0)
+                .HasColumnName("hora_salida");
+            entity.Property(e => e.IdEmpleado).HasColumnName("idEmpleado");
+            entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
+
+            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.EntradaSalida)
+                .HasForeignKey(d => d.IdEmpleado)
+                .HasConstraintName("FK_Empleado");
+
+            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.EntradaSalida)
+                .HasForeignKey(d => d.IdEmpresa)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Empresa");
+        });
+
         modelBuilder.Entity<Factura>(entity =>
         {
             entity.HasKey(e => e.IdFactura).HasName("PK__Facturas__3CD5687EADC3922D");
@@ -186,6 +223,7 @@ public partial class ContextoSMMS : DbContext
                 .HasMaxLength(250)
                 .IsUnicode(false)
                 .HasColumnName("cobrador");
+            entity.Property(e => e.ColorVencimiento).HasMaxLength(50);
             entity.Property(e => e.Comuna)
                 .HasMaxLength(250)
                 .IsUnicode(false)
@@ -225,6 +263,7 @@ public partial class ContextoSMMS : DbContext
             entity.Property(e => e.IdSucursal).HasColumnName("idSucursal");
             entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
             entity.Property(e => e.NotaVenta).HasColumnName("nota_venta");
+            entity.Property(e => e.NumeroFactura).HasColumnName("numero_factura");
             entity.Property(e => e.OrdenCompra)
                 .HasMaxLength(250)
                 .IsUnicode(false)
@@ -279,6 +318,7 @@ public partial class ContextoSMMS : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("n_serie");
+            entity.Property(e => e.NumeroFactura).HasColumnName("numero_factura");
             entity.Property(e => e.PrecioUnitario)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("precio_unitario");
@@ -304,6 +344,24 @@ public partial class ContextoSMMS : DbContext
             entity.Property(e => e.NombrePuesto)
                 .HasMaxLength(100)
                 .HasColumnName("nombre_puesto");
+        });
+
+        modelBuilder.Entity<Servicio>(entity =>
+        {
+            entity.HasKey(e => e.ServicioId).HasName("PK__Servicio__D5AEECC23F2457C9");
+
+            entity.Property(e => e.CostoServicio).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EmpresaServicio).HasMaxLength(250);
+            entity.Property(e => e.NombreServicio).HasMaxLength(250);
+
+            entity.HasOne(d => d.Empresa).WithMany(p => p.Servicios)
+                .HasForeignKey(d => d.EmpresaId)
+                .HasConstraintName("FK__Servicios__Empre__09946309");
+
+            entity.HasOne(d => d.Sucursal).WithMany(p => p.Servicios)
+                .HasForeignKey(d => d.SucursalId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Servicios__Sucur__0A888742");
         });
 
         modelBuilder.Entity<Sucursal>(entity =>
@@ -338,6 +396,27 @@ public partial class ContextoSMMS : DbContext
             entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.Sucursals)
                 .HasForeignKey(d => d.IdEmpresa)
                 .HasConstraintName("FK_Sucursal_Empresa");
+        });
+
+        modelBuilder.Entity<TareasDiaria>(entity =>
+        {
+            entity.HasKey(e => e.TareaDiariaId).HasName("PK__TareasDi__69174376B029A4D3");
+
+            entity.Property(e => e.DescripcionTarea).HasMaxLength(500);
+            entity.Property(e => e.NombreTarea).HasMaxLength(250);
+
+            entity.HasOne(d => d.Empleado).WithMany(p => p.TareasDiaria)
+                .HasForeignKey(d => d.EmpleadoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_TareasDiarias_EmpleadoId");
+
+            entity.HasOne(d => d.Empresa).WithMany(p => p.TareasDiaria)
+                .HasForeignKey(d => d.EmpresaId)
+                .HasConstraintName("FK_TareasDiarias_Empresa");
+
+            entity.HasOne(d => d.Sucursal).WithMany(p => p.TareasDiaria)
+                .HasForeignKey(d => d.SucursalId)
+                .HasConstraintName("FK_TareasDiarias_SucursalId");
         });
 
         modelBuilder.Entity<Turno>(entity =>
