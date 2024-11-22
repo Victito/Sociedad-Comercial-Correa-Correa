@@ -1,73 +1,196 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model IEnumerable<Sociedad_Correa_Web.Models.TareasDiaria>
-<link href="~/css/Trabajadores.css" rel="stylesheet" />
-<html xmlns="http://www.w3.org/1999/xhtml">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+﻿@model IEnumerable<Sociedad_Correa_Web.Models.TareasDiaria>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Empleado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Agregar FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        html, body {
+            background: linear-gradient(135deg, #1d3557, #457b9d, #a8dadc);
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #457b9d;
+            color: #ffffff;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .btn-custom {
+            border: none;
+            text-align: center;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-entrada {
+            background-color: #28a745;
+            color: white;
+        }
+
+            .btn-entrada:hover {
+                background-color: #218838;
+                color:white;
+            }
+
+        .btn-salida {
+            background-color: #D32F2F;
+            color: white;
+        }
+
+            .btn-salida:hover {
+                background-color: #800020;
+                color:white;
+            }
+
+        .btn-logout {
+            background-color: #D32F2F;
+            color: white;
+        }
+
+            .btn-logout:hover {
+                background-color: #800020;
+                color:white;
+            }
+
+        footer {
+            background-color: #1d3557;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Título principal -->
+        <h1 class="text-center text-white mb-4">Detalles del Empleado</h1>
 
- <center>
-
-    <h2>
-        Bienvenido, @Context.Session.GetString("NombreUsuario"), @Context.Session.GetString("Rol")
-
-    </h2>
-    <h3>Datos del Empleado:</h3>
-    <ul>
-        <li>Nombre: @Context.Session.GetString("NombreEmpleado")</li>
-        <li>Apellido: @Context.Session.GetString("ApellidoEmpleado")</li>
-        <li>Puesto: @Context.Session.GetString("PuestoEmpleado")</li>
-        <li>Teléfono: @Context.Session.GetString("TelefonoEmpleado")</li>
-        <li>Tareas: @Context.Session.GetString("TareasEmpleado")</li>
-    </ul>
-
-    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-    {
-        <p style="color: red;">@ViewBag.ErrorMessage</p>
-    }
-
-    <br />
-        <center>
-
-    <div style="display: flex; gap: 10px; justify-content: center;">
-        <form asp-action="Logout" asp-controller="Account" method="post" style="display: inline;">
-            <button asp-controller="Account" asp-action="Logout" type="submit" class="button-Logout" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-                Cierre de sesión
-            </button>
-        </form>
-        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("ObtenerTareasDiarias", "Account")'">
-            Ver Tareas Diarias
-        </button>
-
-                <form method="post" action="/EntradaSalida/RegistrarEntrada">
-                    <button type="submit" class="btn btn-primary">Registrar Entrada</button>
-                </form>
-
-                <form method="post" action="/EntradaSalida/MarcarSalida">
-                    <button type="submit" class="btn btn-secondary">Marcar Salida</button>
-                </form>
-
-                <script>
-                    // Mostrar popup basado en ViewBag
-                    const success = '@ViewBag.Success';
-                    const message = '@ViewBag.Message';
-
-                    if (message) {
-                        Swal.fire({
-                            title: success === "True" ? "¡Éxito!" : "Error",
-                            text: message,
-                            icon: success === "True" ? "success" : "error",
-                            confirmButtonText: "Aceptar"
-                        });
-                    }
-                </script>
+        <!-- Tarjeta principal -->
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header">
+                Bienvenido @Context.Session.GetString("Rol")
+            </div>
+            <div class="card-body">
+                <h3 class="text-center mb-3">Datos del Empleado</h3>
+                <ul>
+                    <li><strong>Nombre:</strong> @Context.Session.GetString("NombreEmpleado")</li>
+                    <li><strong>Apellido:</strong> @Context.Session.GetString("ApellidoEmpleado")</li>
+                    <li><strong>Puesto:</strong> @Context.Session.GetString("PuestoEmpleado")</li>
+                    <li><strong>Teléfono:</strong> @Context.Session.GetString("TelefonoEmpleado")</li>
+                    <li><strong>Tareas:</strong> @Context.Session.GetString("TareasEmpleado")</li>
+                </ul>
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    <div class="alert alert-danger mt-3">@ViewBag.ErrorMessage</div>
+                }
+            </div>
+            <div class="card-footer text-center">
+                <!-- Botones de acción -->
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <button type="button" class="btn btn-custom btn-entrada" onclick="enviarFormularioConUbicacion('/EntradaSalida/RegistrarEntrada')">
+                        <i class="fas fa-sign-in-alt"></i> Registrar Entrada
+                    </button>
+                    <button type="button" class="btn btn-custom btn-salida" onclick="enviarFormularioConUbicacion('/EntradaSalida/MarcarSalida')">
+                        <i class="fas fa-sign-out-alt"></i> Marcar Salida
+                    </button>
+                    <button type="button" class="btn btn-custom btn-primary" onclick="location.href='@Url.Action("ObtenerTareasDiarias", "Account")'">
+                        Ver Tareas Diarias
+                    </button>
+                    <form asp-action="Logout" asp-controller="Account" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-custom btn-logout">Cerrar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Mostrar popup basado en ViewBag -->
+    <script>
+        const success = '@ViewBag.Success';
+        const message = '@ViewBag.Message';
+
+        if (message) {
+            Swal.fire({
+                title: success === "True" ? "¡Éxito!" : "Error",
+                text: message,
+                icon: success === "True" ? "success" : "error",
+                confirmButtonText: "Aceptar"
+            });
+        }
+
+        function enviarFormularioConUbicacion(url) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const form = document.createElement('form');
+                    form.method = 'post';
+                    form.action = url;
+
+                    const latInput = document.createElement('input');
+                    latInput.type = 'hidden';
+                    latInput.name = 'latitud';
+                    latInput.value = position.coords.latitude;
+
+                    const lonInput = document.createElement('input');
+                    lonInput.type = 'hidden';
+                    lonInput.name = 'longitud';
+                    lonInput.value = position.coords.longitude;
+
+                    form.appendChild(latInput);
+                    form.appendChild(lonInput);
+
+                    document.body.appendChild(form);
+                    form.submit();
+                }, () => {
+                    Swal.fire({
+                        title: "Error",
+                        text: "No se pudo obtener la ubicación.",
+                        icon: "error",
+                        confirmButtonText: "Aceptar"
+                    });
+                });
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "La geolocalización no es compatible con este navegador.",
+                    icon: "error",
+                    confirmButtonText: "Aceptar"
+                });
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

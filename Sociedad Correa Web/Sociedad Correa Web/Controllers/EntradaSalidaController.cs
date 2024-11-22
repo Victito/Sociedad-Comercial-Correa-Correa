@@ -15,7 +15,7 @@ public class EntradaSalidaController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegistrarEntrada()
+    public async Task<IActionResult> RegistrarEntrada(double latitud, double longitud)
     {
         try
         {
@@ -31,9 +31,16 @@ public class EntradaSalidaController : Controller
 
             var zonaHorariaChile = TimeZoneInfo.FindSystemTimeZoneById("Pacific SA Standard Time");
             var fechaHoraActualChile = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, zonaHorariaChile);
+
+            if (fechaHoraActualChile.TimeOfDay < new TimeSpan(7, 0, 0))
+            {
+                ViewBag.Message = "No puedes registrar la hora de entrada antes de las 7:00 AM.";
+                ViewBag.Success = false;
+                return View("~/Views/Home/Trabajadores.cshtml");
+            }
+
             var fechaHoy = DateOnly.FromDateTime(fechaHoraActualChile);
 
-            // Validar si ya existe una entrada registrada para hoy
             var entradaExistente = await _context.EntradaSalida
                 .FirstOrDefaultAsync(e => e.IdEmpleado == idEmpleado.Value &&
                                           e.IdEmpresa == idEmpresa.Value &&
@@ -46,14 +53,14 @@ public class EntradaSalidaController : Controller
                 return View("~/Views/Home/Trabajadores.cshtml");
             }
 
-            // Crear un nuevo registro para entrada_salida
             var nuevaEntrada = new EntradaSalidum
             {
                 IdEmpleado = idEmpleado.Value,
                 IdEmpresa = idEmpresa.Value,
                 Fecha = fechaHoy,
                 HoraEntrada = TimeOnly.FromDateTime(fechaHoraActualChile),
-                HoraSalida = null
+                LatitudEntrada = (decimal?)latitud,
+                LongitudEntrada = (decimal?)longitud
             };
 
             _context.EntradaSalida.Add(nuevaEntrada);
@@ -73,7 +80,7 @@ public class EntradaSalidaController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> MarcarSalida()
+    public async Task<IActionResult> MarcarSalida(double latitud, double longitud)
     {
         try
         {
@@ -89,9 +96,16 @@ public class EntradaSalidaController : Controller
 
             var zonaHorariaChile = TimeZoneInfo.FindSystemTimeZoneById("Pacific SA Standard Time");
             var fechaHoraActualChile = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, zonaHorariaChile);
+
+            if (fechaHoraActualChile.TimeOfDay > new TimeSpan(21, 0, 0))
+            {
+                ViewBag.Message = "No puedes marcar la hora de salida después de las 9:00 PM.";
+                ViewBag.Success = false;
+                return View("~/Views/Home/Trabajadores.cshtml");
+            }
+
             var fechaHoy = DateOnly.FromDateTime(fechaHoraActualChile);
 
-            // Buscar el registro de entrada del día actual
             var registroEntrada = await _context.EntradaSalida
                 .FirstOrDefaultAsync(e => e.IdEmpleado == idEmpleado.Value &&
                                           e.IdEmpresa == idEmpresa.Value &&
@@ -104,12 +118,12 @@ public class EntradaSalidaController : Controller
                 return View("~/Views/Home/Trabajadores.cshtml");
             }
 
-            // Actualizar la hora de salida
             registroEntrada.HoraSalida = TimeOnly.FromDateTime(fechaHoraActualChile);
+            registroEntrada.LatitudSalida = (decimal?)latitud;
+            registroEntrada.LongitudSalida = (decimal?)longitud;
 
             _context.EntradaSalida.Update(registroEntrada);
             await _context.SaveChangesAsync();
-
             ViewBag.Message = "Hora de salida registrada correctamente.";
             ViewBag.Success = true;
             return View("~/Views/Home/Trabajadores.cshtml");

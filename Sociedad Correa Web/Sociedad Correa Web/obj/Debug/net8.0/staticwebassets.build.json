@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "44+ijNDpA5hXpI05ke3GSFv2KT6SE6iGx3qYrgO+Bv8=",
+  "Hash": "SmVz2XkML0qe65dVVHpvbTAxJimeID8MQklA+dM1j2w=",
   "Source": "Sociedad Correa Web",
   "BasePath": "_content/Sociedad Correa Web",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Facturas.css"
+    },
+    {
+      "Identity": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Fstyle.css",
+      "SourceId": "Sociedad Correa Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\",
+      "BasePath": "_content/Sociedad Correa Web",
+      "RelativePath": "css/Fstyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Fstyle.css"
     },
     {
       "Identity": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\css\\Index.css",

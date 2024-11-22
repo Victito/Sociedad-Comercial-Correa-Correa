@@ -41,8 +41,6 @@ public partial class Empleado
 
     public string? TareasEmpleado { get; set; }
 
-    public virtual ICollection<EntradaSalidum> EntradaSalida { get; set; } = new List<EntradaSalidum>();
-
     public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
 
     public virtual Sucursal? IdSucursalNavigation { get; set; }

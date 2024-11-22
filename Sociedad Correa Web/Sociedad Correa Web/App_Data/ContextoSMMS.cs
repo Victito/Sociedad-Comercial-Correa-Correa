@@ -181,29 +181,28 @@ public partial class ContextoSMMS : DbContext
 
         modelBuilder.Entity<EntradaSalidum>(entity =>
         {
-            entity.HasKey(e => e.IdRegistro).HasName("PK__entrada___62FC8F58965BB625");
+            entity.HasKey(e => e.IdRegistro).HasName("PK__entrada___62FC8F587773EC45");
 
             entity.ToTable("entrada_salida");
 
             entity.Property(e => e.IdRegistro).HasColumnName("idRegistro");
             entity.Property(e => e.Fecha).HasColumnName("fecha");
-            entity.Property(e => e.HoraEntrada)
-                .HasPrecision(0)
-                .HasColumnName("hora_entrada");
-            entity.Property(e => e.HoraSalida)
-                .HasPrecision(0)
-                .HasColumnName("hora_salida");
+            entity.Property(e => e.HoraEntrada).HasColumnName("hora_entrada");
+            entity.Property(e => e.HoraSalida).HasColumnName("hora_salida");
             entity.Property(e => e.IdEmpleado).HasColumnName("idEmpleado");
             entity.Property(e => e.IdEmpresa).HasColumnName("idEmpresa");
-
-            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.EntradaSalida)
-                .HasForeignKey(d => d.IdEmpleado)
-                .HasConstraintName("FK_Empleado");
-
-            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.EntradaSalida)
-                .HasForeignKey(d => d.IdEmpresa)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Empresa");
+            entity.Property(e => e.LatitudEntrada)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("latitud_entrada");
+            entity.Property(e => e.LatitudSalida)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("latitud_salida");
+            entity.Property(e => e.LongitudEntrada)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("longitud_entrada");
+            entity.Property(e => e.LongitudSalida)
+                .HasColumnType("decimal(9, 6)")
+                .HasColumnName("longitud_salida");
         });
 
         modelBuilder.Entity<Factura>(entity =>

@@ -1,5 +1,5 @@
 ﻿body {
-    background-color:gray;
+    background-color:red;
 }
 header{
    background-color:red;
@@ -21,4 +21,14 @@ header{
     }
 .logo{
     width:40px;
+}
+footer img {
+    max-height: 60px; /* Ajusta el logo para que no sea demasiado grande */
+    width: 100%; /* Hace que la imagen ocupe todo el ancho disponible */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin deformarse */
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 0.9em;
 }

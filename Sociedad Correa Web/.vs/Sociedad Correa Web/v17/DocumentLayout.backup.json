@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\views\\home\\trabajadores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\trabajadores.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\empleadocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +38,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\appsettings.json",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\appsettings.json",
+              "RelativeToolTip": "Sociedad Correa Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-22T01:35:03.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Program.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Program.cs",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Program.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Program.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T01:34:47.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "Sociedad Correa Web\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-22T01:10:18.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Sociedad Correa Web\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAiwG0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAwwH8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T02:56:18.111Z",
+              "WhenOpened": "2024-11-21T03:05:50.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Trabajadores.cshtml",
-              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
-              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
-              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-18T02:53:38.677Z",
-              "EditorCaption": ""
+              "DocumentIndex": 6,
+              "Title": "EmpleadoController.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EmpleadoController.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\EmpleadoController.cs",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EmpleadoController.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\EmpleadoController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:05:45.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EntradaSalidaController.cs",
               "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
               "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
               "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
               "RelativeToolTip": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAqwH0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAmwHoAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T01:03:50.989Z",
+              "WhenOpened": "2024-11-21T00:58:52.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Trabajadores.cshtml",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Trabajadores.cshtml",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAiwFIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T04:37:22.648Z",
               "EditorCaption": ""
             }
           ]

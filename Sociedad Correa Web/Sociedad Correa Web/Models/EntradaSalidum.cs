@@ -17,7 +17,11 @@ public partial class EntradaSalidum
 
     public TimeOnly? HoraSalida { get; set; }
 
-    public virtual Empleado IdEmpleadoNavigation { get; set; } = null!;
+    public decimal? LatitudEntrada { get; set; }
 
-    public virtual Empresa IdEmpresaNavigation { get; set; } = null!;
+    public decimal? LongitudEntrada { get; set; }
+
+    public decimal? LatitudSalida { get; set; }
+
+    public decimal? LongitudSalida { get; set; }
 }
