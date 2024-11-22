@@ -13,6 +13,7 @@
     <None Remove="Resources\fondo1.jpg" />
     <None Remove="Resources\fondo2.png" />
     <None Remove="Resources\Key.png" />
+    <None Remove="Resources\Logo_Final_cliente-removebg-preview.png" />
     <None Remove="Resources\user.png" />
     <None Remove="Resources\usuarioicon.png" />
   </ItemGroup>
@@ -54,6 +55,7 @@
     <Resource Include="Resources\fondo1.jpg" />
     <Resource Include="Resources\fondo2.png" />
     <Resource Include="Resources\Key.png" />
+    <Resource Include="Resources\Logo_Final_cliente-removebg-preview.png" />
     <Resource Include="Resources\user.png" />
     <Resource Include="Resources\usuarioicon.png" />
   </ItemGroup>

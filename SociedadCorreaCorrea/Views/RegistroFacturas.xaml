@@ -276,9 +276,11 @@ Margin="0,0,10,0">
                                     <!-- Columna 1 -->
                                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
                                         <TextBlock Text="ID Sucursal:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                            <ComboBox x:Name="NombreSucursal"  DisplayMemberPath="NombreSucursal"  ItemsSource="{Binding Sucursales}" SelectedItem="{Binding SucursalSeleccionada}"
-                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
-                                    </StackPanel>
+                                            <ComboBox x:Name="NombreSucursal" Style="{StaticResource RoundedComboBox}" DisplayMemberPath="NombreSucursal"  ItemsSource="{Binding Sucursales}" SelectedItem="{Binding SucursalSeleccionada}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" >
+                                                
+                                            </ComboBox>
+                                        </StackPanel>
                                         <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
                                         <TextBlock Text="Razón Social cliente:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                         <TextBox  x:Name="RazonSocialTextBox"
@@ -308,7 +310,7 @@ Margin="0,0,10,0">
                                     </StackPanel>
                                         <StackPanel Grid.Row="6" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
                                         <TextBlock Text="Estado :" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                            <ComboBox x:Name="EstadoBox"  SelectedItem="{Binding Estado}"
+                                            <ComboBox x:Name="EstadoBox" Style="{StaticResource RoundedComboBox}" SelectedItem="{Binding Estado}"
                                                   IsReadOnly="False" HorizontalAlignment="Left"  Width="250"  Margin="0,5,0,15">
                                                 <ComboBoxItem Content="Pendiente" Tag="Pendiente"/>
                                                 <ComboBoxItem Content="Pagado" Tag="Pagado"/>
@@ -363,7 +365,7 @@ Margin="0,0,10,0">
                                         </StackPanel>
                                         <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
                                             <TextBlock Text="Fecha Emisión:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                            <DatePicker  SelectedDate="{Binding FechaEmision}" x:Name="FechaEmisionTextBox" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
+                                            <DatePicker Style="{StaticResource RoundedDatePicker}"  SelectedDate="{Binding FechaEmision}" x:Name="FechaEmisionTextBox" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
                                         </StackPanel>
                                         <StackPanel Grid.Row="3" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
                                             <TextBlock Text="Fecha Vencimiento:" Style="{StaticResource TextGeneral}" Foreground="White" />

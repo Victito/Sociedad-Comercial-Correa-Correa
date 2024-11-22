@@ -194,41 +194,68 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
-                    <Border x:Name="Border"
+                    <Grid>
+                        <Border x:Name="Border"
                         CornerRadius="10"
                         BorderThickness="1.5"
                         BorderBrush="#0074D9"
                         Background="#E0F7FA">
-                        <Grid>
-                            <ContentPresenter Margin="4"
-                                          HorizontalAlignment="Left"
-                                          VerticalAlignment="Center"/>
-                            <ToggleButton x:Name="ToggleButton"
-                                      Grid.Column="2"
-                                      Background="Transparent"
-                                      BorderBrush="{x:Null}"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      Width="20">
-                                <Path Data="M 0 0 L 4 4 L 8 0 Z"
-                                  Fill="Black"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                            </ToggleButton>
-                        </Grid>
-                    </Border>
+                            <Grid>
+                                <!-- Define Column Definitions para separar el texto y el botón -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Espacio para el texto -->
+                                    <ColumnDefinition Width="30" />
+                                    <!-- Espacio para el ToggleButton -->
+                                </Grid.ColumnDefinitions>
 
-                    <!-- Triggers dentro del ControlTemplate para hover, focus y dropdown abierto -->
+                                <!-- Texto del ComboBox -->
+                                <ContentPresenter Grid.Column="0"
+                                              Margin="4"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
+
+                                <!-- Botón con triángulo -->
+                                <ToggleButton x:Name="ToggleButton"
+                                          Grid.Column="1"
+                                          Background="Transparent"
+                                          BorderBrush="{x:Null}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Width="20"
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Path Data="M 0 0 L 4 4 L 8 0 Z"
+                                      Fill="Black"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                                </ToggleButton>
+                            </Grid>
+                        </Border>
+                        <Popup x:Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False">
+                            <Border CornerRadius="10"
+                                Background="#FFFFFF"
+                                BorderBrush="#0074D9"
+                                BorderThickness="1.5">
+                                <ScrollViewer Margin="2" MaxHeight="200">
+                                    <StackPanel IsItemsHost="True"/>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <!-- Trigger para hover -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
-                            <!-- Azul intenso para hover -->
                         </Trigger>
                         <!-- Trigger para focus -->
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
-                            <!-- Azul con toque verde para focus -->
                         </Trigger>
                         <!-- Trigger para abrir el desplegable -->
                         <Trigger Property="IsDropDownOpen" Value="True">
@@ -241,6 +268,8 @@
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="Black"/>
     </Style>
+
+
 
     <!--estilo de las columnas-->
     <Style x:Key="CenteredTextStyle" TargetType="TextBlock">
@@ -766,16 +795,21 @@
                         BorderBrush="#0074D9"
                         Background="#E0F7FA">
                         <Grid>
+                            <!-- Caja de texto del DatePicker -->
                             <DatePickerTextBox x:Name="PART_TextBox"
                                            Background="Transparent"
                                            Foreground="Black"
                                            Margin="2" />
+
+                            <!-- Botón del calendario -->
                             <Button x:Name="PART_Button"
                                 Width="20"
                                 Background="Transparent"
                                 BorderBrush="{x:Null}"
                                 HorizontalAlignment="Right"
-                                VerticalAlignment="Center">
+                                VerticalAlignment="Center"
+                                Focusable="False"
+                                    Margin="0,0,0,0">
                                 <Path Data="M 0 0 L 8 0 L 8 8 L 0 8 Z M 1 1 L 7 1 M 1 3 L 7 3"
                                   Stroke="Black"
                                   StrokeThickness="1.5"
@@ -783,20 +817,30 @@
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
                             </Button>
+
+                            <!-- Popup del calendario -->
+                            <Popup x:Name="PART_Popup"
+                               Placement="Bottom"
+                               StaysOpen="False"
+                               IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Border Background="White"
+                                    BorderBrush="#0074D9"
+                                    BorderThickness="1"
+                                    CornerRadius="10">
+                                    <Calendar x:Name="PART_Calendar"
+                                          IsTodayHighlighted="True" />
+                                </Border>
+                            </Popup>
                         </Grid>
                     </Border>
 
-                    <!-- Triggers dentro del ControlTemplate para hover y focus -->
+                    <!-- Triggers para hover y focus -->
                     <ControlTemplate.Triggers>
-                        <!-- Trigger para hover -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="#0056A6"/>
-                            <!-- Azul intenso para hover -->
                         </Trigger>
-                        <!-- Trigger para focus -->
                         <Trigger Property="IsKeyboardFocusWithin" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="#009688"/>
-                            <!-- Azul con toque verde para focus -->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -805,7 +849,8 @@
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="Black"/>
     </Style>
-    
+
+
 
 
 </ResourceDictionary>

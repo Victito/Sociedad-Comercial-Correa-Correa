@@ -357,7 +357,7 @@ Height="270" LegendLocation="Bottom"
                                 <StackPanel Grid.Column="1"  Orientation="Vertical" Grid.RowSpan="23" Height="auto" HorizontalAlignment="Center" Margin="1,0,1,0" Background="#E0E0E0">
                                     <StackPanel Orientation="Vertical" Margin="10">
                                         <TextBlock  FontSize="15" Text="Flitro por Proveedor:" Margin="0,0,0,5" Foreground="Black" Style="{StaticResource TextGeneral}"/>
-                                        <ComboBox ItemsSource="{Binding Proveedores}" SelectedItem="{Binding FiltroProveedor}" 
+                                        <ComboBox  ItemsSource="{Binding Proveedores}" Style="{StaticResource RoundedComboBox}" SelectedItem="{Binding FiltroProveedor}" 
                               Width="155" Margin="0,0,0,20" />
                                     </StackPanel>
 
@@ -368,7 +368,7 @@ Height="270" LegendLocation="Bottom"
 
                                     <StackPanel Orientation="Vertical" Margin="10">
                                         <TextBlock Text="Filtrar por Fecha Fin:" FontSize="15" FontFamily="Montserrat" Margin="0,0,0,5" Foreground="Black" Style="{StaticResource TextGeneral}"/>
-                                        <DatePicker SelectedDate="{Binding FechaFin}" Width="155" />
+                                        <DatePicker  SelectedDate="{Binding FechaFin}" Width="155" />
                                     </StackPanel>
 
                                     <Button Command="{Binding FiltrarCommand}" Style="{StaticResource StyleButtonFor2}" 

@@ -161,6 +161,19 @@ namespace SociedadCorreaCorrea.Views
                 this.Close();
             }
         }
+        private void Inicio_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var MainMenu = new MainMenu();
+                MainMenu.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
         private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
         {
             // Coloca aquí la lógica para cerrar sesión
