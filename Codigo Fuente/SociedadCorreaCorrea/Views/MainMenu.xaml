@@ -56,7 +56,7 @@
                 <StackPanel>
                     <!--Logo-->
                     <StackPanel Orientation="Horizontal" Height="35" Margin="10,25,0,40">
-                        <Image Source="/Resources/fondo1.jpg" Height="30">
+                        <Image Source="/Resources/Logo_Final_cliente-removebg-preview.png" Height="30">
                             
                         </Image>
                         <TextBlock Text="Farmacia"
@@ -72,6 +72,14 @@
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+         Tag="#ffffff"
+         PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>

@@ -25,6 +25,7 @@
           "net8.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -133,6 +134,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[112.0.0, )"
+            },
+            "WpfAnimatedGif": {
+              "target": "Package",
+              "version": "[2.0.2, )"
             },
             "itext7": {
               "target": "Package",

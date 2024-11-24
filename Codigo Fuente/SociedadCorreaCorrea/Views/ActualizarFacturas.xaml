@@ -52,7 +52,7 @@
                 <StackPanel>
                     <!-- Logo -->
                     <StackPanel Orientation="Horizontal" Height="35" Margin="10,25,0,40">
-                        <Image Source="/Resources/fondo1.jpg" Height="30" />
+                        <Image Source="/Resources/Logo_Final_cliente-removebg-preview.png" Height="30" />
                         <TextBlock Text="Farmacia"
                                    Foreground="White"
                                    FontSize="20"
@@ -63,6 +63,14 @@
                     </StackPanel>
 
                     <!-- Botones menú -->
+                    <RadioButton Style="{StaticResource menuButton}"
+         Tag="#ffffff"
+         PreviewMouseDown="Inicio_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="#ffffff"
                              PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
@@ -364,11 +372,11 @@ IsReadOnly="False" HorizontalAlignment="Left" MaxLength="250" Width="250" Style=
                                 </StackPanel>
                                 <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
                                     <TextBlock Text="Fecha Emisión:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <DatePicker  SelectedDate="{Binding FechaEmision}" x:Name="dpFechaEmision" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
+                                    <DatePicker Style="{StaticResource RoundedDatePicker}" SelectedDate="{Binding FechaEmision}" x:Name="dpFechaEmision" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="3" Grid.Column="1" Margin="10">
                                     <TextBlock Text="Fecha Vencimiento:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <DatePicker x:Name="dpFechaVencimiento" SelectedDate="{Binding FechaVencimiento}" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
+                                    <DatePicker Style="{StaticResource RoundedDatePicker}" x:Name="dpFechaVencimiento" SelectedDate="{Binding FechaVencimiento}" HorizontalAlignment="Left" Width="250"  Margin="0,5,0,15" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="4" Grid.Column="1" Margin="10">
                                     <TextBlock Text="Comuna:" Style="{StaticResource TextGeneral}" Foreground="White" />

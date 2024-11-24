@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CL+rt4sFVII=",
+  "dgSpecHash": "b0Rej6lonI4=",
   "success": true,
   "projectFilePath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
   "expectedPackageFiles": [
@@ -207,7 +207,8 @@
     "C:\\Users\\vmart\\.nuget\\packages\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512",
     "C:\\Users\\vmart\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\vmart\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\vmart\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\vmart\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\vmart\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512"
   ],
   "logs": [
     {

@@ -29,6 +29,7 @@ using System;
 using System.Threading.Tasks;
 using GoogleFile = Google.Apis.Drive.v3.Data.File;
 using SystemFile = System.IO.File; // Alias para evitar conflictos
+using System.Windows;
 
 
 namespace SociedadCorreaCorrea.ViewsModels
@@ -496,6 +497,7 @@ namespace SociedadCorreaCorrea.ViewsModels
                 // Capturamos cualquier error al guardar y mostramos el mensaje
                 await _window.ShowMessageAsync("Error", $"Hubo un problema al registrar la tarea: {ex.Message}");
             }
+
         }
 
         /// <summary>
@@ -694,8 +696,23 @@ namespace SociedadCorreaCorrea.ViewsModels
                 return; // Salir de la función si hay errores
             }
 
+            // Crear la ventana de carga
+            var ventanaCarga = new PantallaCarga
+            {
+                DataContext = new PantallaCargaViewModel()
+            };
+
             try
             {
+                // Mostrar la ventana de carga como modal
+                _ = Task.Run(() =>
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        ventanaCarga.ShowDialog();
+                    });
+                });
+
 
                 using (var context = new ContextoSMMS())
                 {
@@ -813,10 +830,19 @@ namespace SociedadCorreaCorrea.ViewsModels
                     await context.SaveChangesAsync();
 
                 }
+                // Cerrar la ventana de carga
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (ventanaCarga.IsVisible)
+                    {
+                        ventanaCarga.Close();
+                    }
+                });
                 // Notificar que la carpeta fue creada correctamente
                 await _window.ShowMessageAsync("Éxito", "Empleado registrado y carpeta creada en Google Drive.");
 
                 LimpiarCamposDeTexto();
+
 
             }
             catch (DbUpdateException dbEx)

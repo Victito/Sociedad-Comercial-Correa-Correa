@@ -132,7 +132,7 @@ namespace SociedadCorreaCorrea.ViewModels
         public string GiroVendedor
         {
             get => _giroVendedor;
-            set { _giroVendedor= value; OnPropertyChanged(); }
+            set { _giroVendedor = value; OnPropertyChanged(); }
         }
 
         public string RutVendedor
@@ -293,7 +293,7 @@ namespace SociedadCorreaCorrea.ViewModels
             set { _fecha = value; OnPropertyChanged(); }
         }
 
-        public string Rut {  get => _rut; set { _rut = value; OnPropertyChanged(); } }
+        public string Rut { get => _rut; set { _rut = value; OnPropertyChanged(); } }
 
         // Método para formatear el valor de un combobox
         private string FormatComboBoxValue(string value)

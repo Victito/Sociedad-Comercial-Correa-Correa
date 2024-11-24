@@ -24,6 +24,7 @@ using SociedadCorreaCorrea.Data;
 
 
 
+
 namespace SociedadCorreaCorrea.Views
 {
     public partial class RegistroFacturas : MetroWindow
@@ -479,8 +480,23 @@ private string ObtenerApiKey(int idEmpresa)
                 return;
             }
 
+            // Crear la ventana de carga
+            var ventanaCarga = new PantallaCarga
+            {
+                DataContext = new PantallaCargaViewModel()
+            };
+
             try
             {
+                // Mostrar la ventana de carga como modal
+                _ = Task.Run(() =>
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        ventanaCarga.ShowDialog();
+                    });
+                });
+
                 // Obtener la instancia del ViewModel
                 var viewModel = DataContext as RegistroFacturaViewModel;
                 // Realizar la solicitud a OpenAI y obtener la respuesta
@@ -585,6 +601,15 @@ private string ObtenerApiKey(int idEmpresa)
             }
             finally
             {
+                // Asegurar el cierre de la ventana de carga
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (ventanaCarga.IsVisible)
+                    {
+                        ventanaCarga.Close();
+                    }
+                });
+
                 // Vaciar el texto extraído después de procesar
                 extractedText = string.Empty;
             }
@@ -829,6 +854,19 @@ private string ObtenerApiKey(int idEmpresa)
                 // Crear y mostrar la ventana de RegistroFacturas
                 var Servicios = new Servicios();
                 Servicios.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
+        }
+        private void Inicio_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var MainMenu = new MainMenu();
+                MainMenu.Show();
 
                 // Cierra la ventana de MainMenu
                 this.Close();

@@ -91,6 +91,9 @@ namespace prueba.Vista
             // Aquí puedes añadir lógica para navegar a otra página, como la página de facturas
         }
 
+
         #endregion
+        
     }
+
 }
