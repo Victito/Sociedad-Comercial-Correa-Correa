@@ -1,0 +1,981 @@
+﻿<mah:MetroWindow 
+    x:Class="SociedadCorreaCorrea.Views.Trabajadores"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:local="clr-namespace:SociedadCorreaCorrea.Views"
+    mc:Ignorable="d"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    Title="Principal"
+    Width="1300"
+    Height="700"
+    WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    ShowTitleBar="False"
+    ShowCloseButton="False"
+    ShowMinButton="False"
+    ShowMaxRestoreButton="False"
+    Background="Transparent"
+    AllowsTransparency="True">
+
+    <Border CornerRadius="10"
+            BorderThickness="1">
+
+        <!-- Definición de gradiente del borde -->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3393DF" Offset="0" />
+                <GradientStop Color="#007AFF" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Menú de navegación -->
+                <ColumnDefinition Width="250" />
+                <!-- Sección de contenido -->
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+
+            <!-- Navegación -->
+            <Border CornerRadius="10,0,0,10" Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="#023E8A" Offset="0" />
+                        <GradientStop Color="#045DE9" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!-- Logo -->
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="10,25,0,40">
+                        <Image Source="/Resources/Logo_Final_cliente-removebg-preview.png" Height="30" />
+                        <TextBlock Text="Farmacia"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0" />
+                    </StackPanel>
+
+                    <!-- Botones menú -->
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="#ffffff"
+                                 PreviewMouseDown="Inicio_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#fff"
+                             PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#fff"
+                             PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="#fff" PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#fff" PreviewMouseDown="Trabajadores_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#fff" PreviewMouseDown="Servicios_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}" Tag="#fff" PreviewMouseDown="Drive_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+
+            <!-- Sección principal -->
+            <Border CornerRadius="0,10,10,0" Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="#045DE9" Offset="0" />
+                        <GradientStop Color="#09C6F9" Offset="0.7" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="Ventana_MouseBajo"
+                >
+
+                        <!-- Botón Cerrar -->
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton}"
+                                Tag="{StaticResource color4}"
+                                Click="btnCerrar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowClose" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Maximizar -->
+                        <Button x:Name="btnMaximizar"
+                                Style="{StaticResource controlButton2}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMaximizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <!-- Botón Minimizar -->
+                        <Button x:Name="btnMinimizar"
+                                Style="{StaticResource controlButton2}"
+                                Tag="{StaticResource color4}"
+                                Click="btnMinimizar_Click">
+                            <iconPacks:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" 
+                                    Orientation="Horizontal" 
+                                    VerticalAlignment="Center">
+
+                            <iconPacks:PackIconMaterial 
+                                Kind="AccountOutline"                                                    
+                                Height="20"                                        
+                                Width="20"                   
+                                Foreground="{StaticResource titleColor2}"                      
+                                Margin="35,0,10,0"/>
+
+                            <TextBlock Text="Administrar Trabajadores"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+Orientation="Horizontal"
+FlowDirection="RightToLeft"
+VerticalAlignment="Center"
+Margin="0,0,10,0">
+
+                            <!-- ComboBox personalizado para mostrar solo una opción: "Cerrar sesión" -->
+                            <ComboBox Width="28" 
+  Background="Transparent"
+  BorderBrush="Transparent"
+  VerticalAlignment="Center"
+  Foreground="{StaticResource titleColor2}">
+                                <ComboBox.Template>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <!-- Aparece la flecha como en un botón -->
+                                            <ToggleButton x:Name="ToggleButton"
+                      Focusable="False"
+                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                                              
+                                              >
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iconPacks:PackIconMaterial  Kind="ChevronDown" 
+                                            Height="12" 
+                                            Width="12" 
+                                            Style="{StaticResource iconButtonIcon}"
+                                            Foreground="{StaticResource titleColor2}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Popup x:Name="Popup"
+               Placement="Bottom"
+               IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+               AllowsTransparency="True"
+               Focusable="False"
+               PopupAnimation="Slide">
+                                                <Border Background="White" 
+                    CornerRadius="4"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                                                    <StackPanel>
+                                                        <TextBlock Text="Cerrar sesión"
+                               Padding="10"
+                               FontSize="12"
+                               Cursor="Hand"
+                               MouseLeftButtonUp="CerrarSesion_Click"
+                                                       Foreground="Black"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ComboBox.Template>
+                            </ComboBox>
+
+                            <!-- Nombre de usuario y círculo de perfil -->
+                            <TextBlock Text="username"
+   Foreground="{StaticResource titleColor2}"
+   FontFamily="Montserrat"
+   FontSize="12"
+   VerticalAlignment="Center"/>
+                            <Ellipse Height="35" Width="35"
+ Stroke="#ffffff"
+ StrokeThickness="2"
+ Margin="10,0,10,0"/>
+                        </StackPanel>
+                    </Grid>
+                    <ContentControl Grid.Row="2" 
+                                    x:Name="ContenidoTrabajadores" 
+                                    Margin="5,2,5,5">
+
+                        <TabControl 
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalContentAlignment="Center"
+                                Background="Transparent" Margin="7,7,7,7"
+                                
+                                >
+                            <TabItem Style="{DynamicResource TabItemStyle}"  
+                                     Header="Trabajadores" 
+                                     Margin="6,0,0,0"
+                                     Width="160"
+                                     VerticalAlignment="Center" >
+
+
+                                <Grid Background="#ffffff" 
+                                      Margin="10,10,10,10">
+
+                                    <DataGrid
+                                              AutoGenerateColumns="False" 
+                                              ItemsSource="{Binding InformacionEmpleado}"
+                                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                                              CellStyle="{DynamicResource DataGridCellStyle1}" 
+                                              x:Name="membersDataGrid"
+                                              Style="{DynamicResource DataGridStyle1}"
+                                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                                        <DataGrid.Columns>
+                                            <!-- Columna para la selección con CheckBox -->
+                                            <DataGridCheckBoxColumn CanUserResize="True"  
+                                                                    Width="Auto">
+                                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                                    </DataTemplate>
+                                                </DataGridCheckBoxColumn.HeaderTemplate>
+                                            </DataGridCheckBoxColumn>
+
+                                            <!-- Columna para mostrar el Rut -->
+                                            <DataGridTextColumn Header="Nombres Del Empleado" 
+                                                              Binding="{Binding Empleado.NombreEmpleado}"
+                                                              IsReadOnly="True" 
+                                                              CanUserResize="True"  
+                                                              Width="Auto"/>
+
+                                            <!-- Columna para mostrar el Rut -->
+                                            <DataGridTextColumn Header="Tareas de trabajador" 
+                                                              Binding="{Binding Empleado.TareasEmpleado}"
+                                                              IsReadOnly="True" 
+                                                              CanUserResize="True" 
+                                                              Width="Auto"/>
+
+                                            <!-- Columna para mostrar el Rut -->
+                                            <DataGridTextColumn Header="Apellidos Del Empleado" 
+                                                              Binding="{Binding Empleado.ApellidoEmpleado}"
+                                                              IsReadOnly="True" 
+                                                              CanUserResize="True" 
+                                                              Width="Auto"/>
+
+                                            <!-- Columna para mostrar el Rut -->
+                                            <DataGridTextColumn Header="Rut Del Empleado" 
+                                                                Binding="{Binding Empleado.RutEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                CanUserResize="True" 
+                                                                Width="Auto"/>
+
+                                            <!-- Columna para mostrar el Rut -->
+                                            <DataGridTextColumn Header="Fecha De Nacimiento Del Empleado" 
+                                                                Binding="{Binding Empleado.FechaNacimientoEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                CanUserResize="True" 
+                                                                Width="Auto"/>
+
+                                            <!-- Columna para el Rol o Puesto del empleado -->
+                                            <DataGridTextColumn Header="Nombre De Puesto" 
+                                                                Binding="{Binding Empleado.PuestoEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Sucursal o Local del empleado -->
+                                            <DataGridTextColumn Header="Nombre Del Sucursal" 
+                                                                Binding="{Binding Empleado.IdSucursalNavigation.NombreSucursal}"
+                                                                IsReadOnly="True"
+                                                                CanUserResize="True"
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Fecha De Contratacion" 
+                                                                Binding="{Binding Empleado.FechaContratacionEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Puesto Del Empleado" 
+                                                                Binding="{Binding Empleado.PuestoEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Salario Del Empleado" 
+                                                                Binding="{Binding Empleado.SalarioEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Telefono Del Empleado" 
+                                                                Binding="{Binding Empleado.TelefonoEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Direccion Del Empleado" 
+                                                                Binding="{Binding Empleado.TelefonoEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la Fecha de Ingreso del empleado -->
+                                            <DataGridTextColumn Header="Estado Del Empleado" 
+                                                                Binding="{Binding Empleado.EstatusEmpleado}"
+                                                                IsReadOnly="True" 
+                                                                Width="*"/>
+
+                                            <!-- Columna para la información del turno -->
+                                            <DataGridTextColumn Header="Información de Turno" 
+                                            Binding="{Binding InfoTurno}" 
+                                            IsReadOnly="True" 
+                                            Width="*"/>
+
+                                            <!-- Columna para los botones de acciones -->
+                                            <DataGridTemplateColumn Header="Acciones" 
+                                                                    IsReadOnly="True" 
+                                                                    Width="Auto">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <!-- Botón de editar -->
+                                                            <Button 
+                                                            Style="{StaticResource gridEditButton}" 
+                                                            Command="{Binding DataContext.EditarEmpleadoCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                            CommandParameter="{Binding Empleado.IdEmpleado}">
+                                                                <iconPacks:PackIconMaterial 
+                                                                Kind="PencilOutline" 
+                                                                Style="{StaticResource gridButtonIcon}"/>
+                                                            </Button>
+                                                            <!-- Botón de eliminar -->
+                                                            <Button Style="{StaticResource gridRemoveButton}" 
+                                                            Command="{Binding DataContext.EliminarEmpleadoCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                                            CommandParameter="{Binding Empleado.IdEmpleado}">
+                                                                <iconPacks:PackIconMaterial 
+                                                            Kind="DeleteOutline" 
+                                                            Style="{StaticResource gridButtonIcon}"/>
+                                                            </Button>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                            </TabItem>
+
+                            <TabItem
+                                    Style="{DynamicResource TabItemStyle}"
+                                    Header="Agregar Trabajador"
+                                    Width="160">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+
+                                    </Grid.RowDefinitions>
+                                    <!-- Estado de la autenticación -->
+                                    
+                                    
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Nombres:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NombreEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Apellidos:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding ApellidoEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding RutEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Telefono: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="15" Style="{StaticResource RoundedTextBox}" Text="{Binding TelefonoEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Sucursal de trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <ComboBox Background="#E0F7FA"  SelectedValue="{Binding IdSucursal}" 
+                                                    DisplayMemberPath="NombreSucursal" 
+                                                    SelectedValuePath="IdSucursal"
+                                                    ItemsSource="{Binding ListaSucursal}"
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <!--Columna 2-->
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="10"  HorizontalAlignment="Center">
+                                        <TextBlock Text="Dirección:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding DireccionEmpleado, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Tareas del trabajador: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding TareasEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Correo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding CorreoEmpleado}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Turnos de Trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <ComboBox   Background="#E0F7FA" SelectedValue="{Binding TurnoTrabajoId}" 
+                                                     DisplayMemberPath="NombreTurno" 
+                                                     SelectedValuePath="IdTurno"
+                                                     ItemsSource="{Binding ListaTurno}"
+                                                     IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Historial Medico:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <Button Style="{StaticResource StyleButtonUpload}" Command="{Binding OpenFileHistorialMedicoCommand}" Height="30"  Margin="0,5,0,15" Content="Seleccionar Archivo" Width="250" ></Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="2" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Contrato:" Style="{StaticResource TextGeneral}" Foreground="White"  />
+                                        <Button Style="{StaticResource StyleButtonUpload}" Command="{Binding OpenFileCommand}" Margin="0,5,0,15" Height="30"  Content="Seleccionar Archivo" Width="250"></Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="1"   HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                                        
+                                        <Button 
+                                                BorderThickness="0"
+                                                Content="Agregar"
+                                                Foreground="White"
+                                                FontSize="16"
+                                                FontFamily="Montserrat"
+                                                Cursor="Hand"
+                                                Margin="0,0,0,0"
+                                                Command="{Binding RegistrarEmpleados }">
+                                            <!-- Definición de estilo del botón -->
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#40E0D0"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#41CD65" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <!-- Plantilla personalizada del botón -->
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="150" Height="40"
+                                                            CornerRadius="20"
+                                                            Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" 
+                                                                          HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center">
+                                        <TextBlock Foreground="White" FontSize="16" Text="{Binding EstadoAutenticacion}" Margin="0,0,0,6"/>
+                                        <!--Columna 1 izquierda-->
+                                        
+
+                                        <Button  VerticalAlignment="Center" Style="{StaticResource StyleButtonFor4}" Content="Desautenticar" Width="155" Command="{Binding DesautenticarCommand}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <TextBlock Foreground="White" FontSize="16" Text="{Binding EstadoAutenticacion}" Margin="0,0,0,6"/>
+                                        <!--Columna 1 izquierda-->
+                                        <Button Background="Gray" Style="{StaticResource StyleButtonFor3}" Content="Autenticar" Width="155" Command="{Binding AutenticarCommand}" VerticalAlignment="Center" Margin="0,0,0,0" />
+
+                                        
+                                    </StackPanel>
+                                    <!--Columna 3-->
+                                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="10"  HorizontalAlignment="Center">
+                                        <TextBlock Text="Salario: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="180" Style="{StaticResource RoundedTextBox}" Text="{Binding SalarioEmpleado, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Fecha de Nacimiento: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <DatePicker Style="{StaticResource RoundedDatePicker}"   SelectedDate="{Binding FechaNacimientoEmpleado, UpdateSourceTrigger=PropertyChanged}" 
+                                                       HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="2" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Fecha Contratacion: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <DatePicker  Style="{StaticResource RoundedDatePicker}"  SelectedDate="{Binding FechaContratacionEmpleado, UpdateSourceTrigger=PropertyChanged}"  
+                                                       HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="2" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Puesto de trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <ComboBox   Background="#E0F7FA" SelectedValue="{Binding PuestoTrabajo}" 
+                                                     DisplayMemberPath="NombrePuesto" 
+                                                     ItemsSource="{Binding ListaPuesto}"
+                                                     IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Style="{DynamicResource TabItemStyle}" Width="160" Header="Turnos">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <!--Columna 1-->
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Left">
+                                        <TextBlock Text="Selecciona el Turno:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <ComboBox Style="{StaticResource RoundedComboBox}"  SelectedItem="{Binding NuevoTurnoNombreTurno, UpdateSourceTrigger=PropertyChanged}"
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" >
+                                            <ComboBoxItem Content="Turno Mañana" />
+                                            <ComboBoxItem Content="Turno Tarde" />
+                                            <ComboBoxItem Content="Turno Noche" />
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Left">
+                                        <TextBlock Text="Selecciona el Turno:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <ComboBox  Style="{StaticResource RoundedComboBox}"  SelectedItem="{Binding NuevoTurnoDiaSemanaTurno, UpdateSourceTrigger=PropertyChanged}"
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" >
+                                            <ComboBoxItem Content="Días de Semana" />
+                                            <ComboBoxItem Content="Lunes" />
+                                            <ComboBoxItem Content="Martes" />
+                                            <ComboBoxItem Content="Miércoles" />
+                                            <ComboBoxItem Content="Jueves" />
+                                            <ComboBoxItem Content="Viernes" />
+                                            <ComboBoxItem Content="Sábado" />
+                                            <ComboBoxItem Content="Domingo" />
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <!--Columna 2-->
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Hora Inicio:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraInicioTurno, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center"> 
+                                        <TextBlock Text="Hora Inicio Almuerzo:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraInicioAlmuerzo, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <!--Columna 3-->
+                                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
+                                        <TextBlock Text="Hora Fin:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraFinTurno, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
+                                        <TextBlock Text="Hora Fin Almuerzo:" Style="{StaticResource TextGeneral}" Foreground="White" />
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraFinAlmuerzo, UpdateSourceTrigger=PropertyChanged}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="250"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1"   HorizontalAlignment="Center" Margin="0,20,0,0">
+                                        <Button 
+                                                BorderThickness="0"
+                                                Content="Registrar Turno"
+                                                Foreground="White"
+                                                FontSize="16"
+                                                FontFamily="Montserrat"
+                                                Cursor="Hand"
+                                                Margin="0,0,0,0"
+                                                Command="{Binding RegistrarTurnoCommand}">
+                                            <!-- Definición de estilo del botón -->
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#40E0D0"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#41CD65" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <!-- Plantilla personalizada del botón -->
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="150" Height="40"
+                                                            CornerRadius="20"
+                                                            Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" 
+                                                                          HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </StackPanel>
+                                    <ScrollViewer Grid.Row="3" Grid.ColumnSpan="3" Width="auto" Height="auto" >
+                                        <DataGrid ItemsSource="{Binding ListaTurno}" 
+                                                  AutoGenerateColumns="False" 
+                                                  Margin="10" 
+                                                  Grid.Row="3" 
+                                                  Grid.ColumnSpan="3"
+                                                  Width="auto"
+                                                 
+                                                  CanUserAddRows="False" 
+                                                  IsReadOnly="True">
+
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Turnos" Binding="{Binding NombreTurno}" Width="200" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+
+                                    </ScrollViewer>
+                                </Grid>
+                            </TabItem>
+
+
+                            <TabItem
+                                    Style="{DynamicResource TabItemStyle}"
+                                    Width="160"
+                                    Header="Correos">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Width="400" Margin="0,20,0,0" HorizontalAlignment="Center">
+                                        <TextBlock Text="Destinatario:" Style="{StaticResource TextGeneral}"  Foreground="White" HorizontalAlignment="Left"/>
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding DestinatarioCorreo, UpdateSourceTrigger=PropertyChanged}" 
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="400"    Margin="0,5,0,15" />
+                                        <TextBlock Text="Asunto:" Style="{StaticResource TextGeneral}"  Foreground="White" HorizontalAlignment="Left"/>
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding AsuntoCorreo, UpdateSourceTrigger=PropertyChanged}"  
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="400"    Margin="0,5,0,15" />
+                                        <TextBlock Text="Mensaje:" Style="{StaticResource TextGeneral}"  Foreground="White" HorizontalAlignment="Left"/>
+                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding MensajeCorreo, UpdateSourceTrigger=PropertyChanged}"  
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="400" 
+                                                  Height="100"    Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Center" Margin="0,20,0,0">
+                                        <Button 
+                                                BorderThickness="0"
+                                                Content="Enviar Correo"
+                                                Foreground="White"
+                                                FontSize="16"
+                                                FontFamily="Montserrat"
+                                                Cursor="Hand"
+                                                Margin="0,0,0,0"
+                                                Command="{Binding EnviarCorreoCommand}">
+                                            <!-- Definición de estilo del botón -->
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#40E0D0"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#41CD65" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                            <!-- Plantilla personalizada del botón -->
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="150" Height="40"
+                                                            CornerRadius="20"
+                                                            Background="{TemplateBinding Background}">
+                                                        <ContentPresenter VerticalAlignment="Center" 
+                                                                          HorizontalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                    </StackPanel>
+
+
+                                </Grid>
+                            </TabItem>
+                            
+                            <TabItem Style="{DynamicResource TabItemStyle}"  
+                              Header="Tareas Diarias" 
+                              Margin="0,0,0,0"
+                              Width="160"
+                              VerticalAlignment="Center" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel  Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Left">
+                                        <TextBlock Text="Sucursal de trabajo: " Style="{StaticResource TextGeneral}"  />
+                                        <ComboBox Background="#E0F7FA" SelectedValue="{Binding SucursalIdTD}" 
+                                                  DisplayMemberPath="NombreSucursal" 
+                                                  SelectedValuePath="IdSucursal"
+                                                  ItemsSource="{Binding ListaSucursal}"
+                                                  IsReadOnly="False" 
+                                                  HorizontalAlignment="Left" 
+                                                  Width="300"    
+                                                  Margin="0,5,0,15" />
+                                    </StackPanel>
+                                    
+                                    <StackPanel  Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Left">
+                                        <TextBlock Text="Empleado: " Style="{StaticResource TextGeneral}"  />
+                                        <ComboBox Background="#E0F7FA"  SelectedValue="{Binding EmpleadoIdTD}" 
+                                                  DisplayMemberPath="NombreEmpleadoCompleto" 
+                                                  SelectedValuePath="IdEmpleado"                                              
+                                                  ItemsSource="{Binding InformacionEmpleado}"
+                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Left">
+                                        <TextBlock Text="Nombre Tarea:"  Style="{StaticResource TextGeneral}"/>
+                                        <TextBox Style="{StaticResource RoundedTextBox}" Text="{Binding NombreTarea, UpdateSourceTrigger=PropertyChanged}" Width="300"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Descripción  Tarea:"  Style="{StaticResource TextGeneral}"/>
+                                        <TextBox Style="{StaticResource RoundedTextBox}" Text="{Binding DescripcionTarea, UpdateSourceTrigger=PropertyChanged}" Width="300" AcceptsReturn="True" Height="60"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Fecha Tarea:"  Style="{StaticResource TextGeneral}"/>
+                                        <DatePicker  SelectedDate="{Binding FechaTarea , UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15" Style="{StaticResource RoundedDatePicker}" Width="300"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Hora Inicio Tarea:"  Style="{StaticResource TextGeneral}"/>
+                                        <TextBox Style="{StaticResource RoundedTextBox}" Text="{Binding HoraInicioTarea, UpdateSourceTrigger=PropertyChanged}" Width="300"
+                    />
+                                    </StackPanel>
+
+                                    <StackPanel  Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <TextBlock Text="Hora Termino Tarea:"  Style="{StaticResource TextGeneral}"/>
+                                        <TextBox Style="{StaticResource RoundedTextBox}" Text="{Binding HoraTerminoTarea, UpdateSourceTrigger=PropertyChanged}" Width="300"
+                        />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Center" >
+                                        <Button Content="Guardar" Style="{StaticResource StyleButtonFor3}" Command="{Binding GuardarTareaCommand}" Margin="0,10,0,0" Width="161" HorizontalAlignment="Left"/>
+                                    </StackPanel>
+
+                                    <ScrollViewer Margin="0,10,0,0" Grid.Row="4" Grid.ColumnSpan="3" Width="auto" Height="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                        
+                                        <DataGrid
+                                            AutoGenerateColumns="False" 
+                                            ItemsSource="{Binding ListaTareaDiaria}"
+                                            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                                            CellStyle="{DynamicResource DataGridCellStyle1}" 
+                                            x:Name="membersDataGrid2"
+                                            Style="{DynamicResource DataGridStyle1}"
+                                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                            Height="600"
+                                            Background="White">
+                                            <DataGrid.Columns>
+                                                <!-- Columna para la selección con CheckBox -->
+                                                <DataGridCheckBoxColumn CanUserResize="True"  
+        Width="Auto">
+                                                    <DataGridCheckBoxColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                                        </DataTemplate>
+                                                    </DataGridCheckBoxColumn.HeaderTemplate>
+                                                </DataGridCheckBoxColumn>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Nombres" 
+                  Binding="{Binding Empleado.NombreEmpleado}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Apellidos" 
+                  Binding="{Binding Empleado.ApellidoEmpleado}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Rut" 
+                  Binding="{Binding Empleado.RutEmpleado}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Sucursal" 
+                  Binding="{Binding Sucursal.NombreSucursal}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+
+                                               
+                                                
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Nombre de la tarea" 
+                  Binding="{Binding NombreTarea}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Descripcion de la tarea" 
+                  Binding="{Binding DescripcionTarea}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Fecha de la tarea" 
+                  Binding="{Binding FechaTarea}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Hora Inicio de la tarea" 
+                  Binding="{Binding HoraInicioTarea}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="Auto"/>
+
+                                                <!-- Columna para mostrar el Nombre Tarea -->
+                                                <DataGridTextColumn Header="Hora Termino de la tarea" 
+                  Binding="{Binding HoraTerminoTarea}"
+                  IsReadOnly="True" 
+                  CanUserResize="True"  
+                  Width="auto"/>
+
+
+                                                <!-- Columna para los botones de acciones -->
+                                                <DataGridTemplateColumn Header="Acciones" 
+        IsReadOnly="True" 
+        Width="Auto">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <!-- Botón de editar -->
+                                                                <Button 
+Style="{StaticResource gridEditButton}" 
+                                        >
+                                                                    <iconPacks:PackIconMaterial 
+    Kind="PencilOutline" 
+    Style="{StaticResource gridButtonIcon}"/>
+                                                                </Button>
+                                                                <!-- Botón de eliminar -->
+                                                                <Button Style="{StaticResource gridRemoveButton}" 
+Command="{Binding DataContext.EliminarTareaDiariaCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+CommandParameter="{Binding TareaDiariaId}">
+                                                                    <iconPacks:PackIconMaterial 
+Kind="DeleteOutline" 
+Style="{StaticResource gridButtonIcon}"/>
+                                                                </Button>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        
+                                    </ScrollViewer>
+                                </Grid>
+                                
+                                
+
+
+                            </TabItem>
+                        </TabControl>
+
+                    </ContentControl>
+                </Grid>
+
+            </Border>
+        </Grid>
+    </Border>
+</mah:MetroWindow>
