@@ -728,14 +728,7 @@ namespace SociedadCorreaCorrea.ViewsModels
 
             try
             {
-                // Mostrar la ventana de carga como modal
-                _ = Task.Run(() =>
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        ventanaCarga.ShowDialog();
-                    });
-                });
+
 
                 using (var context = new ContextoSMMS())
                 {
@@ -748,6 +741,15 @@ namespace SociedadCorreaCorrea.ViewsModels
                             await _window.ShowMessageAsync("Error", "¡El RUT del empleado que intenta ingresar ya existe!");
                             return; // Detener la ejecución de la función
                         }
+
+                    // Mostrar la ventana de carga como modal
+                    _ = Task.Run(() =>
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            ventanaCarga.ShowDialog();
+                        });
+                    });
 
                     // Limpiar y concatenar el primer nombre y primer apellido en minúsculas
                     string primerNombre = NombreEmpleado.Split(' ')[0].ToLower();  // Obtener el primer nombre
