@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\desktop\\sociedad correa web\\sociedad correa web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAQwGoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T14:50:36.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAC0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T03:43:21.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\maxim\\Desktop\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-25T03:29:57.666Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

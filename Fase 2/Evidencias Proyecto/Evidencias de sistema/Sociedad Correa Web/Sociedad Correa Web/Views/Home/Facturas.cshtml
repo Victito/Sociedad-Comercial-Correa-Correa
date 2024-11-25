@@ -1,0 +1,75 @@
+﻿
+<style>
+
+
+
+    html, body {
+        background: linear-gradient(135deg, #1d3557, #457b9d, #a8dadc);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+    }
+
+</style>
+<div class="container py-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-center bg-primary text-white">
+            <h4 class="mb-0">Listado de Facturas</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Rut Emisor</th>
+                            <th>Comuna</th>
+                            <th>Ciudad</th>
+                            <th>Fecha Emisión</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Rut Vendedor</th>
+                            <th>Giro Vendedor</th>
+                            <th>Días Restantes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var factura in Model)
+                        {
+                            <tr>
+                                <td>@factura.RutEmisor</td>
+                                <td>@factura.Comuna</td>
+                                <td>@factura.Ciudad</td>
+                                <td>@factura.FechaEmision?.ToShortDateString()</td>
+                                <td>@factura.FechaVencimiento?.ToShortDateString()</td>
+                                <td>@factura.Cantidad</td>
+                                <td>$@factura.Total</td>
+                                <td>
+                                    <span class="badge
+                                    @(factura.Estado == "Pagada" ? "bg-success" :
+                                      factura.Estado == "Pendiente" ? "bg-warning text-dark" :
+                                      factura.Estado == "Vencida" ? "bg-danger" : "bg-secondary")">
+                                        @factura.Estado
+                                    </span>
+                                </td>
+                                <td>@factura.RutVendedor</td>
+                                <td>@factura.GiroVendedor</td>
+                                <td>@factura.DiasRestantes días</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4">
+                <form method="get" asp-action="Back">
+                    <button type="submit" class="btn btn-secondary btn-back">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
