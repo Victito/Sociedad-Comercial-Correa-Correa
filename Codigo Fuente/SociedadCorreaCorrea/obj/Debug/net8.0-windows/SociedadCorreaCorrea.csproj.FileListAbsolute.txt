@@ -508,3 +508,5 @@ D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\De
 D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.pdb
 D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\SociedadCorreaCorrea.genruntimeconfig.cache
 D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\ref\SociedadCorreaCorrea.dll
+D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\CerrarSesion.g.cs
+D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\obj\Debug\net8.0-windows\Views\CerrarSesion.baml

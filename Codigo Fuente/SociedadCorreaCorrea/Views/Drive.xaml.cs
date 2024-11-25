@@ -18,6 +18,8 @@ using MahApps.Metro.Controls;
 using SociedadCorreaCorrea.ViewModels;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
+using MahApps.Metro.Controls.Dialogs;
+using prueba.Vista;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -116,11 +118,16 @@ namespace SociedadCorreaCorrea.Views
                 button.ContextMenu.IsOpen = true;
             }
         }
-        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        private async void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
         {
-            // Coloca aquí la lógica para cerrar sesión
-            MessageBox.Show("Cerrar sesión");
+            // Aquí, la ventana CerrarSesion se muestra de manera modal
+            CerrarSesion ventanaCerrarSesion = new CerrarSesion();
+            ventanaCerrarSesion.ShowDialog();
+
         }
+
+        // Si selecciona "No", no pasa nada
+
         private void Trabajadores_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             // Verifica si el clic fue con el botón izquierdo del mouse

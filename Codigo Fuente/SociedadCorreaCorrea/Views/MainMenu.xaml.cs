@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls; // Para usar controles de WPF como Button, TextBox, etc.
 using MahApps.Metro.Controls;
@@ -9,9 +10,9 @@ using MahApps.Metro.Controls.Dialogs;
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Runtime.InteropServices;
-using System.Windows.Input;
 using System.Windows.Interop;
 using SociedadCorreaCorrea.ViewsModels;
+using prueba.Vista;
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -30,6 +31,7 @@ namespace SociedadCorreaCorrea.Views
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
             this.DataContext = new MainMenuViewModel(this); // Establecer el DataContext
+            NombreUsuario.Text = UserSession.NombreUsuario;
         }
 
         #endregion
@@ -39,12 +41,12 @@ namespace SociedadCorreaCorrea.Views
         /// <summary>
         /// Importación de la función SendMessage de user32.dll para mover la ventana cuando el mouse es arrastrado.
         /// </summary>
-        
+
 
         #endregion
 
-        
-        
+
+
 
         /// <summary>
         /// Evento que se dispara al hacer clic en la opción de "Ingresar Facturas". Abre la ventana de registro de facturas.
@@ -106,7 +108,7 @@ namespace SociedadCorreaCorrea.Views
                 this.Close();
             }
         }
-        
+
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWind, int wMsg, int wParam, int lParam);
         private void Ventana_MouseBajo(object sender, MouseButtonEventArgs e)
@@ -174,11 +176,13 @@ namespace SociedadCorreaCorrea.Views
                 this.Close();
             }
         }
-        private void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
+        private async void CerrarSesion_Click(object sender, MouseButtonEventArgs e)
         {
-            // Coloca aquí la lógica para cerrar sesión
-            MessageBox.Show("Cerrar sesión");
-        }
+            // Aquí, la ventana CerrarSesion se muestra de manera modal
+            CerrarSesion ventanaCerrarSesion = new CerrarSesion();
+            ventanaCerrarSesion.ShowDialog();
 
+        }
     }
+    
 }

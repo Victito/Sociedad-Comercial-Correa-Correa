@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea\App.xaml
-16-547049583
+17-1395250081
 41641928168
-54-768042537
+55-326291490
 317-1545843459
-Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\Drive.xaml;Views\EditarInformacionEmpleado.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\PantallaCarga.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;Views\Servicios.xaml;Views\Trabajadores.xaml;
+Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\CerrarSesion.xaml;Views\Drive.xaml;Views\EditarInformacionEmpleado.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\PantallaCarga.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;Views\Servicios.xaml;Views\Trabajadores.xaml;
 
-False
+True
 

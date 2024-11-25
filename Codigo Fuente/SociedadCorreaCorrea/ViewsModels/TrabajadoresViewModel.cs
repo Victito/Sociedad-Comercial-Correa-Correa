@@ -30,6 +30,9 @@ using System.Threading.Tasks;
 using GoogleFile = Google.Apis.Drive.v3.Data.File;
 using SystemFile = System.IO.File; // Alias para evitar conflictos
 using System.Windows;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Security.Cryptography;
+using System.Text;
 
 
 namespace SociedadCorreaCorrea.ViewsModels
@@ -64,7 +67,7 @@ namespace SociedadCorreaCorrea.ViewsModels
 
 
         private int _turnoTrabajoId;
-        private string _puestoTrabajo;
+        private Puesto _puestoTrabajo; // Debe ser de tipo Puesto, no string
         private int _sucursalId;
         private string _apellidoEmpleado;
         private string _rutEmpleado;
@@ -207,10 +210,14 @@ namespace SociedadCorreaCorrea.ViewsModels
             set { if (_turnoTrabajoId != value) { _turnoTrabajoId = value; OnPropertyChanged(nameof(TurnoTrabajoId)); } }
         }
 
-        public string PuestoTrabajo
+        public Puesto PuestoTrabajo
         {
-            get => _puestoTrabajo;
-            set { if (_puestoTrabajo != value) { _puestoTrabajo = value; OnPropertyChanged(nameof(PuestoTrabajo)); } }
+            get { return _puestoTrabajo; }
+            set
+            {
+                _puestoTrabajo = value;
+                OnPropertyChanged(); // Notificar cambios
+            }
         }
 
         public int IdSucursal
@@ -528,11 +535,11 @@ namespace SociedadCorreaCorrea.ViewsModels
 
         private void OpenFile2()
         {
-            var openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
+            var openFileDialog2 = new OpenFileDialog();
+            if (openFileDialog2.ShowDialog() == true)
             {
-                FilePath2 = openFileDialog.FileName; // Asigna el path del archivo seleccionado
-                ContenidoArchivoHistorialMedico = SystemFile.ReadAllBytes(FilePath);
+                FilePath2 = openFileDialog2.FileName; // Asigna el path del archivo seleccionado
+                ContenidoArchivoHistorialMedico = SystemFile.ReadAllBytes(FilePath2);
             }
         }
         private async void InicializarAsync()
@@ -632,7 +639,24 @@ namespace SociedadCorreaCorrea.ViewsModels
 
         public ICommand RegistrarEmpleados { get; }
 
-        private async void RegistrarEmpleado()
+        // Función para encriptar la clave usando SHA-256
+        private static string EncriptarSHA256(string texto)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(texto));
+
+                // Convertir el resultado en una cadena hexadecimal
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
+        }
+            private async void RegistrarEmpleado()
         {
             // Lista para almacenar mensajes de error
             List<string> mensajesErrores = new List<string>();
@@ -668,7 +692,7 @@ namespace SociedadCorreaCorrea.ViewsModels
                 mensajesErrores.Add("El correo del empleado es requerido.");
             }
 
-            if (string.IsNullOrWhiteSpace(PuestoTrabajo))
+            if (PuestoTrabajo == null || string.IsNullOrWhiteSpace(PuestoTrabajo.NombrePuesto))
             {
                 mensajesErrores.Add("El puesto de trabajo del empleado es requerido.");
             }
@@ -713,9 +737,79 @@ namespace SociedadCorreaCorrea.ViewsModels
                     });
                 });
 
-
                 using (var context = new ContextoSMMS())
                 {
+                       // Verificar si el RUT ya existe en la tabla Empleados
+                        var empleadoExistente = context.Empleados.FirstOrDefault(e => e.RutEmpleado == RutEmpleado);
+
+                        if (empleadoExistente != null)
+                        {
+                            // Mostrar mensaje de error
+                            await _window.ShowMessageAsync("Error", "¡El RUT del empleado que intenta ingresar ya existe!");
+                            return; // Detener la ejecución de la función
+                        }
+
+                    // Limpiar y concatenar el primer nombre y primer apellido en minúsculas
+                    string primerNombre = NombreEmpleado.Split(' ')[0].ToLower();  // Obtener el primer nombre
+                    string primerApellido = ApellidoEmpleado.Split(' ')[0].ToLower();  // Obtener el primer apellido
+
+                    // Concatenamos el primer nombre y primer apellido
+                    string nombreUsuario = $"{primerNombre}_{primerApellido}";
+
+                    // Generamos un número aleatorio entre 100 y 999 para asegurar la unicidad
+                    Random rand = new Random();
+                    int numeroAleatorio = rand.Next(100, 1000);  // Número aleatorio de 3 dígitos
+
+                    // Concatenamos el número aleatorio al nombre de usuario
+                    nombreUsuario = $"{nombreUsuario}{numeroAleatorio}";
+
+
+                    // Tomamos las iniciales de los nombres y apellidos
+                    string[] nombres = NombreEmpleado.Split(' ');
+                    string[] apellidos = ApellidoEmpleado.Split(' ');
+
+                    // Iniciales del nombre (primer nombre, segundo nombre, apellidos)
+                    string iniciales = "";
+                    foreach (var nombre in nombres)
+                    {
+                        iniciales += nombre[0];  // Tomamos la inicial de cada parte del nombre
+                    }
+                    foreach (var apellido in apellidos)
+                    {
+                        iniciales += apellido[0];  // Tomamos la inicial de cada parte del apellido
+                    }
+
+                    // Convertir las iniciales a mayúsculas
+                    iniciales = iniciales.ToUpper();
+
+                    // Limpiar el RUT: quitar puntos y dejar solo el número y el dígito verificador
+                    string rutSinPuntos = RutEmpleado.Replace(".", "").Replace("-", "");
+
+                    // Formar la clave combinando las iniciales y el RUT sin puntos
+                    string clave = $"{iniciales}-{rutSinPuntos}";
+
+                    string nombrePuesto = PuestoTrabajo?.NombrePuesto;
+
+                    // Encriptar la clave usando SHA-256
+                    string claveEncriptada = EncriptarSHA256(clave);
+                    // Crear el nuevo objeto Usuario
+                    var nuevoUsuario = new Usuario
+                    {
+                        IdEmpresa = GlobalSettings.IdEmpresa, // Asignar la empresa global
+                        NombreUsuario = nombreUsuario, // Nombre del usuario
+                        Clave = claveEncriptada, // Clave del usuario (por seguridad, asegúrate de encriptarla antes de guardarla)
+                        Rol = PuestoTrabajo?.NombrePuesto ?? "Puesto no asignado",// Asigna el NombrePuesto, o un valor por defecto si es null
+                    };
+
+                    // Agregar el nuevo usuario al contexto
+                    context.Usuarios.Add(nuevoUsuario);
+
+                    // Guardar los cambios en la base de datos
+                    context.SaveChanges();
+
+                    // Obtener la ID del usuario recién creado
+                    long idUsuarioRecienCreado = nuevoUsuario.Id;
+
                     // Concatenar el nombre del empleado con el RUT
                     string nombreCompletoYRut = $"{NombreEmpleado} {ApellidoEmpleado} {RutEmpleado}";
 
@@ -724,14 +818,14 @@ namespace SociedadCorreaCorrea.ViewsModels
                         IdEmpresa = GlobalSettings.IdEmpresa,
                         IdTurno = TurnoTrabajoId,
                         IdSucursal = IdSucursal,
-                        IdUsuario = UserSession.Id,
+                        IdUsuario = idUsuarioRecienCreado,
                         NombreEmpleado = NombreEmpleado,
                         ApellidoEmpleado = ApellidoEmpleado,
                         FechaNacimientoEmpleado = FechaNacimientoEmpleado.HasValue ? DateOnly.FromDateTime(FechaNacimientoEmpleado.Value) : (DateOnly?)null,
                         DireccionEmpleado = DireccionEmpleado,
                         TelefonoEmpleado = TelefonoEmpleado,
                         CorreoEmpleado = CorreoEmpleado,
-                        PuestoEmpleado = PuestoTrabajo,
+                        PuestoEmpleado = PuestoTrabajo?.NombrePuesto ?? "Puesto no asignado",
                         SalarioEmpleado = SalarioEmpleado,
                         FechaContratacionEmpleado = FechaContratacionEmpleado.HasValue ? DateOnly.FromDateTime(FechaContratacionEmpleado.Value) : (DateOnly?)null,
                         EstatusEmpleado = "Activo",
@@ -741,6 +835,15 @@ namespace SociedadCorreaCorrea.ViewsModels
 
                     // Añadir el nuevo empleado al contexto
                     await context.Empleados.AddAsync(nuevoEmpleado);
+
+                    // Paso 1: Crear el archivo .txt con el nombre de usuario y clave
+                    string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Usuario_" + nombreUsuario + ".txt");
+
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        writer.WriteLine($"NombreUsuario: {nombreUsuario}");
+                        writer.WriteLine($"Clave: {clave}");
+                    }
 
                     // Paso 1: Buscar la carpeta "Empleados" en Google Drive
                     var buscarCarpetaEmpleadosRequest = servicioDrive.Files.List();
@@ -826,6 +929,20 @@ namespace SociedadCorreaCorrea.ViewsModels
                         }
                     }
 
+                    // Paso 4: Subir el archivo .txt a Google Drive
+                    var archivoTxt = new GoogleFile
+                    {
+                        Name = Path.GetFileName(filePath),
+                        Parents = new[] { idCarpeta } // Especificar la carpeta de destino
+                    };
+
+                    using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                    {
+                        var subirArchivoRequest = servicioDrive.Files.Create(archivoTxt, stream, "text/plain");
+                        subirArchivoRequest.Fields = "id"; // Solo devuelve el ID del archivo creado
+                        await subirArchivoRequest.UploadAsync();
+                    }
+
                     // Guardar cambios en la base de datos
                     await context.SaveChangesAsync();
 
@@ -866,7 +983,7 @@ namespace SociedadCorreaCorrea.ViewsModels
             DireccionEmpleado = string.Empty;
             TelefonoEmpleado = string.Empty;
             CorreoEmpleado = string.Empty;
-            PuestoTrabajo = string.Empty;
+            PuestoTrabajo = null; // Limpiar el objeto
             SalarioEmpleado = 0; // O el valor que consideres por defecto
             FechaContratacionEmpleado = null; // Asignar null para campos de tipo nullable
             RutEmpleado = string.Empty;
