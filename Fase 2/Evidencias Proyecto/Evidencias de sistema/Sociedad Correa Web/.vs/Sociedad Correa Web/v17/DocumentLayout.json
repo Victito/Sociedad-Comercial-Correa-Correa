@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\",
+  "WorkspaceRootPath": "C:\\Users\\Bestia\\Downloads\\Sociedad Correa Web\\Sociedad Correa Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\pictures\\ssss\\sociedad-comercial-correa-correa\\fase 2\\evidencias proyecto\\evidencias de sistema\\sociedad correa web\\sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\bestia\\downloads\\sociedad correa web\\sociedad correa web\\sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\controllers\\entradasalidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\pictures\\ssss\\sociedad-comercial-correa-correa\\fase 2\\evidencias proyecto\\evidencias de sistema\\sociedad correa web\\sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\maxim\\pictures\\ssss\\sociedad-comercial-correa-correa\\fase 2\\evidencias proyecto\\evidencias de sistema\\sociedad correa web\\sociedad correa web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|c:\\users\\bestia\\downloads\\sociedad correa web\\sociedad correa web\\sociedad correa web\\views\\home\\facturas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8433BBF5-C4A8-483F-8151-A1D2DED345CA}|Sociedad Correa Web\\Sociedad Correa Web.csproj|solutionrelative:sociedad correa web\\views\\home\\facturas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +18,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAQwGoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-25T14:50:36.122Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAC0AAAAzAAAAAAAAAA==",
+              "Title": "EntradaSalidaController.cs",
+              "DocumentMoniker": "C:\\Users\\Bestia\\Downloads\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "ToolTip": "C:\\Users\\Bestia\\Downloads\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "RelativeToolTip": "Sociedad Correa Web\\Controllers\\EntradaSalidaController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowGUAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T03:43:21.045Z",
+              "WhenOpened": "2024-12-16T01:43:50.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\maxim\\Pictures\\SSSS\\Sociedad-Comercial-Correa-Correa\\Fase 2\\Evidencias Proyecto\\Evidencias de sistema\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Facturas.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bestia\\Downloads\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Facturas.cshtml",
+              "RelativeDocumentMoniker": "Sociedad Correa Web\\Views\\Home\\Facturas.cshtml",
+              "ToolTip": "C:\\Users\\Bestia\\Downloads\\Sociedad Correa Web\\Sociedad Correa Web\\Sociedad Correa Web\\Views\\Home\\Facturas.cshtml",
+              "RelativeToolTip": "Sociedad Correa Web\\Views\\Home\\Facturas.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-25T03:29:57.666Z"
+              "WhenOpened": "2024-12-15T23:23:55.818Z",
+              "EditorCaption": ""
             }
           ]
         }

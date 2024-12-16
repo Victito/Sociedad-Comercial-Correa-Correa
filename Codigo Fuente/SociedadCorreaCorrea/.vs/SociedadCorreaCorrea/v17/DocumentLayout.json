@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\test\\",
+  "WorkspaceRootPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\test\\properties\\publishprofiles\\clickonceprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea\\properties\\publishprofiles\\clickonceprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:properties\\publishprofiles\\clickonceprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\test\\sociedadcorreacorrea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea\\sociedadcorreacorrea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:sociedadcorreacorrea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ClickOnceProfile.pubxml",
-              "DocumentMoniker": "D:\\test\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
               "RelativeDocumentMoniker": "Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
-              "ToolTip": "D:\\test\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
               "RelativeToolTip": "Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
               "ViewState": "AQIAABgAAAAAAAAAAAAAAC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
@@ -37,9 +37,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SociedadCorreaCorrea.csproj",
-              "DocumentMoniker": "D:\\test\\SociedadCorreaCorrea.csproj",
+              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
               "RelativeDocumentMoniker": "SociedadCorreaCorrea.csproj",
-              "ToolTip": "D:\\test\\SociedadCorreaCorrea.csproj",
+              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea\\SociedadCorreaCorrea.csproj",
               "RelativeToolTip": "SociedadCorreaCorrea.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAF8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",

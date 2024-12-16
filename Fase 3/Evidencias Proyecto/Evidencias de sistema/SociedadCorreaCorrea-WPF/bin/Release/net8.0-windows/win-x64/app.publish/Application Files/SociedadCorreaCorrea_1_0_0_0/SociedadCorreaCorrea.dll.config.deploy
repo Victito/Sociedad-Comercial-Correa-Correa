@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<connectionStrings>
+		<add name="SociedadCorreacorreaDB"
+			 connectionString="Server=sociedadcorreacorrea_bd.mssql.somee.com,1433;Database=sociedadcorreacorrea_bd;User Id=maxi_silva_SQLLogin_1;Password=csct47auhv;TrustServerCertificate=True;"
+			 providerName="System.Data.SqlClient" />
+	</connectionStrings>
+</configuration>

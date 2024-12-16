@@ -130,7 +130,7 @@ namespace SociedadCorreaCorrea.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SociedadCorreaCorrea;component/views/historialfacturas.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SociedadCorreaCorrea;V1.0.0.0;component/views/historialfacturas.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\HistorialFacturas.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

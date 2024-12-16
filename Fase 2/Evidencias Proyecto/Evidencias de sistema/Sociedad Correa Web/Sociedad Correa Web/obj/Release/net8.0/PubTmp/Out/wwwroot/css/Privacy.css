@@ -1,0 +1,144 @@
+﻿html, body {
+    background: linear-gradient(135deg, #1d3557, #457b9d, #a8dadc);
+    height: 100%; /* Para asegurar que ocupen toda la altura del viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #457b9d;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+}
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-body li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+    .card-body li strong {
+        color: #1d3557;
+    }
+
+
+.btn-custom {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Botón Cerrar Sesión */
+.btn-logout {
+    background-color: red;
+    color: white;
+}
+
+    .btn-logout:hover {
+        background-color: darkred;
+    }
+
+/* Botón Ver Facturas */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.card-footer .d-flex > * {
+    margin: 0 10px; /* Añade espacio entre los botones */
+}
+
+footer {
+    background-color: #1d3557;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .card-header {
+        font-size: 1.2rem; /* Ajusta el tamaño del encabezado */
+    }
+
+    .card-body li {
+        font-size: 1rem; /* Reduce el tamaño del contenido */
+    }
+
+    .btn-custom {
+        padding: 8px 15px; /* Reduce espacio en botones */
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 15px; /* Reduce el espacio interno de la tarjeta */
+    }
+
+    .card-header {
+        font-size: 1rem; /* Reduce aún más el encabezado */
+    }
+
+    .btn-custom {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .card-footer {
+        gap: 5px; /* Menor espacio entre botones */
+    }
+}
+@media (max-width: 412px) {
+    .card {
+        padding: 8px;
+        max-width: 60%; /* Ocupa el 100% del ancho disponible */
+    }
+
+    .card-header {
+        font-size: 1rem; /* Ajusta aún más el tamaño del texto */
+        padding: 8px;
+    }
+
+    .btn-custom {
+        padding: 6px 10px; /* Botones más compactos */
+        font-size: 0.75rem;
+    }
+
+    .card-body li {
+        font-size: 0.9rem;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        gap: 5px; /* Reduce el espacio entre botones */
+    }
+}

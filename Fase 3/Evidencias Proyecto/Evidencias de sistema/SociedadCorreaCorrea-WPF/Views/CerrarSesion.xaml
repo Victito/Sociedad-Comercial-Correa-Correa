@@ -1,0 +1,20 @@
+﻿<mah:MetroWindow x:Class="SociedadCorreaCorrea.Views.CerrarSesion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:local="clr-namespace:SociedadCorreaCorrea"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 Height="700" Width="1300"
+                 WindowStartupLocation="CenterScreen"
+                 ShowMinButton="False" 
+                 ShowMaxRestoreButton="False"
+                 ShowCloseButton="False"
+                 ShowTitleBar="False"
+                 ResizeMode="NoResize"
+                 BorderBrush="Transparent">
+    <Grid>
+        <!-- Aquí se asegura que la ventana se centre en la pantalla -->
+        <!-- Contenido que deseas mostrar en esta página (puede ser vacío o lo que necesites) -->
+    </Grid>
+</mah:MetroWindow>
