@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -265,7 +266,7 @@ Margin="0,0,10,0">
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="0,7,0,0">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15">
                         <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Hidden">
                             <Grid Cursor="">
                                 <!-- Definir las columnas y filas -->
@@ -304,7 +305,7 @@ Margin="0,0,10,0">
                                 <!-- Graficos a la izquierda -->
                                 <StackPanel Grid.Row="0" Grid.Column="0">
                                     <lvc:CartesianChart
-                                        Margin="15,0,0,0"
+                                        Margin="0,0,0,0"
                                         x:Name="CartesianChartFacturasPorCategoria" 
                                         Series="{Binding SeriesFacturasPorCategoria}" 
                                         LegendLocation="Bottom"
@@ -327,7 +328,7 @@ Margin="0,0,10,0">
                                     <lvc:CartesianChart x:Name="CartesianChartTotalPorProveedor" Series="{Binding SeriesTotalPorProveedor}" 
                                                             LegendLocation="Bottom" 
                                                             Width="auto" Height="270"
-                                                            Margin="15,10,0,0"
+                                                            Margin="0,10,0,0"
                                                             Background="#FAFAFA">
                                         <lvc:CartesianChart.AxisX>
                                             <lvc:Axis Foreground="#2F4F4F" Title="Proveedores" Labels="{Binding LabelsProveedores}" />

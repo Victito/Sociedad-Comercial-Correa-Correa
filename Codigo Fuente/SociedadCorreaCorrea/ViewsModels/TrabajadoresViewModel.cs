@@ -33,6 +33,7 @@ using System.Windows;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Security.Cryptography;
 using System.Text;
+using System.Diagnostics;
 
 
 namespace SociedadCorreaCorrea.ViewsModels
@@ -52,7 +53,7 @@ namespace SociedadCorreaCorrea.ViewsModels
         public ICommand EnviarCorreoCommand { get; }
         public ICommand GuardarTareaCommand { get; }
         private DriveService servicioDrive;
-        private readonly MetroWindow _window;
+        private MetroWindow _window;
         // Configuración de SMTP
         private readonly string _smtpServer = "smtp.gmail.com";
         private readonly int _port = 587;
@@ -124,15 +125,15 @@ namespace SociedadCorreaCorrea.ViewsModels
             set { _fechaTarea = value; OnPropertyChanged(); }
         }
 
-        private string _horaInicioTarea;
-        public string HoraInicioTarea
+        private DateTime? _horaInicioTarea;
+        public DateTime? HoraInicioTarea
         {
             get => _horaInicioTarea;
             set { _horaInicioTarea = value; OnPropertyChanged(); }
         }
 
-        private string _horaTerminoTarea;
-        public string HoraTerminoTarea
+        private DateTime? _horaTerminoTarea;
+        public DateTime? HoraTerminoTarea
         {
             get => _horaTerminoTarea;
             set { _horaTerminoTarea = value; OnPropertyChanged(); }
@@ -265,8 +266,8 @@ namespace SociedadCorreaCorrea.ViewsModels
 
         private string _nuevoTurnoNombreTurno;
         private string _nuevoTurnoDiaSemanaTurno;
-        private string _nuevoTurnoHoraInicioTurno;
-        private string _nuevoTurnoHoraFinTurno;
+        private DateTime? _nuevoTurnoHoraInicioTurno;
+        private DateTime? _nuevoTurnoHoraFinTurno;
 
         public string NuevoTurnoNombreTurno
         {
@@ -288,39 +289,61 @@ namespace SociedadCorreaCorrea.ViewsModels
             }
         }
 
-        public string NuevoTurnoHoraInicioTurno
+        public DateTime? NuevoTurnoHoraInicioTurno
         {
             get => _nuevoTurnoHoraInicioTurno;
-            set { _nuevoTurnoHoraInicioTurno = value; OnPropertyChanged(); }
+            set
+            {
+                if (_nuevoTurnoHoraInicioTurno != value)
+                {
+                    _nuevoTurnoHoraInicioTurno = value;
+                    OnPropertyChanged(nameof(NuevoTurnoHoraInicioTurno));
+                }
+            }
         }
 
-        public string NuevoTurnoHoraFinTurno
+        public DateTime? NuevoTurnoHoraFinTurno
         {
             get => _nuevoTurnoHoraFinTurno;
-            set { _nuevoTurnoHoraFinTurno = value; OnPropertyChanged(); }
+            set
+            {
+                if (_nuevoTurnoHoraFinTurno != value)
+                {
+                    _nuevoTurnoHoraFinTurno = value;
+                    OnPropertyChanged(nameof(NuevoTurnoHoraFinTurno));
+                }
+            }
         }
 
-        private string _nuevoTurnoHoraInicioAlmuerzo;
-        public string NuevoTurnoHoraInicioAlmuerzo
+        private DateTime? _nuevoTurnoHoraInicioAlmuerzo;
+        public DateTime? NuevoTurnoHoraInicioAlmuerzo
         {
             get => _nuevoTurnoHoraInicioAlmuerzo;
             set
             {
-                _nuevoTurnoHoraInicioAlmuerzo = value;
-                OnPropertyChanged(nameof(NuevoTurnoHoraInicioAlmuerzo));
+                if (_nuevoTurnoHoraInicioAlmuerzo != value)
+                {
+                    _nuevoTurnoHoraInicioAlmuerzo = value;
+                    OnPropertyChanged(nameof(NuevoTurnoHoraInicioAlmuerzo));
+                }
             }
         }
 
-        private string _nuevoTurnoHoraFinAlmuerzo;
-        public string NuevoTurnoHoraFinAlmuerzo
+        private DateTime? _nuevoTurnoHoraFinAlmuerzo;
+        public DateTime? NuevoTurnoHoraFinAlmuerzo
         {
             get => _nuevoTurnoHoraFinAlmuerzo;
             set
             {
-                _nuevoTurnoHoraFinAlmuerzo = value;
-                OnPropertyChanged(nameof(NuevoTurnoHoraFinAlmuerzo));
+                if (_nuevoTurnoHoraFinAlmuerzo != value)
+                {
+                    _nuevoTurnoHoraFinAlmuerzo = value;
+                    OnPropertyChanged(nameof(NuevoTurnoHoraFinAlmuerzo));
+                }
             }
+
         }
+
 
         private string _filePath;
 
@@ -409,55 +432,37 @@ namespace SociedadCorreaCorrea.ViewsModels
             // Lista para almacenar mensajes de error
             List<string> mensajesErrores = new List<string>();
 
-            // Validación de Nombre de la Tarea
+            // Validación del nombre de la tarea
             if (string.IsNullOrWhiteSpace(NombreTarea))
-            {
                 mensajesErrores.Add("El nombre de la tarea es requerido.");
-            }
 
-            // Validación de Descripción de la Tarea
+            // Validación de descripción de la tarea
             if (string.IsNullOrWhiteSpace(DescripcionTarea))
-            {
                 mensajesErrores.Add("La descripción de la tarea es requerida.");
-            }
 
-            // Validación de Sucursal
+            // Validación de la Sucursal
             if (SucursalIdTD == 0)
-            {
                 mensajesErrores.Add("Debes seleccionar una sucursal válida.");
-            }
 
-            // Validación de Empleado
+            // Validación del empleado
             if (EmpleadoIdTD == 0)
-            {
                 mensajesErrores.Add("Debes seleccionar un empleado válido.");
-            }
 
-            // Validación de Fecha (no permitir fecha futura)
-            if (FechaTarea > DateOnly.FromDateTime(DateTime.Today))
-            {
+            // Validación de fecha (no permitir fecha futura)
+            if (FechaTarea != null && FechaTarea > DateOnly.FromDateTime(DateTime.Today))
                 mensajesErrores.Add("La fecha de la tarea no puede ser en el futuro.");
-            }
 
-            // Validación de horas (Hora de inicio debe ser válida)
-            if (string.IsNullOrWhiteSpace(HoraInicioTarea) || !TimeOnly.TryParse(HoraInicioTarea, out _))
-            {
-                mensajesErrores.Add("La hora de inicio no es válida.");
-            }
+            // Validación de horas de inicio y término
+            if (!HoraInicioTarea.HasValue)
+                mensajesErrores.Add("La hora de inicio no puede estar vacía.");
 
-            // Validación de horas (Hora de término debe ser válida)
-            if (string.IsNullOrWhiteSpace(HoraTerminoTarea) || !TimeOnly.TryParse(HoraTerminoTarea, out _))
-            {
-                mensajesErrores.Add("La hora de término no es válida.");
-            }
+            if (!HoraTerminoTarea.HasValue)
+                mensajesErrores.Add("La hora de término no puede estar vacía.");
 
-            // Validación de que la hora de inicio sea antes que la hora de término
-            if (TimeOnly.TryParse(HoraInicioTarea, out var horaInicio) && TimeOnly.TryParse(HoraTerminoTarea, out var horaTermino))
+            if (HoraInicioTarea.HasValue && HoraTerminoTarea.HasValue)
             {
-                if (horaInicio >= horaTermino)
-                {
+                if (HoraInicioTarea.Value >= HoraTerminoTarea.Value)
                     mensajesErrores.Add("La hora de inicio debe ser antes que la hora de término.");
-                }
             }
 
             // Si existen errores, mostrar el mensaje y salir de la función
@@ -465,15 +470,13 @@ namespace SociedadCorreaCorrea.ViewsModels
             {
                 string mensajeCompleto = string.Join("\n", mensajesErrores);
                 await _window.ShowMessageAsync("Errores", mensajeCompleto);
-                return; // Salir de la función si hay errores
+                return;
             }
 
-            // Si no hay errores, proceder con el registro de la tarea
             try
             {
                 using (var contexto = new ContextoSMMS())
                 {
-                    // Crear nueva instancia de TareasDiaria
                     var nuevaTarea = new TareasDiaria
                     {
                         EmpresaId = GlobalSettings.IdEmpresa,
@@ -482,30 +485,29 @@ namespace SociedadCorreaCorrea.ViewsModels
                         NombreTarea = NombreTarea,
                         DescripcionTarea = DescripcionTarea,
                         FechaTarea = FechaTarea,
-                        HoraInicioTarea = TimeOnly.Parse(HoraInicioTarea),  // O usar TryParse()
-                        HoraTerminoTarea = TimeOnly.Parse(HoraTerminoTarea),  // O usar TryParse()
+                        HoraInicioTarea = HoraInicioTarea.HasValue
+                            ? TimeOnly.FromDateTime(HoraInicioTarea.Value)
+                            : TimeOnly.MinValue,
+                        HoraTerminoTarea = HoraTerminoTarea.HasValue
+                            ? TimeOnly.FromDateTime(HoraTerminoTarea.Value)
+                            : TimeOnly.MinValue,
                     };
 
-                    // Añadir la nueva tarea al contexto
                     contexto.TareasDiarias.Add(nuevaTarea);
-
-                    // Intentar guardar los cambios en la base de datos
                     await contexto.SaveChangesAsync();
 
-                    // Mostrar mensaje de éxito
                     await _window.ShowMessageAsync("Éxito", "La tarea se ha registrado correctamente.");
 
-                    // Limpiar los campos después de registrar la tarea
                     LimpiarCampos();
+                    CargarTareasDiarias();
                 }
             }
             catch (Exception ex)
             {
-                // Capturamos cualquier error al guardar y mostramos el mensaje
                 await _window.ShowMessageAsync("Error", $"Hubo un problema al registrar la tarea: {ex.Message}");
             }
-
         }
+
 
         /// <summary>
         /// Método para limpiar los campos después de registrar la tarea.
@@ -514,8 +516,8 @@ namespace SociedadCorreaCorrea.ViewsModels
         {
             NombreTarea = string.Empty;
             DescripcionTarea = string.Empty;
-            HoraInicioTarea = string.Empty;
-            HoraTerminoTarea = string.Empty;
+            HoraInicioTarea = null;
+            HoraTerminoTarea = null;
             FechaTarea = DateOnly.FromDateTime(DateTime.Now);  // Resetear la fecha a la fecha actual
             SucursalIdTD = 0;  // Limpiar la sucursal seleccionada
             EmpleadoIdTD = 0;  // Limpiar el empleado seleccionado
@@ -550,8 +552,6 @@ namespace SociedadCorreaCorrea.ViewsModels
             CargarInformacionEmpleados();
             await AutenticarAsync();
             CargarTareasDiarias();
-
-
 
         }
 
@@ -656,7 +656,46 @@ namespace SociedadCorreaCorrea.ViewsModels
                 return builder.ToString();
             }
         }
-            private async void RegistrarEmpleado()
+
+        public bool ValidarRut(string rut)
+        {
+            // Elimina puntos y guiones del RUT
+            rut = rut.Replace(".", "").Replace("-", "").ToUpper();
+
+            // Verifica si el RUT está vacío
+            if (string.IsNullOrEmpty(rut))
+            {
+                return false;
+            }
+
+            // Separa el número del dígito verificador
+            string rutNumeros = rut.Length > 1 ? rut.Substring(0, rut.Length - 1) : "";
+            char dv = rut.Length > 1 ? rut[rut.Length - 1] : '0';
+
+            // Verifica si el dígito verificador es válido
+            if (!char.IsDigit(dv) && dv != 'K')
+            {
+                return false;
+            }
+
+            // Calcula el dígito verificador esperado
+            int suma = 0;
+            int factor = 2;
+
+            for (int i = rutNumeros.Length - 1; i >= 0; i--)
+            {
+                suma += (rutNumeros[i] - '0') * factor;
+                factor = factor == 7 ? 2 : factor + 1;
+            }
+
+            int dvEsperado = 11 - (suma % 11);
+            char dvEsperadoChar = dvEsperado == 10 ? 'K' : (dvEsperado == 11 ? '0' : (char)(dvEsperado + '0'));
+
+            // Compara el dígito verificador calculado con el dígito verificador ingresado
+            return dv == dvEsperadoChar;
+        }
+
+        private async void RegistrarEmpleado()
         {
             // Lista para almacenar mensajes de error
             List<string> mensajesErrores = new List<string>();
@@ -710,6 +749,10 @@ namespace SociedadCorreaCorrea.ViewsModels
             if (string.IsNullOrWhiteSpace(RutEmpleado))
             {
                 mensajesErrores.Add("El RUT del empleado es requerido.");
+            }
+            else if (!ValidarRut(RutEmpleado))
+            {
+                mensajesErrores.Add("El RUT del empleado no tiene un formato válido.");
             }
 
             // Verificar si hay errores
@@ -948,6 +991,7 @@ namespace SociedadCorreaCorrea.ViewsModels
                     // Guardar cambios en la base de datos
                     await context.SaveChangesAsync();
 
+
                 }
                 // Cerrar la ventana de carga
                 Application.Current.Dispatcher.Invoke(() =>
@@ -961,6 +1005,7 @@ namespace SociedadCorreaCorrea.ViewsModels
                 await _window.ShowMessageAsync("Éxito", "Empleado registrado y carpeta creada en Google Drive.");
 
                 LimpiarCamposDeTexto();
+                CargarInformacionEmpleados();
 
 
             }
@@ -1030,68 +1075,103 @@ namespace SociedadCorreaCorrea.ViewsModels
             }
         }
 
-        private void EditarEmpleado(object id)
+        private async void EditarEmpleado(object id)
         {
             if (id is int idEmpleado)
             {
-                // Buscar el empleado en la base de datos
                 var empleadoSeleccionado = _contexto.Empleados.Find(idEmpleado);
                 if (empleadoSeleccionado != null)
                 {
-                    // Crear el ViewModel para la ventana de edición
-                    var viewModel = new EditarInformacionEmpleadoViewModel(empleadoSeleccionado, _window);
-                    var ventanaEditar = new EditarInformacionEmpleado(empleadoSeleccionado)
+                    try
                     {
-                        DataContext = viewModel
-                    };
+                        var ventanaEditar = new EditarInformacionEmpleado(empleadoSeleccionado);
 
-                    // Abrir la ventana de edición
-                    ventanaEditar.ShowDialog();
+                        // Crear ViewModel para la ventana de edición
+                        var viewModel = new EditarInformacionEmpleadoViewModel(empleadoSeleccionado, ventanaEditar);
 
-                    // Recargar la lista después de editar si es necesario
-                    CargarInformacionEmpleados();
+                        // Mostrar la ventana de edición y cerrar la ventana anterior
+                        ventanaEditar.Show();
+
+                          // Cerrar la ventana actual (Trabajadores)
+                          Application.Current.Windows.OfType<Trabajadores>().FirstOrDefault()?.Close();
+                          CargarInformacionEmpleados();  // Recargar empleados en caso necesario
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Error al editar empleado: {ex.Message}");
+                    }
                 }
                 else
                 {
-                    _window.ShowMessageAsync("Error", "Empleado no encontrado.");
+                    await _window.ShowMessageAsync("Error", "Empleado no encontrado.");
                 }
             }
-
         }
 
         public async void EliminarEmpleado(object? parameter)
         {
-            if (parameter is int idEmpleado) // Asegúrate de que el parámetro sea un entero
+            if (parameter is int idEmpleado)
             {
                 using (var contexto = new ContextoSMMS())
                 {
-                    // Busca el empleado en la base de datos por ID
-                    var empleadoAEliminar = await contexto.Empleados.FindAsync(idEmpleado);
-                    if (empleadoAEliminar != null)
+                    try
                     {
-                        contexto.Empleados.Remove(empleadoAEliminar);
-                        await contexto.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                        // Buscar el empleado en la base de datos
+                        var empleadoAEliminar = await contexto.Empleados.FindAsync(idEmpleado);
 
-                        // Actualiza la ObservableCollection si es necesario
-                        var empleadoInfo = InformacionEmpleado.FirstOrDefault(e => e.Empleado.IdEmpleado == idEmpleado);
-                        if (empleadoInfo != null)
+                        if (empleadoAEliminar != null)
                         {
-                            InformacionEmpleado.Remove(empleadoInfo);
-                        }
+                            // Obtener el IdUsuario asignado al empleado
+                            var idUsuario = empleadoAEliminar.IdUsuario;
 
-                        // Muestra el mensaje de éxito
-                        await _window.ShowMessageAsync("Éxito", "Empleado eliminado exitosamente.");
+                            // Eliminar todas las tareas asociadas al empleado
+                            var tareasAsociadas = contexto.TareasDiarias.Where(t => t.EmpleadoId == idEmpleado).ToList();
+                            if (tareasAsociadas.Any())
+                            {
+                                contexto.TareasDiarias.RemoveRange(tareasAsociadas);
+                                await contexto.SaveChangesAsync();  // Elimina las tareas de la base de datos
+                            }
+
+                            // Eliminar el usuario correspondiente en la tabla Usuario si existe
+                            if (idUsuario.HasValue)
+                            {
+                                var usuarioAEliminar = await contexto.Usuarios.FindAsync(idUsuario.Value);
+                                if (usuarioAEliminar != null)
+                                {
+                                    contexto.Usuarios.Remove(usuarioAEliminar);
+                                    await contexto.SaveChangesAsync();  // Elimina el usuario
+                                }
+                            }
+
+                            // Eliminar el empleado
+                            contexto.Empleados.Remove(empleadoAEliminar);
+                            await contexto.SaveChangesAsync();
+
+                            // Actualizar la ObservableCollection si es necesario
+                            var empleadoInfo = InformacionEmpleado.FirstOrDefault(e => e.Empleado.IdEmpleado == idEmpleado);
+                            if (empleadoInfo != null)
+                            {
+                                InformacionEmpleado.Remove(empleadoInfo);
+                            }
+
+                            // Mostrar mensaje de éxito
+                            await _window.ShowMessageAsync("Éxito", "Empleado y datos asociados eliminados exitosamente.");
+                        }
+                        else
+                        {
+                            await _window.ShowMessageAsync("Error", "Empleado no encontrado.");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        // Muestra el mensaje de error si no se encuentra el empleado
-                        await _window.ShowMessageAsync("Error", "Empleado no encontrado.");
+                        // Manejo de errores inesperados
+                        await _window.ShowMessageAsync("Error", $"Ocurrió un error al eliminar el empleado: {ex.Message}");
                     }
                 }
             }
             else
             {
-                // Muestra un mensaje de error si el parámetro no es del tipo esperado
                 await _window.ShowMessageAsync("Error", "El parámetro no es del tipo esperado.");
             }
         }
@@ -1131,6 +1211,52 @@ namespace SociedadCorreaCorrea.ViewsModels
 
         private async void RegistrarTurno()
         {
+            // Lista para almacenar mensajes de error
+            List<string> mensajesErrores = new List<string>();
+
+            // Validar campos requeridos
+            if (string.IsNullOrWhiteSpace(NuevoTurnoNombreTurno))
+                mensajesErrores.Add("El campo 'Nombre del Turno' no puede estar vacío.");
+
+            if (NuevoTurnoDiaSemanaTurno == null)
+                mensajesErrores.Add("El campo 'Día de la Semana' no puede estar vacío.");
+
+            if (!NuevoTurnoHoraInicioTurno.HasValue)
+                mensajesErrores.Add("La hora de inicio del turno no puede estar vacía.");
+            if (!NuevoTurnoHoraFinTurno.HasValue)
+                mensajesErrores.Add("La hora de fin del turno no puede estar vacía.");
+
+            if (!NuevoTurnoHoraInicioAlmuerzo.HasValue)
+                mensajesErrores.Add("La hora de inicio del almuerzo no puede estar vacía.");
+            if (!NuevoTurnoHoraFinAlmuerzo.HasValue)
+                mensajesErrores.Add("La hora de fin del almuerzo no puede estar vacía.");
+
+            // Validar orden de tiempo (hora de inicio antes de hora de fin)
+            if (NuevoTurnoHoraInicioTurno.HasValue && NuevoTurnoHoraFinTurno.HasValue &&
+                NuevoTurnoHoraInicioTurno >= NuevoTurnoHoraFinTurno)
+                mensajesErrores.Add("La hora de inicio no puede ser igual o después de la hora de fin.");
+
+            if (NuevoTurnoHoraInicioAlmuerzo.HasValue && NuevoTurnoHoraFinAlmuerzo.HasValue &&
+                NuevoTurnoHoraInicioAlmuerzo >= NuevoTurnoHoraFinAlmuerzo)
+                mensajesErrores.Add("La hora de inicio del almuerzo no puede ser igual o después de la hora de fin del almuerzo.");
+
+            // Validar que la hora de inicio del almuerzo esté dentro del rango del turno
+            if (NuevoTurnoHoraInicioTurno.HasValue && NuevoTurnoHoraFinTurno.HasValue &&
+                NuevoTurnoHoraInicioAlmuerzo.HasValue &&
+                (NuevoTurnoHoraInicioAlmuerzo < NuevoTurnoHoraInicioTurno ||
+                 NuevoTurnoHoraFinAlmuerzo > NuevoTurnoHoraFinTurno))
+            {
+                mensajesErrores.Add("La hora del almuerzo debe estar dentro del horario del turno.");
+            }
+
+            // Verificar si hay errores
+            if (mensajesErrores.Count > 0)
+            {
+                string mensajeCompleto = string.Join("\n", mensajesErrores);
+                await _window.ShowMessageAsync("Errores", mensajeCompleto);
+                return;
+            }
+
             try
             {
                 using (var context = new ContextoSMMS())
@@ -1139,38 +1265,31 @@ namespace SociedadCorreaCorrea.ViewsModels
                     {
                         NombreTurno = NuevoTurnoNombreTurno,
                         DiaSemanaTurno = NuevoTurnoDiaSemanaTurno,
-                        HoraInicioTurno = TimeOnly.FromTimeSpan(TimeSpan.Parse(NuevoTurnoHoraInicioTurno)),
-                        HoraFinTurno = TimeOnly.FromTimeSpan(TimeSpan.Parse(NuevoTurnoHoraFinTurno)),
-                        HoraAlmuerzoInicioTurno = TimeOnly.FromTimeSpan(TimeSpan.Parse(NuevoTurnoHoraInicioAlmuerzo)),
-                        HoraAlmuerzoFinTurno = TimeOnly.FromTimeSpan(TimeSpan.Parse(NuevoTurnoHoraFinAlmuerzo))
+                        HoraInicioTurno = NuevoTurnoHoraInicioTurno.HasValue ? TimeOnly.FromDateTime(NuevoTurnoHoraInicioTurno.Value) : TimeOnly.MinValue,
+                        HoraFinTurno = NuevoTurnoHoraFinTurno.HasValue ? TimeOnly.FromDateTime(NuevoTurnoHoraFinTurno.Value) : TimeOnly.MinValue,
+                        HoraAlmuerzoInicioTurno = NuevoTurnoHoraInicioAlmuerzo.HasValue ? TimeOnly.FromDateTime(NuevoTurnoHoraInicioAlmuerzo.Value) : TimeOnly.MinValue,
+                        HoraAlmuerzoFinTurno = NuevoTurnoHoraFinAlmuerzo.HasValue ? TimeOnly.FromDateTime(NuevoTurnoHoraFinAlmuerzo.Value) : TimeOnly.MinValue,
+                        IdEmpresa = GlobalSettings.IdEmpresa,
                     };
 
-                    // Añadir el nuevo turno al contexto
                     await context.Turnos.AddAsync(nuevoTurno);
-
-                    // Guardar cambios en la base de datos
                     await context.SaveChangesAsync();
 
-                    // Notificar que el registro fue exitoso
                     await _window.ShowMessageAsync("Éxito", "Turno registrado exitosamente.");
-
-                    // Limpiar los campos de texto
                     LimpiarCamposDeTextoTurno();
+                    await CargarTurnos();
                 }
             }
             catch (DbUpdateException dbEx)
             {
-                // Manejo específico para errores de actualización en la base de datos
                 await _window.ShowMessageAsync("Error", $"Error al registrar el turno en la base de datos: {dbEx.InnerException?.Message}");
             }
             catch (FormatException formatEx)
             {
-                // Manejo de formato incorrecto para las horas
                 await _window.ShowMessageAsync("Error", $"Formato de hora incorrecto: {formatEx.Message}");
             }
             catch (Exception ex)
             {
-                // Manejo general de excepciones
                 await _window.ShowMessageAsync("Error", $"Ocurrió un error inesperado: {ex.Message}");
             }
         }
@@ -1179,10 +1298,10 @@ namespace SociedadCorreaCorrea.ViewsModels
         {
             NuevoTurnoNombreTurno = string.Empty;
             NuevoTurnoDiaSemanaTurno = string.Empty;
-            NuevoTurnoHoraInicioTurno = string.Empty;
-            NuevoTurnoHoraFinTurno = string.Empty;
-            NuevoTurnoHoraInicioAlmuerzo = string.Empty;
-            NuevoTurnoHoraFinAlmuerzo = string.Empty;
+            NuevoTurnoHoraInicioTurno = null;
+            NuevoTurnoHoraFinTurno = null;
+            NuevoTurnoHoraInicioAlmuerzo = null;
+            NuevoTurnoHoraFinAlmuerzo = null;
         }
 
         // Método para formatear el valor de un combobox

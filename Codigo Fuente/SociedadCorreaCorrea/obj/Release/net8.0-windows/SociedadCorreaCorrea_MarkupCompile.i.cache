@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea-Final\obj\Release\net8.0-windows\
+D:\test\obj\Release\net8.0-windows\
 SociedadCorreaCorrea
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-D:\Capstone-2024\captsone-equipo2-FMPV\Codigo Fuente\SociedadCorreaCorrea-Final\App.xaml
+D:\test\App.xaml
 17-1395250081
-41641928168
+5-1203545482
 57424750125
-317-1545843459
+322-1748062016
 Resources\Styles\estiloboton.xaml;Resources\Styles\UIcolores.xaml;Views\ActualizarFacturas.xaml;Views\ActualizarProductos.xaml;Views\CerrarSesion.xaml;Views\Drive.xaml;Views\EditarInformacionEmpleado.xaml;Views\GraficosFacturas.xaml;Views\HistorialFacturas.xaml;Views\LoginVista.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\PantallaCarga.xaml;Views\ProductoFacturas.xaml;Views\RegistroFacturas.xaml;Views\Servicios.xaml;Views\Trabajadores.xaml;
 
 False

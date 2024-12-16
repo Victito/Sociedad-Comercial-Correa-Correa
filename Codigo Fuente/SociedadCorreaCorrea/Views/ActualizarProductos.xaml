@@ -21,7 +21,7 @@
     ShowMaxRestoreButton="False"
     Background="Transparent"
     AllowsTransparency="True"
-    >
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -267,7 +267,7 @@ Margin="0,0,10,0">
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="20" Width="auto" Height="auto">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15" Width="auto" Height="auto">
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                             <Grid Background="Transparent" Width="auto" Height="auto">
                                 <Grid.ColumnDefinitions>
@@ -287,28 +287,28 @@ Margin="0,0,10,0">
                                 </Grid.RowDefinitions>
 
                                 <!-- Columna Izquierda -->
+                                <StackPanel Grid.Row="3" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                    <TextBlock Text="ID Factura:" Style="{StaticResource TextGeneral}" Foreground="White" Visibility="Hidden"/>
+                                    <TextBox  x:Name="txtIdFactura" Visibility="Hidden"
+                                              IsReadOnly="True" HorizontalAlignment="Left" MaxLength="250" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15"  />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="4" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                    <TextBlock Text="ID Producto:" Style="{StaticResource TextGeneral}" Foreground="White" Visibility="Hidden" />
+                                    <TextBox x:Name="txtIdProducto" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" Visibility="Hidden" />
+                                </StackPanel>
+
                                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
-                                    <TextBlock Text="ID Factura:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <TextBox  x:Name="txtIdFactura"
-                                              IsReadOnly="True" HorizontalAlignment="Left" MaxLength="250" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
-                                </StackPanel>
-
-                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
-                                    <TextBlock Text="ID Producto:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                    <TextBox x:Name="txtIdProducto" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
-                                </StackPanel>
-
-                                <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
                                     <TextBlock Text="Código Producto:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtCodigoProducto" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
 
-                                <StackPanel Grid.Row="3" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
                                     <TextBlock Text="Descripción" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
 
-                                <StackPanel Grid.Row="4" Grid.Column="0" Margin="0" HorizontalAlignment="Center">
+                                <StackPanel Grid.Row="2" Grid.Column="0" Margin="0" HorizontalAlignment="Center">
                                     <TextBlock Text="Numero de Factura" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtNumeroFactura" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
@@ -334,13 +334,13 @@ Margin="0,0,10,0">
                                     <TextBlock Text="Número de Serie:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtNSerie" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
-                                <StackPanel Grid.Row="4" Grid.Column="1" Margin="4" HorizontalAlignment="Center">
+                                <StackPanel Grid.Row="3" Grid.Column="0" Margin="4" HorizontalAlignment="Center">
                                     <TextBlock Text="Descuento :"  Style="{StaticResource TextGeneral}" Foreground="White" />
                                     <TextBox x:Name="txtDescuento" HorizontalAlignment="Left" Width="300" Style="{StaticResource RoundedTextBox}" Margin="0,5,0,15" />
                                 </StackPanel>
 
                                 <!-- Botón al final -->
-                                <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20">
+                                <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20">
                                     <Button Content="Actualizar" Click="GuardarCambios_Click" Style="{StaticResource StyleButtonForm}" Width="270" />
                                 </StackPanel>
                             </Grid>

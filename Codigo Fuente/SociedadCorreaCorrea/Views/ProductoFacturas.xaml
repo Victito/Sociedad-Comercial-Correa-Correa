@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -267,7 +268,7 @@ Margin="0,0,10,0">
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="20">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -301,6 +302,8 @@ Margin="0,0,10,0">
                                 <DataGrid ItemsSource="{Binding ProductosFiltrados}" AutoGenerateColumns="False"
         x:Name="productosDataGrid"
         CanUserAddRows="False"
+                                          Background="#ffffff"
+                                          Style="{StaticResource DataGridStyle1}"
                                           Height="300">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Numero De Factura" Binding="{Binding NumeroFactura}" Width="200"/>

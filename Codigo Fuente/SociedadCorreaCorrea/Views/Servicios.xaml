@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -288,10 +289,11 @@ Margin="0,0,10,0">
                                      Width="160"
                                      VerticalAlignment="Center">
                                     
-                                    <Grid Background="#ffffff" x:Name="GridData" Width="auto" Height="auto" Margin="0,7,0,0">
+                                    <Grid Background="Transparent" x:Name="GridData" Width="auto" Height="auto" Margin="0,7,0,0">
                                         
                                             <DataGrid 
                                               AutoGenerateColumns="False" 
+                                              Background="#ffffff"
                                               ItemsSource="{Binding ListaServicio}"
                                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                                               CellStyle="{DynamicResource DataGridCellStyle1}" 

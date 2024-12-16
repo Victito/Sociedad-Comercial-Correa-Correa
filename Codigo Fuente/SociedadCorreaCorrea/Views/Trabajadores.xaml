@@ -10,6 +10,7 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:wpf="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="Principal"
     Width="1300"
     Height="700"
@@ -20,7 +21,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -288,10 +290,10 @@ Margin="0,0,10,0">
                                      VerticalAlignment="Center" >
 
 
-                                <Grid Background="#ffffff" 
+                                <Grid Background="Transparent" 
                                       Margin="10,10,10,10">
 
-                                    <DataGrid
+                                    <DataGrid Background="white"
                                               AutoGenerateColumns="False" 
                                               ItemsSource="{Binding InformacionEmpleado}"
                                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
@@ -370,7 +372,7 @@ Margin="0,0,10,0">
 
                                             <!-- Columna para la Fecha de Ingreso del empleado -->
                                             <DataGridTextColumn Header="Direccion" 
-                                                                Binding="{Binding Empleado.TelefonoEmpleado}"
+                                                                Binding="{Binding Empleado.DireccionEmpleado}"
                                                                 IsReadOnly="True" 
                                                                 Width="Auto"/>
 
@@ -454,9 +456,11 @@ Margin="0,0,10,0">
                                                 IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
                                     </StackPanel>
                                     <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
-                                        <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding RutEmpleado, UpdateSourceTrigger=PropertyChanged}"
-                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
+                                        <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White"  />
+                                        <TextBox MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding RutEmpleado, UpdateSourceTrigger=PropertyChanged}"
+                                                    IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" 
+                                                  LostFocus="TextBoxRutEmisor_LostFocus" 
+                                        TextChanged="TextBoxRutEmisor_TextChanged"/>
 
                                     </StackPanel>
                                     <StackPanel Grid.Row="3" Grid.Column="0" Margin="10" HorizontalAlignment="Center">
@@ -608,6 +612,7 @@ Margin="0,0,10,0">
                                         <ComboBox  Style="{StaticResource RoundedComboBox}"  SelectedItem="{Binding NuevoTurnoDiaSemanaTurno, UpdateSourceTrigger=PropertyChanged}"
                                                     IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" >
                                             <ComboBoxItem Content="Días de Semana" />
+                                            <ComboBoxItem Content="Semana Completa" />
                                             <ComboBoxItem Content="Lunes" />
                                             <ComboBoxItem Content="Martes" />
                                             <ComboBoxItem Content="Miércoles" />
@@ -619,25 +624,51 @@ Margin="0,0,10,0">
                                     </StackPanel>
                                     <!--Columna 2-->
                                     <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                        <!-- TextBlock para Hora Inicio -->
                                         <TextBlock Text="Hora Inicio:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraInicioTurno, UpdateSourceTrigger=PropertyChanged}" 
-                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
+
+                                        <!-- TimePicker integrado -->
+                                        <wpf:TimePicker x:Name="MyTimePicker" 
+                                         Format="ShortTime" 
+                                         Width="300" 
+                                          Margin="0,5,0,15"
+                                         Value="{Binding NuevoTurnoHoraInicioTurno, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center"> 
+                                    <!-- Columna 1 -->
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
                                         <TextBlock Text="Hora Inicio Almuerzo:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraInicioAlmuerzo, UpdateSourceTrigger=PropertyChanged}"
-                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
-                                    </StackPanel>
-                                    <!--Columna 3-->
-                                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
-                                        <TextBlock Text="Hora Fin:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraFinTurno, UpdateSourceTrigger=PropertyChanged}" 
-                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
-                                        <TextBlock Text="Hora Fin Almuerzo:" Style="{StaticResource TextGeneral}" Foreground="White" />
-                                        <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding NuevoTurnoHoraFinAlmuerzo, UpdateSourceTrigger=PropertyChanged}"
-                                                  IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
+
+                                        <!-- TimePicker para Hora Inicio Almuerzo -->
+                                        <wpf:TimePicker x:Name="MyTimePickerInicioAlmuerzo" 
+                                         Format="ShortTime"
+                                         Width="300"
+                                         Margin="0,5,0,15"
+                                         Value="{Binding NuevoTurnoHoraInicioAlmuerzo, UpdateSourceTrigger=PropertyChanged}" />
+                                                        </StackPanel>
+
+                                                        <!-- Columna 3 -->
+                                                        <StackPanel Grid.Row="0" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
+                                                            <TextBlock Text="Hora Fin:" Style="{StaticResource TextGeneral}" Foreground="White" />
+
+                                                            <!-- TimePicker para Hora Fin Turno -->
+                                                            <wpf:TimePicker x:Name="MyTimePickerFinTurno" 
+                                         Format="ShortTime"
+                                         Width="300"
+                                         Margin="0,5,0,15"
+                                                                            
+                                         Value="{Binding NuevoTurnoHoraFinTurno, UpdateSourceTrigger=PropertyChanged}" />
+                                                        </StackPanel>
+
+                                                        <StackPanel Grid.Row="1" Grid.Column="2" Margin="10" HorizontalAlignment="Right">
+                                                            <TextBlock Text="Hora Fin Almuerzo:" Style="{StaticResource TextGeneral}" Foreground="White" />
+
+                                                            <!-- TimePicker para Hora Fin Almuerzo -->
+                                                            <wpf:TimePicker x:Name="MyTimePickerFinAlmuerzo" 
+                                         Format="ShortTime"
+                                         Width="300"
+                                         Margin="0,5,0,15"
+                                         HorizontalAlignment="Left"
+                                         Value="{Binding NuevoTurnoHoraFinAlmuerzo, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                     <StackPanel Grid.Row="2" Grid.Column="1"   HorizontalAlignment="Center" Margin="0,20,0,0">
                                         <Button 
@@ -675,6 +706,8 @@ Margin="0,0,10,0">
                                     </StackPanel>
                                     <ScrollViewer Grid.Row="3" Grid.ColumnSpan="3" Width="auto" Height="auto" >
                                         <DataGrid ItemsSource="{Binding ListaTurno}" 
+                                                  Background="White"
+                                                  Style="{DynamicResource DataGridStyle1}"
                                                   AutoGenerateColumns="False" 
                                                   Margin="10" 
                                                   Grid.Row="3" 
@@ -685,7 +718,7 @@ Margin="0,0,10,0">
                                                   IsReadOnly="True">
 
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Turnos" Binding="{Binding NombreTurno}" Width="200" />
+                                                <DataGridTextColumn Header="Turnos" Binding="{Binding NombreTurno}" Width="auto" />
                                             </DataGrid.Columns>
                                         </DataGrid>
 
@@ -816,16 +849,26 @@ Margin="0,0,10,0">
                                         <DatePicker  SelectedDate="{Binding FechaTarea , UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15" Style="{StaticResource RoundedDatePicker}" Width="300"/>
                                     </StackPanel>
 
+                                    <!-- Hora Inicio Tarea -->
                                     <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
-                                        <TextBlock Text="Hora Inicio Tarea:"  Style="{StaticResource TextGeneral}"/>
-                                        <TextBox Margin="0,5,0,15" Style="{StaticResource RoundedTextBox}" Text="{Binding HoraInicioTarea, UpdateSourceTrigger=PropertyChanged}" Width="300"
-                    />
-                                    </StackPanel>
+                                        <TextBlock Text="Hora Inicio Tarea:" Style="{StaticResource TextGeneral}" />
+                                        <wpf:TimePicker 
+                                        x:Name="TimePickerHoraInicioTarea" 
+                                        Format="ShortTime" 
+                                        Width="300"
+                                        Margin="0,5,0,15"
+                                        Value="{Binding HoraInicioTarea, UpdateSourceTrigger=PropertyChanged}" />
+                                                                    </StackPanel>
 
-                                    <StackPanel  Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
-                                        <TextBlock Text="Hora Termino Tarea:"  Style="{StaticResource TextGeneral}"/>
-                                        <TextBox Margin="0,5,0,15" Style="{StaticResource RoundedTextBox}" Text="{Binding HoraTerminoTarea, UpdateSourceTrigger=PropertyChanged}" Width="300"
-                        />
+                                                                    <!-- Hora Término Tarea -->
+                                                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                                                                        <TextBlock Text="Hora Término Tarea:" Style="{StaticResource TextGeneral}" />
+                                                                        <wpf:TimePicker 
+                                        x:Name="TimePickerHoraTerminoTarea" 
+                                        Format="ShortTime" 
+                                        Width="300"
+                                        Margin="0,5,0,15"
+                                        Value="{Binding HoraTerminoTarea, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
 
                                     <StackPanel Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Center" >
@@ -840,10 +883,13 @@ Margin="0,0,10,0">
                                             ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                                             CellStyle="{DynamicResource DataGridCellStyle1}" 
                                             x:Name="membersDataGrid2"
+                                            Grid.Row="4" 
+Grid.ColumnSpan="4"
+                                            Height="245"
                                             Style="{DynamicResource DataGridStyle1}"
                                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                             ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                            Height="600"
+                                            
                                             Background="White">
                                             <DataGrid.Columns>
                                                 <!-- Columna para la selección con CheckBox -->

@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -267,7 +268,7 @@ Margin="0,0,10,0">
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Grid.Row="2" Margin="20">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15">
 
                         <StackPanel>
                             <!-- Controles para el filtrado -->
@@ -310,10 +311,12 @@ Margin="0,0,10,0">
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
-                            <Grid Width="auto" Height="400">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="auto" Width="auto">
+                            <Grid Width="auto" Height="400" >
+                                
                                 <DataGrid x:Name="facturasDataGrid" 
                                           AutoGenerateColumns="False" 
+                                          Background="#fff"
+                                          Style="{StaticResource DataGridStyle1}"
                                           ItemsSource="{Binding InformacionFacturaFiltrada}" 
                                           CanUserAddRows="False" 
                                           CanUserDeleteRows="False" 
@@ -326,6 +329,7 @@ Margin="0,0,10,0">
                                           SelectionMode="Extended"   
                                           SelectionUnit="FullRow"
                                           Grid.Row="1"
+                                          
 >
                                     <DataGrid.Columns>
                                         <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
@@ -335,31 +339,31 @@ Margin="0,0,10,0">
                                                 </DataTemplate>
                                             </DataGridCheckBoxColumn.HeaderTemplate>
                                         </DataGridCheckBoxColumn>
-                                            <DataGridTextColumn Header="Id Sucursal" IsReadOnly="True"  ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.IdSucursal}" />
-                                            <DataGridTextColumn Header="Numero de Factura" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.NumeroFactura}" />
-                                            <DataGridTextColumn Header="RUT Vendedor" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutVendedor}" />
-                                            <DataGridTextColumn Header="Giro Vendedor" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GiroVendedor}" />
-                                            <DataGridTextColumn Header="Proveedor" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocialVendedor}" />
-                                            <DataGridTextColumn Header="Razón Social" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocial}" />
-                                            <DataGridTextColumn Header="RUT Cliente" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutEmisor}" />
-                                            <DataGridTextColumn Header="Giro del Cliente" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Giro}" />
-                                            <DataGridTextColumn Header="Dirección" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Direccion}" />
-                                            <DataGridTextColumn Header="Comuna" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Comuna}" />
-                                            <DataGridTextColumn Header="Ciudad" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Ciudad}" />
-                                            <DataGridTextColumn Header="Entregar En" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.EntregarEn}" />
-                                            <DataGridTextColumn Header="Fecha Emisión" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaEmision}" />
-                                            <DataGridTextColumn Header="Fecha Vencimiento" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaVencimiento}" />
-                                            <DataGridTextColumn Header="Cobrador" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cobrador}" />
-                                            <DataGridTextColumn Header="Nota de Venta" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.NotaVenta}" />
-                                            <DataGridTextColumn Header="Orden de Compra" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.OrdenCompra}" />
-                                            <DataGridTextColumn Header="Condiciones" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Condiciones}" />
-                                            <DataGridTextColumn Header="Guía de Despacho" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GuiaDespacho}" />
-                                            <DataGridTextColumn Header="Cantidad" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cantidad}" />
-                                            <DataGridTextColumn Header="Total" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Total}" />
-                                            <DataGridTextColumn Header="Estado" IsReadOnly="True" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Estado}" />
+                                            <DataGridTextColumn Header="Sucursal" IsReadOnly="True" Width="auto"  ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Sucursal.NombreSucursal}" />
+                                        <DataGridTextColumn Header="Numero de Factura" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.NumeroFactura}" />
+                                        <DataGridTextColumn Header="RUT Vendedor" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutVendedor}" />
+                                        <DataGridTextColumn Header="Giro Vendedor" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GiroVendedor}" />
+                                        <DataGridTextColumn Header="Proveedor" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocialVendedor}" />
+                                        <DataGridTextColumn Header="Razón Social" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RazonSocial}" />
+                                        <DataGridTextColumn Header="RUT Cliente" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.RutEmisor}" />
+                                        <DataGridTextColumn Header="Giro del Cliente" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Giro}" />
+                                        <DataGridTextColumn Header="Dirección" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Direccion}" />
+                                        <DataGridTextColumn Header="Comuna" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Comuna}" />
+                                        <DataGridTextColumn Header="Ciudad" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Ciudad}" />
+                                        <DataGridTextColumn Header="Entregar En" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.EntregarEn}" />
+                                        <DataGridTextColumn Header="Fecha Emisión" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaEmision}" />
+                                        <DataGridTextColumn Header="Fecha Vencimiento" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.FechaVencimiento}" />
+                                        <DataGridTextColumn Header="Cobrador" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cobrador}" />
+                                        <DataGridTextColumn Header="Nota de Venta" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.NotaVenta}" />
+                                        <DataGridTextColumn Header="Orden de Compra" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.OrdenCompra}" />
+                                        <DataGridTextColumn Header="Condiciones" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Condiciones}" />
+                                        <DataGridTextColumn Header="Guía de Despacho" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.GuiaDespacho}" />
+                                        <DataGridTextColumn Header="Cantidad" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Cantidad}" />
+                                        <DataGridTextColumn Header="Total" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Total}" />
+                                        <DataGridTextColumn Header="Estado" IsReadOnly="True"  Width="auto" ElementStyle="{StaticResource CenteredTextStyle}" Binding="{Binding Factura.Estado}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                </ScrollViewer>
+                                
                             </Grid>
 
 

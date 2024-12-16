@@ -20,7 +20,12 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
+    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </Window.Resources>
     
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -68,63 +73,84 @@
                                    Margin="10,0,0,0" ></TextBlock>
                         
                     </StackPanel>
-                    <!--Botones menu-->
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#ffffff"
-                             PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-         Tag="#ffffff"
-         PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#ffffff"
-                             PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
+                    <StackPanel>
+                        <!-- Botón Inicio -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerInicio, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="#ffffff"
-                             PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="#ffffff"
-                                 PreviewMouseDown="AdministradorDeTrabajadores_ClickMouse">
-                                
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}"></TextBlock>
+                        <!-- Botón Ingresar Facturas -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerIngresarFacturas, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="IngresarFacturas_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="FileDocumentOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Ingresar Facturas" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
 
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Servicios_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}" Tag="#ffffff" PreviewMouseDown="Drive_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Drive" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
+                        <!-- Botón Historial de Facturas -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerHistorialFacturas, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="HistorialFacturas_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="History" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Historial de Facturas" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <!-- Botón Dashboards de Facturas -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerDashboards, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="DatosEstadisticosFacturas_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="ChartPieOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Dashboards de Facturas" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <!-- Botón Administrar Trabajadores -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerAdministrarTrabajadores, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="AdministradorDeTrabajadores_ClickMouse">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="AccountOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Administrar Trabajadores" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <!-- Botón Servicios -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerServicios, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="Servicios_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="BellOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Servicios" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <!-- Botón Drive -->
+                        <RadioButton Style="{StaticResource menuButton}"
+                 Tag="#ffffff"
+                 Visibility="{Binding PuedeVerDrive, Converter={StaticResource BoolToVisibility}}"
+                 PreviewMouseDown="Drive_PreviewMouseDown">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="GoogleDrive" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="Drive" Style="{StaticResource menuButtonText}" />
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
 
                 </StackPanel>
                 
@@ -282,7 +308,7 @@ Margin="0,0,10,0">
                             </Ellipse>
                         </StackPanel>
                     </Grid>
-                    <ContentControl Grid.Row="2">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -341,7 +367,7 @@ Margin="0,0,10,0">
                                        
                                     </DockPanel>
 
-                                    <ListBox Background="#E8F1FA" BorderThickness="0" Padding="10" ItemsSource="{Binding ListaFacturas}">
+                                    <ListBox Background="#E8F1FA" BorderThickness="0" Padding="10" ItemsSource="{Binding ListaFacturas}" Visibility="{Binding PuedeVerRecordatorio, Converter={StaticResource BoolToVisibility}}">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
                                                 <ListBoxItem>

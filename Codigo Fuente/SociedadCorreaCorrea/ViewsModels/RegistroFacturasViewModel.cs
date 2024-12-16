@@ -10,11 +10,24 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.EntityFrameworkCore; // Asegúrate de incluir esto
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SociedadCorreaCorrea.ViewModels
 {
+
     public class RegistroFacturaViewModel : BaseViewModel
     {
+
+        // Propiedades de visibilidad para cada botón
+        public bool PuedeVerInicio { get; set; }
+        public bool PuedeVerIngresarFacturas { get; set; }
+        public bool PuedeVerHistorialFacturas { get; set; }
+        public bool PuedeVerDashboards { get; set; }
+        public bool PuedeVerAdministrarTrabajadores { get; set; }
+        public bool PuedeVerServicios { get; set; }
+        public bool PuedeVerDrive { get; set; }
+
         private Sucursal _sucursalSeleccionada;
         public ObservableCollection<Sucursal> Sucursales { get; set; }
         public ObservableCollection<Producto> Productos { get; set; }
@@ -41,6 +54,7 @@ namespace SociedadCorreaCorrea.ViewModels
             CargarSucursales();
             SaveCommand = new RelayCommand(GuardarFactura);
             SelectedTab = 0; // Inicialmente, selecciona el primer tab
+            ConfigurarVisibilidadPorRol();
         }
 
         public void AgregarProducto(string codigo, string descripcion, string nSerie, int cantidad, decimal precioUnitario, int Descuento, decimal total)
@@ -295,6 +309,61 @@ namespace SociedadCorreaCorrea.ViewModels
 
         public string Rut { get => _rut; set { _rut = value; OnPropertyChanged(); } }
 
+        private void ConfigurarVisibilidadPorRol()
+        {
+            // Ajusta las propiedades de visibilidad según el rol del usuario
+            switch (UserSession.Rol)
+            {
+                case "Administrativo":
+                    PuedeVerInicio = true;
+                    PuedeVerIngresarFacturas = true;
+                    PuedeVerHistorialFacturas = true;
+                    PuedeVerDashboards = true;
+                    PuedeVerAdministrarTrabajadores = true;
+                    PuedeVerServicios = true;
+                    PuedeVerDrive = true;
+                    break;
+
+                case "Auxiliar de farmacia":
+                case "Bodega y Perfumeria":
+                case "Técnico en Farmacia":
+                case "Químico Farmacéutico":
+                case "Logística":
+                    PuedeVerInicio = true;
+                    PuedeVerIngresarFacturas = true; // Solo pueden ver este botón
+                    PuedeVerHistorialFacturas = false;
+                    PuedeVerDashboards = false;
+                    PuedeVerAdministrarTrabajadores = false;
+                    PuedeVerServicios = false;
+                    PuedeVerDrive = false;
+                    break;
+
+                default:
+                    PuedeVerInicio = false;
+                    PuedeVerIngresarFacturas = false;
+                    PuedeVerHistorialFacturas = false;
+                    PuedeVerDashboards = false;
+                    PuedeVerAdministrarTrabajadores = false;
+                    PuedeVerServicios = false;
+                    PuedeVerDrive = false;
+                    break;
+            }
+
+            // Notifica cambios en las propiedades
+            NotifyAllPropertiesChanged();
+        }
+
+        private void NotifyAllPropertiesChanged()
+        {
+            OnPropertyChanged(nameof(PuedeVerInicio));
+            OnPropertyChanged(nameof(PuedeVerIngresarFacturas));
+            OnPropertyChanged(nameof(PuedeVerHistorialFacturas));
+            OnPropertyChanged(nameof(PuedeVerDashboards));
+            OnPropertyChanged(nameof(PuedeVerAdministrarTrabajadores));
+            OnPropertyChanged(nameof(PuedeVerServicios));
+            OnPropertyChanged(nameof(PuedeVerDrive));
+        }
+
         // Método para formatear el valor de un combobox
         private string FormatComboBoxValue(string value)
         {
@@ -359,6 +428,16 @@ namespace SociedadCorreaCorrea.ViewModels
             {
                 try
                 {
+                    // Verificar si ya existe una factura con el mismo NumeroFactura
+                    var facturaExistente = await context.Facturas
+                        .FirstOrDefaultAsync(f => f.NumeroFactura == NumeroFactura && f.IdEmpresa == GlobalSettings.IdEmpresa);
+
+                    if (facturaExistente != null)
+                    {
+                        await _window.ShowMessageAsync("Error", $"El número de factura {NumeroFactura} ya está registrado.");
+                        return;
+                    }
+
                     // Verificar que haya al menos un producto en la lista
                     if (Productos == null || Productos.Count == 0)
                     {

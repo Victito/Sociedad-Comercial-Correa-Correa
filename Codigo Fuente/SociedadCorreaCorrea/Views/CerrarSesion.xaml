@@ -11,7 +11,8 @@
                  ShowMaxRestoreButton="False"
                  ShowCloseButton="False"
                  ShowTitleBar="False"
-                 ResizeMode="NoResize">
+                 ResizeMode="NoResize"
+                 BorderBrush="Transparent">
     <Grid>
         <!-- Aquí se asegura que la ventana se centre en la pantalla -->
         <!-- Contenido que deseas mostrar en esta página (puede ser vacío o lo que necesites) -->

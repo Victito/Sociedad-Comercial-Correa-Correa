@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\SociedadCorreaCorrea.csproj": {}
+    "D:\\test\\SociedadCorreaCorrea.csproj": {}
   },
   "projects": {
-    "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\SociedadCorreaCorrea.csproj": {
+    "D:\\test\\SociedadCorreaCorrea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\SociedadCorreaCorrea.csproj",
+        "projectUniqueName": "D:\\test\\SociedadCorreaCorrea.csproj",
         "projectName": "SociedadCorreaCorrea",
-        "projectPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\SociedadCorreaCorrea.csproj",
+        "projectPath": "D:\\test\\SociedadCorreaCorrea.csproj",
         "packagesPath": "C:\\Users\\vmart\\.nuget\\packages\\",
-        "outputPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\obj\\",
+        "outputPath": "D:\\test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -56,6 +56,10 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.5.1, )"
+            },
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.6.1, )"
             },
             "Google.Apis": {
               "target": "Package",
@@ -117,7 +121,7 @@
             },
             "Microsoft.Web.WebView2": {
               "target": "Package",
-              "version": "[1.0.2849.39, )"
+              "version": "[1.0.2903.40, )"
             },
             "MoreDateTime": {
               "target": "Package",

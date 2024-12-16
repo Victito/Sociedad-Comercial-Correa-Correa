@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\",
+  "WorkspaceRootPath": "D:\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea-final\\models\\tareasdiaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:models\\tareasdiaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\test\\properties\\publishprofiles\\clickonceprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:properties\\publishprofiles\\clickonceprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea-final\\viewsmodels\\trabajadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\trabajadoresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea-final\\views\\graficosfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\graficosfacturas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea-final\\viewsmodels\\graficosfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:viewsmodels\\graficosfacturasviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\capstone-2024\\captsone-equipo2-fmpv\\codigo fuente\\sociedadcorreacorrea-final\\views\\graficosfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:views\\graficosfacturas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|d:\\test\\sociedadcorreacorrea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{50AAF1D3-F57E-4E18-92D9-9E0E711D66FD}|SociedadCorreaCorrea.csproj|solutionrelative:sociedadcorreacorrea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,64 +23,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TareasDiaria.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Models\\TareasDiaria.cs",
-              "RelativeDocumentMoniker": "Models\\TareasDiaria.cs",
-              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Models\\TareasDiaria.cs",
-              "RelativeToolTip": "Models\\TareasDiaria.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T03:49:33.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GraficosFacturas.xaml",
-              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Views\\GraficosFacturas.xaml",
-              "RelativeDocumentMoniker": "Views\\GraficosFacturas.xaml",
-              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Views\\GraficosFacturas.xaml",
-              "RelativeToolTip": "Views\\GraficosFacturas.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-25T02:16:57.477Z",
+              "Title": "ClickOnceProfile.pubxml",
+              "DocumentMoniker": "D:\\test\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "RelativeDocumentMoniker": "Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "ToolTip": "D:\\test\\Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "RelativeToolTip": "Properties\\PublishProfiles\\ClickOnceProfile.pubxml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-12-15T23:53:16.261Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TrabajadoresViewModel.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\ViewsModels\\TrabajadoresViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\TrabajadoresViewModel.cs",
-              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\ViewsModels\\TrabajadoresViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\TrabajadoresViewModel.cs",
-              "ViewState": "AQIAANACAAAAAAAAAAAAAO8CAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T02:42:37.008Z",
+              "Title": "SociedadCorreaCorrea.csproj",
+              "DocumentMoniker": "D:\\test\\SociedadCorreaCorrea.csproj",
+              "RelativeDocumentMoniker": "SociedadCorreaCorrea.csproj",
+              "ToolTip": "D:\\test\\SociedadCorreaCorrea.csproj",
+              "RelativeToolTip": "SociedadCorreaCorrea.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-15T23:52:45.234Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GraficosFacturasViewModel.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\ViewsModels\\GraficosFacturasViewModel.cs",
-              "RelativeDocumentMoniker": "ViewsModels\\GraficosFacturasViewModel.cs",
-              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\ViewsModels\\GraficosFacturasViewModel.cs",
-              "RelativeToolTip": "ViewsModels\\GraficosFacturasViewModel.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAABIAAABrAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T02:27:04.452Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GraficosFacturas.xaml.cs",
-              "DocumentMoniker": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Views\\GraficosFacturas.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\GraficosFacturas.xaml.cs",
-              "ToolTip": "D:\\Capstone-2024\\captsone-equipo2-FMPV\\Codigo Fuente\\SociedadCorreaCorrea-Final\\Views\\GraficosFacturas.xaml.cs",
-              "RelativeToolTip": "Views\\GraficosFacturas.xaml.cs",
-              "ViewState": "AQIAANsAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T02:17:01.703Z"
             }
           ]
         }

@@ -7,6 +7,7 @@ using System.Diagnostics;  // Para el debug
 using MahApps.Metro.Controls;
 using System.Collections.Generic;
 using System.ComponentModel;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace SociedadCorreaCorrea.ViewModels
 {
@@ -16,6 +17,7 @@ namespace SociedadCorreaCorrea.ViewModels
         private readonly MetroWindow _window;
 
         public ObservableCollection<Factura> Facturas { get; set; }
+        public ObservableCollection<Sucursal> Sucursals { get; set; }
         public ObservableCollection<InformacionFacturas> InformacionFactura { get; set; }
         private string _filtroRazonSocial;
         private string _filtroEstado;
@@ -64,12 +66,20 @@ namespace SociedadCorreaCorrea.ViewModels
             return facturas;
         }
 
+
         private IQueryable<InformacionFacturas> GetInformacionFacturas()
         {
+            // Asegúrate de acceder correctamente a la colección de sucursales desde el contexto
+            var sucursals = _context.Sucursals;
+
             var informacionFacturas = from factura in GetFacturas()
+                                      join sucursal in sucursals
+                                      on factura.IdSucursal equals sucursal.IdSucursal // Cambia las propiedades según tu modelo
+                                      where factura.IdEmpresa == GlobalSettings.IdEmpresa // Filtra las facturas con monto mayor a 0
                                       select new InformacionFacturas
                                       {
-                                          Factura = factura
+                                          Factura = factura,
+                                          Sucursal = sucursal
                                       };
             Debug.WriteLine($"InformacionFacturas generadas: {informacionFacturas.Count()}");  // Muestra cuántas InformacionFacturas se generaron
             return informacionFacturas;
@@ -106,7 +116,7 @@ namespace SociedadCorreaCorrea.ViewModels
             return value.Trim();
         }
 
-        public void EliminarFacturasSeleccionadas(ObservableCollection<InformacionFacturas> facturasSeleccionadas)
+        public async Task EliminarFacturasSeleccionadas(ObservableCollection<InformacionFacturas> facturasSeleccionadas)
         {
             if (facturasSeleccionadas == null || facturasSeleccionadas.Count == 0)
                 return;
@@ -115,6 +125,7 @@ namespace SociedadCorreaCorrea.ViewModels
             {
                 var facturaId = facturaInfo.Factura.IdFactura; // Obtener la ID de la factura seleccionada
 
+                // Eliminar productos relacionados
                 var productosAEliminar = _context.Productos.Where(p => p.IdFactura == facturaId).ToList();
                 if (productosAEliminar.Count > 0)
                 {
@@ -122,6 +133,7 @@ namespace SociedadCorreaCorrea.ViewModels
                     Debug.WriteLine($"Productos eliminados relacionados con Factura ID: {facturaId}");
                 }
 
+                // Eliminar acuses relacionados
                 var acusesAEliminar = _context.Acuses.Where(a => a.IdFactura == facturaId).ToList();
                 if (acusesAEliminar.Count > 0)
                 {
@@ -129,12 +141,19 @@ namespace SociedadCorreaCorrea.ViewModels
                     Debug.WriteLine($"Acuses eliminados relacionados con Factura ID: {facturaId}");
                 }
 
+                // Eliminar la factura
                 _context.Facturas.Remove(facturaInfo.Factura);
                 Debug.WriteLine($"Factura eliminada: {facturaId}");
             }
 
+            // Guardar los cambios en la base de datos
             _context.SaveChanges();
+
+            // Actualizar la información de facturas
             ActualizarInformacionFacturas();
+
+            // Mostrar mensaje de éxito
+            await _window.ShowMessageAsync("Éxito", "Las facturas seleccionadas han sido eliminadas correctamente.");
         }
 
         private void ActualizarInformacionFacturas()
@@ -160,5 +179,6 @@ namespace SociedadCorreaCorrea.ViewModels
     public class InformacionFacturas
     {
         public Factura Factura { get; set; }
+        public Sucursal Sucursal { get; set; }
     }
 }

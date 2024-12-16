@@ -20,6 +20,7 @@ using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 using MahApps.Metro.Controls.Dialogs;
 using prueba.Vista;
+using Microsoft.Web.WebView2.Wpf; // Asegúrate de importar este espacio de nombres
 
 namespace SociedadCorreaCorrea.Views
 {
@@ -33,8 +34,46 @@ namespace SociedadCorreaCorrea.Views
             InitializeComponent();
             DataContext = new DriveViewModel(this);
             NombreUsuario.Text = UserSession.NombreUsuario;
+            // Asegúrate de que WebView2 esté correctamente inicializado
+            WebViewGoogleDrive.EnsureCoreWebView2Async(null);
+            // Registrar el evento de inicialización de WebView2
+            InicializarWebView2();
 
         }
+
+        // Método para inicializar WebView2
+        private async void InicializarWebView2()
+        {
+            try
+            {
+                // Intentar asegurar la inicialización de WebView2
+                await WebViewGoogleDrive.EnsureCoreWebView2Async();
+
+
+            }
+            catch (Exception ex)
+            {
+                // Si hay un error, mostramos detalles más completos
+                string errorDetalles = ObtenerDetallesError(ex);
+                MostrarMensaje("Error", $"No se pudo inicializar WebView2: {errorDetalles}");
+            }
+        }
+
+        // Método para mostrar los mensajes
+        private void MostrarMensaje(string titulo, string mensaje)
+        {
+            // Mostrar el mensaje en la interfaz de usuario
+            MessageBox.Show(mensaje, titulo, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        // Método para obtener detalles completos del error
+        private string ObtenerDetallesError(Exception ex)
+        {
+            // Devuelve el mensaje completo de la excepción y la pila de llamadas
+            return $"Mensaje: {ex.Message}\nPila de llamadas:\n{ex.StackTrace}";
+        }
+
+
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 

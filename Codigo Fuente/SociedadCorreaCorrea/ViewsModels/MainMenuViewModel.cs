@@ -19,12 +19,24 @@ using System.Collections.ObjectModel;
 using PdfSharpCore.Pdf.Filters;
 using System.Windows.Media;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SociedadCorreaCorrea.ViewsModels
 {
-
     internal class MainMenuViewModel : BaseViewModel
     {
+        // Propiedades de visibilidad para cada botón
+
+        public bool PuedeVerInicio { get; set; }
+        public bool PuedeVerRecordatorio { get; set; }
+        public bool PuedeVerIngresarFacturas { get; set; }
+        public bool PuedeVerHistorialFacturas { get; set; }
+        public bool PuedeVerDashboards { get; set; }
+        public bool PuedeVerAdministrarTrabajadores { get; set; }
+        public bool PuedeVerServicios { get; set; }
+        public bool PuedeVerDrive { get; set; }
+
         private readonly ContextoSMMS _contexto;
         private readonly MetroWindow _window;
         public ObservableCollection<TareasDiaria> ListaTareaDiaria { get; set; } = new ObservableCollection<TareasDiaria>();
@@ -36,11 +48,76 @@ namespace SociedadCorreaCorrea.ViewsModels
             _contexto = new ContextoSMMS(new DbContextOptions<ContextoSMMS>());
             CargarFacturas();
             CargarTareasDiarias();
+            ConfigurarVisibilidadPorRol();
 
         }
 
+        private void ConfigurarVisibilidadPorRol()
+        {
+            // Ajusta las propiedades de visibilidad según el rol del usuario
+            switch (UserSession.Rol)
+            {
+                case "Administrativo":
+                    PuedeVerInicio = true;
+                    PuedeVerRecordatorio = true;
+                    PuedeVerIngresarFacturas = true;
+                    PuedeVerHistorialFacturas = true;
+                    PuedeVerDashboards = true;
+                    PuedeVerAdministrarTrabajadores = true;
+                    PuedeVerServicios = true;
+                    PuedeVerDrive = true;
+                    break;
 
-private async void CargarFacturas()
+                case "Auxiliar de farmacia":
+                case "Bodega y Perfumeria":
+                case "Técnico en Farmacia":
+                case "Químico Farmacéutico":
+                case "Logística":
+                    PuedeVerInicio = true;
+                    PuedeVerIngresarFacturas = true; // Solo pueden ver este botón
+                    PuedeVerHistorialFacturas = false;
+                    PuedeVerDashboards = false;
+                    PuedeVerAdministrarTrabajadores = false;
+                    PuedeVerServicios = false;
+                    PuedeVerDrive = false;
+                    break;
+
+                default:
+                    PuedeVerInicio = false;
+                    PuedeVerRecordatorio = false;
+                    PuedeVerIngresarFacturas = false;
+                    PuedeVerHistorialFacturas = false;
+                    PuedeVerDashboards = false;
+                    PuedeVerAdministrarTrabajadores = false;
+                    PuedeVerServicios = false;
+                    PuedeVerDrive = false;
+                    break;
+            }
+
+            // Notifica cambios en las propiedades
+            NotifyAllPropertiesChanged();
+        }
+
+        private void NotifyAllPropertiesChanged()
+        {
+            OnPropertyChanged(nameof(PuedeVerInicio));
+            OnPropertyChanged(nameof(PuedeVerRecordatorio));
+            OnPropertyChanged(nameof(PuedeVerIngresarFacturas));
+            OnPropertyChanged(nameof(PuedeVerHistorialFacturas));
+            OnPropertyChanged(nameof(PuedeVerDashboards));
+            OnPropertyChanged(nameof(PuedeVerAdministrarTrabajadores));
+            OnPropertyChanged(nameof(PuedeVerServicios));
+            OnPropertyChanged(nameof(PuedeVerDrive));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async void CargarFacturas()
 {
     using (var contexto = new ContextoSMMS())
     {

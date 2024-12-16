@@ -20,7 +20,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
     <Border CornerRadius="10"
             BorderThickness="1">
@@ -272,7 +273,7 @@ Margin="0,0,10,0">
                     </Grid>
                     <ContentControl Grid.Row="2" 
                                     x:Name="ContenidoTrabajadores" 
-                                    Margin="5,2,5,5">
+                                     Margin="15,5,15,15">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -303,7 +304,9 @@ Margin="0,0,10,0">
                             <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
                                 <TextBlock Text="RUT:" Style="{StaticResource TextGeneral}" Foreground="White" />
                                 <TextBox  MaxLength="250" Style="{StaticResource RoundedTextBox}" Text="{Binding Empleado.RutEmpleado}"
-                IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
+                IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" 
+                                        LostFocus="TextBoxRutEmisor_LostFocus" 
+                                        TextChanged="TextBoxRutEmisor_TextChanged" />
                                 
 
                             </StackPanel>
@@ -316,11 +319,10 @@ IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" /
                             <StackPanel Grid.Row="4" Grid.Column="0" Margin="10">
                                 <TextBlock Text="Sucursal de trabajo: " Style="{StaticResource TextGeneral}" Foreground="White" />
                                 <ComboBox Background="#E0F7FA"   
-               SelectedValue="{Binding Empleado.IdSucursal}" 
-                                          Style="{StaticResource RoundedComboBox}"
-    DisplayMemberPath="NombreSucursal" 
-    SelectedValuePath="IdSucursal"
-    ItemsSource="{Binding ListaSucursal}"
+                           SelectedValue="{Binding Empleado.IdSucursal}"                                  
+                           DisplayMemberPath="NombreSucursal" 
+                           SelectedValuePath="IdSucursal"
+                           ItemsSource="{Binding ListaSucursal}"
                 IsReadOnly="False" HorizontalAlignment="Left" Width="300"    Margin="0,5,0,15" />
                             </StackPanel>
                             <!--Columna 2-->

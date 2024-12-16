@@ -21,7 +21,8 @@
     ShowMinButton="False"
     ShowMaxRestoreButton="False"
     Background="Transparent"
-    AllowsTransparency="True">
+    AllowsTransparency="True"
+    BorderBrush="Transparent">
 
 <Border CornerRadius="10"
         BorderThickness="1">
@@ -273,7 +274,7 @@
                             </Ellipse>
                         </StackPanel>
                     </Grid>
-                    <ContentControl Grid.Row="2" Margin="10">
+                    <ContentControl Grid.Row="2"  Margin="15,5,15,15">
                         <Grid Background="Transparent" Width="Auto" Height="Auto">
                             <!-- Control WebBrowser para mostrar Google Drive -->
                             <webview2:WebView2 Name="WebViewGoogleDrive" Source="https://drive.google.com" />

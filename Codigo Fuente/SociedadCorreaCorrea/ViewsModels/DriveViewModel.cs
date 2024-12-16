@@ -109,7 +109,6 @@ namespace SociedadCorreaCorrea.ViewModels
             });
         }
 
-        // Event handler para la finalización de la inicialización de WebView2
         private void CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
             if (e.IsSuccess)

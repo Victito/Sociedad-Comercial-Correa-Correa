@@ -16,14 +16,24 @@ using MahApps.Metro.Controls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Globalization;
 using System.ComponentModel;
+using MahApps.Metro.Controls.Dialogs;
+using System.Diagnostics;
 
 namespace SociedadCorreaCorrea.ViewsModels
 {
     internal class EditarInformacionEmpleadoViewModel : BaseViewModel , INotifyPropertyChanged
     {
         private readonly ContextoSMMS _contexto;
+        private MetroWindow _window;
 
-        public Empleado Empleado { get; set; }
+        private Empleado _empleado;
+        private TrabajadoresViewModel _trabajadoresViewModel;
+
+        public Empleado Empleado
+        {
+            get { return _empleado; }
+            set { _empleado = value; OnPropertyChanged(nameof(Empleado)); }
+        }
 
         // Nueva propiedad para almacenar la nueva fecha de nacimiento
         public DateTime? _fechaNacimientoNueva;
@@ -64,92 +74,139 @@ namespace SociedadCorreaCorrea.ViewsModels
 
         public ICommand GuardarCambiosCommand { get; }
 
-        private readonly MetroWindow _window;
 
         public EditarInformacionEmpleadoViewModel(Empleado empleado, MetroWindow window)
         {
-            _contexto = new ContextoSMMS();
+            _empleado = empleado;
             _window = window;
+            _empleado = empleado;
+            Debug.WriteLine($"Ventana actual referenciada: {_window.GetType().Name}");
+            _contexto = new ContextoSMMS();
             Empleado = empleado;
 
             GuardarCambiosCommand = new RelayCommand(SalvarCambios);
             InicializarAsync();
         }
 
-        private void SalvarCambios(object obj)
+        public bool ValidarRut(string rut)
+        {
+            // Elimina puntos y guiones del RUT
+            rut = rut.Replace(".", "").Replace("-", "").ToUpper();
+
+            // Verifica si el RUT está vacío
+            if (string.IsNullOrEmpty(rut))
+            {
+                return false;
+            }
+
+            // Separa el número del dígito verificador
+            string rutNumeros = rut.Length > 1 ? rut.Substring(0, rut.Length - 1) : "";
+            char dv = rut.Length > 1 ? rut[rut.Length - 1] : '0';
+
+            // Verifica si el dígito verificador es válido
+            if (!char.IsDigit(dv) && dv != 'K')
+            {
+                return false;
+            }
+
+            // Calcula el dígito verificador esperado
+            int suma = 0;
+            int factor = 2;
+
+            for (int i = rutNumeros.Length - 1; i >= 0; i--)
+            {
+                suma += (rutNumeros[i] - '0') * factor;
+                factor = factor == 7 ? 2 : factor + 1;
+            }
+
+            int dvEsperado = 11 - (suma % 11);
+            char dvEsperadoChar = dvEsperado == 10 ? 'K' : (dvEsperado == 11 ? '0' : (char)(dvEsperado + '0'));
+
+            // Compara el dígito verificador calculado con el dígito verificador ingresado
+            return dv == dvEsperadoChar;
+        }
+        private async Task SalvarCambios()
         {
             try
             {
-                // Verificar que el empleado no sea nulo antes de intentar actualizar
-                if (Empleado == null)
-                {
-                    MessageBox.Show("El empleado a guardar no puede ser nulo.", "Error de Operación", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return; // Salir del método si el empleado es nulo
-                }
-                MessageBox.Show($"La fecha de nacimiento del empleado es: {Empleado.FechaNacimientoEmpleado}", "Información del Empleado", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Capturar la fecha de nacimiento desde el DatePicker
-                var nuevaFechaNacimiento = FechaNacimientoNueva;
+                var contexto = new ContextoSMMS();
+                contexto.Empleados.Update(_empleado);
+                await contexto.SaveChangesAsync();
 
-                // Verifica si nuevaFechaNacimiento tiene un valor
-                if (nuevaFechaNacimiento.HasValue)
-                {
-                    // Muestra la fecha que se está guardando
-                    MessageBox.Show($"La nueva fecha de nacimiento es: {nuevaFechaNacimiento.Value.ToString("d")}", "Fecha de Nacimiento", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("¡Cambios guardados exitosamente!");
 
-                    // Asignar la nueva fecha de nacimiento al empleado
-                    Empleado.FechaNacimientoEmpleado = DateOnly.FromDateTime(nuevaFechaNacimiento.Value);
-                }
-                else
-                {
-                    // Si no hay valor, puedes mostrar un mensaje o simplemente no hacer nada
-                    MessageBox.Show("No se ha seleccionado una nueva fecha de nacimiento.", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-
-                var nuevaFechaContratacion = FechaContratacionNueva;
-                // Verifica si nuevaFechaNacimiento tiene un valor
-                if (nuevaFechaContratacion.HasValue)
-                {
-                    // Muestra la fecha que se está guardando
-                    MessageBox.Show($"La nueva fecha de contratacion es es: {nuevaFechaContratacion.Value.ToString("d")}", "Fecha de Nacimiento", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    // Asignar la nueva fecha de nacimiento al empleado
-                    Empleado.FechaContratacionEmpleado = DateOnly.FromDateTime(nuevaFechaContratacion.Value);
-                }
-                else
-                {
-                    // Si no hay valor, puedes mostrar un mensaje o simplemente no hacer nada
-                    MessageBox.Show("No se ha seleccionado una nueva fecha de nacimiento.", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-
-                // Guardar cambios en la base de datos
-                _contexto.Empleados.Update(Empleado);
-                _contexto.SaveChanges();
-
-                // Mensaje de éxito (opcional)
-                MessageBox.Show("Cambios guardados exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                // Manejo de excepciones de concurrencia
-                MessageBox.Show("Error de concurrencia: " + ex.Message, "Error de Concurrencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            catch (DbUpdateException ex)
-            {
-                // Manejo de excepciones al intentar guardar los cambios
-                MessageBox.Show("Error al actualizar la base de datos: " + ex.Message, "Error de Actualización", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (InvalidOperationException ex)
-            {
-                // Manejo de errores de operación inválida
-                MessageBox.Show("Error de operación: " + ex.Message, "Error de Operación", MessageBoxButton.OK, MessageBoxImage.Error);
+                // Cerrar la ventana y regresar a Trabajadores
+                Application.Current.Windows.OfType<EditarInformacionEmpleado>().FirstOrDefault()?.Close();
             }
             catch (Exception ex)
             {
-                // Manejo de cualquier otra excepción no controlada
-                MessageBox.Show("Se produjo un error inesperado: " + ex.Message, "Error Inesperado", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error al guardar: {ex.Message}");
             }
         }
 
+        private async void SalvarCambios(object obj)
+        {
+            try
+            {
+                Debug.WriteLine($"Referenciando ventana: {_window.GetType().Name}");
+
+                // Validar que el empleado no sea nulo
+                if (_empleado == null)
+                {
+                    await _window.ShowMessageAsync("Error", "El empleado a guardar no puede ser nulo.");
+                    return;
+                }
+
+                // Validar el formato del RUT
+                if (!ValidarRut(_empleado.RutEmpleado))
+                {
+                    await _window.ShowMessageAsync("Advertencia", "El formato del RUT no es válido.");
+                    return;
+                }
+
+                // Asignar la fecha de nacimiento si se seleccionó
+                if (FechaNacimientoNueva.HasValue)
+                {
+                    _empleado.FechaNacimientoEmpleado = DateOnly.FromDateTime(FechaNacimientoNueva.Value);
+                }
+                else
+                {
+                }
+
+                // Asignar la fecha de contratación si se seleccionó
+                if (FechaContratacionNueva.HasValue)
+                {
+                    _empleado.FechaContratacionEmpleado = DateOnly.FromDateTime(FechaContratacionNueva.Value);
+                }
+                else
+                {
+                }
+
+                // Guardar cambios en la base de datos
+                var contexto = new ContextoSMMS();
+                contexto.Empleados.Update(_empleado);
+                await contexto.SaveChangesAsync();
+
+                await _window.ShowMessageAsync("Éxito", "Cambios guardados exitosamente.");
+                var ventanaTrabajadores = new Trabajadores();
+                ventanaTrabajadores.Show();
+                // Cerrar la ventana actual y regresar a la lista principal de empleados
+                _window.Close();
+
+
+                Debug.WriteLine($"Cambios guardados para el empleado {_empleado.NombreEmpleado}");
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Debug.WriteLine($"Error en base de datos: {dbEx.Message}");
+                await _window.ShowMessageAsync("Error en Base de Datos", $"No se pudo guardar: {dbEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error inesperado al salvar empleado: {ex.Message}");
+                await _window.ShowMessageAsync("Error", $"Error inesperado: {ex.Message}");
+            }
+        }
 
         private async void InicializarAsync()
         {

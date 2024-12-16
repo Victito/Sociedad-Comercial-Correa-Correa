@@ -587,6 +587,9 @@ private string ObtenerApiKey(int idEmpresa)
                                 producto.Total
                             );
                         }
+                        // Calcular el total de todos los productos y actualizar el TextBlock
+                        decimal totalGeneral = viewModel.Productos.Sum(p => p.Total);
+                        TextBlockTotal.Text = $"Total de Productos: {totalGeneral:C}"; // Formato de moneda
                     }
                     else
                     {
@@ -881,6 +884,20 @@ private string ObtenerApiKey(int idEmpresa)
             CerrarSesion ventanaCerrarSesion = new CerrarSesion();
             ventanaCerrarSesion.ShowDialog();
 
+        }
+
+        private void AdministradorDeTrabajadores_ClickMouse(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica si el clic fue con el botón izquierdo del mouse
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                // Crear y mostrar la ventana de RegistroFacturas
+                var Trabajadores = new Trabajadores();
+                Trabajadores.Show();
+
+                // Cierra la ventana de MainMenu
+                this.Close();
+            }
         }
 
 

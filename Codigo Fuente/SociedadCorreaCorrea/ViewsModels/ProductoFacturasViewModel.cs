@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Input;
 using System.IO;
 using Microsoft.Win32; // Necesario para SaveFileDialog
+using System.Windows;
 
 namespace SociedadCorreaCorrea.ViewModels
 {
@@ -98,9 +99,14 @@ namespace SociedadCorreaCorrea.ViewModels
             }
         }
 
-        // Método para generar el archivo CSV
         private void GenerarCsv()
         {
+            // Verificar si no hay productos filtrados
+            if (ProductosFiltrados == null || ProductosFiltrados.Count == 0)
+            {
+                return; // Salir del método si no hay información
+            }
+
             // Crear una instancia del cuadro de diálogo de guardar archivo
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv"; // Filtrar solo archivos CSV
@@ -128,12 +134,13 @@ namespace SociedadCorreaCorrea.ViewModels
 
                 // Escribir el contenido en un archivo CSV
                 File.WriteAllText(rutaArchivo, sb.ToString());
-
             }
             else
             {
+                // Aquí podrías manejar el caso cuando el usuario cancela la operación, si lo necesitas.
             }
         }
+
 
         public void FiltrarProductos()
         {
@@ -151,7 +158,7 @@ namespace SociedadCorreaCorrea.ViewModels
         }
 
         // Método para eliminar productos seleccionados
-        public void EliminarProductosSeleccionados(ObservableCollection<Producto> productosSeleccionados, int idFactura)
+        public async Task EliminarProductosSeleccionados(ObservableCollection<Producto> productosSeleccionados, int idFactura)
         {
             if (productosSeleccionados == null || productosSeleccionados.Count == 0)
                 return;
@@ -171,6 +178,9 @@ namespace SociedadCorreaCorrea.ViewModels
 
             // Actualizar la lista de productos en la interfaz
             ActualizarInformacionProductos(idFactura);
+
+            // Mostrar mensaje de éxito usando MessageBox
+            MessageBox.Show("Los productos seleccionados han sido eliminados correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Método para actualizar la factura después de eliminar productos

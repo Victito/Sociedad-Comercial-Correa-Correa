@@ -11,6 +11,12 @@ namespace prueba.Vista
     /// </summary>
     public partial class LoginVista : MetroWindow
     {
+        private DateTime lastClickTime = DateTime.MinValue;
+        private readonly TimeSpan cooldownTime = TimeSpan.FromSeconds(3); // Enfriamiento de 3 segundos
+
+        private DateTime lastKeyPressTime = DateTime.MinValue;
+
+
         #region Constructor
 
         /// <summary>
@@ -20,6 +26,59 @@ namespace prueba.Vista
         {
             InitializeComponent();
             DataContext = new LoginVistaViewModel(this); // Pasar la instancia de la ventana al ViewModel
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si se presiona la tecla Enter
+            if (e.Key == Key.Enter)
+            {
+                // Verificar si el tiempo de enfriamiento ha pasado
+                if (DateTime.Now - lastKeyPressTime >= cooldownTime)
+                {
+                    // Acceder al comando asociado al botón
+                    var command = btnIngresar.Command;
+                    if (command != null && command.CanExecute(null))
+                    {
+                        // Ejecutar el comando
+                        command.Execute(null);
+
+                        // Actualizar el tiempo de la última tecla presionada
+                        lastKeyPressTime = DateTime.Now;
+                    }
+                }
+                else
+                {
+                }
+            }
+        }
+
+        // Evento de clic del botón
+        private void btnIngresar_Click(object sender, RoutedEventArgs e)
+        {
+            // Verificar si el tiempo de enfriamiento ha pasado
+            if (DateTime.Now - lastClickTime >= cooldownTime)
+            {
+
+                // Deshabilitar temporalmente el botón
+                btnIngresar.IsEnabled = false;
+
+                // Actualizar el tiempo de la última acción
+                lastClickTime = DateTime.Now;
+
+                // Volver a habilitar el botón después del tiempo de enfriamiento
+                Task.Delay(cooldownTime).ContinueWith(t =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        btnIngresar.IsEnabled = true;
+                    });
+                });
+            }
+            else
+            {
+                MessageBox.Show("Por favor, espera antes de intentar nuevamente.");
+            }
         }
 
         #endregion

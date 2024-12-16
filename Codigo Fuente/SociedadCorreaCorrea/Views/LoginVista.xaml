@@ -7,7 +7,6 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
          xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-
         Title="LoginVista" 
         Height="550" 
         Width="800"
@@ -17,7 +16,10 @@
         ShowTitleBar="False"
         ShowCloseButton="False"
         Background="Transparent"
-        GlowBrush="{DynamicResource AccentColorBrush}">
+        GlowBrush="{DynamicResource AccentColorBrush}" 
+        KeyDown="Window_KeyDown"
+        AllowsTransparency="True"
+        BorderBrush="Transparent">
 
     <!-- Define estilos personalizados -->
     <mah:MetroWindow.Resources>
@@ -223,7 +225,7 @@
                             Cursor="Hand"
                             Grid.Column="2"
                             Margin="0,50,0,0"
-                            Click="NavigateToFacturasPage"
+                            Click="btnIngresar_Click"
                             Command="{Binding IniciarSesionCommand}">
                         <!-- Definición de estilo del botón -->
                         <Button.Style>

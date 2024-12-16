@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo_socieda_correa_correa.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/credentiales.json")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("webview2loader.dll")]
 

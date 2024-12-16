@@ -47,6 +47,10 @@ namespace SociedadCorreaCorrea.ViewsModels
             }
         }
 
+        private bool _isIniciandoSesion = false;
+        private readonly TimeSpan _debounceTime = TimeSpan.FromSeconds(1);
+        private DateTime _lastClickTime = DateTime.MinValue;
+
         public ICommand IniciarSesionCommand { get; }
 
         public LoginVistaViewModel(MetroWindow window)
@@ -91,22 +95,21 @@ namespace SociedadCorreaCorrea.ViewsModels
                 // Comparar la contraseña encriptada con la almacenada en la base de datos
                 var usuario = context.Usuarios
                     .Where(u => u.NombreUsuario == Nombre
-                                 && u.Clave == hashedPassword
-                                 && u.IdEmpresa == GlobalSettings.IdEmpresa) // Usando la variable global
+                                && u.Clave == hashedPassword
+                                && u.IdEmpresa == GlobalSettings.IdEmpresa)
                     .FirstOrDefault();
 
                 if (usuario != null)
                 {
-                    // Almacena la información en UserSession
                     UserSession.NombreUsuario = usuario.NombreUsuario;
-                    UserSession.Rol = usuario.Rol; // Asegúrate de que 'Rol' es una propiedad de tu modelo de usuario
-                    UserSession.Id = usuario.Id; 
-                    await _window.ShowMessageAsync("Bienvenido", $"¡Bienvenido de nuevo {usuario.NombreUsuario}!");
-                    // Aquí deberías abrir la ventana MenuPrincipal
-                    var menuPrincipal = new MainMenu();
-                     menuPrincipal.Show();
+                    UserSession.Rol = usuario.Rol;
+                    UserSession.Id = usuario.Id;
 
-                    // Cerrar la ventana de inicio de sesión si se desea
+                    await _window.ShowMessageAsync("Bienvenido", $"¡Bienvenido de nuevo {usuario.NombreUsuario}!");
+
+                    var menuPrincipal = new MainMenu();
+                    menuPrincipal.Show();
+
                     Application.Current.MainWindow.Close();
                 }
                 else
